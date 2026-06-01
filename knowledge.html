@@ -53,8 +53,8 @@ nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-botto
 
 /* ARTICLE GRID */
 .kb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.kb-card{background:#f8f7f4;padding:36px 30px;transition:transform .3s;display:flex;flex-direction:column;}
-.kb-card:hover{transform:translateY(-4px);}
+.kb-card{background:#f8f7f4;padding:36px 30px;transition:transform .3s, box-shadow .3s;display:flex;flex-direction:column;cursor:pointer;}
+.kb-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1);}
 .kb-card-img{width:100%;height:180px;object-fit:cover;margin-bottom:0;border-radius:0;}
 .kb-card-img-placeholder{width:100%;height:180px;background:#2A3D2D;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:0;}
 .kb-card-body{padding:28px 0 0;flex:1;display:flex;flex-direction:column;}
@@ -176,7 +176,7 @@ footer{background:#111;padding:72px 48px 36px;}
 
   <div class="kb-grid" id="kbGrid">
 
-    <div class="kb-card" data-cat="budgeting">
+    <div class="kb-card" data-cat="budgeting" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">💰</div>
       <div class="kb-card-body">
         <span class="kb-tag">Budgeting</span>
@@ -184,10 +184,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Every cost category broken down: labor, cabinets, countertops, appliances, plumbing, electrical — with real price ranges from current projects in Santa Rosa, Sonoma Valley, and Napa Valley.</p>
         <div class="kb-meta"><span class="kb-readtime">8 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Kitchen</span><span class="kb-topic">Cost Guide</span><span class="kb-topic">2025</span></div>
+        <a href="contact.html" style="display:inline-block;margin-top:16px;font-size:12px;color:#C25B2A;font-weight:600;border-bottom:1px solid rgba(194,91,42,0.3);padding-bottom:1px;">Ask Us About This →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="budgeting">
+    <div class="kb-card" data-cat="budgeting" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">📐</div>
       <div class="kb-card-body">
         <span class="kb-tag">Budgeting</span>
@@ -195,10 +196,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">What $300–$550/sq ft actually gets you in Sonoma Valley, Napa, and San Francisco. Covers single-story additions, second stories, ADUs, and garage conversions with real cost breakdowns.</p>
         <div class="kb-meta"><span class="kb-readtime">6 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Additions</span><span class="kb-topic">Cost Per Sq Ft</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="budgeting">
+    <div class="kb-card" data-cat="budgeting" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">📊</div>
       <div class="kb-card-body">
         <span class="kb-tag">Budgeting</span>
@@ -206,10 +208,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">The 3-phase budgeting method used by experienced homeowners: anchor costs, contingency planning, and the priority matrix for separating must-haves from nice-to-haves before you break ground.</p>
         <div class="kb-meta"><span class="kb-readtime">5 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Budgeting</span><span class="kb-topic">Planning</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="hiring">
+    <div class="kb-card" data-cat="hiring" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">⚠️</div>
       <div class="kb-card-body">
         <span class="kb-tag">Hiring</span>
@@ -217,10 +220,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">How to spot unlicensed contractors, deceptive bids, and contract language that puts you at serious risk. A checklist every homeowner in Sonoma Valley, Napa, and San Francisco should read first.</p>
         <div class="kb-meta"><span class="kb-readtime">7 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Hiring</span><span class="kb-topic">CSLB</span><span class="kb-topic">Contracts</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="hiring">
+    <div class="kb-card" data-cat="hiring" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🤝</div>
       <div class="kb-card-body">
         <span class="kb-tag">Hiring</span>
@@ -228,10 +232,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">The exact questions that separate professional contractors from risky ones — covering licensing, insurance, subcontractors, payment schedules, and change order policies specific to California law.</p>
         <div class="kb-meta"><span class="kb-readtime">5 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Hiring</span><span class="kb-topic">Interview Guide</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="hiring">
+    <div class="kb-card" data-cat="hiring" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">📄</div>
       <div class="kb-card-body">
         <span class="kb-tag">Hiring</span>
@@ -239,10 +244,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Why the lowest bid is almost never the best bid — and how to do a true line-by-line comparison that exposes hidden gaps, missing scope, and change-order traps before you sign anything.</p>
         <div class="kb-meta"><span class="kb-readtime">6 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Bids</span><span class="kb-topic">Contracts</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="permits">
+    <div class="kb-card" data-cat="permits" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🏛️</div>
       <div class="kb-card-body">
         <span class="kb-tag">Permits &amp; Legal</span>
@@ -250,10 +256,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">A plain-English guide to what requires a permit in Santa Rosa, Sonoma Valley, and surrounding areas — how to file, typical timelines, and the real consequences of unpermitted work at resale.</p>
         <div class="kb-meta"><span class="kb-readtime">9 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Permits</span><span class="kb-topic">Sonoma County</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="permits">
+    <div class="kb-card" data-cat="permits" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">⚖️</div>
       <div class="kb-card-body">
         <span class="kb-tag">Permits &amp; Legal</span>
@@ -261,10 +268,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Building in Napa County, Calistoga, or St. Helena involves specific agricultural zoning rules, watershed protections, and historic district requirements. Here's what you need to know before you start.</p>
         <div class="kb-meta"><span class="kb-readtime">7 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Napa Valley</span><span class="kb-topic">Calistoga</span><span class="kb-topic">Permits</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="permits">
+    <div class="kb-card" data-cat="permits" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🔍</div>
       <div class="kb-card-body">
         <span class="kb-tag">Permits &amp; Legal</span>
@@ -272,10 +280,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Class A, B, and C licenses — what the difference is, how to verify at CSLB.ca.gov, and what happens if you hire an unlicensed contractor on a job over $500 in California.</p>
         <div class="kb-meta"><span class="kb-readtime">4 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">CSLB</span><span class="kb-topic">Licensing</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="adu">
+    <div class="kb-card" data-cat="adu" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🏡</div>
       <div class="kb-card-body">
         <span class="kb-tag">ADUs</span>
@@ -283,10 +292,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">California has streamlined ADU permits significantly. This covers local rules for Sonoma Valley, Napa Valley, Santa Rosa, and Calistoga — setbacks, utility hookups, costs, and timeline from permit to move-in.</p>
         <div class="kb-meta"><span class="kb-readtime">10 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">ADU</span><span class="kb-topic">Permits</span><span class="kb-topic">Sonoma &amp; Napa</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="adu">
+    <div class="kb-card" data-cat="adu" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🔑</div>
       <div class="kb-card-body">
         <span class="kb-tag">ADUs</span>
@@ -294,10 +304,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Converting an existing garage to a legal living unit is often the most cost-effective ADU path in Sonoma Valley and Napa. This guide covers structural requirements, insulation, utility upgrades, and realistic costs.</p>
         <div class="kb-meta"><span class="kb-readtime">6 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Garage Conversion</span><span class="kb-topic">ADU</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="pools">
+    <div class="kb-card" data-cat="pools" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🏊</div>
       <div class="kb-card-body">
         <span class="kb-tag">Pools</span>
@@ -305,10 +316,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">An unbiased comparison of all three pool types — upfront cost, long-term maintenance, durability, and which makes the most sense for Sonoma Valley and Napa Valley's climate, water quality, and soil conditions.</p>
         <div class="kb-meta"><span class="kb-readtime">8 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Pools</span><span class="kb-topic">Fiberglass</span><span class="kb-topic">Gunite</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="pools">
+    <div class="kb-card" data-cat="pools" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">📋</div>
       <div class="kb-card-body">
         <span class="kb-tag">Pools</span>
@@ -316,10 +328,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Pool permits in California require building, electrical, and sometimes planning review. This guide walks through the full permit stack, typical timelines in Santa Rosa and Napa, and what to expect during inspections.</p>
         <div class="kb-meta"><span class="kb-readtime">5 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Pool Permits</span><span class="kb-topic">Sonoma &amp; Napa</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="planning">
+    <div class="kb-card" data-cat="planning" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🗺️</div>
       <div class="kb-card-body">
         <span class="kb-tag">Planning</span>
@@ -327,10 +340,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">A step-by-step planning guide for homeowners in Sonoma Valley, Napa Valley, Santa Rosa, and San Francisco considering a room addition, garage, or second story — from defining goals to breaking ground.</p>
         <div class="kb-meta"><span class="kb-readtime">7 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Additions</span><span class="kb-topic">Planning</span><span class="kb-topic">Timeline</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="planning">
+    <div class="kb-card" data-cat="planning" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">🏠</div>
       <div class="kb-card-body">
         <span class="kb-tag">Planning</span>
@@ -338,10 +352,11 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">Dust, noise, strangers in your kitchen — living through a remodel is manageable with the right preparation. Tips on setting boundaries, planning temporary kitchens, and staying sane through construction.</p>
         <div class="kb-meta"><span class="kb-readtime">6 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Living In</span><span class="kb-topic">Remodel Tips</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
-    <div class="kb-card" data-cat="planning">
+    <div class="kb-card" data-cat="planning" onclick="window.location=\'contact.html\'" role="button" tabindex="0">
       <div class="kb-card-img-placeholder">✅</div>
       <div class="kb-card-body">
         <span class="kb-tag">Planning</span>
@@ -349,10 +364,12 @@ footer{background:#111;padding:72px 48px 36px;}
         <p class="kb-excerpt">The final inspection is the last step before getting your certificate of occupancy. Here's what inspectors look for in Sonoma and Napa Counties, what fails, and how to make sure your contractor is ready.</p>
         <div class="kb-meta"><span class="kb-readtime">5 min read</span></div>
         <div class="kb-topics"><span class="kb-topic">Inspections</span><span class="kb-topic">Final Walkthrough</span></div>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:12px;color:#C25B2A;font-weight:600;letter-spacing:0.3px;border-bottom:1px solid rgba(194,91,42,0.25);padding-bottom:2px;width:fit-content;">Get Expert Advice →</a>
       </div>
     </div>
 
   </div>
+
 </section>
 
 <!-- SERVICE AREAS -->

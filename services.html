@@ -2,350 +2,230 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Howard Construction Inc. services: home remodels, additions, pools, decks, ADUs, and garages in Santa Rosa and Sonoma County CA. CA Licensed general contractor.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Howard Construction Inc. services: home remodels, additions, pools, decks, ADUs, and garages in Santa Rosa and Sonoma County CA.">
 <title>Services | Howard Construction Inc. | Santa Rosa CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===================================================
-   HOWARD CONSTRUCTION INC. — SHARED DESIGN SYSTEM
-   =================================================== */
-
-:root {
-  --cream:      #F5F0E8;
-  --bone:       #EDE8DC;
-  --sand:       #D4C9B0;
-  --warm-gray:  #8C8070;
-  --charcoal:   #2C2825;
-  --ink:        #1A1714;
-  --rust:       #B5471B;
-  --rust-dark:  #8C3514;
-  --rust-light: #D4633A;
-  --gold:       #C9A84C;
-  --gold-light: #E8C96E;
-  --white:      #FDFCF9;
-  --text-body:  #3D3730;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', sans-serif;
-  --font-mono:    'DM Mono', monospace;
-  --max-w:   1280px;
-  --nav-h:   80px;
-  --radius:  2px;
-  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
-  --transition: 0.3s var(--ease);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--cream); color: var(--text-body); line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; }
-
-/* ── UTILITIES ── */
-.container  { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
-.section-pad { padding: 110px 0; }
-.bg-cream   { background: var(--cream); }
-.bg-bone    { background: var(--bone); }
-.bg-white   { background: var(--white); }
-.bg-dark    { background: var(--charcoal); }
-.bg-ink     { background: var(--ink); }
-
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--rust);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--rust); flex-shrink: 0; }
-.label.gold { color: var(--gold); }
-.label.gold::before { background: var(--gold); }
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 700;
-  color: var(--charcoal);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-}
-.section-title.light { color: var(--bone); }
-.section-sub {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  color: var(--warm-gray);
-  line-height: 1.8;
-  font-weight: 300;
-  max-width: 580px;
-}
-
-/* ── BUTTONS ── */
-.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; border-radius: var(--radius); transition: all var(--transition); cursor: pointer; border: none; }
-.btn-primary { background: var(--rust); color: var(--white); padding: 15px 30px; box-shadow: 0 4px 24px rgba(181,71,27,0.3); }
-.btn-primary:hover { background: var(--rust-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(181,71,27,0.4); }
-.btn-outline { background: transparent; color: var(--white); padding: 14px 28px; border: 1.5px solid rgba(255,255,255,0.4); }
-.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-.btn-ghost { background: transparent; color: var(--charcoal); padding: 0; border-bottom: 1px solid var(--sand); border-radius: 0; }
-.btn-ghost:hover { color: var(--rust); border-color: var(--rust); }
-.btn-white { background: var(--white); color: var(--rust); padding: 16px 34px; }
-.btn-white:hover { background: var(--bone); transform: translateY(-2px); }
-.btn svg { flex-shrink: 0; }
-
-/* ── NAVIGATION ── */
-.navbar {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--nav-h); z-index: 1000;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212,201,176,0.3);
-  transition: var(--transition);
-}
-.navbar.scrolled { background: rgba(255,255,255,1.0); box-shadow: 0 4px 40px rgba(44,40,37,0.1); }
-.nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo img { height: 54px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
-.nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--charcoal); text-decoration: none; letter-spacing: 0.02em; position: relative; transition: color var(--transition); }
-.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--rust); transform: scaleX(0); transform-origin: right; transition: transform var(--transition); }
-.nav-links a:hover, .nav-links a.active { color: var(--rust); }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
-.nav-cta { background: var(--rust) !important; color: var(--white) !important; padding: 11px 24px; border-radius: var(--radius); transition: background var(--transition) !important; }
-.nav-cta:hover { background: var(--rust-dark) !important; }
-.nav-cta::after { display: none !important; }
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
-.nav-burger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: var(--transition); }
-
-/* ── MOBILE MENU ── */
-.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--cream); border-top: 1px solid var(--sand); padding: 28px 40px 36px; z-index: 999; box-shadow: 0 24px 48px rgba(44,40,37,0.18); flex-direction: column; gap: 0; }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--charcoal); text-decoration: none; border-bottom: 1px solid var(--bone); transition: color var(--transition); }
-.mobile-menu a:hover { color: var(--rust); }
-.mobile-menu .btn-primary { margin-top: 20px; justify-content: center; border: none; }
-
-/* ── PAGE HERO ── */
-.page-hero { padding: calc(var(--nav-h) + 72px) 0 72px; background: var(--charcoal); position: relative; overflow: hidden; }
-.page-hero-bg { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 0L0 40 40 80 80 40z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
-.page-hero-glow { position: absolute; top: -100px; right: -200px; width: 700px; height: 700px; background: radial-gradient(ellipse, rgba(181,71,27,0.12) 0%, transparent 70%); pointer-events: none; }
-.page-hero-content { position: relative; z-index: 1; max-width: 720px; }
-.breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-.breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color var(--transition); }
-.breadcrumb a:hover { color: var(--gold); }
-.breadcrumb .sep { opacity: 0.4; }
-.breadcrumb .cur { color: var(--gold-light); }
-.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; color: var(--white); line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 22px; }
-.page-hero h1 em { font-style: italic; color: var(--rust-light); }
-.page-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; max-width: 560px; }
-
-/* ── TRUST BAR ── */
-.trust-bar { background: var(--ink); padding: 22px 0; border-top: 1px solid rgba(255,255,255,0.04); }
-.trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 0.04em; }
-.trust-item svg { color: var(--gold); flex-shrink: 0; }
-.trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.1); }
-
-/* ── CTA BANNER ── */
-.cta-banner { background: var(--rust); padding: 96px 0; position: relative; overflow: hidden; }
-.cta-banner::after { content: 'BUILD'; position: absolute; right: -20px; top: -40px; font-family: var(--font-display); font-size: 22rem; font-weight: 900; color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none; user-select: none; }
-.cta-row { display: flex; align-items: center; justify-content: space-between; gap: 60px; position: relative; z-index: 1; }
-.cta-headline { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 900; color: var(--white); line-height: 1.1; }
-.cta-headline em { font-style: italic; opacity: 0.7; }
-.cta-actions { display: flex; flex-direction: column; gap: 14px; align-items: center; flex-shrink: 0; }
-.cta-tel { font-family: var(--font-mono); font-size: 0.82rem; color: rgba(255,255,255,0.65); letter-spacing: 0.05em; }
-.cta-tel a { color: var(--white); text-decoration: none; font-weight: 600; }
-
-/* ── FOOTER ── */
-.footer { background: var(--ink); padding: 88px 0 44px; }
-.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 40px; }
-.footer-logo img { height: 50px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: 0.7; }
-.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.32); line-height: 1.8; font-weight: 300; margin-bottom: 24px; max-width: 300px; }
-.footer-lic { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
-.footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul a { font-size: 0.875rem; color: rgba(255,255,255,0.42); text-decoration: none; transition: color var(--transition); }
-.footer-col ul a:hover { color: var(--bone); }
-.footer-contact-line { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.875rem; color: rgba(255,255,255,0.42); }
-.footer-contact-line .ico { color: var(--rust); flex-shrink: 0; margin-top: 2px; }
-.footer-contact-line a { color: rgba(255,255,255,0.42); text-decoration: none; transition: color var(--transition); }
-.footer-contact-line a:hover { color: var(--bone); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.22); }
-.footer-legal { display: flex; gap: 24px; }
-.footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color var(--transition); }
-.footer-legal a:hover { color: rgba(255,255,255,0.5); }
-
-/* ── REVEAL ANIMATIONS ── */
-@keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
-.reveal.visible { opacity: 1; transform: none; }
-.reveal-d1 { transition-delay: 0.1s; }
-.reveal-d2 { transition-delay: 0.2s; }
-.reveal-d3 { transition-delay: 0.3s; }
-.reveal-d4 { transition-delay: 0.4s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .container { padding: 0 28px; }
-  .nav-inner { padding: 0 28px; }
-  .section-pad { padding: 80px 0; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .cta-row { flex-direction: column; text-align: center; }
-}
-@media (max-width: 768px) {
-  .container { padding: 0 20px; }
-  .nav-inner { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-burger { display: flex; }
-  .mobile-menu { padding: 24px 20px 32px; }
-  .section-pad { padding: 64px 0; }
-  .trust-bar-inner { gap: 24px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .page-hero { padding: calc(var(--nav-h) + 48px) 0 56px; }
-}
-
-</style>
-<style>
-.svc-hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:64px;}
-.svc-hero-card{background:var(--white);padding:44px 34px;position:relative;overflow:hidden;transition:transform var(--transition);}
-.svc-hero-card::before{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--rust);transition:height 0.45s;}
-.svc-hero-card:hover{transform:translateY(-5px);}
-.svc-hero-card:hover::before{height:100%;}
-.svc-num{font-family:var(--font-mono);font-size:0.6rem;color:var(--sand);letter-spacing:0.18em;margin-bottom:20px;}
-.svc-icon{font-size:2.2rem;margin-bottom:18px;display:block;}
-.svc-title{font-family:var(--font-display);font-size:1.45rem;font-weight:700;color:var(--charcoal);margin-bottom:12px;}
-.svc-desc{font-size:0.875rem;color:var(--warm-gray);line-height:1.78;font-weight:300;}
-.svc-list{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:7px;}
-.svc-list li{font-size:0.8rem;color:var(--text-body);display:flex;align-items:flex-start;gap:8px;}
-.svc-list li::before{content:'→';color:var(--rust);font-size:0.72rem;flex-shrink:0;margin-top:3px;}
-.why-strip{background:var(--charcoal);padding:60px 0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid #e8e2d9;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.logo{display:flex;flex-direction:column;}
+.logo img{height:52px;width:auto;object-fit:contain;}
+.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#1a1a1a;line-height:1.1;}
+.logo-sub{font-size:10px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;}
+.nav-menu{display:flex;align-items:center;gap:32px;}
+.nav-menu a{font-size:13px;font-weight:500;color:#555;transition:color .2s;}
+.nav-menu a:hover,.nav-menu a.active{color:#C25B2A;}
+.nav-cta{background:#C25B2A!important;color:#fff!important;padding:11px 24px;border-radius:4px;font-weight:600!important;}
+.nav-cta:hover{background:#A34820!important;}
+.page-hero{margin-top:72px;background:#1C2B1F;padding:80px 48px;}
+.page-hero-inner{max-width:700px;}
+.breadcrumb{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;}
+.breadcrumb a{color:rgba(255,255,255,0.35);}
+.page-tag{font-size:11px;color:#C9A84C;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.page-tag::before{content:'';display:block;width:28px;height:1px;background:#C9A84C;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-1px;}
+.page-hero h1 em{font-style:italic;color:#E8845A;}
+.page-hero p{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;}
+.section{padding:88px 48px;}
+.section-tag{font-size:11px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.section-tag::before{content:'';display:block;width:28px;height:1px;background:#C25B2A;}
+.section-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#1a1a1a;line-height:1.12;margin-bottom:16px;}
+.section-sub{font-size:15px;color:#777;line-height:1.78;max-width:560px;font-weight:300;}
+.btn-orange{background:#C25B2A;color:#fff;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-orange:hover{background:#A34820;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px;}
+.svc-card{background:#f8f7f4;padding:40px 32px;border-left:3px solid transparent;transition:all .3s;}
+.svc-card:hover{border-left-color:#C25B2A;transform:translateY(-4px);background:#fff;box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+.svc-num{font-size:11px;color:#ccc;letter-spacing:2px;margin-bottom:14px;}
+.svc-icon{font-size:28px;margin-bottom:16px;}
+.svc-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#1a1a1a;margin-bottom:10px;}
+.svc-desc{font-size:13px;color:#777;line-height:1.75;font-weight:300;margin-bottom:16px;}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.svc-list li{font-size:12px;color:#555;display:flex;align-items:flex-start;gap:8px;}
+.svc-list li::before{content:'→';color:#C25B2A;flex-shrink:0;font-size:11px;margin-top:1px;}
+.why-strip{background:#1C2B1F;padding:64px 48px;}
 .why-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
-.wsi{padding:34px 26px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);text-align:center;}
-.wsi-icon{font-size:1.8rem;margin-bottom:12px;display:block;}
-.wsi-title{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--bone);margin-bottom:8px;}
-.wsi-text{font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.65;}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
-.gal-item{overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative;}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
-.gal-item:hover img{transform:scale(1.06);}
-.gal-item::after{content:'';position:absolute;inset:0;background:rgba(44,40,37,0);transition:background var(--transition);}
-.gal-item:hover::after{background:rgba(44,40,37,0.25);}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:32px;}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;}
-.lb-close{position:absolute;top:20px;right:28px;background:none;border:none;color:white;font-size:2.2rem;cursor:pointer;opacity:0.7;line-height:1;}
-.lb-close:hover{opacity:1;}
-.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:1.3rem;transition:background var(--transition);}
-.lb-prev{left:20px;}.lb-next{right:20px;}
-.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.22);}
-@media(max-width:1024px){.svc-hero-grid{grid-template-columns:1fr 1fr;}.why-strip-grid{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:768px){.svc-hero-grid{grid-template-columns:1fr;}.gallery-grid{grid-template-columns:repeat(2,1fr);}.why-strip-grid{grid-template-columns:1fr 1fr;}}
+.wsi{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:30px 24px;text-align:center;}
+.wsi-icon{font-size:28px;margin-bottom:12px;}
+.wsi-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#e8e8e8;margin-bottom:8px;}
+.wsi-text{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.65;}
+.gallery-section{background:#1a1a1a;padding:88px 48px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:48px;}
+.gal-item{overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative;background:#2a2a2a;}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.gal-item:hover img{transform:scale(1.08);}
+.gal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .3s;display:flex;align-items:center;justify-content:center;}
+.gal-item:hover .gal-overlay{background:rgba(194,91,42,0.35);}
+.gal-icon{color:#fff;font-size:28px;opacity:0;transition:opacity .3s;}
+.gal-item:hover .gal-icon{opacity:1;}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:9999;align-items:center;justify-content:center;}
+.lb.open{display:flex;}
+.lb img{max-width:88vw;max-height:86vh;object-fit:contain;}
+.lb-x{position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;opacity:0.7;}
+.lb-x:hover{opacity:1;}
+.lb-p,.lb-n{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:20px;transition:background .2s;}
+.lb-p{left:20px;}.lb-n{right:20px;}
+.lb-p:hover,.lb-n:hover{background:rgba(255,255,255,0.22);}
+.cta{background:#C25B2A;padding:88px 48px;}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;}
+.cta h2{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#fff;line-height:1.1;}
+.cta h2 em{font-style:italic;opacity:0.72;}
+.cta-right{display:flex;flex-direction:column;gap:14px;align-items:center;flex-shrink:0;}
+.btn-white{background:#fff;color:#C25B2A;padding:16px 34px;border-radius:4px;font-size:15px;font-weight:700;transition:background .2s;white-space:nowrap;}
+.btn-white:hover{background:#f5ede7;}
+.cta-phone{font-size:13px;color:rgba(255,255,255,0.65);}
+.cta-phone a{color:#fff;font-weight:600;}
+footer{background:#111;padding:72px 48px 36px;}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:32px;}
+.foot-logo img{height:44px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6;margin-bottom:12px;}
+.foot-logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;}
+.foot-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.foot-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
+.foot-col h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.foot-col ul a{font-size:13px;color:rgba(255,255,255,0.32);transition:color .2s;}
+.foot-col ul a:hover{color:#fff;}
+.fc-line{display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.32);}
+.fc-line a{color:rgba(255,255,255,0.32);transition:color .2s;}
+.fc-line a:hover{color:#fff;}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.18);}
+@media(max-width:1024px){nav{padding:0 24px;}.page-hero{padding:60px 24px;}.section{padding:64px 24px;}.why-strip{padding:48px 24px;}.gallery-section{padding:64px 24px;}.cta{padding:64px 24px;}.cta-inner{flex-direction:column;text-align:center;}footer{padding:56px 24px 32px;}.svc-grid{grid-template-columns:1fr 1fr;}.why-strip-grid{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:repeat(3,1fr);}.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:680px){.page-hero h1{font-size:34px;}.svc-grid{grid-template-columns:1fr;}.gallery-grid{grid-template-columns:repeat(2,1fr);}.why-strip-grid{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;line-height:1;">
-        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:900;color:#1A1714;letter-spacing:-0.01em;display:block;">HOWARD CONSTRUCTION</span>
-        <span style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:#B5471B;margin-top:2px;">Inc. &nbsp;&bull;&nbsp; Santa Rosa, CA &nbsp;&bull;&nbsp; Est. 2000</span>
-      </a>
-    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="about.html">About</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
-    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav>
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+    <img src="logo.png" alt="Howard Construction Inc." style="height:52px;width:auto;display:block;">
+    <div style="display:flex;flex-direction:column;line-height:1.15;">
+      <span style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:900;color:#1a1a1a;letter-spacing:-0.3px;">Howard Construction</span>
+      <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:700;color:#1a1a1a;letter-spacing:-0.2px;">Inc.</span>
+      <span style="font-size:9px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;margin-top:2px;">Santa Rosa CA · Est. 2000</span>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="knowledge.html">Knowledge Base</a>
+    <a href="about.html">About</a>
+    <a href="testimonials.html">Reviews</a>
+    <a href="contact.html" class="nav-cta">Free Estimate</a>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
 
-<main>
 <section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
-  <div class="container">
-    <div class="page-hero-content">
-      <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">Services</span></nav>
-      <div class="label gold">What We Build</div>
-      <h1>Full-Service <em>Construction</em><br>&amp; Remodeling</h1>
-      <p class="page-hero-sub">From a single bathroom to a complete custom build — we manage every detail, permit, and subcontractor so you don't have to. Serving Sonoma County since 2000.</p>
-    </div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
+    <div class="page-tag">What We Build</div>
+    <h1>Full-Service <em>Construction</em><br>&amp; Remodeling</h1>
+    <p>From a single bathroom to a complete custom build — we manage every permit, subcontractor, and detail so you don't have to. Serving Sonoma County since 2000.</p>
   </div>
 </section>
 
-<section class="section-pad bg-cream">
-  <div class="container">
-    <div class="svc-hero-grid">
-      <article class="svc-hero-card reveal" id="remodels"><div class="svc-num">01</div><span class="svc-icon">🏠</span><h2 class="svc-title">Home Remodels</h2><p class="svc-desc">Complete renovations that respect your budget and your daily routine — including when you're living in the space throughout construction.</p><ul class="svc-list"><li>Kitchen renovations — full gut or cosmetic refresh</li><li>Bathroom remodels and master suite upgrades</li><li>Open floor plan conversions and structural work</li><li>Flooring, drywall, finish carpentry, and paint</li><li>Window and door replacements</li><li>Whole-home renovations and upgrades</li></ul></article>
-      <article class="svc-hero-card reveal reveal-d1" id="additions"><div class="svc-num">02</div><span class="svc-icon">🏗️</span><h2 class="svc-title">Home Additions</h2><p class="svc-desc">Seamlessly integrated additions that match your home's existing architecture and significantly increase property value.</p><ul class="svc-list"><li>Single-story and second-story room additions</li><li>ADU construction (detached and attached)</li><li>Master bedroom and bath suite additions</li><li>Garage conversions to living space</li><li>Sunroom and family room additions</li><li>In-law suite and guest house construction</li></ul></article>
-      <article class="svc-hero-card reveal reveal-d2" id="pools"><div class="svc-num">03</div><span class="svc-icon">🏊</span><h2 class="svc-title">Pool &amp; Outdoor Living</h2><p class="svc-desc">Custom pool construction and complete backyard transformations. Authorized Empire Fiberglass Pools dealer for Northern California.</p><ul class="svc-list"><li>Fiberglass pool installation (Empire authorized)</li><li>Gunite and vinyl pool construction</li><li>Pool deck and surrounding hardscape</li><li>Outdoor kitchens and barbecue centers</li><li>Retaining walls and drainage solutions</li><li>Complete backyard renovation</li></ul></article>
-      <article class="svc-hero-card reveal" id="decks"><div class="svc-num">04</div><span class="svc-icon">🪵</span><h2 class="svc-title">Decks &amp; Pergolas</h2><p class="svc-desc">Custom wood, composite, and Trex® deck systems designed for Sonoma County's climate and lifestyle.</p><ul class="svc-list"><li>New deck framing and construction</li><li>Deck replacement and structural repair</li><li>Pergolas, arbors, and shade structures</li><li>Built-in benches, planters, and railings</li><li>Fencing and privacy screens</li><li>Concrete patios and walkways</li></ul></article>
-      <article class="svc-hero-card reveal reveal-d1" id="garage"><div class="svc-num">05</div><span class="svc-icon">🔧</span><h2 class="svc-title">Garages &amp; Utility</h2><p class="svc-desc">Detached garages, utility rooms, and outbuildings built to California code with the same quality as our primary residential work.</p><ul class="svc-list"><li>Detached and attached garage construction</li><li>Garage rebuilds after damage or demolition</li><li>Utility room and laundry room builds</li><li>Workshop and storage structure construction</li><li>Garage door replacement and framing</li><li>Electrical and plumbing rough-in</li></ul></article>
-      <article class="svc-hero-card reveal reveal-d2" id="adu"><div class="svc-num">06</div><span class="svc-icon">🏡</span><h2 class="svc-title">ADU Construction</h2><p class="svc-desc">California has streamlined ADU permits significantly. We guide you from site assessment through design, permits, construction, and final sign-off.</p><ul class="svc-list"><li>Detached ADU new construction</li><li>Attached ADU additions</li><li>Garage conversion to ADU</li><li>Junior ADU (JADU) within existing home</li><li>Full permit management with Sonoma County</li><li>Utility hookups and separate metering</li></ul></article>
+<section class="section" style="background:#f8f7f4;">
+  <div class="svc-grid">
+    <div class="svc-card" id="remodels"><div class="svc-num">01</div><div class="svc-icon">🏠</div><div class="svc-title">Home Remodels</div><p class="svc-desc">Complete kitchen, bathroom, and whole-home renovations that respect your budget and your daily routine — including when you live in the space during construction.</p><ul class="svc-list"><li>Kitchen renovations — full gut or cosmetic refresh</li><li>Bathroom remodels and master suite upgrades</li><li>Open floor plan conversions and structural work</li><li>Flooring, drywall, finish carpentry, and paint</li><li>Window and door replacements</li><li>Whole-home renovations and upgrades</li></ul></div>
+    <div class="svc-card" id="additions"><div class="svc-num">02</div><div class="svc-icon">🏗️</div><div class="svc-title">Home Additions</div><p class="svc-desc">Seamlessly integrated additions that match your home's existing architecture and significantly increase property value.</p><ul class="svc-list"><li>Single-story and second-story room additions</li><li>ADU construction (detached and attached)</li><li>Master bedroom and bath suite additions</li><li>Garage conversions to living space</li><li>Sunroom and family room additions</li><li>In-law suite and guest house construction</li></ul></div>
+    <div class="svc-card" id="pools"><div class="svc-num">03</div><div class="svc-icon">🏊</div><div class="svc-title">Pool &amp; Outdoor Living</div><p class="svc-desc">Custom pool construction and complete backyard transformations. Authorized Empire Fiberglass Pools dealer for Northern California.</p><ul class="svc-list"><li>Fiberglass pool installation (Empire authorized)</li><li>Gunite and vinyl pool construction</li><li>Pool deck and surrounding hardscape</li><li>Outdoor kitchens and barbecue centers</li><li>Retaining walls and drainage solutions</li><li>Complete backyard renovation</li></ul></div>
+    <div class="svc-card" id="decks"><div class="svc-num">04</div><div class="svc-icon">🪵</div><div class="svc-title">Decks &amp; Pergolas</div><p class="svc-desc">Custom wood, composite, and Trex® deck systems with pergolas and built-in seating designed for Sonoma County's climate.</p><ul class="svc-list"><li>New deck framing and construction</li><li>Deck replacement and structural repair</li><li>Pergolas, arbors, and shade structures</li><li>Built-in benches, planters, and railings</li><li>Fencing and privacy screens</li><li>Concrete patios and walkways</li></ul></div>
+    <div class="svc-card" id="garage"><div class="svc-num">05</div><div class="svc-icon">🔧</div><div class="svc-title">Garages &amp; Utility</div><p class="svc-desc">Detached garages, utility rooms, and outbuildings built to California code with the same quality as our primary residential work.</p><ul class="svc-list"><li>Detached and attached garage construction</li><li>Garage rebuilds after damage</li><li>Utility room and laundry room builds</li><li>Workshop and storage structures</li><li>Garage door replacement and framing</li><li>Electrical and plumbing rough-in</li></ul></div>
+    <div class="svc-card" id="adu"><div class="svc-num">06</div><div class="svc-icon">🏡</div><div class="svc-title">ADU Construction</div><p class="svc-desc">We guide you from site assessment through design, permits, construction, and final sign-off for your accessory dwelling unit.</p><ul class="svc-list"><li>Detached ADU new construction</li><li>Attached ADU additions</li><li>Garage conversion to ADU</li><li>Junior ADU within existing home</li><li>Full permit management with Sonoma County</li><li>Utility hookups and separate metering</li></ul></div>
+  </div>
+  <div style="background:#fff;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-top:3px;">
+    <div>
+      <div style="font-size:11px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Also Available</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">Concrete, Windows, Siding &amp; More</div>
+      <p style="font-size:13px;color:#777;max-width:520px;">We also handle concrete flatwork, window and door replacement, exterior painting and siding. Have a project not listed? Ask us — chances are we've done it.</p>
     </div>
-    <div style="background:var(--white);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-top:3px;">
-      <div><div class="label" style="margin-bottom:10px;">Also Available</div><h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--charcoal);margin-bottom:8px;">Concrete, Windows, Siding &amp; More</h3><p style="color:var(--warm-gray);font-size:0.875rem;max-width:560px;">We also handle concrete flatwork, window and door replacement, exterior painting and siding. Have a project not listed? Ask us — chances are we've done it before.</p></div>
-      <a href="contact.html" class="btn btn-primary" style="flex-shrink:0;">Ask About Your Project →</a>
-    </div>
+    <a href="contact.html" class="btn-orange">Ask About Your Project →</a>
   </div>
 </section>
 
 <div class="why-strip">
-  <div class="container">
-    <div class="why-strip-grid">
-      <div class="wsi reveal"><span class="wsi-icon">🛡️</span><div class="wsi-title">Licensed &amp; Insured</div><p class="wsi-text">CA Class B license. Full liability and workers' comp on every project, every time.</p></div>
-      <div class="wsi reveal reveal-d1"><span class="wsi-icon">📋</span><div class="wsi-title">Permits Handled</div><p class="wsi-text">We file and manage all permits with Sonoma County and the City of Santa Rosa.</p></div>
-      <div class="wsi reveal reveal-d2"><span class="wsi-icon">⏱️</span><div class="wsi-title">On-Time Delivery</div><p class="wsi-text">Realistic timelines. Nightly cleanup. Professional crews. We finish what we start.</p></div>
-      <div class="wsi reveal reveal-d3"><span class="wsi-icon">💬</span><div class="wsi-title">Direct Communication</div><p class="wsi-text">Philip Howard personally runs every project. No middlemen. No call centers.</p></div>
-    </div>
+  <div class="why-strip-grid">
+    <div class="wsi"><div class="wsi-icon">🛡️</div><div class="wsi-title">Licensed &amp; Insured</div><p class="wsi-text">CA Class B license. Full liability and workers' comp on every project, every time.</p></div>
+    <div class="wsi"><div class="wsi-icon">📋</div><div class="wsi-title">Permits Handled</div><p class="wsi-text">We file and manage all permits with Sonoma County and the City of Santa Rosa.</p></div>
+    <div class="wsi"><div class="wsi-icon">⏱️</div><div class="wsi-title">On-Time Delivery</div><p class="wsi-text">Realistic timelines. Nightly cleanup. Professional crews. We finish what we start.</p></div>
+    <div class="wsi"><div class="wsi-icon">💬</div><div class="wsi-title">Direct Communication</div><p class="wsi-text">Philip Howard personally runs every project. No middlemen. No call centers.</p></div>
   </div>
 </div>
 
-<section class="section-pad bg-bone">
-  <div class="container">
-    <div class="label">Project Gallery</div>
-    <h2 class="section-title" style="margin-top:4px;">Our Work Speaks for Itself</h2>
-    <p class="section-sub">A selection of completed projects across Sonoma County. Click any photo to view full size.</p>
-    <div class="gallery-grid" style="margin-top:44px;">
-      <div class="gal-item" onclick="openLB(0)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(1)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(2)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(3)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(4)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(5)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(6)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(7)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(8)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(9)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(10)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(11)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(12)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(13)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
-      <div class="gal-item" onclick="openLB(14)"><div style="width:100%;height:100%;min-height:140px;background:linear-gradient(135deg,#3D3528,#2C2825);display:flex;align-items:center;justify-content:center;font-size:2rem;">🔨</div></div>
+<section class="gallery-section">
+  <div class="section-tag" style="color:#C9A84C;">Project Gallery</div>
+  <div class="section-title" style="color:#fff;">Our Work Speaks for Itself</div>
+  <p class="section-sub" style="color:rgba(255,255,255,0.45);">Completed projects across Sonoma County. Click any photo to view full size.</p>
+  <div class="gallery-grid">
+    <div class="gal-item" onclick="openLB(0)"><img src="services1.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(1)"><img src="services3.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(2)"><img src="services5.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(3)"><img src="services6.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(4)"><img src="services7.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(5)"><img src="services8.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(6)"><img src="hero1.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+    <div class="gal-item" onclick="openLB(7)"><img src="hero2.jpg" alt="Project" loading="lazy"><div class="gal-overlay"><div class="gal-icon">⊕</div></div></div>
+  </div>
+</section>
+
+<div class="lb" id="lb" onclick="if(event.target===this)closeLB()">
+  <button class="lb-x" onclick="closeLB()">×</button>
+  <button class="lb-p" onclick="shiftLB(-1)">‹</button>
+  <img id="lbImg" src="" alt="Project">
+  <button class="lb-n" onclick="shiftLB(1)">›</button>
+</div>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Have a project in mind?<br><em>Let's talk about it.</em></h2>
+    <div class="cta-right">
+      <a href="contact.html" class="btn-white">Get a Free Estimate →</a>
+      <div class="cta-phone">or call <a href="tel:+17075786565">(707) 578-6565</a></div>
     </div>
   </div>
 </section>
 
-<div class="lightbox" id="lb" onclick="if(event.target===this)closeLB()">
-  <button class="lb-close" onclick="closeLB()">&times;</button>
-  <button class="lb-prev" onclick="shiftLB(-1)">&#8592;</button>
-  <img id="lbImg" src="" alt="Project photo">
-  <button class="lb-next" onclick="shiftLB(1)">&#8594;</button>
-</div>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <img src="logo.png" alt="Howard Construction Inc." style="height:44px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.75;">
+        <div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:900;color:#fff;">Howard Construction Inc.</div>
+          <div style="font-size:9px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Santa Rosa CA · Est. 2000</div>
+        </div>
+      </div>
+      </div>
+      <div class="foot-lic">CA Lic. #B-XXXXXX · BBB Accredited</div>
+      <p class="foot-desc">Sonoma County's trusted general contractor since 2000.</p>
+    </div>
+    <div class="foot-col"><h4>Services</h4><ul><li><a href="#remodels">Home Remodels</a></li><li><a href="#additions">Additions</a></li><li><a href="#pools">Pools</a></li><li><a href="#decks">Decks &amp; Pergolas</a></li><li><a href="#garage">Garages</a></li><li><a href="#adu">ADUs</a></li></ul></div>
+    <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4>
+      <div class="fc-line">📞 <a href="tel:+17075786565">(707) 578-6565</a></div>
+      <div class="fc-line">✉️ <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
+      <div class="fc-line">📍 4012 Cervantes Road, Santa Rosa CA 95403</div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2025 Howard Construction Inc. All rights reserved. CA Lic. #B-XXXXXX.</div>
+  </div>
+</footer>
 
-<section class="cta-banner"><div class="container"><div class="cta-row"><h2 class="cta-headline">Have a project in mind?<br><em>Let's talk about it.</em></h2><div class="cta-actions"><a href="contact.html" class="btn btn-white">Get a Free Estimate →</a><div class="cta-tel">or call <a href="tel:+17075786565">(707) 578-6565</a></div></div></div></div></section>
-</main>
-
-<footer class="footer"><div class="container"><div class="footer-grid"><div><div style="margin-bottom:16px;">
-          <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:900;color:#EDE8DC;line-height:1.1;">HOWARD<br>CONSTRUCTION</div>
-          <div style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#B5471B;margin-top:4px;">INC. · EST. 2000 · SANTA ROSA CA</div>
-        </div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="#remodels">Home Remodels</a></li><li><a href="#additions">Additions</a></li><li><a href="#pools">Pools &amp; Outdoor</a></li><li><a href="#decks">Decks &amp; Pergolas</a></li><li><a href="#garage">Garages</a></li><li><a href="#adu">ADUs</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
-
-<script src="js/main.js"></script>
 <script>
-var full=[];
+var imgs=['services1.jpg','services3.jpg','services5.jpg','services6.jpg','services7.jpg','services8.jpg','hero1.jpg','hero2.jpg'];
 var cur=0;
-function openLB(i){cur=i;document.getElementById('lbImg').src=full[i];document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function openLB(i){cur=i;document.getElementById('lbImg').src=imgs[i];document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
 function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
-function shiftLB(d){cur=(cur+d+full.length)%full.length;document.getElementById('lbImg').src=full[cur];}
+function shiftLB(d){cur=(cur+d+imgs.length)%imgs.length;document.getElementById('lbImg').src=imgs[cur];}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')shiftLB(-1);if(e.key==='ArrowRight')shiftLB(1);});
+window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>20?'0 2px 24px rgba(0,0,0,0.1)':'none';},{passive:true});
 </script>
-</body></html>
+</body>
+</html>

@@ -2,384 +2,308 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contact Howard Construction Inc. for a free estimate. Call (707) 578-6565 or fill out our project inquiry form. Serving Santa Rosa and Sonoma County, CA.">
-<title>Contact &amp; Free Estimate | Howard Construction Inc. | Santa Rosa CA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Howard Construction Inc. for a free estimate. Serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga. Call (707) 578-6565.">
+<title>Free Estimate | Howard Construction Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===================================================
-   HOWARD CONSTRUCTION INC. — SHARED DESIGN SYSTEM
-   =================================================== */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid #e8e2d9;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-menu{display:flex;align-items:center;gap:32px;}
+.nav-menu a{font-size:13px;font-weight:500;color:#555;transition:color .2s;}
+.nav-menu a:hover,.nav-menu a.active{color:#C25B2A;}
+.nav-cta{background:#C25B2A!important;color:#fff!important;padding:11px 24px;border-radius:4px;font-weight:600!important;}
+.page-hero{margin-top:72px;background:#1C2B1F;padding:80px 48px;}
+.breadcrumb{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;}
+.breadcrumb a{color:rgba(255,255,255,0.35);}
+.page-tag{font-size:11px;color:#C9A84C;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.page-tag::before{content:'';display:block;width:28px;height:1px;background:#C9A84C;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-1px;}
+.page-hero h1 em{font-style:italic;color:#E8845A;}
+.page-hero p{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;max-width:600px;}
 
-:root {
-  --cream:      #F5F0E8;
-  --bone:       #EDE8DC;
-  --sand:       #D4C9B0;
-  --warm-gray:  #8C8070;
-  --charcoal:   #2C2825;
-  --ink:        #1A1714;
-  --rust:       #B5471B;
-  --rust-dark:  #8C3514;
-  --rust-light: #D4633A;
-  --gold:       #C9A84C;
-  --gold-light: #E8C96E;
-  --white:      #FDFCF9;
-  --text-body:  #3D3730;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', sans-serif;
-  --font-mono:    'DM Mono', monospace;
-  --max-w:   1280px;
-  --nav-h:   80px;
-  --radius:  2px;
-  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
-  --transition: 0.3s var(--ease);
-}
+/* CONTACT LAYOUT */
+.contact-section{padding:88px 48px;background:#f8f7f4;}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.form-panel{background:#fff;padding:56px 48px;}
+.info-panel{background:#1C2B1F;padding:56px 44px;display:flex;flex-direction:column;gap:40px;}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--cream); color: var(--text-body); line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; }
-
-/* ── UTILITIES ── */
-.container  { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
-.section-pad { padding: 110px 0; }
-.bg-cream   { background: var(--cream); }
-.bg-bone    { background: var(--bone); }
-.bg-white   { background: var(--white); }
-.bg-dark    { background: var(--charcoal); }
-.bg-ink     { background: var(--ink); }
-
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--rust);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--rust); flex-shrink: 0; }
-.label.gold { color: var(--gold); }
-.label.gold::before { background: var(--gold); }
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 700;
-  color: var(--charcoal);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-}
-.section-title.light { color: var(--bone); }
-.section-sub {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  color: var(--warm-gray);
-  line-height: 1.8;
-  font-weight: 300;
-  max-width: 580px;
-}
-
-/* ── BUTTONS ── */
-.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; border-radius: var(--radius); transition: all var(--transition); cursor: pointer; border: none; }
-.btn-primary { background: var(--rust); color: var(--white); padding: 15px 30px; box-shadow: 0 4px 24px rgba(181,71,27,0.3); }
-.btn-primary:hover { background: var(--rust-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(181,71,27,0.4); }
-.btn-outline { background: transparent; color: var(--white); padding: 14px 28px; border: 1.5px solid rgba(255,255,255,0.4); }
-.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-.btn-ghost { background: transparent; color: var(--charcoal); padding: 0; border-bottom: 1px solid var(--sand); border-radius: 0; }
-.btn-ghost:hover { color: var(--rust); border-color: var(--rust); }
-.btn-white { background: var(--white); color: var(--rust); padding: 16px 34px; }
-.btn-white:hover { background: var(--bone); transform: translateY(-2px); }
-.btn svg { flex-shrink: 0; }
-
-/* ── NAVIGATION ── */
-.navbar {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--nav-h); z-index: 1000;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212,201,176,0.3);
-  transition: var(--transition);
-}
-.navbar.scrolled { background: rgba(255,255,255,1.0); box-shadow: 0 4px 40px rgba(44,40,37,0.1); }
-.nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo img { height: 54px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
-.nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--charcoal); text-decoration: none; letter-spacing: 0.02em; position: relative; transition: color var(--transition); }
-.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--rust); transform: scaleX(0); transform-origin: right; transition: transform var(--transition); }
-.nav-links a:hover, .nav-links a.active { color: var(--rust); }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
-.nav-cta { background: var(--rust) !important; color: var(--white) !important; padding: 11px 24px; border-radius: var(--radius); transition: background var(--transition) !important; }
-.nav-cta:hover { background: var(--rust-dark) !important; }
-.nav-cta::after { display: none !important; }
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
-.nav-burger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: var(--transition); }
-
-/* ── MOBILE MENU ── */
-.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--cream); border-top: 1px solid var(--sand); padding: 28px 40px 36px; z-index: 999; box-shadow: 0 24px 48px rgba(44,40,37,0.18); flex-direction: column; gap: 0; }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--charcoal); text-decoration: none; border-bottom: 1px solid var(--bone); transition: color var(--transition); }
-.mobile-menu a:hover { color: var(--rust); }
-.mobile-menu .btn-primary { margin-top: 20px; justify-content: center; border: none; }
-
-/* ── PAGE HERO ── */
-.page-hero { padding: calc(var(--nav-h) + 72px) 0 72px; background: var(--charcoal); position: relative; overflow: hidden; }
-.page-hero-bg { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 0L0 40 40 80 80 40z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
-.page-hero-glow { position: absolute; top: -100px; right: -200px; width: 700px; height: 700px; background: radial-gradient(ellipse, rgba(181,71,27,0.12) 0%, transparent 70%); pointer-events: none; }
-.page-hero-content { position: relative; z-index: 1; max-width: 720px; }
-.breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-.breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color var(--transition); }
-.breadcrumb a:hover { color: var(--gold); }
-.breadcrumb .sep { opacity: 0.4; }
-.breadcrumb .cur { color: var(--gold-light); }
-.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; color: var(--white); line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 22px; }
-.page-hero h1 em { font-style: italic; color: var(--rust-light); }
-.page-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; max-width: 560px; }
-
-/* ── TRUST BAR ── */
-.trust-bar { background: var(--ink); padding: 22px 0; border-top: 1px solid rgba(255,255,255,0.04); }
-.trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 0.04em; }
-.trust-item svg { color: var(--gold); flex-shrink: 0; }
-.trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.1); }
-
-/* ── CTA BANNER ── */
-.cta-banner { background: var(--rust); padding: 96px 0; position: relative; overflow: hidden; }
-.cta-banner::after { content: 'BUILD'; position: absolute; right: -20px; top: -40px; font-family: var(--font-display); font-size: 22rem; font-weight: 900; color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none; user-select: none; }
-.cta-row { display: flex; align-items: center; justify-content: space-between; gap: 60px; position: relative; z-index: 1; }
-.cta-headline { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 900; color: var(--white); line-height: 1.1; }
-.cta-headline em { font-style: italic; opacity: 0.7; }
-.cta-actions { display: flex; flex-direction: column; gap: 14px; align-items: center; flex-shrink: 0; }
-.cta-tel { font-family: var(--font-mono); font-size: 0.82rem; color: rgba(255,255,255,0.65); letter-spacing: 0.05em; }
-.cta-tel a { color: var(--white); text-decoration: none; font-weight: 600; }
-
-/* ── FOOTER ── */
-.footer { background: var(--ink); padding: 88px 0 44px; }
-.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 40px; }
-.footer-logo img { height: 50px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: 0.7; }
-.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.32); line-height: 1.8; font-weight: 300; margin-bottom: 24px; max-width: 300px; }
-.footer-lic { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
-.footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul a { font-size: 0.875rem; color: rgba(255,255,255,0.42); text-decoration: none; transition: color var(--transition); }
-.footer-col ul a:hover { color: var(--bone); }
-.footer-contact-line { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.875rem; color: rgba(255,255,255,0.42); }
-.footer-contact-line .ico { color: var(--rust); flex-shrink: 0; margin-top: 2px; }
-.footer-contact-line a { color: rgba(255,255,255,0.42); text-decoration: none; transition: color var(--transition); }
-.footer-contact-line a:hover { color: var(--bone); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.22); }
-.footer-legal { display: flex; gap: 24px; }
-.footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color var(--transition); }
-.footer-legal a:hover { color: rgba(255,255,255,0.5); }
-
-/* ── REVEAL ANIMATIONS ── */
-@keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
-.reveal.visible { opacity: 1; transform: none; }
-.reveal-d1 { transition-delay: 0.1s; }
-.reveal-d2 { transition-delay: 0.2s; }
-.reveal-d3 { transition-delay: 0.3s; }
-.reveal-d4 { transition-delay: 0.4s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .container { padding: 0 28px; }
-  .nav-inner { padding: 0 28px; }
-  .section-pad { padding: 80px 0; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .cta-row { flex-direction: column; text-align: center; }
-}
-@media (max-width: 768px) {
-  .container { padding: 0 20px; }
-  .nav-inner { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-burger { display: flex; }
-  .mobile-menu { padding: 24px 20px 32px; }
-  .section-pad { padding: 64px 0; }
-  .trust-bar-inner { gap: 24px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .page-hero { padding: calc(var(--nav-h) + 48px) 0 56px; }
-}
-
-</style>
-<style>
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:56px;}
-.contact-form-wrap{background:var(--white);padding:56px 48px;}
-.contact-info-wrap{background:var(--charcoal);padding:56px 44px;display:flex;flex-direction:column;gap:36px;}
-.form-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--charcoal);margin-bottom:8px;}
-.form-sub{font-size:0.875rem;color:var(--warm-gray);margin-bottom:32px;line-height:1.7;}
+/* FORM */
+.form-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+.form-sub{font-size:13px;color:#777;margin-bottom:32px;line-height:1.65;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
 .form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
-.form-group label{font-size:0.78rem;font-weight:500;color:var(--charcoal);letter-spacing:0.04em;}
-.form-group input,.form-group select,.form-group textarea{font-family:var(--font-body);font-size:0.9rem;padding:13px 16px;border:1.5px solid var(--sand);border-radius:var(--radius);background:var(--cream);color:var(--text-body);transition:border-color var(--transition),box-shadow var(--transition);outline:none;}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rust);box-shadow:0 0 0 3px rgba(181,71,27,0.1);}
+.form-group label{font-size:12px;font-weight:600;color:#1a1a1a;letter-spacing:0.3px;}
+.form-group input,.form-group select,.form-group textarea{font-family:'Inter',sans-serif;font-size:13px;padding:13px 15px;border:1.5px solid #e8e2d9;border-radius:3px;background:#f8f7f4;color:#1a1a1a;transition:border-color .2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#C25B2A;background:#fff;box-shadow:0 0 0 3px rgba(194,91,42,0.08);}
 .form-group textarea{resize:vertical;min-height:120px;}
-.form-submit{width:100%;padding:16px;font-family:var(--font-body);font-size:1rem;font-weight:600;background:var(--rust);color:var(--white);border:none;border-radius:var(--radius);cursor:pointer;transition:background var(--transition),transform var(--transition);letter-spacing:0.04em;}
-.form-submit:hover{background:var(--rust-dark);transform:translateY(-1px);}
-.form-note{font-size:0.75rem;color:var(--warm-gray);margin-top:12px;text-align:center;line-height:1.6;}
-.info-block{}
-.info-block-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:14px;}
-.info-line{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;font-size:0.875rem;color:rgba(255,255,255,0.45);}
-.info-line .ico{color:var(--rust);font-size:1rem;flex-shrink:0;margin-top:1px;}
-.info-line a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color var(--transition);}
-.info-line a:hover{color:var(--bone);}
-.service-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
-.service-chip{font-size:0.72rem;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);padding:5px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.08);}
-.success-msg{display:none;background:rgba(181,71,27,0.06);border:1.5px solid rgba(181,71,27,0.2);padding:20px 24px;border-radius:var(--radius);font-size:0.875rem;color:var(--rust);line-height:1.7;margin-top:16px;}
+.checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;}
+.checkbox-row input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:#C25B2A;}
+.checkbox-row label{font-size:12px;color:#777;line-height:1.6;cursor:pointer;}
+.form-submit{width:100%;padding:16px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;background:#C25B2A;color:#fff;border:none;border-radius:3px;cursor:pointer;transition:background .2s;letter-spacing:0.3px;}
+.form-submit:hover{background:#A34820;}
+.form-note{font-size:11px;color:#aaa;margin-top:12px;text-align:center;line-height:1.6;}
+.success-msg{display:none;background:rgba(194,91,42,0.06);border:1.5px solid rgba(194,91,42,0.2);padding:20px 24px;border-radius:3px;font-size:13px;color:#C25B2A;line-height:1.7;margin-top:16px;}
 .success-msg.show{display:block;}
-@media(max-width:1024px){.contact-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
-@media(max-width:768px){.contact-form-wrap{padding:36px 24px;}.contact-info-wrap{padding:36px 24px;}}
+
+/* INFO PANEL */
+.info-block-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#e8e8e8;margin-bottom:16px;}
+.info-line{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;}
+.info-line a{color:rgba(255,255,255,0.45);transition:color .2s;}
+.info-line a:hover{color:#fff;}
+.info-ico{color:#C25B2A;flex-shrink:0;margin-top:2px;}
+.service-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.chip{font-size:11px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);padding:5px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);}
+.next-steps{display:flex;flex-direction:column;gap:16px;}
+.next-step{display:flex;gap:14px;align-items:flex-start;}
+.next-step-n{width:28px;height:28px;border-radius:50%;background:#C25B2A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+.next-step-text{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65;}
+.next-step-text strong{color:#e8e8e8;font-weight:600;display:block;margin-bottom:2px;}
+
+/* WHY US STRIP */
+.why-strip{background:#fff;padding:72px 48px;}
+.why-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+.wsi{background:#f8f7f4;padding:32px 26px;text-align:center;border-top:3px solid transparent;transition:border-color .3s;}
+.wsi:hover{border-top-color:#C25B2A;}
+.wsi-icon{font-size:28px;margin-bottom:12px;}
+.wsi-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+.wsi-text{font-size:12px;color:#777;line-height:1.65;}
+
+/* AREA GRID */
+.area-section{background:#f8f7f4;padding:72px 48px;}
+.area-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:40px;}
+.area-card{background:#fff;padding:28px 20px;text-align:center;border-top:3px solid transparent;transition:border-color .3s;}
+.area-card:hover{border-top-color:#C25B2A;}
+.area-icon{font-size:28px;margin-bottom:12px;}
+.area-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:6px;}
+.area-desc{font-size:12px;color:#777;line-height:1.6;}
+.section-tag{font-size:11px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.section-tag::before{content:'';display:block;width:28px;height:1px;background:#C25B2A;}
+.section-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#1a1a1a;line-height:1.12;margin-bottom:16px;}
+
+footer{background:#111;padding:72px 48px 36px;}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:32px;}
+.foot-logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;}
+.foot-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.foot-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
+.foot-col h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.foot-col ul a{font-size:13px;color:rgba(255,255,255,0.32);transition:color .2s;}
+.foot-col ul a:hover{color:#fff;}
+.fc-line{display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.32);}
+.fc-line a{color:rgba(255,255,255,0.32);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.18);}
+
+@media(max-width:1024px){nav{padding:0 24px;}.page-hero{padding:60px 24px;}.contact-section{padding:0;}.contact-layout{grid-template-columns:1fr;}.form-panel{padding:40px 28px;}.info-panel{padding:40px 28px;}.why-strip{padding:56px 24px;}.why-strip-grid{grid-template-columns:1fr 1fr;}.area-section{padding:56px 24px;}.area-grid{grid-template-columns:repeat(3,1fr);}footer{padding:56px 24px 32px;}.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:680px){.page-hero h1{font-size:34px;}.form-row{grid-template-columns:1fr;}.why-strip-grid{grid-template-columns:1fr 1fr;}.area-grid{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+
+<nav>
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
     <img src="logo.png" alt="Howard Construction Inc." style="height:52px;width:auto;display:block;">
     <div style="display:flex;flex-direction:column;line-height:1.15;">
       <span style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:900;color:#1a1a1a;letter-spacing:-0.3px;">Howard Construction</span>
-      <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:700;color:#1a1a1a;letter-spacing:-0.2px;">Inc.</span>
+      <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:700;color:#1a1a1a;">Inc.</span>
       <span style="font-size:9px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;margin-top:2px;">Santa Rosa CA · Est. 2000</span>
     </div>
   </a>
-    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="about.html">About</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="contact.html" class="active nav-cta">Free Estimate</a></li></ul>
-    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="knowledge.html">Knowledge Base</a>
+    <a href="about.html">About</a>
+    <a href="testimonials.html">Reviews</a>
+    <a href="contact.html" class="active nav-cta">Free Estimate</a>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
 
-<main>
 <section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
-  <div class="container"><div class="page-hero-content">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">Contact</span></nav>
-    <div class="label gold">Let's Talk</div>
+  <div style="max-width:700px;">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Free Estimate</div>
+    <div class="page-tag">Let's Talk</div>
     <h1>Get Your Free<br><em>Estimate Today</em></h1>
-    <p class="page-hero-sub">Tell us about your project and Phil Howard will personally follow up within one business day. No pressure. No obligation. Just an honest conversation about what you want to build.</p>
-  </div></div>
+    <p>Tell us about your project and Philip Howard will personally follow up within one business day. No pressure, no obligation — just an honest conversation about what you want to build in Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, or Calistoga.</p>
+  </div>
 </section>
 
-<section class="section-pad bg-bone">
-  <div class="container">
-    <div class="contact-layout">
-
-      <!-- FORM -->
-      <div class="contact-form-wrap reveal">
-        <div class="form-title">Tell Us About Your Project</div>
-        <div class="form-sub">Fill out the form and Phil Howard will personally call or email you within one business day to discuss your project and schedule a free on-site consultation.</div>
-        <form id="contactForm" onsubmit="submitForm(event)">
-          <div class="form-row">
-            <div class="form-group"><label for="fname">First Name *</label><input type="text" id="fname" name="firstName" required placeholder="John"></div>
-            <div class="form-group"><label for="lname">Last Name *</label><input type="text" id="lname" name="lastName" required placeholder="Smith"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required placeholder="john@email.com"></div>
-            <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required placeholder="(707) 555-0100"></div>
-          </div>
-          <div class="form-group"><label for="address">Project Address / City</label><input type="text" id="address" name="address" placeholder="Santa Rosa, CA"></div>
-          <div class="form-group"><label for="service">Type of Project *</label>
-            <select id="service" name="service" required>
-              <option value="">Select project type…</option>
-              <option>Kitchen Remodel</option>
-              <option>Bathroom Remodel</option>
-              <option>Home Addition</option>
-              <option>ADU Construction</option>
-              <option>Pool / Outdoor Living</option>
-              <option>Deck or Pergola</option>
-              <option>Garage or Utility Building</option>
-              <option>Whole-Home Renovation</option>
-              <option>Other / Not Sure Yet</option>
+<!-- MAIN CONTACT FORM -->
+<div class="contact-section">
+  <div class="contact-layout">
+    <!-- FORM -->
+    <div class="form-panel">
+      <div class="form-title">Tell Us About Your Project</div>
+      <div class="form-sub">Phil Howard personally reviews every inquiry and responds within one business day. Fill out as much or as little as you know — the consultation will take care of the rest.</div>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" required placeholder="John"></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" required placeholder="Smith"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone Number *</label><input type="tel" required placeholder="(707) 555-0100"></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" required placeholder="john@email.com"></div>
+        </div>
+        <div class="form-group"><label>Project Address or City *</label><input type="text" required placeholder="Santa Rosa · Napa · Sonoma · Calistoga · San Francisco…"></div>
+        <div class="form-group"><label>Type of Project *</label>
+          <select required>
+            <option value="">Select your project type…</option>
+            <option>Kitchen Remodel</option>
+            <option>Bathroom Remodel</option>
+            <option>Whole-Home Renovation</option>
+            <option>Home Addition (Room, Suite, Second Story)</option>
+            <option>ADU / Second Unit Construction</option>
+            <option>Pool / Outdoor Living Area</option>
+            <option>Deck or Pergola</option>
+            <option>Garage or Utility Building</option>
+            <option>Fire Rebuild or Restoration</option>
+            <option>Commercial / Mixed Use</option>
+            <option>Other / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Approximate Budget</label>
+            <select>
+              <option value="">Prefer not to say</option>
+              <option>Under $25,000</option>
+              <option>$25,000 – $50,000</option>
+              <option>$50,000 – $100,000</option>
+              <option>$100,000 – $200,000</option>
+              <option>$200,000 – $500,000</option>
+              <option>$500,000+</option>
             </select>
           </div>
-          <div class="form-row">
-            <div class="form-group"><label for="budget">Approximate Budget</label>
-              <select id="budget" name="budget">
-                <option value="">Prefer not to say</option>
-                <option>Under $25,000</option>
-                <option>$25,000 – $50,000</option>
-                <option>$50,000 – $100,000</option>
-                <option>$100,000 – $200,000</option>
-                <option>$200,000+</option>
-              </select>
-            </div>
-            <div class="form-group"><label for="timeline">Desired Start</label>
-              <select id="timeline" name="timeline">
-                <option value="">Not sure yet</option>
-                <option>As soon as possible</option>
-                <option>1–3 months</option>
-                <option>3–6 months</option>
-                <option>6–12 months</option>
-                <option>Planning only for now</option>
-              </select>
-            </div>
+          <div class="form-group"><label>Desired Start Date</label>
+            <select>
+              <option value="">Not sure yet</option>
+              <option>As soon as possible</option>
+              <option>1–3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>Planning only for now</option>
+            </select>
           </div>
-          <div class="form-group"><label for="message">Project Description</label><textarea id="message" name="message" placeholder="Tell us what you're hoping to build or change. Don't worry about having all the details figured out — that's what the consultation is for."></textarea></div>
-          <div class="form-group" style="flex-direction:row;align-items:center;gap:10px;margin-bottom:20px;">
-            <input type="checkbox" id="permit" name="permits" style="width:auto;flex-shrink:0;accent-color:var(--rust);">
-            <label for="permit" style="font-size:0.82rem;color:var(--warm-gray);cursor:pointer;">I need help understanding permit requirements for this project</label>
-          </div>
-          <button type="submit" class="form-submit">Send My Project Inquiry →</button>
-          <div class="form-note">Philip Howard personally reviews every inquiry and responds within one business day. Your information is never shared.</div>
-          <div class="success-msg" id="successMsg">✅ <strong>Message received!</strong> Phil Howard will personally follow up with you within one business day to discuss your project. Thank you for reaching out to Howard Construction.</div>
-        </form>
+        </div>
+        <div class="form-group"><label>Describe Your Project</label><textarea placeholder="Tell us what you're hoping to build, remodel, or add. Include anything you know about size, style, special requirements, or challenges. Don't worry about having all the details — that's what the consultation is for."></textarea></div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="permits">
+          <label for="permits">I need help understanding the permit requirements for this project in my area.</label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="living">
+          <label for="living">I plan to live in the home during construction and need to discuss logistics.</label>
+        </div>
+        <button type="submit" class="form-submit">Send My Project Request →</button>
+        <div class="form-note">Philip Howard personally reviews every inquiry. Your information is never shared or sold.</div>
+        <div class="success-msg" id="successMsg">✅ <strong>Request received!</strong> Phil Howard will personally follow up with you within one business day to discuss your project. Thank you for reaching out to Howard Construction Inc.</div>
+      </form>
+    </div>
+
+    <!-- INFO PANEL -->
+    <div class="info-panel">
+      <div>
+        <div class="info-block-title">Contact Information</div>
+        <div class="info-line"><span class="info-ico">📞</span><div><a href="tel:+17075786565">(707) 578-6565</a><br><span style="font-size:11px;opacity:0.4;">Mon–Fri 7am–6pm · Sat 8am–2pm</span></div></div>
+        <div class="info-line"><span class="info-ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
+        <div class="info-line"><span class="info-ico">📍</span><p>4012 Cervantes Road<br>Santa Rosa, CA 95403</p></div>
       </div>
 
-      <!-- CONTACT INFO -->
-      <div class="contact-info-wrap reveal reveal-d1">
-        <div class="info-block">
-          <div class="info-block-title">Contact Information</div>
-          <div class="info-line"><span class="ico">📞</span><div><a href="tel:+17075786565">(707) 578-6565</a><br><span style="font-size:0.75rem;opacity:0.5;">Mon–Fri 7am–6pm · Sat 8am–2pm</span></div></div>
-          <div class="info-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
-          <div class="info-line"><span class="ico">📍</span><p>4012 Cervantes Road<br>Santa Rosa, CA 95403</p></div>
+      <div>
+        <div class="info-block-title">Areas We Serve</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:14px;">We serve homeowners throughout Northern California including:</p>
+        <div class="service-chips">
+          <span class="chip">Santa Rosa</span>
+          <span class="chip">Sonoma Valley</span>
+          <span class="chip">Napa Valley</span>
+          <span class="chip">Calistoga</span>
+          <span class="chip">San Francisco</span>
+          <span class="chip">Petaluma</span>
+          <span class="chip">Windsor</span>
+          <span class="chip">Healdsburg</span>
+          <span class="chip">Sebastopol</span>
+          <span class="chip">Marin County</span>
+          <span class="chip">Novato</span>
+          <span class="chip">St. Helena</span>
         </div>
+      </div>
 
-        <div class="info-block">
-          <div class="info-block-title">Service Area</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:14px;">We serve homeowners across the entire North Bay Area, including:</p>
-          <div class="service-chips">
-            <span class="service-chip">Santa Rosa</span><span class="service-chip">Petaluma</span><span class="service-chip">Windsor</span><span class="service-chip">Healdsburg</span><span class="service-chip">Sebastopol</span><span class="service-chip">Sonoma</span><span class="service-chip">Novato</span><span class="service-chip">San Rafael</span><span class="service-chip">Napa</span><span class="service-chip">Ukiah</span><span class="service-chip">Lake County</span>
-          </div>
+      <div>
+        <div class="info-block-title">What Happens Next</div>
+        <div class="next-steps">
+          <div class="next-step"><div class="next-step-n">1</div><div class="next-step-text"><strong>Phil reviews your inquiry</strong>Calls or emails you within one business day — no assistant, no call center.</div></div>
+          <div class="next-step"><div class="next-step-n">2</div><div class="next-step-text"><strong>Free on-site consultation</strong>Phil visits your home, listens to your vision, and assesses the space in person.</div></div>
+          <div class="next-step"><div class="next-step-n">3</div><div class="next-step-text"><strong>Detailed written estimate</strong>Line-item pricing delivered within 5–7 business days. No vague numbers.</div></div>
+          <div class="next-step"><div class="next-step-n">4</div><div class="next-step-text"><strong>Your decision, your timeline</strong>No pressure tactics. We're here to answer questions and earn your trust.</div></div>
         </div>
+      </div>
 
-        <div class="info-block">
-          <div class="info-block-title">What Happens Next</div>
-          <div style="display:flex;flex-direction:column;gap:16px;">
-            <div style="display:flex;gap:14px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;flex-shrink:0;">1</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;"><strong style="color:var(--bone);">Phil reviews your inquiry</strong> and calls or emails you within one business day.</p></div>
-            <div style="display:flex;gap:14px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;flex-shrink:0;">2</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;"><strong style="color:var(--bone);">Free on-site consultation</strong> at your home — Phil visits, listens, and asks the right questions.</p></div>
-            <div style="display:flex;gap:14px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;flex-shrink:0;">3</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;"><strong style="color:var(--bone);">Detailed written estimate</strong> delivered within 5–7 business days with line-item pricing.</p></div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-block-title">Credentials</div>
-          <div class="info-line"><span class="ico">🛡️</span><span>CA Class B License · BBB Accredited</span></div>
-          <div class="info-line"><span class="ico">✅</span><span>Licensed, Bonded &amp; Fully Insured</span></div>
-          <div class="info-line"><span class="ico">⭐</span><span>5-Star Rated · Houzz Pro Verified</span></div>
-          <div class="info-line"><span class="ico">🏊</span><span>Empire Fiberglass Pools — Authorized Installer</span></div>
-        </div>
+      <div>
+        <div class="info-block-title">Our Credentials</div>
+        <div class="info-line"><span class="info-ico">🛡️</span><span>CA Class B License · BBB Accredited</span></div>
+        <div class="info-line"><span class="info-ico">✅</span><span>Licensed, Bonded &amp; Fully Insured</span></div>
+        <div class="info-line"><span class="info-ico">⭐</span><span>5-Star Rated · Houzz Pro Verified</span></div>
+        <div class="info-line"><span class="info-ico">🏊</span><span>Empire Fiberglass Pools — Authorized Installer</span></div>
+        <div class="info-line"><span class="info-ico">🏗️</span><span>NCBE Member · 25+ Years in Business</span></div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- MAP -->
-<div style="background:var(--charcoal);padding:3px;">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.7!2d-122.7144!3d38.4404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDI2JzI1LjQiTiAxMjLCsDQyJzUxLjgiVw!5e0!3m2!1sen!2sus!4v1600000000000" width="100%" height="380" style="border:0;display:block;filter:grayscale(0.3);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Howard Construction Inc. location"></iframe>
 </div>
-</main>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div><div style="margin-bottom:16px;">
-          <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:900;color:#EDE8DC;line-height:1.1;">HOWARD<br>CONSTRUCTION</div>
-          <div style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#B5471B;margin-top:4px;">INC. · EST. 2000 · SANTA ROSA CA</div>
-        </div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Additions</a></li><li><a href="services.html">Pools</a></li><li><a href="services.html">ADUs</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
-<script src="js/main.js"></script>
+<!-- WHY US -->
+<div class="why-strip">
+  <div class="why-strip-grid">
+    <div class="wsi"><div class="wsi-icon">💬</div><div class="wsi-title">Phil Answers His Own Phone</div><p class="wsi-text">No call center, no assistant. When you call Howard Construction, you reach the decision-maker directly.</p></div>
+    <div class="wsi"><div class="wsi-icon">📋</div><div class="wsi-title">Written Line-Item Estimates</div><p class="wsi-text">No vague numbers. No lump-sum quotes. You see exactly where every dollar of your budget is going.</p></div>
+    <div class="wsi"><div class="wsi-icon">⏱️</div><div class="wsi-title">On-Time, Every Time</div><p class="wsi-text">We set realistic timelines and meet them. Nightly site cleanup. Daily progress. Zero excuses.</p></div>
+    <div class="wsi"><div class="wsi-icon">🛡️</div><div class="wsi-title">Fully Licensed &amp; Insured</div><p class="wsi-text">CA Class B license. Full liability and workers' comp insurance on every project in every area we serve.</p></div>
+  </div>
+</div>
+
+<!-- SERVICE AREAS -->
+<div class="area-section">
+  <div class="section-tag">Where We Work</div>
+  <div class="section-title">Serving Northern California</div>
+  <p style="font-size:15px;color:#777;line-height:1.8;font-weight:300;max-width:640px;">We serve homeowners throughout the North Bay and Northern California. We know the local permit offices, building codes, and trusted subcontractors in every market.</p>
+  <div class="area-grid">
+    <div class="area-card"><div class="area-icon">🍷</div><div class="area-name">Sonoma Valley</div><p class="area-desc">Full remodels, ADUs, pools, and additions throughout the Valley of the Moon.</p></div>
+    <div class="area-card"><div class="area-icon">🌿</div><div class="area-name">Napa Valley</div><p class="area-desc">Custom builds in Napa, Yountville, St. Helena, Rutherford, and Napa County.</p></div>
+    <div class="area-card"><div class="area-icon">🌲</div><div class="area-name">Santa Rosa</div><p class="area-desc">Our hometown — kitchens, additions, pools, decks, and custom builds.</p></div>
+    <div class="area-card"><div class="area-icon">🌉</div><div class="area-name">San Francisco</div><p class="area-desc">Selected residential remodels and additions in SF and Marin County.</p></div>
+    <div class="area-card"><div class="area-icon">♨️</div><div class="area-name">Calistoga</div><p class="area-desc">Home construction, ADUs, and remodels in Calistoga and northern Napa County.</p></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <img src="logo.png" alt="Howard Construction Inc." style="height:44px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.75;">
+        <div><div class="foot-logo-text">Howard Construction Inc.</div><div style="font-size:9px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Santa Rosa CA · Est. 2000</div></div>
+      </div>
+      <div class="foot-lic">CA Lic. #B-XXXXXX · BBB Accredited · NCBE Member</div>
+      <p class="foot-desc">Serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga since 2000.</p>
+    </div>
+    <div class="foot-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Home Additions</a></li><li><a href="services.html">Pool Construction</a></li><li><a href="services.html">Decks &amp; Pergolas</a></li><li><a href="services.html">ADU Construction</a></li></ul></div>
+    <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Philip Howard</a></li><li><a href="testimonials.html">Client Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4>
+      <div class="fc-line">📞 <a href="tel:+17075786565">(707) 578-6565</a></div>
+      <div class="fc-line">✉️ <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
+      <div class="fc-line">📍 4012 Cervantes Road, Santa Rosa CA 95403</div>
+      <div class="fc-line">🕐 Mon–Fri 7am–6pm · Sat 8am–2pm</div>
+    </div>
+  </div>
+  <div class="foot-bottom"><div class="foot-copy">© 2025 Howard Construction Inc. All rights reserved. CA Lic. #B-XXXXXX.</div></div>
+</footer>
+
 <script>
+window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>20?'0 2px 24px rgba(0,0,0,0.1)':'none';},{passive:true});
 function submitForm(e){
   e.preventDefault();
   var btn=document.querySelector('.form-submit');
@@ -387,9 +311,10 @@ function submitForm(e){
   setTimeout(function(){
     document.getElementById('successMsg').classList.add('show');
     document.getElementById('contactForm').reset();
-    btn.textContent='Send My Project Inquiry →';btn.disabled=false;
-    window.scrollTo({top:document.getElementById('successMsg').offsetTop-100,behavior:'smooth'});
+    btn.textContent='Send My Project Request →';btn.disabled=false;
+    document.getElementById('successMsg').scrollIntoView({behavior:'smooth',block:'center'});
   },1200);
 }
 </script>
-</body></html>
+</body>
+</html>

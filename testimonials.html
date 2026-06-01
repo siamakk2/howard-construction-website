@@ -276,5 +276,524 @@ footer{background:#111;padding:72px 48px 36px;}
   <div class="foot-bottom"><div class="foot-copy">© 2025 Howard Construction Inc. All rights reserved. CA Lic. #B-XXXXXX.</div></div>
 </footer>
 <script>window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>20?'0 2px 24px rgba(0,0,0,0.1)':'none';},{passive:true});</script>
+
+
+
+<!-- AI CHAT WIDGET -->
+<style>
+#hci-chat-btn{position:fixed;bottom:28px;right:28px;width:60px;height:60px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;z-index:9998;box-shadow:0 4px 20px rgba(194,91,42,0.45);display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;}
+#hci-chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(194,91,42,0.55);}
+#hci-chat-btn svg{width:28px;height:28px;color:#fff;}
+#hci-chat-badge{position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;background:#1C2B1F;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;}
+#hci-chat-box{position:fixed;bottom:100px;right:28px;width:370px;height:540px;background:#fff;border-radius:12px;box-shadow:0 12px 48px rgba(0,0,0,0.18);z-index:9999;display:none;flex-direction:column;overflow:hidden;font-family:Inter,sans-serif;}
+#hci-chat-box.open{display:flex;}
+#hci-chat-header{background:#1C2B1F;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+#hci-chat-header-left{display:flex;align-items:center;gap:12px;}
+#hci-chat-avatar{width:40px;height:40px;border-radius:50%;background:#C25B2A;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+#hci-chat-name{font-size:14px;font-weight:600;color:#fff;}
+#hci-chat-status{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;display:flex;align-items:center;gap:5px;}
+#hci-chat-status-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;display:inline-block;}
+#hci-chat-close{background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:22px;line-height:1;padding:0;}
+#hci-chat-close:hover{color:#fff;}
+#hci-chat-msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:#f8f7f4;}
+.hci-msg{max-width:84%;display:flex;flex-direction:column;gap:4px;}
+.hci-msg.bot{align-self:flex-start;}
+.hci-msg.user{align-self:flex-end;}
+.hci-msg-bubble{padding:12px 15px;border-radius:12px;font-size:13px;line-height:1.65;}
+.hci-msg.bot .hci-msg-bubble{background:#fff;color:#1a1a1a;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.hci-msg.user .hci-msg-bubble{background:#C25B2A;color:#fff;border-radius:12px 4px 12px 12px;}
+.hci-msg-time{font-size:10px;color:#bbb;padding:0 4px;}
+.hci-msg.user .hci-msg-time{text-align:right;}
+.hci-quick-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.hci-quick-btn{background:#fff;border:1.5px solid #e8e2d9;color:#C25B2A;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;cursor:pointer;transition:all .2s;font-family:Inter,sans-serif;}
+.hci-quick-btn:hover{background:#C25B2A;border-color:#C25B2A;color:#fff;}
+#hci-typing{display:none;align-self:flex-start;padding:12px 15px;background:#fff;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+#hci-typing span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#C25B2A;margin:0 2px;animation:hcitype 1.2s infinite;}
+#hci-typing span:nth-child(2){animation-delay:.2s;}
+#hci-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes hcitype{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
+#hci-chat-footer{padding:14px 16px;background:#fff;border-top:1px solid #e8e2d9;display:flex;gap:10px;align-items:center;flex-shrink:0;}
+#hci-chat-input{flex:1;border:1.5px solid #e8e2d9;border-radius:24px;padding:10px 16px;font-size:13px;font-family:Inter,sans-serif;outline:none;color:#1a1a1a;transition:border-color .2s;}
+#hci-chat-input:focus{border-color:#C25B2A;}
+#hci-chat-send{width:38px;height:38px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;}
+#hci-chat-send:hover{background:#A34820;}
+#hci-chat-send svg{width:16px;height:16px;color:#fff;}
+#hci-chat-powered{text-align:center;font-size:10px;color:#ccc;padding:6px 0 10px;background:#fff;flex-shrink:0;}
+@media(max-width:480px){#hci-chat-box{width:calc(100vw - 32px);right:16px;bottom:90px;}#hci-chat-btn{bottom:20px;right:16px;}}
+</style>
+
+<button id="hci-chat-btn" aria-label="Open chat">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  <div id="hci-chat-badge">1</div>
+</button>
+
+<div id="hci-chat-box" role="dialog" aria-label="Howard Construction Chat">
+  <div id="hci-chat-header">
+    <div id="hci-chat-header-left">
+      <div id="hci-chat-avatar">HC</div>
+      <div>
+        <div id="hci-chat-name">Howard Construction</div>
+        <div id="hci-chat-status"><span id="hci-chat-status-dot"></span> Online now</div>
+      </div>
+    </div>
+    <button id="hci-chat-close" aria-label="Close chat">&times;</button>
+  </div>
+  <div id="hci-chat-msgs">
+    <div class="hci-msg bot">
+      <div class="hci-msg-bubble">Hi! I am the Howard Construction AI Assistant. I can answer questions about our services, pricing, California building codes, structural engineering, architectural guidelines, and more.<br><br>We serve <strong>Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, Calistoga</strong> and all Northern California. What can I help you with?</div>
+      <div class="hci-msg-time">Now</div>
+      <div class="hci-quick-btns">
+        <button class="hci-quick-btn" onclick="hciQuick('What services do you offer?')">Services</button>
+        <button class="hci-quick-btn" onclick="hciQuick('How much does a kitchen remodel cost?')">Pricing</button>
+        <button class="hci-quick-btn" onclick="hciQuick('What are California building codes?')">CA Codes</button>
+        <button class="hci-quick-btn" onclick="hciQuick('How do I get a free estimate?')">Free Estimate</button>
+        <button class="hci-quick-btn" onclick="hciQuick('What areas do you serve?')">Service Areas</button>
+        <button class="hci-quick-btn" onclick="hciQuick('Beam sizing calculation')">Calculations</button>
+      </div>
+    </div>
+    <div id="hci-typing"><span></span><span></span><span></span></div>
+  </div>
+  <div id="hci-chat-footer">
+    <input id="hci-chat-input" type="text" placeholder="Ask anything about construction…">
+    <button id="hci-chat-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+  <div id="hci-chat-powered">Howard Construction AI Assistant &mdash; Northern California Expert</div>
+</div>
+
+<script>
+var hciOpen = false;
+
+var hciKB = {
+  greet: "Hi! Great to connect. I am the Howard Construction AI Assistant — your expert on Northern California construction, California building codes, structural engineering, and architectural guidelines. We serve Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, Calistoga, Petaluma, Healdsburg, Windsor, Sebastopol, and all surrounding areas. What can I help you with?",
+
+  services: "Howard Construction offers:
+
+🏠 Kitchen & Bathroom Remodels
+🏗 Home Additions & Second Stories
+🏡 ADU Construction
+🏊 Pool & Outdoor Living
+🪵 Decks & Pergolas
+🔧 Garages & Utility Buildings
+🔥 Fire Rebuild & Restoration
+
+We serve all of Northern California including Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga. Want details on any specific service?",
+
+  pricing: "General price ranges for Northern California (2025):
+
+• Kitchen remodel: $40,000–$200,000
+• Bathroom remodel: $15,000–$60,000
+• Home addition: $300–$550 per sq ft
+• Second story addition: $400–$650 per sq ft
+• ADU construction: $180,000–$350,000
+• Fiberglass pool: $65,000–$110,000
+• Gunite pool: $90,000–$150,000+
+• Deck construction: $25–$60 per sq ft
+• Garage build: $50,000–$120,000
+
+For an accurate estimate on your specific project, call Phil at (707) 578-6565.",
+
+  estimate: "Getting a free estimate is simple:
+
+1. Fill out our form at the Contact page
+2. Call Philip Howard: (707) 578-6565
+3. Email: info@howardconstructioninc.com
+
+Phil personally reviews every inquiry and responds within one business day. Free on-site consultation, no pressure, no obligation.",
+
+  areas: "We serve all of Northern California including:
+
+🍷 Sonoma Valley
+🌿 Napa Valley
+🌲 Santa Rosa
+🌉 San Francisco & Marin County
+♨️ Calistoga
+🏘 Petaluma, Windsor, Healdsburg
+🌄 Sebastopol, Novato, San Rafael
+🍇 St. Helena, Yountville, Rutherford
+🏔 Lake County, Mendocino County
+
+We are experts in Northern California construction requirements including fire-safe building, wine country architectural standards, and local permit processes.",
+
+  calcode: "California Building Code (CBC) Key Requirements:
+
+📋 TITLE 24 — California's energy efficiency standards. All new construction and major remodels must meet Title 24 requirements covering insulation R-values, window U-factors, HVAC efficiency, and lighting.
+
+🏗 CBC CHAPTER 16 — Structural design requirements. Covers seismic design categories, wind loads, snow loads, and soil bearing capacity.
+
+🔥 FIRE CODES — CBC Chapter 7A applies to all construction in State Responsibility Areas (SRA) in Sonoma and Napa Counties. Requires fire-resistant roofing (Class A), ember-resistant vents, dual-pane windows, and non-combustible decking within 5 feet of the home.
+
+💧 PLUMBING — California Plumbing Code requires low-flow fixtures: toilets max 1.28 gpf, showerheads max 1.8 gpm, faucets max 1.2 gpm.
+
+⚡ ELECTRICAL — California Electrical Code (CEC) based on NEC. Requires AFCI protection in all bedrooms and living areas, GFCI in kitchens, baths, garages, and outdoor areas.
+
+Want details on a specific code section?",
+
+  seismic: "California Seismic Requirements (CBC Chapter 16):
+
+Northern California is in Seismic Design Category D. Key requirements:
+
+📐 SHEAR WALLS — Required to resist lateral seismic loads. Wood structural panel sheathing with 10d nails at 6" o.c. edges, 12" o.c. field is standard. Holddowns required at shear wall ends.
+
+🔩 ANCHOR BOLTS — Minimum 1/2" diameter at 6'-0" o.c. maximum spacing, within 12" of each end of sill plate. Post-installed anchors require ICC-ES approval.
+
+🏗 CRIPPLE WALLS — Must be braced with plywood sheathing. Pre-1940 homes in Sonoma and Napa counties often need cripple wall retrofits under FEMA P-1100 guidelines.
+
+🪨 FOUNDATIONS — Continuous concrete perimeter footings: minimum 12" wide x 12" deep for one-story, 15" wide x 18" deep for two-story on standard soil.
+
+📊 SEISMIC WEIGHT — Dead loads used for seismic calculations: wood frame floor = 10-15 psf, roof = 15-20 psf, walls = 10-15 psf.
+
+All Howard Construction projects are designed and built to current CBC seismic standards.",
+
+  structural: "Structural Engineering Fundamentals for Residential Construction:
+
+🪵 BEAM SIZING (Simple Span):
+Required section modulus S = M / Fb
+Where M = maximum moment (ft-lbs), Fb = allowable bending stress
+For Douglas Fir-Larch #2: Fb = 900 psi
+Example: 4x10 beam has S = 49.9 in³
+
+📏 SPAN TABLES (Floor Joists - 40 psf live, 10 psf dead):
+• 2x8 @ 16" o.c.: max span ~12'-4"
+• 2x10 @ 16" o.c.: max span ~15'-7"
+• 2x12 @ 16" o.c.: max span ~18'-10"
+
+🏗 HEADER SIZING (standard openings):
+• Up to 4'-0": (2) 2x6
+• Up to 6'-0": (2) 2x8
+• Up to 8'-0": (2) 2x10
+• Up to 10'-0": (2) 2x12
+• Over 10'-0": Engineered lumber (LVL) required
+
+⚖️ LOAD PATH — Dead load + Live load flows from roof to rafters to walls to foundation. Every connection must be continuous for seismic resistance.
+
+🔩 POST LOADS:
+4x4 post: max 17,000 lbs (8' height)
+4x6 post: max 26,000 lbs (8' height)
+6x6 post: max 32,000 lbs (8' height)",
+
+  arch: "Architectural Guidelines for Northern California:
+
+🏡 WINE COUNTRY STYLE — Dominant in Sonoma and Napa Valley. Characteristics: low-pitched roofs (3:12 to 6:12), warm earth tones, exposed timber, stone accents, indoor-outdoor connection, large overhangs (24"-36") for shade.
+
+🌿 FIRE-SAFE DESIGN (SRA Areas):
+• Roofing: Class A only (tile, metal, composition)
+• Vents: Ember-resistant or 1/16" mesh screens
+• Decks: Non-combustible materials within 5' of structure
+• Vegetation: 30-foot ember-resistant zone around home
+• Windows: Dual-pane minimum, tempered glass preferred
+
+📐 SETBACKS (Sonoma County typical):
+• Front: 20 feet
+• Side: 5-10 feet
+• Rear: 20 feet
+• Varies by zoning district — always verify with county
+
+🏊 ADU STANDARDS (California 2024):
+• Max size: 1,200 sq ft detached, 50% of primary for attached
+• Min setback: 4 feet rear and sides
+• Max height: 16 feet detached (25 feet if within 1/2 mile of transit)
+• Parking: None required if within 1/2 mile of transit
+
+🎨 NAPA COUNTY DESIGN REVIEW:
+New construction and major additions in Agricultural Watershed (AW) zone require design review. Must be compatible with rural character, use earth tone colors, minimize grading.",
+
+  calculations: "Common Construction Calculations:
+
+📐 CONCRETE:
+Slab volume = Length x Width x Thickness (in feet)
+Example: 20' x 30' x 0.333' (4") = 200 cu ft = 7.4 cubic yards
+Always add 10% for waste
+
+🪵 LUMBER (board feet):
+BF = Thickness(in) x Width(in) x Length(ft) / 12
+Example: 2x6 x 16' = 2 x 6 x 16 / 12 = 16 board feet
+
+🏗 STAIR CALCULATION:
+Rise + Run = 17" to 18" (ideal)
+Max rise: 7-3/4", Min run: 10"
+Number of risers = Total height / riser height
+Example: 9' floor-to-floor = 108" / 7" = 15.4, use 16 risers
+Actual rise = 108 / 16 = 6.75"
+
+📏 ROOF PITCH:
+Pitch = Rise / Run
+4:12 pitch = 18.4 degree angle
+6:12 pitch = 26.6 degree angle
+12:12 pitch = 45 degree angle
+Rafter length = Run x pitch multiplier
+4:12 multiplier = 1.054
+6:12 multiplier = 1.118
+12:12 multiplier = 1.414
+
+💧 DRAINAGE:
+Minimum slope for drainage: 1% (1/8" per foot)
+Steeper preferred: 2% (1/4" per foot)
+French drain sizing: 4" pipe handles ~750 sq ft of roof
+
+⚡ ELECTRICAL LOAD:
+15-amp circuit: max 1,800 watts continuous
+20-amp circuit: max 2,400 watts continuous
+Kitchen requires minimum (2) 20-amp small appliance circuits",
+
+  energy: "California Title 24 Energy Code:
+
+🌡 INSULATION REQUIREMENTS (Climate Zone 2 - Sonoma/Napa):
+• Attic: R-38 minimum
+• Walls: R-15 minimum (2x4 framing), R-20 (2x6)
+• Floor over crawl space: R-19 minimum
+• Slab edge: R-7.5
+
+🪟 WINDOWS:
+• Maximum U-factor: 0.30
+• Maximum SHGC: 0.23 (west-facing), 0.25 (other)
+• All windows must be dual-pane minimum
+
+❄️ HVAC:
+• Minimum SEER2: 15 for AC
+• Minimum HSPF2: 7.5 for heat pumps
+• Duct leakage: Max 15% total system leakage
+• Manual J load calculation required for all new systems
+
+☀️ SOLAR (Mandatory for new construction):
+• All new single-family homes must have solar PV
+• Minimum system size: CFA x 0.572 / 1000 kW
+  Where CFA = conditioned floor area
+• Battery storage recommended for resilience in fire areas
+
+💡 LIGHTING:
+• Minimum 90% high-efficacy fixtures throughout
+• LED required in most applications
+• Vacancy sensors required in specific areas",
+
+  permit: "California Permit Requirements:
+
+📋 WHAT ALWAYS REQUIRES A PERMIT:
+• Any structural work (walls, beams, foundations)
+• Electrical panel upgrades or new circuits
+• Plumbing line changes or additions
+• HVAC installation or replacement
+• All additions to square footage
+• ADU construction
+• Pool and spa construction
+• Roof replacement in most jurisdictions
+• Window replacement (if structural)
+
+✅ TYPICALLY NO PERMIT NEEDED:
+• Cosmetic work (paint, flooring, cabinets in same location)
+• Like-for-like fixture replacement
+• Minor deck repairs (no structural)
+
+⏱ PERMIT TIMELINES (Sonoma/Napa Counties):
+• Over-the-counter: Same day (simple projects)
+• Standard residential: 4–8 weeks
+• Large addition or ADU: 8–16 weeks
+• Appeals or design review: Add 4–8 weeks
+
+💰 PERMIT FEES (approximate):
+• Kitchen remodel: $500–$2,000
+• Home addition (per sq ft): $8–$15
+• ADU: $5,000–$15,000
+• Pool: $1,500–$4,000
+
+Howard Construction handles all permit filing and follow-up on every project we build.",
+
+  adu2: "ADU (Accessory Dwelling Unit) Complete Guide:
+
+📐 CALIFORNIA ADU LAW (AB 68, SB 9, 2024 updates):
+• All single-family and multi-family lots may have at least one ADU
+• Junior ADU (JADU): Max 500 sq ft, within existing structure
+• Attached ADU: Max 50% of primary dwelling or 1,200 sq ft
+• Detached ADU: Max 1,200 sq ft
+• No owner-occupancy requirement through 2025
+
+💰 COST ESTIMATES (Northern California 2025):
+• Garage conversion ADU: $80,000–$150,000
+• Attached ADU addition: $150,000–$250,000
+• Detached ADU (new build): $200,000–$350,000
+
+📏 SETBACK REQUIREMENTS:
+• Detached ADU: 4 feet rear and side minimum
+• Front setback: Same as primary dwelling zone
+• Fire sprinklers: Required if over 500 sq ft in most areas
+
+⏱ TIMELINE:
+• Design & permits: 3–6 months
+• Construction: 4–8 months
+• Total: 7–14 months typical
+
+💡 ROI IN SONOMA/NAPA VALLEY:
+• Average rental: $2,500–$4,500/month
+• Payback period: 5–8 years typical
+• Adds significant resale value
+
+Howard Construction manages the entire ADU process from design through certificate of occupancy.",
+
+  pool2: "Pool Construction Complete Guide:
+
+🏊 POOL TYPES COMPARISON:
+
+FIBERGLASS:
+• Cost: $65,000–$110,000 installed
+• Install time: 3–6 weeks
+• Maintenance: Lowest (smooth surface resists algae)
+• Lifespan: 25–30 years
+• Best for: Most Northern California homeowners
+
+GUNITE (Concrete):
+• Cost: $90,000–$150,000+
+• Install time: 3–6 months
+• Maintenance: Highest (replastering every 10–15 years)
+• Lifespan: 50+ years with maintenance
+• Best for: Custom shapes, large pools
+
+VINYL LINER:
+• Cost: $55,000–$85,000
+• Install time: 4–8 weeks
+• Maintenance: Medium (liner replacement every 10–15 years)
+• Lifespan: 20–25 years
+• Best for: Budget-conscious projects
+
+📋 PERMIT REQUIREMENTS:
+• Building permit required in all CA jurisdictions
+• Electrical permit for equipment
+• Barrier/fence required: 4'-0" min height, self-closing gate
+• Anti-entrapment drain covers (VGB Act compliance)
+• Sonoma/Napa: Check setbacks (typically 5' from property line)
+
+⚡ EQUIPMENT:
+• Variable speed pump (required by CA Title 20)
+• Salt chlorinator vs traditional chlorine
+• Heat pump vs gas heater: Heat pump more efficient in mild NorCal climate
+• LED lighting standard
+
+Howard Construction is an authorized Empire Fiberglass Pools dealer.",
+
+  contact: "You can reach Howard Construction directly:
+
+📞 (707) 578-6565
+✉️ info@howardconstructioninc.com
+📍 4012 Cervantes Road, Santa Rosa CA 95403
+⏰ Mon–Fri 7am–6pm, Sat 8am–2pm
+
+Philip Howard personally handles every inquiry. You will never be passed to a call center or assistant. Visit our Contact page to submit a project request form.",
+
+  philip: "Philip Howard is the owner, president, and on-site project manager of Howard Construction Inc. He is:
+
+✅ A third-generation builder — his father and grandfather were both carpenters in Sonoma County
+✅ 25+ years of hands-on construction experience in Northern California
+✅ California Class B Licensed General Contractor
+✅ Expert in Sonoma Valley, Napa Valley, and Northern California building codes and requirements
+✅ Personally oversees every project — no middlemen
+✅ Known for transparent communication and on-time delivery
+
+When you hire Howard Construction, you work directly with Phil from first call to final walkthrough.",
+
+  default: "That is a great question. For the most accurate answer tailored to your specific project in Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, Calistoga or surrounding areas, I recommend speaking directly with Philip Howard:
+
+📞 (707) 578-6565
+✉️ info@howardconstructioninc.com
+
+Or fill out our free estimate form and Phil will follow up within one business day. As Northern California construction experts, we are happy to answer any question."
+};
+
+function hciGetTime() {
+  var d = new Date();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var ap = h >= 12 ? "PM" : "AM";
+  h = h % 12; h = h ? h : 12;
+  return h + ":" + (m < 10 ? "0" + m : m) + " " + ap;
+}
+
+function hciAddMsg(text, type) {
+  var msgs = document.getElementById("hci-chat-msgs");
+  var typing = document.getElementById("hci-typing");
+  var div = document.createElement("div");
+  div.className = "hci-msg " + type;
+  var formatted = text.split("\n").join("<br>");
+  div.innerHTML = "<div class=\"hci-msg-bubble\">" + formatted + "</div><div class=\"hci-msg-time\">" + hciGetTime() + "</div>";
+  msgs.insertBefore(div, typing);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function hciGetReply(msg) {
+  var m = msg.toLowerCase();
+  if (m.match(/hello|hi |hey|howdy|good morning|good afternoon|good evening/)) return hciKB.greet;
+  if (m.match(/service|offer|what do|what can|remodel|addition|deck|garage|adu|pool|build/)) return hciKB.services;
+  if (m.match(/kitchen cost|bathroom cost|how much|pricing|price|cost|budget|expensive|charge|fee/)) return hciKB.pricing;
+  if (m.match(/estimate|quote|consult|free/)) return hciKB.estimate;
+  if (m.match(/area|serve|location|where|city|county|napa|sonoma|santa rosa|calistoga|san francisco|healdsburg|petaluma|northern california/)) return hciKB.areas;
+  if (m.match(/california.*code|building code|cbc|title 24|code requirement|fire code|plumbing code|electrical code/)) return hciKB.calcode;
+  if (m.match(/seismic|earthquake|shear wall|anchor bolt|lateral|cripple wall/)) return hciKB.seismic;
+  if (m.match(/beam|joist|header|structural|span|load|post|column|foundation|framing/)) return hciKB.structural;
+  if (m.match(/architect|design|style|setback|wine country|napa.*design|fire.?safe|ember/)) return hciKB.arch;
+  if (m.match(/calculat|formula|math|concrete|cubic yard|board feet|stair|rafter|pitch|slope|drainage|electrical load/)) return hciKB.calculations;
+  if (m.match(/energy|insulation|title 24|r.?value|window.*u|solar|hvac|seer|lighting|led/)) return hciKB.energy;
+  if (m.match(/permit|approval|inspection|city|county.*permit|how long.*permit/)) return hciKB.permit;
+  if (m.match(/adu|accessory|second unit|granny|in.?law|junior/)) return hciKB.adu2;
+  if (m.match(/pool|swim|fiberglass|gunite|vinyl|spa/)) return hciKB.pool2;
+  if (m.match(/contact|phone|call|email|address|hours|reach/)) return hciKB.contact;
+  if (m.match(/philip|phil|owner|founder|who is|about us/)) return hciKB.philip;
+  return hciKB.default;
+}
+
+function hciSend() {
+  var input = document.getElementById("hci-chat-input");
+  var msg = (input.value || "").trim();
+  if (!msg) return;
+  input.value = "";
+  hciAddMsg(msg, "user");
+  var typing = document.getElementById("hci-typing");
+  var msgs = document.getElementById("hci-chat-msgs");
+  typing.style.display = "flex";
+  msgs.scrollTop = msgs.scrollHeight;
+  setTimeout(function() {
+    typing.style.display = "none";
+    hciAddMsg(hciGetReply(msg), "bot");
+  }, 700 + Math.floor(Math.random() * 500));
+}
+
+function hciQuick(msg) {
+  hciAddMsg(msg, "user");
+  var typing = document.getElementById("hci-typing");
+  var msgs = document.getElementById("hci-chat-msgs");
+  typing.style.display = "flex";
+  msgs.scrollTop = msgs.scrollHeight;
+  setTimeout(function() {
+    typing.style.display = "none";
+    hciAddMsg(hciGetReply(msg), "bot");
+  }, 700 + Math.floor(Math.random() * 500));
+}
+
+function hciToggle() {
+  hciOpen = !hciOpen;
+  var box = document.getElementById("hci-chat-box");
+  var badge = document.getElementById("hci-chat-badge");
+  if (hciOpen) {
+    box.classList.add("open");
+    if (badge) badge.style.display = "none";
+    setTimeout(function() {
+      var inp = document.getElementById("hci-chat-input");
+      if (inp) inp.focus();
+    }, 100);
+  } else {
+    box.classList.remove("open");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.getElementById("hci-chat-btn");
+  var closeBtn = document.getElementById("hci-chat-close");
+  var sendBtn = document.getElementById("hci-chat-send");
+  var input = document.getElementById("hci-chat-input");
+  if (btn) btn.addEventListener("click", hciToggle);
+  if (closeBtn) closeBtn.addEventListener("click", hciToggle);
+  if (sendBtn) sendBtn.addEventListener("click", hciSend);
+  if (input) input.addEventListener("keydown", function(e) { if (e.key === "Enter") hciSend(); });
+});
+</script>
+<!-- END AI CHAT WIDGET -->
 </body>
 </html>

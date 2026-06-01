@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free construction guides for Sonoma and Napa County homeowners — budgeting, permits, ADUs, pools, hiring contractors, and more. Written by Howard Construction Inc.">
+<title>Knowledge Base | Howard Construction Inc. | Santa Rosa CA</title>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+.kb-filter{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 48px;}
+.kb-filter-btn{background:none;border:1.5px solid var(--sand);padding:9px 18px;font-family:var(--font-body);font-size:0.8rem;font-weight:500;color:var(--warm-gray);cursor:pointer;border-radius:100px;transition:all var(--transition);}
+.kb-filter-btn.active,.kb-filter-btn:hover{background:var(--rust);border-color:var(--rust);color:var(--white);}
+.kb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.kb-card{background:var(--white);padding:40px 32px;position:relative;overflow:hidden;transition:transform var(--transition);cursor:default;}
+.kb-card:hover{transform:translateY(-4px);}
+.kb-tag{display:inline-block;font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);background:rgba(181,71,27,0.07);padding:4px 11px;border-radius:100px;margin-bottom:16px;}
+.kb-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--charcoal);line-height:1.3;margin-bottom:12px;}
+.kb-excerpt{font-size:0.855rem;color:var(--warm-gray);line-height:1.8;font-weight:300;}
+.kb-topics{display:flex;flex-wrap:wrap;gap:5px;margin-top:18px;}
+.kb-topic{font-size:0.68rem;background:var(--cream);color:var(--charcoal);padding:4px 10px;border-radius:100px;border:1px solid var(--sand);}
+.kb-readtime{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.12em;color:var(--sand);margin-bottom:10px;}
+
+/* FEATURED ARTICLE */
+.kb-featured{background:var(--charcoal);padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:3px;}
+.kb-featured-label{color:var(--gold);margin-bottom:14px;}
+.kb-featured-label::before{background:var(--gold);}
+.kb-featured h2{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:18px;}
+.kb-featured p{color:rgba(255,255,255,0.5);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:28px;}
+.kb-featured-topics{display:flex;flex-wrap:wrap;gap:8px;}
+.kb-featured-topic{font-size:0.72rem;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);padding:5px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);}
+.kb-featured-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:40px;text-align:center;}
+.kb-featured-stat-num{font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--rust-light);line-height:1;}
+.kb-featured-stat-label{font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.5;}
+
+@media(max-width:1024px){.kb-grid{grid-template-columns:1fr 1fr;}.kb-featured{grid-template-columns:1fr;gap:36px;padding:40px;}}
+@media(max-width:768px){.kb-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Howard Construction Inc."></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="knowledge.html" class="active">Knowledge Base</a></li><li><a href="about.html">About</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
+    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
+
+<main>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
+  <div class="container"><div class="page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">Knowledge Base</span></nav>
+    <div class="label gold">Free Homeowner Guides</div>
+    <h1>Construction Knowledge<br>for <em>Sonoma County</em></h1>
+    <p class="page-hero-sub">25 years of construction experience, freely shared. Use these guides to plan your project, understand your options, and ask better questions — whether you hire us or not.</p>
+  </div></div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+
+    <!-- FEATURED -->
+    <div class="kb-featured reveal">
+      <div>
+        <div class="label kb-featured-label">Featured Guide</div>
+        <h2>The Complete 2025 Guide to Home Remodeling in Sonoma County</h2>
+        <p>Everything you need to know before starting a remodel — from setting a realistic budget and choosing a contractor to understanding permits, managing timelines, and protecting yourself legally. Written from 25 years of North Bay construction experience.</p>
+        <div class="kb-featured-topics"><span class="kb-featured-topic">Budgeting</span><span class="kb-featured-topic">Permits</span><span class="kb-featured-topic">Hiring</span><span class="kb-featured-topic">Timelines</span><span class="kb-featured-topic">Sonoma County</span></div>
+        <div style="margin-top:28px;"><a href="contact.html" class="btn btn-primary">Talk to an Expert →</a></div>
+      </div>
+      <div style="display:grid;gap:3px;">
+        <div class="kb-featured-stat"><div class="kb-featured-stat-num">$40K–$200K</div><div class="kb-featured-stat-label">Typical kitchen remodel range<br>in Sonoma County (2025)</div></div>
+        <div class="kb-featured-stat"><div class="kb-featured-stat-num">10–20%</div><div class="kb-featured-stat-label">Contingency budget you should<br>always set aside</div></div>
+        <div class="kb-featured-stat"><div class="kb-featured-stat-num">4–14 wks</div><div class="kb-featured-stat-label">Typical kitchen remodel<br>timeline start to finish</div></div>
+      </div>
+    </div>
+
+    <!-- FILTER -->
+    <div class="kb-filter" id="kbFilter">
+      <button class="kb-filter-btn active" onclick="filterKB('all',this)">All Topics</button>
+      <button class="kb-filter-btn" onclick="filterKB('budgeting',this)">Budgeting</button>
+      <button class="kb-filter-btn" onclick="filterKB('hiring',this)">Hiring a Contractor</button>
+      <button class="kb-filter-btn" onclick="filterKB('permits',this)">Permits &amp; Legal</button>
+      <button class="kb-filter-btn" onclick="filterKB('adu',this)">ADUs</button>
+      <button class="kb-filter-btn" onclick="filterKB('pools',this)">Pools</button>
+      <button class="kb-filter-btn" onclick="filterKB('planning',this)">Planning &amp; Design</button>
+    </div>
+
+    <!-- ARTICLES -->
+    <div class="kb-grid" id="kbGrid">
+
+      <article class="kb-card reveal" data-cat="budgeting">
+        <div class="kb-readtime">8 min read</div>
+        <span class="kb-tag">Budgeting</span>
+        <h3 class="kb-title">The True Cost of a Kitchen Remodel in Sonoma County (2025)</h3>
+        <p class="kb-excerpt">Every cost category broken down: labor, cabinets, countertops, appliances, plumbing, electrical — with real price ranges from current local projects. Includes a cost calculator worksheet.</p>
+        <div class="kb-topics"><span class="kb-topic">Kitchen</span><span class="kb-topic">Cost Guide</span><span class="kb-topic">2025</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d1" data-cat="budgeting">
+        <div class="kb-readtime">6 min read</div>
+        <span class="kb-tag">Budgeting</span>
+        <h3 class="kb-title">Home Addition Cost Per Square Foot in Northern California</h3>
+        <p class="kb-excerpt">What $300–$900/sq ft actually gets you. Covers single-story additions, second stories, ADUs, garage conversions, and the cost variables that move the number up or down.</p>
+        <div class="kb-topics"><span class="kb-topic">Additions</span><span class="kb-topic">Cost Per Sq Ft</span><span class="kb-topic">California</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d2" data-cat="budgeting">
+        <div class="kb-readtime">5 min read</div>
+        <span class="kb-tag">Budgeting</span>
+        <h3 class="kb-title">How to Set a Realistic Remodel Budget Without Overspending</h3>
+        <p class="kb-excerpt">The 3-phase budgeting method used by experienced homeowners: anchor costs, contingency planning, and the "non-negotiables vs. nice-to-haves" priority matrix.</p>
+        <div class="kb-topics"><span class="kb-topic">Budgeting</span><span class="kb-topic">Planning</span></div>
+      </article>
+
+      <article class="kb-card reveal" data-cat="hiring">
+        <div class="kb-readtime">7 min read</div>
+        <span class="kb-tag">Hiring</span>
+        <h3 class="kb-title">10 Red Flags When Hiring a Contractor in California</h3>
+        <p class="kb-excerpt">How to spot unlicensed contractors, deceptive bids, and contract language that puts you at serious risk. A checklist every homeowner should read before signing anything.</p>
+        <div class="kb-topics"><span class="kb-topic">Contractor Hiring</span><span class="kb-topic">CSLB</span><span class="kb-topic">Contracts</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d1" data-cat="hiring">
+        <div class="kb-readtime">5 min read</div>
+        <span class="kb-tag">Hiring</span>
+        <h3 class="kb-title">20 Questions to Ask Before Hiring a General Contractor</h3>
+        <p class="kb-excerpt">The exact questions that separate professional contractors from risky ones — covering licensing, insurance, subcontractors, payment schedules, and change order policies.</p>
+        <div class="kb-topics"><span class="kb-topic">Hiring</span><span class="kb-topic">Interview Guide</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d2" data-cat="hiring">
+        <div class="kb-readtime">6 min read</div>
+        <span class="kb-tag">Hiring</span>
+        <h3 class="kb-title">How to Read a Construction Bid and Compare Quotes Fairly</h3>
+        <p class="kb-excerpt">Why the lowest bid is usually not the best bid — and how to do a true line-by-line comparison that exposes hidden gaps, missing scope, and change-order traps before you sign.</p>
+        <div class="kb-topics"><span class="kb-topic">Bids</span><span class="kb-topic">Contracts</span></div>
+      </article>
+
+      <article class="kb-card reveal" data-cat="permits">
+        <div class="kb-readtime">9 min read</div>
+        <span class="kb-tag">Permits &amp; Legal</span>
+        <h3 class="kb-title">Sonoma County Permit Guide: What Requires a Permit and Why It Matters</h3>
+        <p class="kb-excerpt">A plain-English guide to what requires a permit in Sonoma County, how to file, typical timelines, and the real consequences of unpermitted work when you sell your home.</p>
+        <div class="kb-topics"><span class="kb-topic">Permits</span><span class="kb-topic">Sonoma County</span><span class="kb-topic">Legal</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d1" data-cat="permits">
+        <div class="kb-readtime">5 min read</div>
+        <span class="kb-tag">Permits &amp; Legal</span>
+        <h3 class="kb-title">Unpermitted Work in California: Risks, Disclosure Laws, and How to Fix It</h3>
+        <p class="kb-excerpt">Selling a home with unpermitted work in California can derail escrow, trigger lender refusals, and result in fines. Here's what you're legally required to disclose and what it costs to remediate.</p>
+        <div class="kb-topics"><span class="kb-topic">Unpermitted</span><span class="kb-topic">Disclosure</span><span class="kb-topic">Legal</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d2" data-cat="permits">
+        <div class="kb-readtime">4 min read</div>
+        <span class="kb-tag">Permits &amp; Legal</span>
+        <h3 class="kb-title">California Contractor License Explained: Classes, Verification &amp; What They Mean</h3>
+        <p class="kb-excerpt">Class A, B, and C licenses — what the difference is, how to look one up on CSLB.ca.gov, and what happens if you hire an unlicensed contractor on a job over $500.</p>
+        <div class="kb-topics"><span class="kb-topic">CSLB</span><span class="kb-topic">Licensing</span></div>
+      </article>
+
+      <article class="kb-card reveal" data-cat="adu">
+        <div class="kb-readtime">10 min read</div>
+        <span class="kb-tag">ADUs</span>
+        <h3 class="kb-title">ADU Guide: What Sonoma County Homeowners Need to Know in 2025</h3>
+        <p class="kb-excerpt">California has streamlined ADU permits significantly. This covers local rules, setbacks, utility hookups, owner-occupancy requirements, realistic costs, and timeline from permit to move-in.</p>
+        <div class="kb-topics"><span class="kb-topic">ADU</span><span class="kb-topic">Permits</span><span class="kb-topic">Sonoma County</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d1" data-cat="adu">
+        <div class="kb-readtime">6 min read</div>
+        <span class="kb-tag">ADUs</span>
+        <h3 class="kb-title">Garage Conversion to ADU: Is It Worth It in Northern California?</h3>
+        <p class="kb-excerpt">Converting an existing garage to a living unit is often the most cost-effective ADU path. This guide covers structural requirements, insulation, utility upgrades, and realistic conversion costs.</p>
+        <div class="kb-topics"><span class="kb-topic">Garage Conversion</span><span class="kb-topic">ADU</span><span class="kb-topic">ROI</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d2" data-cat="pools">
+        <div class="kb-readtime">8 min read</div>
+        <span class="kb-tag">Pools</span>
+        <h3 class="kb-title">Fiberglass vs. Gunite vs. Vinyl Pools: Which Is Right for Northern California?</h3>
+        <p class="kb-excerpt">An unbiased comparison of the three main pool types — upfront cost, long-term maintenance, durability, installation time, and which makes most sense for Sonoma County's climate and water.</p>
+        <div class="kb-topics"><span class="kb-topic">Pools</span><span class="kb-topic">Fiberglass</span><span class="kb-topic">Gunite</span><span class="kb-topic">Comparison</span></div>
+      </article>
+
+      <article class="kb-card reveal" data-cat="pools">
+        <div class="kb-readtime">5 min read</div>
+        <span class="kb-tag">Pools</span>
+        <h3 class="kb-title">Pool Permit Requirements in Sonoma County: What You Need Before You Dig</h3>
+        <p class="kb-excerpt">Pool permits in California require building, electrical, and sometimes planning review. This guide walks through the full permit stack, timeline, and what to expect during inspections.</p>
+        <div class="kb-topics"><span class="kb-topic">Pool Permits</span><span class="kb-topic">Sonoma County</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d1" data-cat="planning">
+        <div class="kb-readtime">7 min read</div>
+        <span class="kb-tag">Planning</span>
+        <h3 class="kb-title">How to Plan a Home Addition: Scope, Budget, Permits &amp; Timeline</h3>
+        <p class="kb-excerpt">A step-by-step guide from defining your goals to getting permits to managing construction. Covers how to work with a designer, what to expect during permitting, and how to stay on schedule.</p>
+        <div class="kb-topics"><span class="kb-topic">Additions</span><span class="kb-topic">Planning</span><span class="kb-topic">Timeline</span></div>
+      </article>
+
+      <article class="kb-card reveal reveal-d2" data-cat="planning">
+        <div class="kb-readtime">6 min read</div>
+        <span class="kb-tag">Planning</span>
+        <h3 class="kb-title">Living Through a Remodel: 12 Practical Tips to Survive Construction at Home</h3>
+        <p class="kb-excerpt">Dust, noise, strangers in your kitchen — living through a remodel is manageable with the right preparation. Tips on setting boundaries, planning temporary kitchens, and staying sane.</p>
+        <div class="kb-topics"><span class="kb-topic">Living In</span><span class="kb-topic">Remodel Tips</span></div>
+      </article>
+
+      <article class="kb-card reveal" data-cat="planning">
+        <div class="kb-readtime">5 min read</div>
+        <span class="kb-tag">Planning</span>
+        <h3 class="kb-title">What to Expect at a Construction Final Inspection in California</h3>
+        <p class="kb-excerpt">The final inspection is the last step before getting your certificate of occupancy. Here's what inspectors look for, what fails, and how to make sure your contractor has addressed every item.</p>
+        <div class="kb-topics"><span class="kb-topic">Inspections</span><span class="kb-topic">Final Walkthrough</span><span class="kb-topic">California</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--bone);padding:80px 0;border-top:1px solid var(--sand);">
+  <div class="container" style="text-align:center;">
+    <div class="label" style="justify-content:center;margin-bottom:16px;">Ready to Build?</div>
+    <h2 class="section-title" style="margin-bottom:16px;">Knowledge is Step One.<br>We're Step Two.</h2>
+    <p style="color:var(--warm-gray);font-size:1rem;line-height:1.8;max-width:500px;margin:0 auto 36px;">Now that you know what to look for, let's talk about your project. Free consultation, no pressure, no obligation.</p>
+    <a href="contact.html" class="btn btn-primary">Schedule a Free Consultation →</a>
+  </div>
+</section>
+
+<section class="cta-banner"><div class="container"><div class="cta-row"><h2 class="cta-headline">Questions our guides<br><em>didn't answer?</em></h2><div class="cta-actions"><a href="contact.html" class="btn btn-white">Ask Phil Directly →</a><div class="cta-tel">or call <a href="tel:+17075786565">(707) 578-6565</a></div></div></div></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-logo"><img src="img/logo.png" alt="Howard Construction Inc."></div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Additions</a></li><li><a href="services.html">Pools</a></li><li><a href="services.html">ADUs</a></li></ul></div><div class="footer-col"><h4>Knowledge Base</h4><ul><li><a href="knowledge.html">Budgeting Guides</a></li><li><a href="knowledge.html">Hiring a Contractor</a></li><li><a href="knowledge.html">Permits &amp; Legal</a></li><li><a href="knowledge.html">ADU Guides</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
+<script src="js/main.js"></script>
+<script>
+function filterKB(cat,btn){
+  document.querySelectorAll('.kb-filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.kb-card').forEach(function(card){
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'':'none';
+  });
+}
+</script>
+</body></html>

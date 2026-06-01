@@ -14,9 +14,9 @@ html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;}
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
-nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid #e8e2d9;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
-.nav-menu{display:flex;align-items:center;gap:32px;}
-.nav-menu a{font-size:13px;font-weight:500;color:#555;transition:color .2s;}
+nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid #e8e2d9;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;gap:24px;}
+.nav-menu{display:flex;align-items:center;gap:24px;flex-wrap:nowrap;}
+.nav-menu a{font-size:13px;font-weight:500;color:#555;transition:color .2s;white-space:nowrap;}
 .nav-menu a:hover,.nav-menu a.active{color:#C25B2A;}
 .nav-cta{background:#C25B2A!important;color:#fff!important;padding:11px 24px;border-radius:4px;font-weight:600!important;}
 .page-hero{margin-top:72px;background:#1C2B1F;padding:80px 48px;}
@@ -108,13 +108,8 @@ footer{background:#111;padding:72px 48px 36px;}
 <body>
 
 <nav>
-  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+  <a href="index.html" style="text-decoration:none;display:block;flex-shrink:0;">
     <img src="logo.png" alt="Howard Construction Inc." style="height:52px;width:auto;display:block;">
-    <div style="display:flex;flex-direction:column;line-height:1.15;">
-      <span style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:900;color:#1a1a1a;letter-spacing:-0.3px;">Howard Construction</span>
-      <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:700;color:#1a1a1a;">Inc.</span>
-      <span style="font-size:9px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;margin-top:2px;">Santa Rosa CA · Est. 2000</span>
-    </div>
   </a>
   <div class="nav-menu">
     <a href="index.html">Home</a>
@@ -283,9 +278,8 @@ footer{background:#111;padding:72px 48px 36px;}
 <footer>
   <div class="footer-grid">
     <div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-        <img src="logo.png" alt="Howard Construction Inc." style="height:44px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.75;">
-        <div><div class="foot-logo-text">Howard Construction Inc.</div><div style="font-size:9px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Santa Rosa CA · Est. 2000</div></div>
+      <div style="margin-bottom:16px;">
+        <img src="logo.png" alt="Howard Construction Inc." style="height:48px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.75;" onerror="this.outerHTML='<div style=&quot;font-family:Playfair Display,Georgia,serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;&quot;>Howard Construction Inc.</div>'">
       </div>
       <div class="foot-lic">CA Lic. #B-XXXXXX · BBB Accredited · NCBE Member</div>
       <p class="foot-desc">Serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga since 2000.</p>

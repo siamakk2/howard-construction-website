@@ -108,12 +108,12 @@ a { color: inherit; }
 .navbar {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--nav-h); z-index: 1000;
-  background: rgba(245,240,232,0.9);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(212,201,176,0.3);
   transition: var(--transition);
 }
-.navbar.scrolled { background: rgba(245,240,232,0.98); box-shadow: 0 4px 40px rgba(44,40,37,0.1); }
+.navbar.scrolled { background: rgba(255,255,255,1.0); box-shadow: 0 4px 40px rgba(44,40,37,0.1); }
 .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo img { height: 54px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
@@ -218,7 +218,7 @@ a { color: inherit; }
 </style>
 <style>
 /* ── HERO ── */
-.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: var(--nav-h); position: relative; overflow: hidden; background: var(--cream); }
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: var(--nav-h); position: relative; overflow: hidden; background: var(--cream); } @media(max-width:900px){.hero{grid-template-columns:1fr;}}
 .hero-texture { position:absolute;inset:0;background-image:radial-gradient(ellipse 70% 90% at 75% 50%,rgba(181,71,27,0.05) 0%,transparent 70%),url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238C8070' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none; }
 .hero-left { display:flex;align-items:center;padding:80px 0 80px max(40px,calc((100vw - 1280px)/2 + 40px));position:relative;z-index:1; }
 .hero-content { max-width:600px; }
@@ -233,7 +233,7 @@ a { color: inherit; }
 
 .hero-right { position:relative;overflow:hidden; }
 .hero-img-grid { display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:100%;gap:4px; }
-.hi { overflow:hidden;position:relative; }
+.hi { overflow:hidden;position:relative;min-height:300px; }
 .hi:first-child { grid-row:1/3; }
 .hi img { width:100%;height:100%;object-fit:cover;transition:transform 0.7s var(--ease); }
 .hi:hover img { transform:scale(1.04); }
@@ -321,7 +321,7 @@ a { color: inherit; }
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr;}
-  .hero-right{display:none;}
+  .hero-right{display:block;}
   .hero-left{padding:80px 28px;}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .why-layout{grid-template-columns:1fr;gap:48px;}
@@ -349,9 +349,9 @@ a { color: inherit; }
 <!-- NAV -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" style="text-decoration:none;">
-        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:900;color:#2C2825;letter-spacing:-0.01em;display:block;line-height:1.1;">HOWARD<br>CONSTRUCTION</span>
-        <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#B5471B;">INC. &nbsp;·&nbsp; EST. 2000</span>
+    <a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;line-height:1;">
+        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:900;color:#1A1714;letter-spacing:-0.01em;display:block;">HOWARD CONSTRUCTION</span>
+        <span style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:#B5471B;margin-top:2px;">Inc. &nbsp;&bull;&nbsp; Santa Rosa, CA &nbsp;&bull;&nbsp; Est. 2000</span>
       </a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>

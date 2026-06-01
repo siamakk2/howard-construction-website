@@ -2,378 +2,421 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="About Philip Howard and Howard Construction Inc. — Sonoma County native and licensed general contractor with 25+ years building homes in the North Bay Area.">
-<title>About Us | Howard Construction Inc. | Santa Rosa CA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Howard Construction Inc. — Philip Howard is a third-generation builder and Sonoma County native serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga since 2000.">
+<title>About Us | Howard Construction Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===================================================
-   HOWARD CONSTRUCTION INC. — SHARED DESIGN SYSTEM
-   =================================================== */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid #e8e2d9;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-menu{display:flex;align-items:center;gap:32px;}
+.nav-menu a{font-size:13px;font-weight:500;color:#555;transition:color .2s;}
+.nav-menu a:hover,.nav-menu a.active{color:#C25B2A;}
+.nav-cta{background:#C25B2A!important;color:#fff!important;padding:11px 24px;border-radius:4px;font-weight:600!important;}
+.page-hero{margin-top:72px;background:#1C2B1F;padding:80px 48px;}
+.breadcrumb{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;}
+.breadcrumb a{color:rgba(255,255,255,0.35);}
+.page-tag{font-size:11px;color:#C9A84C;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.page-tag::before{content:'';display:block;width:28px;height:1px;background:#C9A84C;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-1px;}
+.page-hero h1 em{font-style:italic;color:#E8845A;}
+.page-hero p{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;max-width:640px;}
+.section{padding:88px 48px;}
+.section-tag{font-size:11px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.section-tag::before{content:'';display:block;width:28px;height:1px;background:#C25B2A;}
+.section-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#1a1a1a;line-height:1.12;margin-bottom:20px;}
+.btn-orange{background:#C25B2A;color:#fff;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-orange:hover{background:#A34820;}
 
-:root {
-  --cream:      #F5F0E8;
-  --bone:       #EDE8DC;
-  --sand:       #D4C9B0;
-  --warm-gray:  #8C8070;
-  --charcoal:   #2C2825;
-  --ink:        #1A1714;
-  --rust:       #B5471B;
-  --rust-dark:  #8C3514;
-  --rust-light: #D4633A;
-  --gold:       #C9A84C;
-  --gold-light: #E8C96E;
-  --white:      #FDFCF9;
-  --text-body:  #3D3730;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', sans-serif;
-  --font-mono:    'DM Mono', monospace;
-  --max-w:   1280px;
-  --nav-h:   80px;
-  --radius:  2px;
-  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
-  --transition: 0.3s var(--ease);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--cream); color: var(--text-body); line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; }
-
-/* ── UTILITIES ── */
-.container  { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
-.section-pad { padding: 110px 0; }
-.bg-cream   { background: var(--cream); }
-.bg-bone    { background: var(--bone); }
-.bg-white   { background: var(--white); }
-.bg-dark    { background: var(--charcoal); }
-.bg-ink     { background: var(--ink); }
-
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--rust);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--rust); flex-shrink: 0; }
-.label.gold { color: var(--gold); }
-.label.gold::before { background: var(--gold); }
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 700;
-  color: var(--charcoal);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-}
-.section-title.light { color: var(--bone); }
-.section-sub {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  color: var(--warm-gray);
-  line-height: 1.8;
-  font-weight: 300;
-  max-width: 580px;
-}
-
-/* ── BUTTONS ── */
-.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; border-radius: var(--radius); transition: all var(--transition); cursor: pointer; border: none; }
-.btn-primary { background: var(--rust); color: var(--white); padding: 15px 30px; box-shadow: 0 4px 24px rgba(181,71,27,0.3); }
-.btn-primary:hover { background: var(--rust-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(181,71,27,0.4); }
-.btn-outline { background: transparent; color: var(--white); padding: 14px 28px; border: 1.5px solid rgba(255,255,255,0.4); }
-.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-.btn-ghost { background: transparent; color: var(--charcoal); padding: 0; border-bottom: 1px solid var(--sand); border-radius: 0; }
-.btn-ghost:hover { color: var(--rust); border-color: var(--rust); }
-.btn-white { background: var(--white); color: var(--rust); padding: 16px 34px; }
-.btn-white:hover { background: var(--bone); transform: translateY(-2px); }
-.btn svg { flex-shrink: 0; }
-
-/* ── NAVIGATION ── */
-.navbar {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--nav-h); z-index: 1000;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212,201,176,0.3);
-  transition: var(--transition);
-}
-.navbar.scrolled { background: rgba(255,255,255,1.0); box-shadow: 0 4px 40px rgba(44,40,37,0.1); }
-.nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo img { height: 54px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
-.nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--charcoal); text-decoration: none; letter-spacing: 0.02em; position: relative; transition: color var(--transition); }
-.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--rust); transform: scaleX(0); transform-origin: right; transition: transform var(--transition); }
-.nav-links a:hover, .nav-links a.active { color: var(--rust); }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
-.nav-cta { background: var(--rust) !important; color: var(--white) !important; padding: 11px 24px; border-radius: var(--radius); transition: background var(--transition) !important; }
-.nav-cta:hover { background: var(--rust-dark) !important; }
-.nav-cta::after { display: none !important; }
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
-.nav-burger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: var(--transition); }
-
-/* ── MOBILE MENU ── */
-.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--cream); border-top: 1px solid var(--sand); padding: 28px 40px 36px; z-index: 999; box-shadow: 0 24px 48px rgba(44,40,37,0.18); flex-direction: column; gap: 0; }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--charcoal); text-decoration: none; border-bottom: 1px solid var(--bone); transition: color var(--transition); }
-.mobile-menu a:hover { color: var(--rust); }
-.mobile-menu .btn-primary { margin-top: 20px; justify-content: center; border: none; }
-
-/* ── PAGE HERO ── */
-.page-hero { padding: calc(var(--nav-h) + 72px) 0 72px; background: var(--charcoal); position: relative; overflow: hidden; }
-.page-hero-bg { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 0L0 40 40 80 80 40z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
-.page-hero-glow { position: absolute; top: -100px; right: -200px; width: 700px; height: 700px; background: radial-gradient(ellipse, rgba(181,71,27,0.12) 0%, transparent 70%); pointer-events: none; }
-.page-hero-content { position: relative; z-index: 1; max-width: 720px; }
-.breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-.breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color var(--transition); }
-.breadcrumb a:hover { color: var(--gold); }
-.breadcrumb .sep { opacity: 0.4; }
-.breadcrumb .cur { color: var(--gold-light); }
-.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; color: var(--white); line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 22px; }
-.page-hero h1 em { font-style: italic; color: var(--rust-light); }
-.page-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; max-width: 560px; }
-
-/* ── TRUST BAR ── */
-.trust-bar { background: var(--ink); padding: 22px 0; border-top: 1px solid rgba(255,255,255,0.04); }
-.trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 0.04em; }
-.trust-item svg { color: var(--gold); flex-shrink: 0; }
-.trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.1); }
-
-/* ── CTA BANNER ── */
-.cta-banner { background: var(--rust); padding: 96px 0; position: relative; overflow: hidden; }
-.cta-banner::after { content: 'BUILD'; position: absolute; right: -20px; top: -40px; font-family: var(--font-display); font-size: 22rem; font-weight: 900; color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none; user-select: none; }
-.cta-row { display: flex; align-items: center; justify-content: space-between; gap: 60px; position: relative; z-index: 1; }
-.cta-headline { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 900; color: var(--white); line-height: 1.1; }
-.cta-headline em { font-style: italic; opacity: 0.7; }
-.cta-actions { display: flex; flex-direction: column; gap: 14px; align-items: center; flex-shrink: 0; }
-.cta-tel { font-family: var(--font-mono); font-size: 0.82rem; color: rgba(255,255,255,0.65); letter-spacing: 0.05em; }
-.cta-tel a { color: var(--white); text-decoration: none; font-weight: 600; }
-
-/* ── FOOTER ── */
-.footer { background: var(--ink); padding: 88px 0 44px; }
-.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 40px; }
-.footer-logo img { height: 50px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: 0.7; }
-.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.32); line-height: 1.8; font-weight: 300; margin-bottom: 24px; max-width: 300px; }
-.footer-lic { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
-.footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul a { font-size: 0.875rem; color: rgba(255,255,255,0.42); text-decoration: none; transition: color var(--transition); }
-.footer-col ul a:hover { color: var(--bone); }
-.footer-contact-line { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.875rem; color: rgba(255,255,255,0.42); }
-.footer-contact-line .ico { color: var(--rust); flex-shrink: 0; margin-top: 2px; }
-.footer-contact-line a { color: rgba(255,255,255,0.42); text-decoration: none; transition: color var(--transition); }
-.footer-contact-line a:hover { color: var(--bone); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.22); }
-.footer-legal { display: flex; gap: 24px; }
-.footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color var(--transition); }
-.footer-legal a:hover { color: rgba(255,255,255,0.5); }
-
-/* ── REVEAL ANIMATIONS ── */
-@keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
-.reveal.visible { opacity: 1; transform: none; }
-.reveal-d1 { transition-delay: 0.1s; }
-.reveal-d2 { transition-delay: 0.2s; }
-.reveal-d3 { transition-delay: 0.3s; }
-.reveal-d4 { transition-delay: 0.4s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .container { padding: 0 28px; }
-  .nav-inner { padding: 0 28px; }
-  .section-pad { padding: 80px 0; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .cta-row { flex-direction: column; text-align: center; }
-}
-@media (max-width: 768px) {
-  .container { padding: 0 20px; }
-  .nav-inner { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-burger { display: flex; }
-  .mobile-menu { padding: 24px 20px 32px; }
-  .section-pad { padding: 64px 0; }
-  .trust-bar-inner { gap: 24px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .page-hero { padding: calc(var(--nav-h) + 48px) 0 56px; }
-}
-
-</style>
-<style>
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+/* ABOUT MAIN */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
 .about-img-wrap{position:relative;}
-.about-img-wrap img{width:100%;border-radius:var(--radius);display:block;}
-.about-img-badge{position:absolute;bottom:-24px;right:-24px;background:var(--rust);color:var(--white);padding:24px 28px;text-align:center;}
-.about-badge-num{font-family:var(--font-display);font-size:3rem;font-weight:900;line-height:1;}
-.about-badge-txt{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;margin-top:4px;opacity:0.85;}
-.about-text .label{margin-bottom:16px;}
-.about-text h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--charcoal);line-height:1.15;margin-bottom:24px;}
-.about-text p{color:var(--warm-gray);font-size:0.975rem;line-height:1.88;font-weight:300;margin-bottom:20px;}
-.about-text p strong{color:var(--charcoal);font-weight:500;}
-.about-text blockquote{border-left:3px solid var(--rust);padding:16px 20px;margin:28px 0;background:var(--bone);}
-.about-text blockquote p{margin:0;font-family:var(--font-display);font-style:italic;font-size:1.05rem;color:var(--charcoal);}
+.about-img-wrap img{width:100%;height:540px;object-fit:cover;border-radius:2px;}
+.about-badge{position:absolute;bottom:-20px;right:-20px;background:#C25B2A;color:#fff;padding:26px 30px;text-align:center;}
+.about-badge-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:1;}
+.about-badge-txt{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-top:5px;opacity:0.85;line-height:1.5;}
+.about-text p{font-size:15px;color:#555;line-height:1.92;font-weight:300;margin-bottom:20px;}
+.about-text p strong{color:#1a1a1a;font-weight:600;}
+.about-quote{border-left:3px solid #C25B2A;padding:18px 22px;background:#f8f7f4;margin:28px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:#1a1a1a;line-height:1.72;}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:56px;}
+.stat-card{background:#f8f7f4;padding:36px 28px;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#C25B2A;line-height:1;}
+.stat-label{font-size:12px;color:#777;margin-top:8px;line-height:1.5;}
+
+/* VALUES */
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px;}
-.value-card{background:var(--white);padding:36px 28px;}
-.value-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
-.value-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--charcoal);margin-bottom:10px;}
-.value-text{font-size:0.85rem;color:var(--warm-gray);line-height:1.75;font-weight:300;}
-.timeline{display:flex;flex-direction:column;gap:0;margin-top:56px;position:relative;}
-.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:var(--sand);}
-.tl-item{display:flex;gap:40px;padding:0 0 40px 60px;position:relative;}
-.tl-dot{position:absolute;left:12px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--rust);border:3px solid var(--cream);flex-shrink:0;}
-.tl-year{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:var(--rust);margin-bottom:6px;}
-.tl-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:6px;}
-.tl-text{font-size:0.85rem;color:var(--warm-gray);line-height:1.75;font-weight:300;}
-.team-card{display:flex;gap:32px;align-items:flex-start;background:var(--white);padding:40px;margin-bottom:3px;}
-.team-avatar{width:100px;height:100px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--charcoal);flex-shrink:0;}
-.team-name{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--charcoal);margin-bottom:4px;}
-.team-role{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);margin-bottom:14px;}
-.team-bio{font-size:0.875rem;color:var(--warm-gray);line-height:1.82;font-weight:300;}
-@media(max-width:1024px){.about-layout{grid-template-columns:1fr;gap:48px;}.values-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:768px){.values-grid{grid-template-columns:1fr;}.team-card{flex-direction:column;}.about-img-badge{right:0;bottom:-16px;}}
+.value-card{background:#fff;padding:40px 32px;border-top:3px solid #e8e2d9;transition:border-color .3s;}
+.value-card:hover{border-top-color:#C25B2A;}
+.value-icon{font-size:32px;margin-bottom:16px;}
+.value-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#1a1a1a;margin-bottom:12px;}
+.value-text{font-size:13px;color:#777;line-height:1.8;font-weight:300;}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;position:relative;margin-top:56px;}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:#e8e2d9;}
+.tl-item{display:flex;gap:44px;padding:0 0 44px 68px;position:relative;}
+.tl-dot{position:absolute;left:13px;top:4px;width:16px;height:16px;border-radius:50%;background:#C25B2A;border:3px solid #f8f7f4;flex-shrink:0;}
+.tl-year{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#C25B2A;margin-bottom:6px;letter-spacing:0.5px;}
+.tl-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+.tl-text{font-size:13px;color:#777;line-height:1.8;font-weight:300;}
+
+/* TEAM */
+.team-card{display:flex;gap:36px;align-items:flex-start;background:#f8f7f4;padding:44px;margin-bottom:3px;}
+.team-av{width:96px;height:96px;border-radius:50%;background:#C25B2A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;flex-shrink:0;}
+.team-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
+.team-role{font-size:11px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.team-bio{font-size:14px;color:#666;line-height:1.85;font-weight:300;}
+.team-bio p{margin-bottom:14px;}
+
+/* CREDENTIALS */
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px;}
+.cred-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;}
+.cred-icon{font-size:28px;margin-bottom:14px;}
+.cred-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#e8e8e8;margin-bottom:8px;}
+.cred-text{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;}
+
+/* AREAS */
+.area-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:40px;}
+.area-card{background:#fff;padding:28px 20px;text-align:center;border-top:3px solid transparent;transition:border-color .3s;}
+.area-card:hover{border-top-color:#C25B2A;}
+.area-icon{font-size:28px;margin-bottom:12px;}
+.area-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:6px;}
+.area-desc{font-size:12px;color:#777;line-height:1.6;}
+
+/* INLINE ESTIMATE FORM */
+.estimate-strip{background:#f8f7f4;padding:88px 48px;}
+.estimate-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.form-box{background:#fff;padding:44px;}
+.form-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+.form-sub{font-size:13px;color:#777;margin-bottom:28px;line-height:1.65;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.form-group label{font-size:12px;font-weight:600;color:#1a1a1a;letter-spacing:0.3px;}
+.form-group input,.form-group select,.form-group textarea{font-family:'Inter',sans-serif;font-size:13px;padding:12px 14px;border:1.5px solid #e8e2d9;border-radius:3px;background:#f8f7f4;color:#1a1a1a;transition:border-color .2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#C25B2A;background:#fff;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{width:100%;padding:15px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;background:#C25B2A;color:#fff;border:none;border-radius:3px;cursor:pointer;transition:background .2s;letter-spacing:0.3px;}
+.form-submit:hover{background:#A34820;}
+.form-note{font-size:11px;color:#aaa;margin-top:12px;text-align:center;line-height:1.6;}
+.success-msg{display:none;background:rgba(194,91,42,0.06);border:1.5px solid rgba(194,91,42,0.2);padding:18px 22px;border-radius:3px;font-size:13px;color:#C25B2A;line-height:1.7;margin-top:16px;}
+.success-msg.show{display:block;}
+.estimate-info h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:16px;line-height:1.2;}
+.estimate-info p{font-size:14px;color:#666;line-height:1.85;font-weight:300;margin-bottom:20px;}
+.next-steps{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+.next-step{display:flex;gap:16px;align-items:flex-start;}
+.next-step-n{width:32px;height:32px;border-radius:50%;background:#C25B2A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.next-step-text{font-size:13px;color:#555;line-height:1.72;}
+.next-step-text strong{color:#1a1a1a;font-weight:600;display:block;margin-bottom:3px;}
+
+.cta{background:#C25B2A;padding:88px 48px;}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;}
+.cta h2{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#fff;line-height:1.1;}
+.cta h2 em{font-style:italic;opacity:0.72;}
+.cta-right{display:flex;flex-direction:column;gap:14px;align-items:center;flex-shrink:0;}
+.btn-white{background:#fff;color:#C25B2A;padding:16px 34px;border-radius:4px;font-size:15px;font-weight:700;white-space:nowrap;}
+.btn-white:hover{background:#f5ede7;}
+.cta-phone{font-size:13px;color:rgba(255,255,255,0.65);}
+.cta-phone a{color:#fff;font-weight:600;}
+footer{background:#111;padding:72px 48px 36px;}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:32px;}
+.foot-logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;}
+.foot-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.foot-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
+.foot-col h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.foot-col ul a{font-size:13px;color:rgba(255,255,255,0.32);transition:color .2s;}
+.foot-col ul a:hover{color:#fff;}
+.fc-line{display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.32);}
+.fc-line a{color:rgba(255,255,255,0.32);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.18);}
+
+@media(max-width:1024px){nav{padding:0 24px;}.page-hero{padding:60px 24px;}.section{padding:64px 24px;}.about-layout{grid-template-columns:1fr;gap:48px;}.stats-row{grid-template-columns:1fr 1fr;}.values-grid{grid-template-columns:1fr 1fr;}.team-card{flex-direction:column;}.cred-grid{grid-template-columns:1fr 1fr;}.area-grid{grid-template-columns:repeat(3,1fr);}.estimate-strip{padding:64px 24px;}.estimate-layout{grid-template-columns:1fr;}.cta{padding:64px 24px;}.cta-inner{flex-direction:column;text-align:center;}footer{padding:56px 24px 32px;}.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:680px){.page-hero h1{font-size:34px;}.stats-row{grid-template-columns:1fr 1fr;}.values-grid{grid-template-columns:1fr;}.cred-grid{grid-template-columns:1fr;}.area-grid{grid-template-columns:1fr 1fr;}.form-row{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.about-badge{right:0;bottom:-16px;}}
 </style>
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+
+<nav>
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
     <img src="logo.png" alt="Howard Construction Inc." style="height:52px;width:auto;display:block;">
     <div style="display:flex;flex-direction:column;line-height:1.15;">
       <span style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:900;color:#1a1a1a;letter-spacing:-0.3px;">Howard Construction</span>
-      <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:700;color:#1a1a1a;letter-spacing:-0.2px;">Inc.</span>
+      <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-weight:700;color:#1a1a1a;">Inc.</span>
       <span style="font-size:9px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;margin-top:2px;">Santa Rosa CA · Est. 2000</span>
     </div>
   </a>
-    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="about.html" class="active">About</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
-    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="knowledge.html">Knowledge Base</a>
+    <a href="about.html" class="active">About</a>
+    <a href="testimonials.html">Reviews</a>
+    <a href="contact.html" class="nav-cta">Free Estimate</a>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
 
-<main>
+<!-- HERO -->
 <section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
-  <div class="container"><div class="page-hero-content">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">About Us</span></nav>
-    <div class="label gold">Our Story</div>
-    <h1>A Family Company<br>Built on <em>Craftsmanship</em></h1>
-    <p class="page-hero-sub">Howard Construction Inc. has served the North Bay Area since 2000 — built on the principles of communication, quality, and a genuine commitment to the communities we work in.</p>
-  </div></div>
+  <div style="max-width:720px;">
+    <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+    <div class="page-tag">Our Story</div>
+    <h1>A Family Company Built<br>on <em>Three Generations</em><br>of Craftsmanship</h1>
+    <p>Howard Construction Inc. has served Northern California since 2000 — founded on the belief that every homeowner deserves a contractor who shows up, communicates honestly, and builds things right the first time. We serve Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga.</p>
+  </div>
 </section>
 
 <!-- ABOUT MAIN -->
-<section class="section-pad bg-cream">
-  <div class="container">
-    <div class="about-layout">
-      <div class="about-img-wrap reveal">
-        <div style="width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,#3D3528 0%,#2C2520 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
-          <div style="font-size:4rem;">👷</div>
-          <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:700;color:#EDE8DC;text-align:center;">Philip Howard<br><span style="font-size:0.8rem;color:#B5471B;font-style:italic;">Owner &amp; President</span></div>
-        </div>
-        <div class="about-img-badge"><div class="about-badge-num">25+</div><div class="about-badge-txt">Years Building<br>Sonoma County</div></div>
-      </div>
-      <div class="about-text reveal reveal-d1">
-        <div class="label">About Philip Howard</div>
-        <h2>A Sonoma County Native Who Builds Like It's His Own Home</h2>
-        <p>Philip Howard grew up in Sonoma County, and that sense of place shapes everything about how he runs Howard Construction. <strong>He is a third-generation builder</strong> — his father and grandfather were both carpenters, and Phil credits them with instilling in him both a love of building and a deep respect for the craft.</p>
-        <p>Phil began working in construction as a teenager, starting in roofing where he developed his hands-on skills and his ability to manage crews and deliver accurate estimates. At 28, he joined a well-established firm specializing in high-end new home construction, remodels, and commercial work — where he refined his commitment to communication and quality workmanship that defines Howard Construction today.</p>
-        <blockquote><p>"I learned early that the best construction is invisible. When the job is done right, clients don't notice the work — they just notice how much they love their home."</p></blockquote>
-        <p>Howard Construction Inc. is a <strong>family-owned business</strong> serving Sonoma, Marin, Napa, Mendocino, and Lake Counties. Phil personally oversees every project from first consultation to final punch list — no project managers, no middlemen, no surprises.</p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:8px;">Talk to Phil Directly →</a>
+<section class="section" style="background:#fff;">
+  <div class="about-layout">
+    <div class="about-img-wrap">
+      <img src="about2.jpg" alt="Philip Howard — Owner and President, Howard Construction Inc." onerror="this.parentElement.style.background='#2A3D2D';this.parentElement.style.minHeight='500px';this.style.display='none'">
+      <div class="about-badge">
+        <div class="about-badge-num">25+</div>
+        <div class="about-badge-txt">Years Building<br>Northern California</div>
       </div>
     </div>
+    <div class="about-text">
+      <div class="section-tag">About Philip Howard</div>
+      <div class="section-title">The Man Behind Every Project</div>
+      <p>Philip Howard isn't just the owner of Howard Construction — he is the contractor you hire when you want it done right. <strong>Born and raised in Sonoma County</strong>, Phil has deep roots in the communities he serves. His grandfather was a carpenter. His father was a carpenter. And from the time Phil was a teenager swinging a hammer on roofing crews, it was clear he was built for this work too.</p>
+      <p>What separates Phil from the competition isn't just skill — it's <strong>character</strong>. Over 25 years, he has built a reputation across Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga as the contractor who always shows up, always communicates, and never cuts corners. Clients don't just hire him once — they call him back for the next project, and the one after that.</p>
+      <p>At 28, Phil joined one of the North Bay's premier high-end construction firms, where he sharpened his craft on complex custom homes and large commercial projects. When he founded Howard Construction in 2000, he brought that high standard to a business that treats every project — no matter the size — with the same level of care, precision, and professionalism.</p>
+      <div class="about-quote">"My grandfather always said: measure twice, cut once. But the real lesson was this — your reputation is built one nail at a time. I've never forgotten that."<br><br><span style="font-family:'Inter',sans-serif;font-style:normal;font-size:13px;font-weight:600;color:#C25B2A;">— Philip Howard, Owner &amp; President</span></div>
+      <p>Today, Howard Construction is one of the most trusted names in Northern California residential construction. <strong>Every project is personally overseen by Phil</strong> — from the first phone call to the final walkthrough. That is a promise, not a marketing line.</p>
+      <a href="contact.html" class="btn-orange">Schedule a Free Consultation →</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-num">25+</div><div class="stat-label">Years in business serving Northern California</div></div>
+    <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">Completed projects across Sonoma &amp; Napa Counties</div></div>
+    <div class="stat-card"><div class="stat-num">5★</div><div class="stat-label">Perfect average rating on Houzz, BBB &amp; Google</div></div>
+    <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Projects personally overseen by Philip Howard</div></div>
   </div>
 </section>
 
-<!-- VALUES -->
-<section class="section-pad bg-bone">
-  <div class="container">
-    <div class="label">Our Values</div>
-    <h2 class="section-title" style="margin-top:4px;">What We Stand For</h2>
-    <p class="section-sub">These aren't slogans — they're the operating principles that determine how we handle every decision on every project.</p>
-    <div class="values-grid">
-      <div class="value-card reveal"><span class="value-icon">🤝</span><h3 class="value-title">Honest Communication</h3><p class="value-text">We tell you what we find, what it will cost, and what your options are — immediately, in writing, before we proceed. No surprises. No excuses. No runaround.</p></div>
-      <div class="value-card reveal reveal-d1"><span class="value-icon">⚒️</span><h3 class="value-title">Master Craftsmanship</h3><p class="value-text">Every detail matters. We use quality materials, licensed subcontractors, and the same standards on every project regardless of size. Good enough is never good enough.</p></div>
-      <div class="value-card reveal reveal-d2"><span class="value-icon">🏘️</span><h3 class="value-title">Community First</h3><p class="value-text">Phil is a Sonoma County native. We're not a national franchise or an out-of-area company chasing jobs. We build where we live, and we treat your home the way we'd treat our own.</p></div>
-      <div class="value-card reveal"><span class="value-icon">📅</span><h3 class="value-title">Respect for Your Time</h3><p class="value-text">We show up when we say we will. We finish when we say we will. Nightly site cleanup, daily progress, and a crew that treats your home and your schedule with respect.</p></div>
-      <div class="value-card reveal reveal-d1"><span class="value-icon">🔍</span><h3 class="value-title">Attention to Detail</h3><p class="value-text">From the way we plan a project to the way we run a punch list, the details are what separate average contractors from excellent ones. We obsess over the details so you don't have to.</p></div>
-      <div class="value-card reveal reveal-d2"><span class="value-icon">🛡️</span><h3 class="value-title">Full Accountability</h3><p class="value-text">If something goes wrong on our watch, we own it and fix it — no deflecting blame to subcontractors, no billing you for our mistakes. Our name is on every project.</p></div>
+<!-- WHY WE'RE DIFFERENT -->
+<section class="section" style="background:#f8f7f4;">
+  <div class="section-tag">What Makes Us Different</div>
+  <div class="section-title">We Don't Just Build Homes.<br>We Build Trust.</div>
+  <p style="font-size:15px;color:#777;line-height:1.8;font-weight:300;max-width:680px;margin-bottom:0;">In an industry full of contractors who overpromise and underdeliver, Howard Construction has spent 25 years doing the opposite. Here is what that looks like in practice.</p>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <div class="value-title">Honest Communication — Always</div>
+      <p class="value-text">We tell you what we find, what it costs, and what your options are — immediately, in writing, before we proceed. If something unexpected comes up during construction, you hear about it within the hour, not at invoice time. No runarounds. No excuses. No surprises on the final bill.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⚒️</div>
+      <div class="value-title">Master-Level Craftsmanship</div>
+      <p class="value-text">Three generations of building knowledge inform every decision we make on a job site. We use quality materials, hire licensed and insured subcontractors, and apply the same rigorous standards whether we're doing a $15,000 bathroom refresh or a $500,000 custom addition. Good enough has never been good enough for us.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🏘️</div>
+      <div class="value-title">Deep Northern California Roots</div>
+      <p class="value-text">Phil is a Sonoma County native who has built in Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga for over two decades. We know the local inspectors, the permit offices, the soil conditions, the fire-rebuilding codes, and the subcontractors you can actually count on in this market. That knowledge is worth more than any certification.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">📅</div>
+      <div class="value-title">We Respect Your Time and Your Home</div>
+      <p class="value-text">We show up when we say we will. We finish when we say we will. Every evening our crew sweeps the site, runs a magnetic nail sweep, removes debris, and secures the work area. We've completed full remodels with families living inside throughout — and they've praised our crew's professionalism in review after review.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔍</div>
+      <div class="value-title">Obsessive Attention to Detail</div>
+      <p class="value-text">The difference between an average remodel and an outstanding one comes down to the details — the scribe on a cabinet run, the reveal on a door casing, the slope of a shower pan. We are the contractor who notices these things before you do, and corrects them before you ever have to ask. Clients tell us they can feel the difference the moment they walk in.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🛡️</div>
+      <div class="value-title">Full Accountability, Always</div>
+      <p class="value-text">If something goes wrong on our watch — a subcontractor's work doesn't meet standard, a material arrives damaged, a timeline slips — we own it and fix it at our cost, not yours. Our name is on every project we take. We protect that name by standing behind our work, not hiding behind fine print.</p>
     </div>
   </div>
 </section>
 
 <!-- TIMELINE -->
-<section class="section-pad bg-white">
-  <div class="container" style="max-width:900px;">
-    <div class="label">Our History</div>
-    <h2 class="section-title" style="margin-top:4px;margin-bottom:8px;">25 Years of Building the North Bay</h2>
-    <p class="section-sub">From Phil's first days in roofing to leading one of Sonoma County's most trusted construction firms.</p>
-    <div class="timeline" style="margin-top:56px;">
-      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">Early Career</div><div class="tl-title">Starting in the Trades</div><p class="tl-text">Phil begins working in construction as a teenager, starting in roofing. He develops hands-on skills alongside the ability to supervise crews and produce accurate estimates for clients across Sonoma County.</p></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">Late 1990s</div><div class="tl-title">High-End Residential Construction</div><p class="tl-text">At 28, Phil joins a well-established firm specializing in high-end new home construction, remodels, and commercial work. He refines his understanding of quality workmanship and client communication at scale.</p></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">2000</div><div class="tl-title">Howard Construction Inc. Founded</div><p class="tl-text">Phil founds Howard Construction Inc. in Santa Rosa, CA. The company opens with a commitment to serving Sonoma County homeowners with the same level of quality he provided at the previous firm — but with more personal accountability.</p></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">2000s–2010s</div><div class="tl-title">Growing Reputation Across the North Bay</div><p class="tl-text">Howard Construction grows through word-of-mouth referrals from satisfied clients. The company expands its service area across Sonoma, Marin, Napa, Mendocino, and Lake Counties while maintaining Phil's hands-on oversight model.</p></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">2012</div><div class="tl-title">Houzz Pro Verified Profile</div><p class="tl-text">Howard Construction joins Houzz Pro and begins receiving verified reviews, expanding visibility across Northern California and building a consistent record of 5-star client feedback.</p></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">Today</div><div class="tl-title">500+ Projects. Same Principles.</div><p class="tl-text">With more than 500 completed projects and 25 years in business, Howard Construction continues to operate the same way Phil started — personally involved, transparent, and committed to delivering work that outlasts the contract.</p></div></div>
-    </div>
+<section class="section" style="background:#fff;max-width:960px;margin:0 auto;">
+  <div class="section-tag">Our History</div>
+  <div class="section-title">25 Years of Building the North Bay</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">Early Career</div><div class="tl-title">Born Into the Trades</div><p class="tl-text">Philip Howard grows up in Sonoma County surrounded by builders — his grandfather and father both carpenters. As a teenager he starts working roofing crews across the North Bay, developing hands-on skills and a natural ability to manage people and deliver accurate estimates.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">Late 1990s</div><div class="tl-title">High-End Residential Construction</div><p class="tl-text">At 28, Phil joins one of the North Bay's premier construction firms specializing in high-end custom homes, large remodels, and commercial projects. He manages complex builds across Sonoma Valley, Napa, and Marin — refining his craft and his conviction that client communication is just as important as construction quality.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2000</div><div class="tl-title">Howard Construction Inc. Founded</div><p class="tl-text">Phil founds Howard Construction Inc. in Santa Rosa with a simple mission: bring the quality of high-end residential construction to every homeowner in Northern California, with more personal accountability than any large firm could offer. He personally oversees every project from day one.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2000s</div><div class="tl-title">Building a Reputation Across the North Bay</div><p class="tl-text">Howard Construction grows entirely through word-of-mouth referrals. Homeowners in Santa Rosa, Sonoma Valley, Napa, Petaluma, and Healdsburg pass Phil's name to their neighbors, their family, and their friends. Not a single dollar is spent on advertising — the work speaks for itself.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2010s</div><div class="tl-title">Expanding Into Napa Valley, Calistoga &amp; San Francisco</div><p class="tl-text">Client referrals bring Howard Construction into new markets — Napa Valley estates, Calistoga wine country homes, and selected San Francisco residences. The company earns Houzz Pro verification and begins accumulating the five-star review record it holds today.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2017–2020</div><div class="tl-title">Fire Rebuild and Recovery Work</div><p class="tl-text">Following the devastating North Bay fires, Howard Construction plays an important role in helping families rebuild in Santa Rosa, Sonoma Valley, and surrounding communities. Phil and his team bring the same care and precision to fire rebuilds as to any custom project — helping clients not just rebuild, but build better.</p></div></div>
+    <div class="tl-item" style="padding-bottom:0;"><div class="tl-dot"></div><div><div class="tl-year">Today</div><div class="tl-title">500+ Projects. The Same Promise.</div><p class="tl-text">With more than 500 completed projects and 25 years in business, Howard Construction continues to operate the same way Phil started — personally involved in every project, transparent with every client, and committed to delivering work that outlasts the contract and exceeds every expectation.</p></div></div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section class="section-pad bg-bone">
-  <div class="container">
-    <div class="label">The Team</div>
-    <h2 class="section-title" style="margin-top:4px;margin-bottom:48px;">The People Behind Your Project</h2>
-    <div class="team-card reveal">
-      <div class="team-avatar">PH</div>
+<section class="section" style="background:#f8f7f4;">
+  <div class="section-tag">The Team</div>
+  <div class="section-title">The People on Your Job Site Every Day</div>
+  <div style="margin-top:48px;">
+    <div class="team-card">
+      <div class="team-av">PH</div>
       <div>
         <div class="team-name">Philip Howard</div>
         <div class="team-role">Owner &amp; President · CA Lic. #B-XXXXXX</div>
-        <p class="team-bio">Phil is a third-generation builder and Sonoma County native who has personally managed every Howard Construction project since founding the company in 2000. He holds a California Class B General Contractor license and brings 25+ years of hands-on construction expertise to every consultation and job site. Phil's direct involvement in every project — from estimate through final walkthrough — is what sets Howard Construction apart from larger firms. When you call Howard Construction, you talk to Phil.</p>
+        <div class="team-bio">
+          <p>Philip Howard is one of Northern California's most respected general contractors — a third-generation builder whose reputation has been built entirely through the quality of his work and the loyalty of his clients. In 25 years, he has never run a single advertisement. Every project Howard Construction has ever won came from a referral, a review, or a neighbor who saw the work and called.</p>
+          <p>Phil holds a California Class B General Contractor license and carries full liability and workers' compensation insurance on every project. He personally oversees every Howard Construction job — from the initial site visit through the final punch list. When you hire Howard Construction, you are hiring Phil Howard. He answers his own phone. He is on your job site. He is accountable to you directly, not through a project manager or an assistant.</p>
+          <p>Phil is particularly known for his ability to manage complex, evolving projects — budgets that shift, scopes that expand, unexpected conditions that demand real-time problem-solving. Clients consistently praise his calm, decisive leadership when challenges arise, and his unwillingness to pass problems to someone else. In his own words: <em>"Every problem on a job site is my problem to solve. That's what you hire me for."</em></p>
+        </div>
       </div>
     </div>
-    <div class="team-card reveal" style="margin-top:3px;">
-      <div class="team-avatar">R</div>
+    <div class="team-card" style="margin-top:3px;">
+      <div class="team-av" style="background:#1C2B1F;">R</div>
       <div>
         <div class="team-name">Rich</div>
-        <div class="team-role">Lead Foreman</div>
-        <p class="team-bio">Rich has been Phil's lead foreman for over a decade and is on-site daily for larger Howard Construction projects. Known for exceptional attention to detail and a deep sensitivity to the impact of construction on homeowners and neighbors alike, Rich is the day-to-day operational backbone of Howard Construction. Multiple client reviews specifically mention Rich by name for his professionalism, communication, and respect for the work environment.</p>
+        <div class="team-role">Lead Foreman · 10+ Years with Howard Construction</div>
+        <div class="team-bio">
+          <p>Rich has served as Phil's lead foreman for over a decade and is the day-to-day operational backbone of Howard Construction. On larger projects, Rich is on site from the first day of demo to the day of final inspection — managing the crew, coordinating subcontractors, maintaining site cleanliness, and keeping every detail on track.</p>
+          <p>What distinguishes Rich isn't just his construction knowledge — it's his character. Multiple client reviews mention Rich specifically, praising his professionalism, his sensitivity to neighbors during noisy phases, and his genuine respect for the homes and families he works around. He treats every site as if it were his own home, because that's the standard Phil holds everyone on this team to.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CREDENTIALS -->
-<section class="section-pad bg-dark">
-  <div class="container">
-    <div class="label gold">Credentials &amp; Affiliations</div>
-    <h2 class="section-title light" style="margin-top:4px;margin-bottom:48px;">Licensed, Verified, and Accountable</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;">
-      <div class="reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🏛️</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">California CSLB License</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Class B General Building Contractor. Verifiable at CSLB.ca.gov. Active, bonded, and insured.</p></div>
-      <div class="reveal reveal-d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">✅</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">BBB Accredited Business</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Accredited with the Better Business Bureau, Greater San Francisco region. Verified track record.</p></div>
-      <div class="reveal reveal-d2" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🏗️</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">NCBE Member</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">North Coast Builders Exchange member — a professional trade association serving the North Bay construction industry.</p></div>
-      <div class="reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">⭐</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">Houzz Pro Verified</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Top-rated Houzz Pro profile since 2012 with consistent 5-star verified client reviews.</p></div>
-      <div class="reveal reveal-d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🏊</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">Empire Fiberglass Pools</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Authorized installer of Empire Fiberglass Pools — one of the leading fiberglass pool manufacturers in the US.</p></div>
-      <div class="reveal reveal-d2" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🔒</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">Full Insurance Coverage</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">General liability and workers' compensation insurance on every project. Certificates available on request.</p></div>
+<section class="section" style="background:#1C2B1F;">
+  <div class="page-tag">Credentials &amp; Affiliations</div>
+  <div class="section-title" style="color:#fff;">Licensed, Verified, and Accountable</div>
+  <p style="font-size:15px;color:rgba(255,255,255,0.45);line-height:1.8;font-weight:300;max-width:580px;margin-top:0;">Every credential Howard Construction holds exists for one reason — to protect you. Here is our full record.</p>
+  <div class="cred-grid">
+    <div class="cred-card"><div class="cred-icon">🏛️</div><div class="cred-title">California CSLB License — Class B</div><p class="cred-text">General Building Contractor license. Active, bonded, and insured. Verifiable at CSLB.ca.gov. We provide our license number on all estimates and contracts without being asked.</p></div>
+    <div class="cred-card"><div class="cred-icon">✅</div><div class="cred-title">BBB Accredited Business</div><p class="cred-text">Accredited with the Better Business Bureau, Greater San Francisco region. A verified track record of resolving client concerns and operating with integrity.</p></div>
+    <div class="cred-card"><div class="cred-icon">🏗️</div><div class="cred-title">NCBE Member</div><p class="cred-text">North Coast Builders Exchange member — a professional trade association serving the North Bay construction industry since 1961.</p></div>
+    <div class="cred-card"><div class="cred-icon">⭐</div><div class="cred-title">Houzz Pro Verified</div><p class="cred-text">Top-rated Houzz Pro profile with consistent 5-star verified client reviews. One of the most trusted profiles in the Sonoma County construction category.</p></div>
+    <div class="cred-card"><div class="cred-icon">🏊</div><div class="cred-title">Empire Fiberglass Pools</div><p class="cred-text">Authorized installer of Empire Fiberglass Pools — one of the leading fiberglass pool manufacturers in the United States, known for quality and warranty support.</p></div>
+    <div class="cred-card"><div class="cred-icon">🔒</div><div class="cred-title">Full Insurance Coverage</div><p class="cred-text">General liability and workers' compensation insurance on every project. Certificates of insurance are available on request before any work begins.</p></div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="section" style="background:#f8f7f4;">
+  <div class="section-tag">Where We Work</div>
+  <div class="section-title">Proudly Serving Northern California</div>
+  <p style="font-size:15px;color:#777;line-height:1.8;font-weight:300;max-width:680px;margin-bottom:0;">Howard Construction serves homeowners throughout the North Bay and Northern California. We know the local permit offices, building codes, climate conditions, and trusted subcontractors in every market we serve.</p>
+  <div class="area-grid">
+    <div class="area-card"><div class="area-icon">🍷</div><div class="area-name">Sonoma Valley</div><p class="area-desc">Remodels, ADUs, pools, and additions throughout the Valley of the Moon and surrounding communities.</p></div>
+    <div class="area-card"><div class="area-icon">🌿</div><div class="area-name">Napa Valley</div><p class="area-desc">Custom construction in Napa, Yountville, St. Helena, Rutherford, and throughout Napa County.</p></div>
+    <div class="area-card"><div class="area-icon">🌲</div><div class="area-name">Santa Rosa</div><p class="area-desc">Our hometown. Kitchen remodels, additions, pools, decks, and complete custom builds across Santa Rosa.</p></div>
+    <div class="area-card"><div class="area-icon">🌉</div><div class="area-name">San Francisco</div><p class="area-desc">Selected high-end residential remodels and additions in San Francisco and Marin County.</p></div>
+    <div class="area-card"><div class="area-icon">♨️</div><div class="area-name">Calistoga</div><p class="area-desc">Home construction, ADUs, and remodels in Calistoga and the northern end of Napa Valley.</p></div>
+  </div>
+</section>
+
+<!-- INLINE ESTIMATE FORM -->
+<div class="estimate-strip">
+  <div class="estimate-layout">
+    <div class="form-box">
+      <div class="form-title">Request a Free Estimate</div>
+      <div class="form-sub">Fill out this form and Phil Howard will personally follow up within one business day.</div>
+      <form id="aboutForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" required placeholder="John"></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" required placeholder="Smith"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone Number *</label><input type="tel" required placeholder="(707) 555-0100"></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" required placeholder="john@email.com"></div>
+        </div>
+        <div class="form-group"><label>City / Area</label><input type="text" placeholder="Santa Rosa, Napa, Sonoma, Calistoga, San Francisco…"></div>
+        <div class="form-group"><label>Type of Project *</label>
+          <select required>
+            <option value="">Select project type…</option>
+            <option>Kitchen Remodel</option>
+            <option>Bathroom Remodel</option>
+            <option>Home Addition</option>
+            <option>ADU Construction</option>
+            <option>Pool / Outdoor Living</option>
+            <option>Deck or Pergola</option>
+            <option>Garage or Utility Building</option>
+            <option>Whole-Home Renovation</option>
+            <option>Fire Rebuild</option>
+            <option>Other / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Tell Us About Your Project</label><textarea placeholder="Describe what you're hoping to build or remodel. Don't worry about having all the details — that's what the consultation is for."></textarea></div>
+        <button type="submit" class="form-submit">Send My Request →</button>
+        <div class="form-note">Phil personally reviews every inquiry. Your information is never shared.</div>
+        <div class="success-msg" id="successMsg2">✅ <strong>Request received!</strong> Phil Howard will follow up with you within one business day. Thank you for reaching out to Howard Construction.</div>
+      </form>
+    </div>
+    <div class="estimate-info">
+      <h3>What Happens After You Submit</h3>
+      <p>We make the estimate process as easy and pressure-free as possible. Here is exactly what to expect after you reach out.</p>
+      <div class="next-steps">
+        <div class="next-step"><div class="next-step-n">1</div><div class="next-step-text"><strong>Phil reviews your inquiry</strong>and calls or emails you within one business day to introduce himself and ask a few quick questions about your project.</div></div>
+        <div class="next-step"><div class="next-step-n">2</div><div class="next-step-text"><strong>Free on-site consultation</strong>Phil visits your home in Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, or Calistoga — listens to your vision, assesses the space, and asks the right questions.</div></div>
+        <div class="next-step"><div class="next-step-n">3</div><div class="next-step-text"><strong>Detailed written estimate</strong>You receive a line-item written estimate within 5–7 business days. No vague numbers. No pressure. No obligation.</div></div>
+        <div class="next-step"><div class="next-step-n">4</div><div class="next-step-text"><strong>Your decision, on your timeline</strong>We never use high-pressure tactics. Review the estimate at your own pace. We're here to answer any questions you have.</div></div>
+      </div>
+      <div style="margin-top:32px;padding:24px;background:#fff;border-left:3px solid #C25B2A;">
+        <div style="font-size:11px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Prefer to call directly?</div>
+        <a href="tel:+17075786565" style="font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#1a1a1a;">(707) 578-6565</a>
+        <div style="font-size:12px;color:#999;margin-top:4px;">Mon–Fri 7am–6pm · Sat 8am–2pm</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Ready to meet Phil<br><em>and get started?</em></h2>
+    <div class="cta-right">
+      <a href="contact.html" class="btn-white">Go to Full Contact Page →</a>
+      <div class="cta-phone">or call <a href="tel:+17075786565">(707) 578-6565</a></div>
     </div>
   </div>
 </section>
 
-<section class="cta-banner"><div class="container"><div class="cta-row"><h2 class="cta-headline">Ready to meet Phil<br><em>and get started?</em></h2><div class="cta-actions"><a href="contact.html" class="btn btn-white">Schedule a Consultation →</a><div class="cta-tel">or call <a href="tel:+17075786565">(707) 578-6565</a></div></div></div></div></section>
-</main>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <img src="logo.png" alt="Howard Construction Inc." style="height:44px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.75;">
+        <div><div class="foot-logo-text">Howard Construction Inc.</div><div style="font-size:9px;color:#C25B2A;letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Santa Rosa CA · Est. 2000</div></div>
+      </div>
+      <div class="foot-lic">CA Lic. #B-XXXXXX · BBB Accredited · NCBE Member</div>
+      <p class="foot-desc">Serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga since 2000.</p>
+    </div>
+    <div class="foot-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Home Additions</a></li><li><a href="services.html">Pool Construction</a></li><li><a href="services.html">Decks &amp; Pergolas</a></li><li><a href="services.html">ADU Construction</a></li></ul></div>
+    <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Philip Howard</a></li><li><a href="testimonials.html">Client Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4>
+      <div class="fc-line">📞 <a href="tel:+17075786565">(707) 578-6565</a></div>
+      <div class="fc-line">✉️ <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
+      <div class="fc-line">📍 4012 Cervantes Road, Santa Rosa CA 95403</div>
+    </div>
+  </div>
+  <div class="foot-bottom"><div class="foot-copy">© 2025 Howard Construction Inc. All rights reserved. CA Lic. #B-XXXXXX.</div></div>
+</footer>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div><div style="margin-bottom:16px;">
-          <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:900;color:#EDE8DC;line-height:1.1;">HOWARD<br>CONSTRUCTION</div>
-          <div style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#B5471B;margin-top:4px;">INC. · EST. 2000 · SANTA ROSA CA</div>
-        </div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Additions</a></li><li><a href="services.html">Pools</a></li><li><a href="services.html">ADUs</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
-<script src="js/main.js"></script>
-</body></html>
+<script>
+window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>20?'0 2px 24px rgba(0,0,0,0.1)':'none';},{passive:true});
+function submitForm(e){
+  e.preventDefault();
+  var btn=document.querySelector('.form-submit');
+  btn.textContent='Sending…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('successMsg2').classList.add('show');
+    document.getElementById('aboutForm').reset();
+    btn.textContent='Send My Request →';btn.disabled=false;
+  },1200);
+}
+</script>
+</body>
+</html>

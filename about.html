@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Philip Howard and Howard Construction Inc. — Sonoma County native and licensed general contractor with 25+ years building homes in the North Bay Area.">
+<title>About Us | Howard Construction Inc. | Santa Rosa CA</title>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-wrap img{width:100%;border-radius:var(--radius);display:block;}
+.about-img-badge{position:absolute;bottom:-24px;right:-24px;background:var(--rust);color:var(--white);padding:24px 28px;text-align:center;}
+.about-badge-num{font-family:var(--font-display);font-size:3rem;font-weight:900;line-height:1;}
+.about-badge-txt{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;margin-top:4px;opacity:0.85;}
+.about-text .label{margin-bottom:16px;}
+.about-text h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--charcoal);line-height:1.15;margin-bottom:24px;}
+.about-text p{color:var(--warm-gray);font-size:0.975rem;line-height:1.88;font-weight:300;margin-bottom:20px;}
+.about-text p strong{color:var(--charcoal);font-weight:500;}
+.about-text blockquote{border-left:3px solid var(--rust);padding:16px 20px;margin:28px 0;background:var(--bone);}
+.about-text blockquote p{margin:0;font-family:var(--font-display);font-style:italic;font-size:1.05rem;color:var(--charcoal);}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px;}
+.value-card{background:var(--white);padding:36px 28px;}
+.value-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
+.value-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--charcoal);margin-bottom:10px;}
+.value-text{font-size:0.85rem;color:var(--warm-gray);line-height:1.75;font-weight:300;}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:56px;position:relative;}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:var(--sand);}
+.tl-item{display:flex;gap:40px;padding:0 0 40px 60px;position:relative;}
+.tl-dot{position:absolute;left:12px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--rust);border:3px solid var(--cream);flex-shrink:0;}
+.tl-year{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:var(--rust);margin-bottom:6px;}
+.tl-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:6px;}
+.tl-text{font-size:0.85rem;color:var(--warm-gray);line-height:1.75;font-weight:300;}
+.team-card{display:flex;gap:32px;align-items:flex-start;background:var(--white);padding:40px;margin-bottom:3px;}
+.team-avatar{width:100px;height:100px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--charcoal);flex-shrink:0;}
+.team-name{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--charcoal);margin-bottom:4px;}
+.team-role{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);margin-bottom:14px;}
+.team-bio{font-size:0.875rem;color:var(--warm-gray);line-height:1.82;font-weight:300;}
+@media(max-width:1024px){.about-layout{grid-template-columns:1fr;gap:48px;}.values-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.values-grid{grid-template-columns:1fr;}.team-card{flex-direction:column;}.about-img-badge{right:0;bottom:-16px;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Howard Construction Inc."></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="about.html" class="active">About</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
+    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
+
+<main>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
+  <div class="container"><div class="page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">About Us</span></nav>
+    <div class="label gold">Our Story</div>
+    <h1>A Family Company<br>Built on <em>Craftsmanship</em></h1>
+    <p class="page-hero-sub">Howard Construction Inc. has served the North Bay Area since 2000 — built on the principles of communication, quality, and a genuine commitment to the communities we work in.</p>
+  </div></div>
+</section>
+
+<!-- ABOUT MAIN -->
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-img-wrap reveal">
+        <img src="img/about2.jpg" alt="Philip Howard — Owner, Howard Construction Inc.">
+        <div class="about-img-badge"><div class="about-badge-num">25+</div><div class="about-badge-txt">Years Building<br>Sonoma County</div></div>
+      </div>
+      <div class="about-text reveal reveal-d1">
+        <div class="label">About Philip Howard</div>
+        <h2>A Sonoma County Native Who Builds Like It's His Own Home</h2>
+        <p>Philip Howard grew up in Sonoma County, and that sense of place shapes everything about how he runs Howard Construction. <strong>He is a third-generation builder</strong> — his father and grandfather were both carpenters, and Phil credits them with instilling in him both a love of building and a deep respect for the craft.</p>
+        <p>Phil began working in construction as a teenager, starting in roofing where he developed his hands-on skills and his ability to manage crews and deliver accurate estimates. At 28, he joined a well-established firm specializing in high-end new home construction, remodels, and commercial work — where he refined his commitment to communication and quality workmanship that defines Howard Construction today.</p>
+        <blockquote><p>"I learned early that the best construction is invisible. When the job is done right, clients don't notice the work — they just notice how much they love their home."</p></blockquote>
+        <p>Howard Construction Inc. is a <strong>family-owned business</strong> serving Sonoma, Marin, Napa, Mendocino, and Lake Counties. Phil personally oversees every project from first consultation to final punch list — no project managers, no middlemen, no surprises.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:8px;">Talk to Phil Directly →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section-pad bg-bone">
+  <div class="container">
+    <div class="label">Our Values</div>
+    <h2 class="section-title" style="margin-top:4px;">What We Stand For</h2>
+    <p class="section-sub">These aren't slogans — they're the operating principles that determine how we handle every decision on every project.</p>
+    <div class="values-grid">
+      <div class="value-card reveal"><span class="value-icon">🤝</span><h3 class="value-title">Honest Communication</h3><p class="value-text">We tell you what we find, what it will cost, and what your options are — immediately, in writing, before we proceed. No surprises. No excuses. No runaround.</p></div>
+      <div class="value-card reveal reveal-d1"><span class="value-icon">⚒️</span><h3 class="value-title">Master Craftsmanship</h3><p class="value-text">Every detail matters. We use quality materials, licensed subcontractors, and the same standards on every project regardless of size. Good enough is never good enough.</p></div>
+      <div class="value-card reveal reveal-d2"><span class="value-icon">🏘️</span><h3 class="value-title">Community First</h3><p class="value-text">Phil is a Sonoma County native. We're not a national franchise or an out-of-area company chasing jobs. We build where we live, and we treat your home the way we'd treat our own.</p></div>
+      <div class="value-card reveal"><span class="value-icon">📅</span><h3 class="value-title">Respect for Your Time</h3><p class="value-text">We show up when we say we will. We finish when we say we will. Nightly site cleanup, daily progress, and a crew that treats your home and your schedule with respect.</p></div>
+      <div class="value-card reveal reveal-d1"><span class="value-icon">🔍</span><h3 class="value-title">Attention to Detail</h3><p class="value-text">From the way we plan a project to the way we run a punch list, the details are what separate average contractors from excellent ones. We obsess over the details so you don't have to.</p></div>
+      <div class="value-card reveal reveal-d2"><span class="value-icon">🛡️</span><h3 class="value-title">Full Accountability</h3><p class="value-text">If something goes wrong on our watch, we own it and fix it — no deflecting blame to subcontractors, no billing you for our mistakes. Our name is on every project.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section-pad bg-white">
+  <div class="container" style="max-width:900px;">
+    <div class="label">Our History</div>
+    <h2 class="section-title" style="margin-top:4px;margin-bottom:8px;">25 Years of Building the North Bay</h2>
+    <p class="section-sub">From Phil's first days in roofing to leading one of Sonoma County's most trusted construction firms.</p>
+    <div class="timeline" style="margin-top:56px;">
+      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">Early Career</div><div class="tl-title">Starting in the Trades</div><p class="tl-text">Phil begins working in construction as a teenager, starting in roofing. He develops hands-on skills alongside the ability to supervise crews and produce accurate estimates for clients across Sonoma County.</p></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">Late 1990s</div><div class="tl-title">High-End Residential Construction</div><p class="tl-text">At 28, Phil joins a well-established firm specializing in high-end new home construction, remodels, and commercial work. He refines his understanding of quality workmanship and client communication at scale.</p></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">2000</div><div class="tl-title">Howard Construction Inc. Founded</div><p class="tl-text">Phil founds Howard Construction Inc. in Santa Rosa, CA. The company opens with a commitment to serving Sonoma County homeowners with the same level of quality he provided at the previous firm — but with more personal accountability.</p></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">2000s–2010s</div><div class="tl-title">Growing Reputation Across the North Bay</div><p class="tl-text">Howard Construction grows through word-of-mouth referrals from satisfied clients. The company expands its service area across Sonoma, Marin, Napa, Mendocino, and Lake Counties while maintaining Phil's hands-on oversight model.</p></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">2012</div><div class="tl-title">Houzz Pro Verified Profile</div><p class="tl-text">Howard Construction joins Houzz Pro and begins receiving verified reviews, expanding visibility across Northern California and building a consistent record of 5-star client feedback.</p></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"></div><div><div class="tl-year">Today</div><div class="tl-title">500+ Projects. Same Principles.</div><p class="tl-text">With more than 500 completed projects and 25 years in business, Howard Construction continues to operate the same way Phil started — personally involved, transparent, and committed to delivering work that outlasts the contract.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section-pad bg-bone">
+  <div class="container">
+    <div class="label">The Team</div>
+    <h2 class="section-title" style="margin-top:4px;margin-bottom:48px;">The People Behind Your Project</h2>
+    <div class="team-card reveal">
+      <div class="team-avatar">PH</div>
+      <div>
+        <div class="team-name">Philip Howard</div>
+        <div class="team-role">Owner &amp; President · CA Lic. #B-XXXXXX</div>
+        <p class="team-bio">Phil is a third-generation builder and Sonoma County native who has personally managed every Howard Construction project since founding the company in 2000. He holds a California Class B General Contractor license and brings 25+ years of hands-on construction expertise to every consultation and job site. Phil's direct involvement in every project — from estimate through final walkthrough — is what sets Howard Construction apart from larger firms. When you call Howard Construction, you talk to Phil.</p>
+      </div>
+    </div>
+    <div class="team-card reveal" style="margin-top:3px;">
+      <div class="team-avatar">R</div>
+      <div>
+        <div class="team-name">Rich</div>
+        <div class="team-role">Lead Foreman</div>
+        <p class="team-bio">Rich has been Phil's lead foreman for over a decade and is on-site daily for larger Howard Construction projects. Known for exceptional attention to detail and a deep sensitivity to the impact of construction on homeowners and neighbors alike, Rich is the day-to-day operational backbone of Howard Construction. Multiple client reviews specifically mention Rich by name for his professionalism, communication, and respect for the work environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="section-pad bg-dark">
+  <div class="container">
+    <div class="label gold">Credentials &amp; Affiliations</div>
+    <h2 class="section-title light" style="margin-top:4px;margin-bottom:48px;">Licensed, Verified, and Accountable</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;">
+      <div class="reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🏛️</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">California CSLB License</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Class B General Building Contractor. Verifiable at CSLB.ca.gov. Active, bonded, and insured.</p></div>
+      <div class="reveal reveal-d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">✅</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">BBB Accredited Business</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Accredited with the Better Business Bureau, Greater San Francisco region. Verified track record.</p></div>
+      <div class="reveal reveal-d2" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🏗️</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">NCBE Member</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">North Coast Builders Exchange member — a professional trade association serving the North Bay construction industry.</p></div>
+      <div class="reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">⭐</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">Houzz Pro Verified</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Top-rated Houzz Pro profile since 2012 with consistent 5-star verified client reviews.</p></div>
+      <div class="reveal reveal-d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🏊</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">Empire Fiberglass Pools</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">Authorized installer of Empire Fiberglass Pools — one of the leading fiberglass pool manufacturers in the US.</p></div>
+      <div class="reveal reveal-d2" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:32px;"><div style="font-size:2rem;margin-bottom:14px;">🔒</div><div style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:8px;">Full Insurance Coverage</div><p style="font-size:0.82rem;color:rgba(255,255,255,0.42);line-height:1.7;">General liability and workers' compensation insurance on every project. Certificates available on request.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner"><div class="container"><div class="cta-row"><h2 class="cta-headline">Ready to meet Phil<br><em>and get started?</em></h2><div class="cta-actions"><a href="contact.html" class="btn btn-white">Schedule a Consultation →</a><div class="cta-tel">or call <a href="tel:+17075786565">(707) 578-6565</a></div></div></div></div></section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-logo"><img src="img/logo.png" alt="Howard Construction Inc."></div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Additions</a></li><li><a href="services.html">Pools</a></li><li><a href="services.html">ADUs</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
+<script src="js/main.js"></script>
+</body></html>

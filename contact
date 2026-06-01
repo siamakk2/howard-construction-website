@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Howard Construction Inc. for a free estimate. Call (707) 578-6565 or fill out our project inquiry form. Serving Santa Rosa and Sonoma County, CA.">
+<title>Contact &amp; Free Estimate | Howard Construction Inc. | Santa Rosa CA</title>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:56px;}
+.contact-form-wrap{background:var(--white);padding:56px 48px;}
+.contact-info-wrap{background:var(--charcoal);padding:56px 44px;display:flex;flex-direction:column;gap:36px;}
+.form-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--charcoal);margin-bottom:8px;}
+.form-sub{font-size:0.875rem;color:var(--warm-gray);margin-bottom:32px;line-height:1.7;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.form-group label{font-size:0.78rem;font-weight:500;color:var(--charcoal);letter-spacing:0.04em;}
+.form-group input,.form-group select,.form-group textarea{font-family:var(--font-body);font-size:0.9rem;padding:13px 16px;border:1.5px solid var(--sand);border-radius:var(--radius);background:var(--cream);color:var(--text-body);transition:border-color var(--transition),box-shadow var(--transition);outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rust);box-shadow:0 0 0 3px rgba(181,71,27,0.1);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-submit{width:100%;padding:16px;font-family:var(--font-body);font-size:1rem;font-weight:600;background:var(--rust);color:var(--white);border:none;border-radius:var(--radius);cursor:pointer;transition:background var(--transition),transform var(--transition);letter-spacing:0.04em;}
+.form-submit:hover{background:var(--rust-dark);transform:translateY(-1px);}
+.form-note{font-size:0.75rem;color:var(--warm-gray);margin-top:12px;text-align:center;line-height:1.6;}
+.info-block{}
+.info-block-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bone);margin-bottom:14px;}
+.info-line{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;font-size:0.875rem;color:rgba(255,255,255,0.45);}
+.info-line .ico{color:var(--rust);font-size:1rem;flex-shrink:0;margin-top:1px;}
+.info-line a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color var(--transition);}
+.info-line a:hover{color:var(--bone);}
+.service-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.service-chip{font-size:0.72rem;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);padding:5px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.08);}
+.success-msg{display:none;background:rgba(181,71,27,0.06);border:1.5px solid rgba(181,71,27,0.2);padding:20px 24px;border-radius:var(--radius);font-size:0.875rem;color:var(--rust);line-height:1.7;margin-top:16px;}
+.success-msg.show{display:block;}
+@media(max-width:1024px){.contact-layout{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+@media(max-width:768px){.contact-form-wrap{padding:36px 24px;}.contact-info-wrap{padding:36px 24px;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Howard Construction Inc."></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="about.html">About</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="contact.html" class="active nav-cta">Free Estimate</a></li></ul>
+    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
+
+<main>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
+  <div class="container"><div class="page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">Contact</span></nav>
+    <div class="label gold">Let's Talk</div>
+    <h1>Get Your Free<br><em>Estimate Today</em></h1>
+    <p class="page-hero-sub">Tell us about your project and Phil Howard will personally follow up within one business day. No pressure. No obligation. Just an honest conversation about what you want to build.</p>
+  </div></div>
+</section>
+
+<section class="section-pad bg-bone">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- FORM -->
+      <div class="contact-form-wrap reveal">
+        <div class="form-title">Tell Us About Your Project</div>
+        <div class="form-sub">Fill out the form and Phil Howard will personally call or email you within one business day to discuss your project and schedule a free on-site consultation.</div>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group"><label for="fname">First Name *</label><input type="text" id="fname" name="firstName" required placeholder="John"></div>
+            <div class="form-group"><label for="lname">Last Name *</label><input type="text" id="lname" name="lastName" required placeholder="Smith"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required placeholder="john@email.com"></div>
+            <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required placeholder="(707) 555-0100"></div>
+          </div>
+          <div class="form-group"><label for="address">Project Address / City</label><input type="text" id="address" name="address" placeholder="Santa Rosa, CA"></div>
+          <div class="form-group"><label for="service">Type of Project *</label>
+            <select id="service" name="service" required>
+              <option value="">Select project type…</option>
+              <option>Kitchen Remodel</option>
+              <option>Bathroom Remodel</option>
+              <option>Home Addition</option>
+              <option>ADU Construction</option>
+              <option>Pool / Outdoor Living</option>
+              <option>Deck or Pergola</option>
+              <option>Garage or Utility Building</option>
+              <option>Whole-Home Renovation</option>
+              <option>Other / Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="budget">Approximate Budget</label>
+              <select id="budget" name="budget">
+                <option value="">Prefer not to say</option>
+                <option>Under $25,000</option>
+                <option>$25,000 – $50,000</option>
+                <option>$50,000 – $100,000</option>
+                <option>$100,000 – $200,000</option>
+                <option>$200,000+</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="timeline">Desired Start</label>
+              <select id="timeline" name="timeline">
+                <option value="">Not sure yet</option>
+                <option>As soon as possible</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>6–12 months</option>
+                <option>Planning only for now</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="message">Project Description</label><textarea id="message" name="message" placeholder="Tell us what you're hoping to build or change. Don't worry about having all the details figured out — that's what the consultation is for."></textarea></div>
+          <div class="form-group" style="flex-direction:row;align-items:center;gap:10px;margin-bottom:20px;">
+            <input type="checkbox" id="permit" name="permits" style="width:auto;flex-shrink:0;accent-color:var(--rust);">
+            <label for="permit" style="font-size:0.82rem;color:var(--warm-gray);cursor:pointer;">I need help understanding permit requirements for this project</label>
+          </div>
+          <button type="submit" class="form-submit">Send My Project Inquiry →</button>
+          <div class="form-note">Philip Howard personally reviews every inquiry and responds within one business day. Your information is never shared.</div>
+          <div class="success-msg" id="successMsg">✅ <strong>Message received!</strong> Phil Howard will personally follow up with you within one business day to discuss your project. Thank you for reaching out to Howard Construction.</div>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="contact-info-wrap reveal reveal-d1">
+        <div class="info-block">
+          <div class="info-block-title">Contact Information</div>
+          <div class="info-line"><span class="ico">📞</span><div><a href="tel:+17075786565">(707) 578-6565</a><br><span style="font-size:0.75rem;opacity:0.5;">Mon–Fri 7am–6pm · Sat 8am–2pm</span></div></div>
+          <div class="info-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
+          <div class="info-line"><span class="ico">📍</span><p>4012 Cervantes Road<br>Santa Rosa, CA 95403</p></div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-title">Service Area</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:14px;">We serve homeowners across the entire North Bay Area, including:</p>
+          <div class="service-chips">
+            <span class="service-chip">Santa Rosa</span><span class="service-chip">Petaluma</span><span class="service-chip">Windsor</span><span class="service-chip">Healdsburg</span><span class="service-chip">Sebastopol</span><span class="service-chip">Sonoma</span><span class="service-chip">Novato</span><span class="service-chip">San Rafael</span><span class="service-chip">Napa</span><span class="service-chip">Ukiah</span><span class="service-chip">Lake County</span>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-title">What Happens Next</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;gap:14px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;flex-shrink:0;">1</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;"><strong style="color:var(--bone);">Phil reviews your inquiry</strong> and calls or emails you within one business day.</p></div>
+            <div style="display:flex;gap:14px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;flex-shrink:0;">2</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;"><strong style="color:var(--bone);">Free on-site consultation</strong> at your home — Phil visits, listens, and asks the right questions.</p></div>
+            <div style="display:flex;gap:14px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;flex-shrink:0;">3</div><p style="font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;"><strong style="color:var(--bone);">Detailed written estimate</strong> delivered within 5–7 business days with line-item pricing.</p></div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-title">Credentials</div>
+          <div class="info-line"><span class="ico">🛡️</span><span>CA Class B License · BBB Accredited</span></div>
+          <div class="info-line"><span class="ico">✅</span><span>Licensed, Bonded &amp; Fully Insured</span></div>
+          <div class="info-line"><span class="ico">⭐</span><span>5-Star Rated · Houzz Pro Verified</span></div>
+          <div class="info-line"><span class="ico">🏊</span><span>Empire Fiberglass Pools — Authorized Installer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div style="background:var(--charcoal);padding:3px;">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.7!2d-122.7144!3d38.4404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDI2JzI1LjQiTiAxMjLCsDQyJzUxLjgiVw!5e0!3m2!1sen!2sus!4v1600000000000" width="100%" height="380" style="border:0;display:block;filter:grayscale(0.3);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Howard Construction Inc. location"></iframe>
+</div>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-logo"><img src="img/logo.png" alt="Howard Construction Inc."></div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Additions</a></li><li><a href="services.html">Pools</a></li><li><a href="services.html">ADUs</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
+<script src="js/main.js"></script>
+<script>
+function submitForm(e){
+  e.preventDefault();
+  var btn=document.querySelector('.form-submit');
+  btn.textContent='Sending…';btn.disabled=true;
+  setTimeout(function(){
+    document.getElementById('successMsg').classList.add('show');
+    document.getElementById('contactForm').reset();
+    btn.textContent='Send My Project Inquiry →';btn.disabled=false;
+    window.scrollTo({top:document.getElementById('successMsg').offsetTop-100,behavior:'smooth'});
+  },1200);
+}
+</script>
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Read verified client reviews for Howard Construction Inc. — Sonoma County's top-rated general contractor. 5-star reviews on Houzz, Google, and BBB.">
+<title>Client Reviews | Howard Construction Inc. | Santa Rosa CA</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Howard Construction Inc.","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"7","bestRating":"5"}}</script>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:56px;}
+.review-card{background:var(--white);padding:44px 40px;position:relative;border-top:3px solid transparent;transition:border-color var(--transition);}
+.review-card:hover{border-top-color:var(--rust);}
+.review-card.featured{background:var(--charcoal);border-top-color:var(--gold);}
+.stars{color:var(--gold);font-size:1rem;letter-spacing:3px;margin-bottom:20px;}
+.featured .stars{color:var(--gold-light);}
+.review-quote{font-family:var(--font-display);font-size:1.05rem;font-style:italic;font-weight:400;color:var(--charcoal);line-height:1.82;margin-bottom:28px;}
+.featured .review-quote{color:var(--bone);}
+.review-meta{display:flex;align-items:center;gap:14px;}
+.review-avatar{width:46px;height:46px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--charcoal);flex-shrink:0;}
+.featured .review-avatar{background:rgba(255,255,255,0.12);color:var(--bone);}
+.review-name{font-weight:600;font-size:0.9rem;color:var(--charcoal);}
+.featured .review-name{color:var(--bone);}
+.review-detail{font-size:0.75rem;color:var(--warm-gray);margin-top:3px;}
+.featured .review-detail{color:rgba(255,255,255,0.4);}
+.rating-summary{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center;background:var(--white);padding:56px 60px;margin-bottom:3px;}
+.rating-big{text-align:center;}
+.rating-num{font-family:var(--font-display);font-size:5rem;font-weight:900;color:var(--charcoal);line-height:1;}
+.rating-stars{color:var(--gold);font-size:1.4rem;letter-spacing:4px;margin:8px 0;}
+.rating-count{font-size:0.8rem;color:var(--warm-gray);font-weight:300;}
+.rating-bars{display:flex;flex-direction:column;gap:10px;flex:1;}
+.rbar-row{display:flex;align-items:center;gap:14px;}
+.rbar-label{font-size:0.78rem;color:var(--warm-gray);width:36px;text-align:right;flex-shrink:0;}
+.rbar-track{flex:1;height:6px;background:var(--bone);border-radius:3px;overflow:hidden;}
+.rbar-fill{height:100%;background:var(--gold);border-radius:3px;}
+.rbar-pct{font-size:0.72rem;color:var(--warm-gray);width:30px;flex-shrink:0;}
+.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3px;}
+.platform-card{background:var(--bone);padding:32px;text-align:center;}
+.platform-icon{font-size:2rem;margin-bottom:12px;display:block;}
+.platform-name{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:6px;}
+.platform-stars{color:var(--gold);font-size:0.9rem;letter-spacing:2px;margin-bottom:6px;}
+.platform-link{font-size:0.8rem;color:var(--rust);text-decoration:none;transition:opacity var(--transition);}
+.platform-link:hover{opacity:0.7;}
+@media(max-width:1024px){.reviews-grid{grid-template-columns:1fr;}.rating-summary{grid-template-columns:1fr;gap:32px;padding:40px;}.platforms{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Howard Construction Inc."></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="about.html">About</a></li><li><a href="testimonials.html" class="active">Reviews</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
+    <button class="nav-burger" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="knowledge.html">Knowledge Base</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a><a href="contact.html" class="btn btn-primary">Get a Free Estimate</a></div>
+
+<main>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-glow"></div>
+  <div class="container"><div class="page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">Client Reviews</span></nav>
+    <div class="label gold">What Clients Say</div>
+    <h1>25 Years of<br><em>Happy Homeowners</em></h1>
+    <p class="page-hero-sub">Every review below comes from a real Howard Construction client. We don't cherry-pick — we build relationships that generate trust, and trust generates these words.</p>
+  </div></div>
+</section>
+
+<section class="section-pad bg-bone">
+  <div class="container">
+    <!-- RATING SUMMARY -->
+    <div class="rating-summary reveal">
+      <div class="rating-big">
+        <div class="rating-num">5.0</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count">Based on 7 verified reviews</div>
+      </div>
+      <div>
+        <div class="rating-bars">
+          <div class="rbar-row"><span class="rbar-label">5★</span><div class="rbar-track"><div class="rbar-fill" style="width:100%"></div></div><span class="rbar-pct">100%</span></div>
+          <div class="rbar-row"><span class="rbar-label">4★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-pct">0%</span></div>
+          <div class="rbar-row"><span class="rbar-label">3★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-pct">0%</span></div>
+          <div class="rbar-row"><span class="rbar-label">2★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-pct">0%</span></div>
+          <div class="rbar-row"><span class="rbar-label">1★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-pct">0%</span></div>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:28px;flex-wrap:wrap;">
+          <div><div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:6px;">Most praised</div><div style="font-size:0.875rem;color:var(--charcoal);font-weight:500;">Communication &amp; Transparency</div></div>
+          <div><div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:6px;">Also highlighted</div><div style="font-size:0.875rem;color:var(--charcoal);font-weight:500;">On-Time Completion · Site Cleanliness</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REVIEW CARDS -->
+    <div class="reviews-grid">
+      <article class="review-card featured reveal" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody">"I had meetings with four contractors, including Philip Howard. There was no doubt in my mind that Philip was not only the most professional contractor I met, but he had the best ideas and the most knowledge about the project. From start to finish we experienced professionalism and the highest quality of work that one could ever hope for. We could not be happier with the finished product."</blockquote>
+        <div class="review-meta"><div class="review-avatar">ML</div><div><div class="review-name" itemprop="author">Michael Lash</div><div class="review-detail">Complete Home Remodel · Santa Rosa, CA</div></div></div>
+      </article>
+
+      <article class="review-card reveal reveal-d1" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody">"We would highly recommend Philip Howard. He did a wonderful job with our remodel project. He was very reliable and communicated well with us during the whole project. He coordinated all the subcontractors so the job ran smoothly and got done on time. Phil paid close attention to details and made sure everything was done correctly and that we were happy with the end result."</blockquote>
+        <div class="review-meta"><div class="review-avatar">KH</div><div><div class="review-name" itemprop="author">Karri Haven &amp; Mary Martz</div><div class="review-detail">Home Remodel · Sonoma County</div></div></div>
+      </article>
+
+      <article class="review-card reveal" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody">"Having worked with contractors in the past, we were impressed with your daily on-time performance, your respect for our desires, and flexibility with changes as the job evolved. We were particularly appreciative of your crew's nightly cleanup efforts — right down to the magnetic nail sweeping! We look forward to working with you again in the future."</blockquote>
+        <div class="review-meta"><div class="review-avatar">LL</div><div><div class="review-name" itemprop="author">Larry Lapsley &amp; Justine Lott</div><div class="review-detail">Deck &amp; Pergola Construction · Santa Rosa</div></div></div>
+      </article>
+
+      <article class="review-card reveal reveal-d1" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody">"I want to formally thank you for the great work you did in rebuilding my garage and utility room addition. Since the project was evolving during construction, you and your guys showed great flexibility and adaptability in responding to the evolving design. You were especially helpful in being my partner in making important decisions. I also want to make a special acknowledgment of Rich's sensitivity and consideration to our neighbors."</blockquote>
+        <div class="review-meta"><div class="review-avatar">GL</div><div><div class="review-name" itemprop="author">George Lawson</div><div class="review-detail">Garage Rebuild &amp; Utility Addition · Santa Rosa</div></div></div>
+      </article>
+
+      <article class="review-card reveal" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody">"Phil and his crew quickly and professionally completed the basics and came back for the second phase of our remodel. They started on our smaller bathroom and found extensive dry rot in the floor — making extensive framing repairs before installing the sheetrock, tile, and textures. This unexpected damage did not throw our schedule off. Phil came through to finish up the bathroom in time for our out-of-town guests. Thanks for making a disruptive remodel smooth and easy for owners who lived in the house through it all."</blockquote>
+        <div class="review-meta"><div class="review-avatar">BH</div><div><div class="review-name" itemprop="author">Barbara D. Howell &amp; Michael Snethlage</div><div class="review-detail">Multi-Phase Bathroom Remodel · Lived In During Construction</div></div></div>
+      </article>
+
+      <article class="review-card reveal reveal-d1" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody">"We hired Phil Howard and Howard Construction to replace a leaking 40-year-old pool at our home in Sonoma. Our original scope was simply to replace the pool. Once work began, we expanded the project significantly — ultimately completely renovating our backyard and then the master bath. Phil showed incredible flexibility and great communication throughout every change."</blockquote>
+        <div class="review-meta"><div class="review-avatar">RL</div><div><div class="review-name" itemprop="author">Ronn Loewenthal</div><div class="review-detail">Pool + Full Backyard + Master Bath Renovation · Sonoma</div></div></div>
+      </article>
+
+      <article class="review-card reveal" style="grid-column:1/-1;" itemscope itemtype="https://schema.org/Review">
+        <div class="stars">★★★★★</div>
+        <blockquote class="review-quote" itemprop="reviewBody" style="max-width:760px;">"We would like to thank you for the outstanding job you did on our pool and deck installation. After months of research, we were so glad to find Howard Construction. You did an excellent job at a reasonable price. We appreciate the time you took to go over all pool options that are available — vinyl, gunite, and fiberglass. We couldn't be happier that we chose a fiberglass pool from Empire Fiberglass Pools. The whole process, from first call to final day, was professional and stress-free."</blockquote>
+        <div class="review-meta"><div class="review-avatar">RD</div><div><div class="review-name" itemprop="author">Ron Darbellay</div><div class="review-detail">Fiberglass Pool &amp; Deck Installation · Sonoma County</div></div></div>
+      </article>
+    </div>
+
+    <!-- PLATFORMS -->
+    <div style="margin-top:64px;">
+      <div class="label" style="margin-bottom:16px;">Find Us On</div>
+      <div class="platforms">
+        <div class="platform-card reveal"><span class="platform-icon">⭐</span><div class="platform-name">Houzz Pro</div><div class="platform-stars">★★★★★</div><a href="https://www.houzz.com/pro/howardconstructioninc1/howard-construction-inc" target="_blank" rel="noopener" class="platform-link">View Houzz Profile →</a></div>
+        <div class="platform-card reveal reveal-d1"><span class="platform-icon">✅</span><div class="platform-name">Better Business Bureau</div><div class="platform-stars">★★★★★</div><a href="https://www.bbb.org/greater-san-francisco/business-reviews/contractors-general/howard-construction-in-santa-rosa-ca-361075" target="_blank" rel="noopener" class="platform-link">View BBB Profile →</a></div>
+        <div class="platform-card reveal reveal-d2"><span class="platform-icon">👍</span><div class="platform-name">Facebook</div><div class="platform-stars">★★★★★</div><a href="https://www.facebook.com/sonomacounty.construction/" target="_blank" rel="noopener" class="platform-link">View Facebook Page →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner"><div class="container"><div class="cta-row"><h2 class="cta-headline">Want results like these<br><em>for your home?</em></h2><div class="cta-actions"><a href="contact.html" class="btn btn-white">Get a Free Estimate →</a><div class="cta-tel">or call <a href="tel:+17075786565">(707) 578-6565</a></div></div></div></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-logo"><img src="img/logo.png" alt="Howard Construction Inc."></div><p class="footer-tagline">Sonoma County's trusted general contractor since 2000.</p><div class="footer-lic">CA Lic. #B-XXXXXX · BBB Accredited</div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Additions</a></li><li><a href="services.html">Pools</a></li><li><a href="services.html">ADUs</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div><div class="footer-col"><h4>Contact</h4><div class="footer-contact-line"><span class="ico">📞</span><a href="tel:+17075786565">(707) 578-6565</a></div><div class="footer-contact-line"><span class="ico">✉️</span><a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div><div class="footer-contact-line"><span class="ico">📍</span><p>4012 Cervantes Road, Santa Rosa CA 95403</p></div></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 Howard Construction Inc. CA Lic. #B-XXXXXX.</div><div class="footer-legal"><a href="#">Privacy</a><a href="#">Sitemap</a></div></div></div></footer>
+<script src="js/main.js"></script>
+</body></html>

@@ -123,13 +123,18 @@ footer{background:#111;padding:72px 48px 36px;}
   footer{padding-left:20px!important;padding-right:20px!important;}
 }
 
+
+.hbgr{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:2001;}
+.hbgr span{display:block;width:24px;height:2px;background:#1a1a1a;border-radius:2px;}
+.mob-nav{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-top:2px solid #C25B2A;z-index:1999;padding:16px 28px 28px;box-shadow:0 8px 32px rgba(0,0,0,0.15);flex-direction:column;}
+.mob-nav a{display:block;padding:15px 0;font-size:16px;font-weight:500;color:#1a1a1a;border-bottom:1px solid #f0ebe3;text-decoration:none;}
+.mob-nav a:last-child{border-bottom:none;margin-top:12px;background:#C25B2A;color:#fff!important;text-align:center;padding:15px;border-radius:4px;font-weight:600;}
+@media(max-width:900px){.nav-menu,.nav-links{display:none!important;}.hbgr{display:flex;}}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" style="text-decoration:none;display:block;flex-shrink:0;">
-    <img src="logo.png" alt="Howard Construction Inc." style="height:52px;width:auto;display:block;">
-  </a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Howard Construction Inc."></a>
   <div class="nav-menu">
     <a href="index.html">Home</a>
     <a href="services.html" class="active">Services</a>
@@ -139,6 +144,14 @@ footer{background:#111;padding:72px 48px 36px;}
     <a href="contact.html" class="nav-cta">Free Estimate</a>
   </div>
 </nav>
+<div class="mob-nav" id="mobNav">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="knowledge.html">Knowledge Base</a>
+  <a href="about.html">About Us</a>
+  <a href="testimonials.html">Client Reviews</a>
+  <a href="contact.html">Get a Free Estimate</a>
+</div>
 
 <section class="page-hero">
   <div class="page-hero-inner">
@@ -153,7 +166,7 @@ footer{background:#111;padding:72px 48px 36px;}
   <div class="svc-grid">
     <div class="svc-card" id="remodels"><div class="svc-num">01</div><div class="svc-icon">🏠</div><div class="svc-title">Home Remodels</div><p class="svc-desc">Complete kitchen, bathroom, and whole-home renovations that respect your budget and your daily routine — including when you live in the space during construction.</p><ul class="svc-list"><li>Kitchen renovations — full gut or cosmetic refresh</li><li>Bathroom remodels and master suite upgrades</li><li>Open floor plan conversions and structural work</li><li>Flooring, drywall, finish carpentry, and paint</li><li>Window and door replacements</li><li>Whole-home renovations and upgrades</li></ul></div>
     <div class="svc-card" id="additions"><div class="svc-num">02</div><div class="svc-icon">🏗️</div><div class="svc-title">Home Additions</div><p class="svc-desc">Seamlessly integrated additions that match your home's existing architecture and significantly increase property value.</p><ul class="svc-list"><li>Single-story and second-story room additions</li><li>ADU construction (detached and attached)</li><li>Master bedroom and bath suite additions</li><li>Garage conversions to living space</li><li>Sunroom and family room additions</li><li>In-law suite and guest house construction</li></ul></div>
-    <div class="svc-card" id="pools"><div class="svc-num">03</div><div class="svc-icon">🏊</div><div class="svc-title">Pool &amp; Outdoor Living</div><p class="svc-desc">Custom pool construction and complete backyard transformations. Authorized Empire Fiberglass Pools dealer for Northern California.</p><ul class="svc-list"><li>Fiberglass pool installation (Empire authorized)</li><li>Gunite and vinyl pool construction</li><li>Pool deck and surrounding hardscape</li><li>Outdoor kitchens and barbecue centers</li><li>Retaining walls and drainage solutions</li><li>Complete backyard renovation</li></ul></div>
+    <div class="svc-card" id="pools"><div class="svc-num">03</div><div class="svc-icon">🏊</div><div class="svc-title">Pool &amp; Outdoor Living</div><p class="svc-desc">Custom pool construction and complete backyard transformations. Authorized </p><ul class="svc-list"><li>Fiberglass pool installation </li><li>Gunite and vinyl pool construction</li><li>Pool deck and surrounding hardscape</li><li>Outdoor kitchens and barbecue centers</li><li>Retaining walls and drainage solutions</li><li>Complete backyard renovation</li></ul></div>
     <div class="svc-card" id="decks"><div class="svc-num">04</div><div class="svc-icon">🪵</div><div class="svc-title">Decks &amp; Pergolas</div><p class="svc-desc">Custom wood, composite, and Trex® deck systems with pergolas and built-in seating designed for Sonoma County's climate.</p><ul class="svc-list"><li>New deck framing and construction</li><li>Deck replacement and structural repair</li><li>Pergolas, arbors, and shade structures</li><li>Built-in benches, planters, and railings</li><li>Fencing and privacy screens</li><li>Concrete patios and walkways</li></ul></div>
     <div class="svc-card" id="garage"><div class="svc-num">05</div><div class="svc-icon">🔧</div><div class="svc-title">Garages &amp; Utility</div><p class="svc-desc">Detached garages, utility rooms, and outbuildings built to California code with the same quality as our primary residential work.</p><ul class="svc-list"><li>Detached and attached garage construction</li><li>Garage rebuilds after damage</li><li>Utility room and laundry room builds</li><li>Workshop and storage structures</li><li>Garage door replacement and framing</li><li>Electrical and plumbing rough-in</li></ul></div>
     <div class="svc-card" id="adu"><div class="svc-num">06</div><div class="svc-icon">🏡</div><div class="svc-title">ADU Construction</div><p class="svc-desc">We guide you from site assessment through design, permits, construction, and final sign-off for your accessory dwelling unit.</p><ul class="svc-list"><li>Detached ADU new construction</li><li>Attached ADU additions</li><li>Garage conversion to ADU</li><li>Junior ADU within existing home</li><li>Full permit management with Sonoma County</li><li>Utility hookups and separate metering</li></ul></div>
@@ -245,202 +258,186 @@ window.addEventListener('scroll',function(){document.querySelector('nav').style.
 
 
 
+// Mobile menu toggle
 
-<script>
-// Mobile nav toggle
-(function(){
-  var tog = document.getElementById("mobToggle");
-  var men = document.getElementById("mobMenu");
-  if(tog && men){
-    tog.addEventListener("click", function(e){
-      e.stopPropagation();
-      men.style.display = (men.style.display === "flex") ? "none" : "flex";
-    });
-    men.querySelectorAll("a").forEach(function(a){
-      a.addEventListener("click", function(){ men.style.display = "none"; });
-    });
-    document.addEventListener("click", function(e){
-      if(!tog.contains(e.target) && !men.contains(e.target)){
-        men.style.display = "none";
-      }
-    });
-  }
-})();
-</script>
-<!-- HOWARD CHAT -->
+
+<!-- CHAT -->
 <style>
-#hbtn{position:fixed;bottom:28px;right:28px;width:62px;height:62px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;z-index:9000;box-shadow:0 4px 20px rgba(194,91,42,0.5);transition:transform .2s;display:flex;align-items:center;justify-content:center;}
-#hbtn:hover{transform:scale(1.1);}
-#hbadge{position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:50%;background:#1C2B1F;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;}
-#hbox{position:fixed;bottom:104px;right:28px;width:360px;background:#fff;border-radius:14px;box-shadow:0 16px 56px rgba(0,0,0,0.2);z-index:9000;display:none;flex-direction:column;overflow:hidden;max-height:560px;}
-#hhead{background:#1C2B1F;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;}
-#hhead-l{display:flex;align-items:center;gap:12px;}
-#hav{width:40px;height:40px;border-radius:50%;background:#C25B2A;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:Georgia,serif;}
-#hname{font-size:14px;font-weight:600;color:#fff;font-family:Inter,sans-serif;}
-#hstatus{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;font-family:Inter,sans-serif;}
-#hclose{background:none;border:none;color:rgba(255,255,255,0.7);font-size:26px;cursor:pointer;line-height:1;padding:0 2px;font-family:Arial,sans-serif;}
-#hclose:hover{color:#fff;}
-#hmsgs{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f5f0e8;min-height:180px;max-height:360px;}
-#hmsgs::-webkit-scrollbar{width:4px;}
-#hmsgs::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px;}
-.hm{display:flex;flex-direction:column;gap:3px;max-width:88%;}
-.hm.bot{align-self:flex-start;}
-.hm.usr{align-self:flex-end;}
-.hm-b{padding:11px 14px;border-radius:12px;font-size:13px;line-height:1.65;font-family:Inter,sans-serif;}
-.hm.bot .hm-b{background:#fff;color:#1a1a1a;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
-.hm.usr .hm-b{background:#C25B2A;color:#fff;border-radius:12px 4px 12px 12px;}
-.hm-t{font-size:10px;color:#bbb;font-family:Inter,sans-serif;}
-.hm.usr .hm-t{text-align:right;}
-.hqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
-.hq{background:#fff;border:1.5px solid #e0d8cc;color:#C25B2A;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}
-.hq:hover{background:#C25B2A;border-color:#C25B2A;color:#fff;}
-#hdots{display:none;align-self:flex-start;padding:12px 14px;background:#fff;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.07);}
-#hdots span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#C25B2A;margin:0 2px;animation:hdt 1.2s infinite;}
-#hdots span:nth-child(2){animation-delay:.2s;}
-#hdots span:nth-child(3){animation-delay:.4s;}
-@keyframes hdt{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
-#hfoot{padding:12px 14px;background:#fff;border-top:1px solid #e8e2d9;display:flex;gap:8px;align-items:center;}
-#hinp{flex:1;border:1.5px solid #e8e2d9;border-radius:22px;padding:9px 15px;font-size:13px;font-family:Inter,sans-serif;outline:none;color:#1a1a1a;}
-#hinp:focus{border-color:#C25B2A;}
-#hgo{width:38px;height:38px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-#hgo:hover{background:#a34820;}
-@media(max-width:440px){#hbox{width:calc(100vw - 24px);right:12px;}#hbtn{right:16px;bottom:20px;}}
+#cb{position:fixed;bottom:28px;right:28px;width:62px;height:62px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;z-index:3000;box-shadow:0 4px 20px rgba(194,91,42,0.5);display:flex;align-items:center;justify-content:center;transition:transform .2s;}
+#cb:hover{transform:scale(1.08);}
+#cbadge{position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:50%;background:#1C2B1F;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;}
+#cbox{position:fixed;bottom:104px;right:28px;width:360px;background:#fff;border-radius:14px;box-shadow:0 16px 56px rgba(0,0,0,0.2);z-index:3000;display:none;flex-direction:column;overflow:hidden;max-height:560px;}
+#chead{background:#1C2B1F;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;}
+#chead-l{display:flex;align-items:center;gap:12px;}
+#cav{width:40px;height:40px;border-radius:50%;background:#C25B2A;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;}
+#cname{font-size:14px;font-weight:600;color:#fff;}
+#cstatus{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
+#cx{background:none;border:none;color:rgba(255,255,255,0.7);font-size:26px;cursor:pointer;line-height:1;padding:0 2px;}
+#cx:hover{color:#fff;}
+#cmsgs{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f5f0e8;min-height:180px;max-height:360px;}
+#cmsgs::-webkit-scrollbar{width:4px;}
+#cmsgs::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px;}
+.cm{display:flex;flex-direction:column;gap:3px;max-width:88%;}
+.cm.bot{align-self:flex-start;}
+.cm.usr{align-self:flex-end;}
+.cm-b{padding:11px 14px;border-radius:12px;font-size:13px;line-height:1.65;}
+.cm.bot .cm-b{background:#fff;color:#1a1a1a;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.cm.usr .cm-b{background:#C25B2A;color:#fff;border-radius:12px 4px 12px 12px;}
+.cm-t{font-size:10px;color:#bbb;}
+.cm.usr .cm-t{text-align:right;}
+.cqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.cq{background:#fff;border:1.5px solid #e0d8cc;color:#C25B2A;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;}
+.cq:hover{background:#C25B2A;border-color:#C25B2A;color:#fff;}
+#cdots{display:none;align-self:flex-start;padding:12px 14px;background:#fff;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.07);}
+#cdots span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#C25B2A;margin:0 2px;animation:cdt 1.2s infinite;}
+#cdots span:nth-child(2){animation-delay:.2s;}
+#cdots span:nth-child(3){animation-delay:.4s;}
+@keyframes cdt{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
+#cfoot{padding:12px 14px;background:#fff;border-top:1px solid #e8e2d9;display:flex;gap:8px;align-items:center;}
+#cinp{flex:1;border:1.5px solid #e8e2d9;border-radius:22px;padding:9px 15px;font-size:13px;font-family:'Inter',sans-serif;outline:none;color:#1a1a1a;}
+#cinp:focus{border-color:#C25B2A;}
+#cgo{width:38px;height:38px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#cgo:hover{background:#A34820;}
+@media(max-width:440px){#cbox{width:calc(100vw - 24px);right:12px;}#cb{right:16px;bottom:20px;}}
 </style>
-
-<button id="hbtn" aria-label="Chat with Howard Construction">
+<button id="cb" aria-label="Chat with us">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-  <div id="hbadge">1</div>
+  <div id="cbadge">1</div>
 </button>
-
-<div id="hbox">
-  <div id="hhead">
-    <div id="hhead-l">
-      <div id="hav">HC</div>
-      <div>
-        <div id="hname">Howard Construction</div>
-        <div id="hstatus">Online &mdash; Northern CA Experts</div>
+<div id="cbox">
+  <div id="chead">
+    <div id="chead-l">
+      <div id="cav">HC</div>
+      <div><div id="cname">Howard Construction</div><div id="cstatus">&#9679; Online &mdash; Northern CA Experts</div></div>
+    </div>
+    <button id="cx">&times;</button>
+  </div>
+  <div id="cmsgs">
+    <div class="cm bot">
+      <div class="cm-b">Welcome to <strong>Howard Construction Inc.</strong><br><br>We are Northern California's trusted general contractor &mdash; serving <strong>Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville</strong> and all surrounding communities since 2000.<br><br>How can we help you today?</div>
+      <div class="cm-t">Now</div>
+      <div class="cqs">
+        <button class="cq" data-q="Where are you building?">Where are you building?</button>
+        <button class="cq" data-q="What is your project?">What is your project?</button>
+        <button class="cq" data-q="How much does it cost?">How much does it cost?</button>
+        <button class="cq" data-q="How do I get a free estimate?">Free estimate</button>
+        <button class="cq" data-q="What are California building codes?">CA Building Codes</button>
+        <button class="cq" data-q="Show me structural calculations">Structural Math</button>
       </div>
     </div>
-    <button id="hclose">&times;</button>
+    <div id="cdots"><span></span><span></span><span></span></div>
   </div>
-  <div id="hmsgs">
-    <div class="hm bot">
-      <div class="hm-b">Welcome to <strong>Howard Construction Inc.</strong><br><br>We are Northern California's trusted general contractor &mdash; experts in <strong>Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga</strong> since 2000.<br><br>How can we help you today?</div>
-      <div class="hm-t">Now</div>
-      <div class="hqs">
-        <button class="hq" data-msg="Where are you building?">Where are you building?</button>
-        <button class="hq" data-msg="What is your project?">What is your project?</button>
-        <button class="hq" data-msg="How much does it cost?">How much does it cost?</button>
-        <button class="hq" data-msg="How do I get a free estimate?">Free estimate</button>
-        <button class="hq" data-msg="What are California building codes?">CA Building Codes</button>
-        <button class="hq" data-msg="Show me structural calculations">Structural Calculations</button>
-      </div>
-    </div>
-    <div id="hdots"><span></span><span></span><span></span></div>
-  </div>
-  <div id="hfoot">
-    <input id="hinp" type="text" placeholder="Ask us anything about your project..." autocomplete="off">
-    <button id="hgo" aria-label="Send">
+  <div id="cfoot">
+    <input id="cinp" type="text" placeholder="Ask us anything..." autocomplete="off">
+    <button id="cgo" aria-label="Send">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     </button>
   </div>
 </div>
-
 <script>
 (function(){
-var open=false;
-var answers={
-  greet:"Hi there! Great to connect. We are experts in Northern California construction across Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, Calistoga, and all surrounding communities. What can I help you with today?",
-  location:"We serve all of Northern California including:\n\nSonoma Valley\nNapa Valley\nSanta Rosa\nSan Francisco and Marin County\nCalistoga\nPetaluma, Windsor, Healdsburg, Sebastopol\nSt. Helena, Yountville, Rutherford\nLake County and Mendocino County\n\nTell us your city and we can confirm coverage and discuss your project!",
-  project:"We build and remodel all types of residential projects:\n\nKitchen and Bathroom Remodels\nHome Additions and Second Stories\nADU / Second Unit Construction\nPool and Outdoor Living Areas\nDecks, Pergolas and Patios\nGarages and Utility Buildings\nFire Rebuild and Restoration\n\nWhat type of project are you planning? We would love to help.",
-  cost:"General pricing for Northern California (2025):\n\nKitchen remodel: $40,000 to $200,000\nBathroom remodel: $15,000 to $60,000\nHome addition: $300 to $550 per sq ft\nADU construction: $180,000 to $350,000\nFiberglass pool: $65,000 to $110,000\nDeck construction: $25 to $60 per sq ft\nGarage build: $50,000 to $120,000\n\nFor an accurate estimate on your specific project, call Philip Howard at (707) 578-6565.",
-  estimate:"Getting your free estimate is easy:\n\n1. Fill out our estimate form on the Contact page\n2. Call Philip Howard directly: (707) 578-6565\n3. Email: info@howardconstructioninc.com\n\nPhil personally reviews every inquiry and responds within one business day. Free on-site consultation, zero pressure.",
-  calcode:"California Building Code (CBC) Key Requirements:\n\nTitle 24 Energy Code: R-38 attic insulation, R-15 walls, dual-pane windows with max U-factor of 0.30, solar mandatory on new homes\n\nCBC Chapter 16 Seismic: Northern California is Seismic Design Category D. Shear walls, anchor bolts at 6 ft max spacing, holddowns required.\n\nFire Code 7A (SRA Zones - Sonoma and Napa): Class A roofing only, ember-resistant vents, non-combustible decking within 5 feet of home, dual-pane windows\n\nPlumbing Code: Max 1.28 gpf toilets, max 1.8 gpm showerheads, max 1.2 gpm faucets\n\nElectrical Code: AFCI required in bedrooms and living areas, GFCI in kitchens, baths, garages, and outdoors\n\nWe handle all code compliance and permitting on every project.",
-  structural:"Structural Engineering Basics:\n\nBeam Sizing Formula: S = M divided by Fb\nDouglas Fir-Larch No. 2: Fb = 900 psi\n\nFloor Joist Spans at 40 psf live load and 10 psf dead load:\n2x8 at 16 inch spacing: max span 12 ft 4 in\n2x10 at 16 inch spacing: max span 15 ft 7 in\n2x12 at 16 inch spacing: max span 18 ft 10 in\n\nHeader Sizing for Standard Openings:\nUp to 4 ft: double 2x6\nUp to 6 ft: double 2x8\nUp to 8 ft: double 2x10\nUp to 10 ft: double 2x12\nOver 10 ft: Engineered LVL beam required\n\nSeismic Shear Walls: 10d nails at 6 inch edges, 12 inch field\nAnchor bolts: minimum 1/2 inch diameter at 6 ft max spacing\n\nWant more detail on any specific calculation?",
-  calculations:"Common Construction Calculations:\n\nConcrete Volume:\nCubic yards = Length x Width x Thickness (feet) divided by 27\nExample: 20 x 30 x 0.33 ft = 200 cu ft = 7.4 cubic yards. Add 10 percent for waste.\n\nRoof Rafter Length:\n4:12 pitch multiplier = 1.054\n6:12 pitch multiplier = 1.118\n12:12 pitch multiplier = 1.414\nRafter length = Horizontal run x multiplier\n\nStair Calculation:\nMax riser = 7-3/4 inches, Min tread = 10 inches\nIdeal rise plus run = 17 to 18 inches\nExample: 9 ft floor to floor = 108 inches divided by 7 inches = 16 risers, actual rise = 6.75 inches\n\nDrainage Slope:\nMinimum 1 percent grade = 1/8 inch per foot\nPreferred 2 percent = 1/4 inch per foot\n\nElectrical Load:\n15-amp circuit: max 1,800 watts continuous\n20-amp circuit: max 2,400 watts continuous",
-  adu:"ADU Guide for California (2024):\n\nAll single-family lots may have at least one ADU by California law\nJunior ADU: Max 500 sq ft within existing structure\nAttached ADU: Max 50 percent of primary or 1,200 sq ft\nDetached ADU: Max 1,200 sq ft new construction\nSetbacks: 4 feet rear and side minimum\n\nCosts in Northern California:\nGarage conversion to ADU: $80,000 to $150,000\nAttached ADU addition: $150,000 to $250,000\nNew detached ADU: $200,000 to $350,000\n\nRental income in Sonoma and Napa Valley: $2,500 to $4,500 per month average\nPayback period: 5 to 8 years typical\n\nWe handle all permits, design coordination, and construction from start to certificate of occupancy.",
-  pool:"Pool Construction Guide:\n\nFiberglass Pool: $65,000 to $110,000 installed, 3 to 6 weeks to install, lowest maintenance, best for most Northern California homeowners. We are an authorized Empire Fiberglass Pools dealer.\n\nGunite Pool: $90,000 to $150,000 or more, 3 to 6 months to build, fully custom shapes, needs replastering every 10 to 15 years\n\nVinyl Liner Pool: $55,000 to $85,000, liner replacement every 10 to 15 years\n\nPermits required: Building permit, electrical permit, safety barrier fence 4 ft minimum height\n\nWould you like to schedule a free pool consultation?",
-  permit:"Permit Guide for Sonoma and Napa Counties:\n\nAlways requires a permit:\nAll structural work, electrical circuits, plumbing changes, HVAC, all additions, ADUs, pools, roof replacements\n\nTypically no permit:\nCosmetic work, like-for-like fixture replacement, minor repairs\n\nTimelines:\nSimple projects: same day over the counter\nStandard residential: 4 to 8 weeks\nLarge addition or ADU: 8 to 16 weeks\n\nApproximate Fees:\nKitchen remodel: $500 to $2,000\nHome addition per sq ft: $8 to $15\nADU: $5,000 to $15,000\nPool: $1,500 to $4,000\n\nWe handle all permit filing and follow-up on every single project.",
-  contact:"Reach us directly:\n\nPhone: (707) 578-6565\nEmail: info@howardconstructioninc.com\nAddress: 4012 Cervantes Road, Santa Rosa CA 95403\nHours: Monday to Friday 7am to 6pm, Saturday 8am to 2pm\n\nPhilip Howard personally handles every inquiry. Visit our Contact page to submit a project request form.",
-  fallback:"Great question! For the most accurate answer for your specific project in Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, or Calistoga, I recommend speaking with Philip Howard directly:\n\nPhone: (707) 578-6565\nEmail: info@howardconstructioninc.com\n\nOr visit our Contact page and submit a project request. Phil responds within one business day."
+var _open=false;
+var A={
+  greet:"Hi there! We are Northern California's trusted general contractor, serving Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, Vallejo, Petaluma, Healdsburg, and all surrounding areas. What can I help you with today?",
+  location:"We serve all of Northern California including:<br><br>Santa Rosa &amp; Sonoma Valley<br>Napa Valley &amp; Calistoga<br>San Francisco &amp; Marin County<br>Fairfield, Vacaville &amp; Vallejo (Solano County)<br>Petaluma, Healdsburg, Windsor, Sebastopol<br>Novato, San Rafael, Mill Valley<br>St. Helena, Yountville, Rutherford<br>Lake County, Mendocino, Ukiah<br><br>Not sure? Call us at (707) 578-6565 and we can confirm!",
+  project:"We build and remodel all types of residential projects:<br><br>Kitchen &amp; Bathroom Remodels<br>Home Additions &amp; Second Stories<br>ADU / Second Unit Construction<br>Pool &amp; Outdoor Living Areas<br>Decks, Pergolas &amp; Patios<br>Garages &amp; Utility Buildings<br>Fire Rebuild &amp; Restoration<br><br>What type of project are you planning?",
+  cost:"General pricing for Northern California (2025):<br><br>Kitchen remodel: $40,000&ndash;$200,000<br>Bathroom remodel: $15,000&ndash;$60,000<br>Home addition: $300&ndash;$550 per sq ft<br>ADU construction: $180,000&ndash;$350,000<br>Pool (fiberglass): $65,000&ndash;$110,000<br>Pool (gunite): $90,000&ndash;$150,000+<br>Deck construction: $25&ndash;$60 per sq ft<br>Garage build: $50,000&ndash;$120,000<br><br>For an accurate estimate, call Phil at (707) 578-6565.",
+  estimate:"Getting your free estimate is easy:<br><br>1. Fill out our form on the Contact page<br>2. Call Philip Howard: (707) 578-6565<br>3. Email: info@howardconstructioninc.com<br><br>Phil personally reviews every inquiry and responds within one business day. Free on-site consultation, zero pressure.",
+  calcode:"California Building Code (CBC) Key Points:<br><br>Title 24 &mdash; R-38 attic insulation, R-15 walls, dual-pane windows max U-0.30, solar mandatory on all new homes<br><br>CBC Chapter 16 &mdash; Seismic Design Category D in Northern CA. Shear walls, anchor bolts at 6 ft max spacing<br><br>Fire Code 7A (SRA Zones) &mdash; Class A roofing, ember-resistant vents, non-combustible decking within 5 ft<br><br>Plumbing &mdash; Max 1.28 gpf toilets, 1.8 gpm showerheads<br><br>Electrical &mdash; AFCI in bedrooms and living areas, GFCI in kitchens, baths, garages<br><br>We handle all code compliance and permitting on every project.",
+  structural:"Structural Engineering Basics:<br><br>Beam Sizing: S = M divided by Fb<br>Douglas Fir No.2: Fb = 900 psi<br><br>Floor Joist Spans (40 psf live + 10 psf dead):<br>2x8 at 16in: max span 12ft 4in<br>2x10 at 16in: max span 15ft 7in<br>2x12 at 16in: max span 18ft 10in<br><br>Header Sizing:<br>Up to 4ft opening: double 2x6<br>Up to 6ft: double 2x8<br>Up to 8ft: double 2x10<br>Up to 10ft: double 2x12<br>Over 10ft: Engineered LVL required<br><br>Want more details on any specific calculation?",
+  calculations:"Common Construction Calculations:<br><br>Concrete: Length x Width x Thickness(ft) / 27 = cubic yards. Add 10% waste.<br>Example: 20x30x0.33ft = 7.4 cubic yards<br><br>Roof Pitch Multipliers:<br>4:12 = 1.054 &nbsp; 6:12 = 1.118 &nbsp; 12:12 = 1.414<br>Rafter length = run x multiplier<br><br>Stairs: Max riser 7-3/4in, Min tread 10in<br>9ft floor-to-floor = 16 risers x 6.75in each<br><br>Drainage: Min 1% slope (1/8in per foot)<br><br>Electrical: 15-amp = 1800W max, 20-amp = 2400W max",
+  adu:"ADU Guide for California 2025:<br><br>All single-family lots may have at least one ADU by law<br>Junior ADU: Max 500 sq ft within existing structure<br>Attached ADU: Max 50% of primary or 1,200 sq ft<br>Detached ADU: Max 1,200 sq ft<br>Setbacks: 4 ft rear and sides minimum<br><br>Costs in Northern California:<br>Garage conversion: $80,000&ndash;$150,000<br>Attached ADU: $150,000&ndash;$250,000<br>New detached ADU: $200,000&ndash;$350,000<br><br>Rental income in Sonoma/Napa: $2,500&ndash;$4,500/month average<br><br>We manage the entire process from design through certificate of occupancy.",
+  pool:"Pool Construction Guide:<br><br>Fiberglass Pool: $65,000&ndash;$110,000 installed, 3&ndash;6 weeks, lowest maintenance, best for most Northern CA homeowners<br><br>Gunite Pool: $90,000&ndash;$150,000+, 3&ndash;6 months, fully custom shapes, needs replastering every 10&ndash;15 years<br><br>Vinyl Liner: $55,000&ndash;$85,000, liner replacement every 10&ndash;15 years<br><br>Permits required: Building permit, electrical, safety fence 4ft min height<br><br>Would you like to schedule a free pool consultation?",
+  permit:"Permit Guide for Sonoma &amp; Napa Counties:<br><br>Always requires a permit: structural work, electrical circuits, plumbing changes, HVAC, additions, ADUs, pools<br><br>Timelines: Same day for simple projects, 4&ndash;8 weeks standard residential, 8&ndash;16 weeks for large additions or ADUs<br><br>Approximate Fees: Kitchen $500&ndash;$2,000, Addition $8&ndash;$15/sq ft, ADU $5,000&ndash;$15,000, Pool $1,500&ndash;$4,000<br><br>We handle all permit filing and follow-up on every project.",
+  contact:"Reach us directly:<br><br>Phone: (707) 578-6565<br>Email: info@howardconstructioninc.com<br>Address: 4012 Cervantes Road, Santa Rosa CA 95403<br>Hours: Mon&ndash;Fri 7am&ndash;6pm, Sat 8am&ndash;2pm<br><br>Philip Howard personally handles every inquiry. Visit our Contact page to submit a project request.",
+  philip:"Philip Howard is the owner, president, and hands-on project manager of Howard Construction Inc.:<br><br>Third-generation builder from Sonoma County<br>25+ years of Northern California construction experience<br>CA Class B Licensed General Contractor<br>BBB Accredited, Houzz Pro Verified 5-star<br>NCBE Member<br><br>Phil personally oversees every project from first call to final walkthrough. When you hire Howard Construction, you work directly with Phil.",
+  fallback:"Great question! For the most accurate answer for your project in Northern California, speak with Philip Howard directly:<br><br>Phone: (707) 578-6565<br>Email: info@howardconstructioninc.com<br><br>Or visit our Contact page to submit a project request. Phil responds within one business day."
 };
-
-function getTime(){
-  var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?"PM":"AM";
-  h=h%12||12;
-  return h+":"+(m<10?"0"+m:m)+" "+ap;
+function R(m){
+  var s=m.toLowerCase();
+  if(/hello|^hi |^hey|howdy|good (morning|afternoon|evening)/.test(s))return A.greet;
+  if(/where.*build|what.*city|what.*area|location|serve|napa|sonoma|santa rosa|calistoga|san francisco|fairfield|vacaville|vallejo|northern california/.test(s))return A.location;
+  if(/what.*project|type of project|what.*build|what.*do you|your services|what.*offer/.test(s))return A.project;
+  if(/how much|cost|price|pricing|budget|expensive|what.*charge/.test(s))return A.cost;
+  if(/free estimate|get.*estimate|quote|schedule|consult/.test(s))return A.estimate;
+  if(/california.*code|building code|cbc|title 24|fire code|energy code/.test(s))return A.calcode;
+  if(/beam|joist|header|structural|span|shear wall|seismic|earthquake|anchor bolt|framing/.test(s))return A.structural;
+  if(/calculat|formula|cubic yard|board feet|stair|rafter|pitch|slope|drainage|concrete|lumber|math/.test(s))return A.calculations;
+  if(/adu|accessory|second unit|granny|in.?law|junior/.test(s))return A.adu;
+  if(/pool|swim|fiberglass|gunite|vinyl|spa/.test(s))return A.pool;
+  if(/permit|approval|inspection|permit.*fee|permit.*time/.test(s))return A.permit;
+  if(/contact|phone|call|email|address|hours|reach|talk to/.test(s))return A.contact;
+  if(/philip|phil|owner|founder|who is|about us|about.*company/.test(s))return A.philip;
+  if(/kitchen|bathroom|remodel|addition|deck|garage|service|offer|build/.test(s))return A.project;
+  return A.fallback;
 }
-
-function reply(msg){
-  var m=msg.toLowerCase();
-  if(/hello|^hi |^hey|howdy|good morning|good afternoon|good evening/.test(m))return answers.greet;
-  if(/where.*build|what.*city|what.*area|which.*area|location|serve|napa|sonoma|santa rosa|calistoga|san francisco|northern california|what area/.test(m))return answers.location;
-  if(/what.*project|type of project|what.*build|what.*do you do|your services|what.*offer/.test(m))return answers.project;
-  if(/how much|cost|price|pricing|budget|expensive|what.*charge/.test(m))return answers.cost;
-  if(/free estimate|get.*estimate|quote|schedule.*consult|consult/.test(m))return answers.estimate;
-  if(/california.*code|building code|cbc|title 24|fire code|code require|energy code/.test(m))return answers.calcode;
-  if(/beam|joist|header|structural|span|load path|shear wall|seismic|earthquake|anchor bolt|framing/.test(m))return answers.structural;
-  if(/calculat|formula|cubic yard|board feet|stair|rafter|pitch|slope|drainage|concrete|lumber|math/.test(m))return answers.calculations;
-  if(/adu|accessory|second unit|granny|in.?law|junior/.test(m))return answers.adu;
-  if(/pool|swim|fiberglass|gunite|vinyl|spa/.test(m))return answers.pool;
-  if(/permit|approval|inspection|permit.*fee|permit.*time/.test(m))return answers.permit;
-  if(/contact|phone|call|email|address|hours|reach|talk to/.test(m))return answers.contact;
-  if(/kitchen|bathroom|remodel|addition|deck|garage|service|offer|build/.test(m))return answers.project;
-  return answers.fallback;
-}
-
-function addMsg(text,type){
-  var msgs=document.getElementById("hmsgs");
-  var dots=document.getElementById("hdots");
-  var div=document.createElement("div");
-  div.className="hm "+type;
-  div.innerHTML='<div class="hm-b">'+text.replace(/\n/g,"<br>")+'</div><div class="hm-t">'+getTime()+"</div>";
-  msgs.insertBefore(div,dots);
+function T(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?"PM":"AM";h=h%12||12;return h+":"+(m<10?"0"+m:m)+" "+ap;}
+function addM(txt,type){
+  var msgs=document.getElementById("cmsgs");
+  var dots=document.getElementById("cdots");
+  var d=document.createElement("div");
+  d.className="cm "+type;
+  d.innerHTML='<div class="cm-b">'+txt+'</div><div class="cm-t">'+T()+"</div>";
+  msgs.insertBefore(d,dots);
   msgs.scrollTop=msgs.scrollHeight;
 }
-
 function send(txt){
-  var inp=document.getElementById("hinp");
+  var inp=document.getElementById("cinp");
   var msg=txt||(inp?inp.value.trim():"");
   if(!msg)return;
   if(!txt&&inp)inp.value="";
-  addMsg(msg,"usr");
-  var dots=document.getElementById("hdots");
-  var msgs=document.getElementById("hmsgs");
+  addM(msg,"usr");
+  var dots=document.getElementById("cdots");
+  var msgs=document.getElementById("cmsgs");
   dots.style.display="flex";
   msgs.scrollTop=msgs.scrollHeight;
-  setTimeout(function(){dots.style.display="none";addMsg(reply(msg),"bot");},650+Math.floor(Math.random()*450));
+  setTimeout(function(){dots.style.display="none";addM(R(msg),"bot");},600+Math.floor(Math.random()*400));
 }
-
 function toggle(){
-  open=!open;
-  var box=document.getElementById("hbox");
-  var badge=document.getElementById("hbadge");
-  box.style.display=open?"flex":"none";
-  if(open&&badge)badge.style.display="none";
-  if(open){setTimeout(function(){var i=document.getElementById("hinp");if(i)i.focus();},80);}
+  _open=!_open;
+  var box=document.getElementById("cbox");
+  var badge=document.getElementById("cbadge");
+  box.style.display=_open?"flex":"none";
+  if(_open&&badge)badge.style.display="none";
+  if(_open){setTimeout(function(){var i=document.getElementById("cinp");if(i)i.focus();},80);}
 }
-
 window.addEventListener("load",function(){
-  var btn=document.getElementById("hbtn");
-  var x=document.getElementById("hclose");
-  var go=document.getElementById("hgo");
-  var inp=document.getElementById("hinp");
+  var btn=document.getElementById("cb");
+  var x=document.getElementById("cx");
+  var go=document.getElementById("cgo");
+  var inp=document.getElementById("cinp");
   if(btn)btn.addEventListener("click",toggle);
   if(x)x.addEventListener("click",toggle);
   if(go)go.addEventListener("click",function(){send();});
   if(inp)inp.addEventListener("keydown",function(e){if(e.key==="Enter")send();});
-  document.querySelectorAll(".hq").forEach(function(q){
-    q.addEventListener("click",function(){send(q.getAttribute("data-msg"));});
+  document.querySelectorAll(".cq").forEach(function(q){
+    q.addEventListener("click",function(){send(q.getAttribute("data-q"));});
   });
+  /* Mobile nav */
+  var hbgr=document.getElementById("hbgr");
+  var mobNav=document.getElementById("mobNav");
+  if(hbgr&&mobNav){
+    hbgr.addEventListener("click",function(e){
+      e.stopPropagation();
+      mobNav.style.display=(mobNav.style.display==="flex")?"none":"flex";
+    });
+    mobNav.querySelectorAll("a").forEach(function(a){
+      a.addEventListener("click",function(){mobNav.style.display="none";});
+    });
+    document.addEventListener("click",function(e){
+      if(hbgr&&mobNav&&!hbgr.contains(e.target)&&!mobNav.contains(e.target)){
+        mobNav.style.display="none";
+      }
+    });
+  }
+  /* Nav scroll shadow */
+  window.addEventListener("scroll",function(){
+    var nav=document.querySelector("nav");
+    if(nav)nav.style.boxShadow=window.scrollY>20?"0 2px 24px rgba(0,0,0,0.1)":"none";
+  },{passive:true});
 });
 })();
 </script>
 <!-- END CHAT -->
-
-
-// Mobile menu toggle
-
-
 </body>
 </html>

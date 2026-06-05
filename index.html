@@ -3,198 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Howard Construction Inc. — Northern California's trusted general contractor since 2000. Expert remodels, additions, pools, and ADUs in Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville and surrounding communities. CA Licensed.">
+<meta name="description" content="Howard Construction Inc. — Northern California's trusted general contractor since 2000. Expert remodels, additions, pools, and ADUs in Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville and all surrounding areas. CA Licensed.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Howard Construction Inc. | Northern California General Contractor">
-<meta property="og:description" content="Expert general contractor serving Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville and all of Northern California since 2000.">
-<meta property="og:type" content="website">
 <title>Howard Construction Inc. | Northern California General Contractor | Santa Rosa CA</title>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"GeneralContractor","name":"Howard Construction Inc.","description":"Licensed general contractor serving Northern California including Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, and surrounding communities since 2000.","url":"https://www.howardconstructioninc.com","telephone":"+1-707-578-6565","email":"info@howardconstructioninc.com","address":{"@type":"PostalAddress","streetAddress":"4012 Cervantes Road","addressLocality":"Santa Rosa","addressRegion":"CA","postalCode":"95403","addressCountry":"US"},"areaServed":["Santa Rosa","Sonoma Valley","Napa Valley","San Francisco","Calistoga","Fairfield","Vacaville","Vallejo","Petaluma","Healdsburg","Windsor","Sebastopol","Novato","San Rafael"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"13"},"foundingDate":"2000","priceRange":"$$-$$$"}
+{"@context":"https://schema.org","@type":"GeneralContractor","name":"Howard Construction Inc.","description":"Licensed general contractor serving all of Northern California including Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville since 2000.","url":"https://www.howardconstructioninc.com","telephone":"+1-707-578-6565","email":"info@howardconstructioninc.com","address":{"@type":"PostalAddress","streetAddress":"4012 Cervantes Road","addressLocality":"Santa Rosa","addressRegion":"CA","postalCode":"95403","addressCountry":"US"},"areaServed":["Santa Rosa","Sonoma Valley","Napa Valley","San Francisco","Calistoga","Fairfield","Vacaville","Vallejo","Petaluma","Healdsburg"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"13"},"foundingDate":"2000"}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ── RESET & BASE ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Outfit',sans-serif;color:#1a1a2e;background:#f0f4f8;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
 
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;}img{max-width:100%;display:block;}a{text-decoration:none;color:inherit;}
-nav{position:fixed;top:0;left:0;right:0;height:72px;background:#fff;border-bottom:1px solid #e8e2d9;z-index:2000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;}
+/* ── COLORS ── */
+:root{
+  --navy:#0A1628;
+  --blue:#1B4F8A;
+  --blue-mid:#2E6FA3;
+  --blue-light:#4A9FD4;
+  --blue-pale:#EBF5FB;
+  --blue-bg:#F0F7FF;
+  --accent:#F39C12;
+  --white:#FDFEFF;
+  --text:#1a1a2e;
+  --text-light:#5a6a7a;
+  --border:#C8DCF0;
+}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .3s ease;}
+.nav.scrolled{background:rgba(10,22,40,0.97);backdrop-filter:blur(16px);box-shadow:0 2px 32px rgba(0,0,0,0.3);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo img{height:52px;width:auto;display:block;}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
-.nav-links a{font-size:13px;font-weight:500;color:#555;transition:color .2s;white-space:nowrap;}
-.nav-links a:hover,.nav-links a.active{color:#C25B2A;}
-.nav-cta{background:#C25B2A!important;color:#fff!important;padding:10px 20px;border-radius:4px;font-weight:600!important;}
-.nav-cta:hover{background:#A34820!important;}
-/* HAMBURGER */
-.hbgr{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:2001;}
-.hbgr span{display:block;width:24px;height:2px;background:#1a1a1a;border-radius:2px;}
-/* MOBILE MENU */
-.mob-nav{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-top:2px solid #C25B2A;z-index:1999;padding:16px 28px 28px;box-shadow:0 8px 32px rgba(0,0,0,0.15);flex-direction:column;}
-.mob-nav a{display:block;padding:15px 0;font-size:16px;font-weight:500;color:#1a1a1a;border-bottom:1px solid #f0ebe3;}
-.mob-nav a:last-child{border-bottom:none;margin-top:12px;background:#C25B2A;color:#fff!important;text-align:center;padding:15px;border-radius:4px;font-weight:600;}
-.mob-nav a:last-child:hover{background:#A34820;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.85);letter-spacing:0.02em;transition:color .2s;white-space:nowrap;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .3s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-links a.active{color:#fff;}
+.nav-links a.active::after{transform:scaleX(1);}
+.nav-cta-btn{background:var(--accent);color:#fff!important;padding:11px 24px;border-radius:6px;font-weight:600!important;transition:background .2s,transform .2s!important;}
+.nav-cta-btn:hover{background:#E08C10!important;transform:translateY(-1px);}
+.nav-cta-btn::after{display:none!important;}
+.hbgr{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hbgr span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;}
+.mob-nav{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(10,22,40,0.98);backdrop-filter:blur(16px);z-index:999;padding:20px 32px 28px;flex-direction:column;border-bottom:1px solid rgba(255,255,255,0.1);}
+.mob-nav a{display:block;padding:14px 0;font-size:16px;font-weight:500;color:rgba(255,255,255,0.8);border-bottom:1px solid rgba(255,255,255,0.08);}
+.mob-nav a:last-child{border-bottom:none;margin-top:16px;background:var(--accent);color:#fff!important;text-align:center;padding:15px;border-radius:6px;font-weight:600;}
 @media(max-width:900px){.nav-links{display:none!important;}.hbgr{display:flex;}}
 
+/* ── HERO ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-bg-svg{position:absolute;inset:0;width:100%;height:100%;}
+/* Animated particles */
+.hero-particles{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.particle{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);animation:float 8s infinite ease-in-out;}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:0.4;}50%{transform:translateY(-30px) scale(1.2);opacity:0.8;}}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:120px 40px 80px;width:100%;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:100px;margin-bottom:28px;}
+.hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:900;color:#fff;line-height:1.06;letter-spacing:-2px;margin-bottom:24px;max-width:700px;}
+.hero h1 em{font-style:italic;color:#F9C45A;}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.72);line-height:1.8;max-width:560px;margin-bottom:44px;font-weight:300;}
+.hero-sub strong{color:rgba(255,255,255,0.95);font-weight:500;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:64px;}
+.btn-hero-primary{background:var(--accent);color:#fff;padding:16px 34px;border-radius:8px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 32px rgba(243,156,18,0.4);}
+.btn-hero-primary:hover{background:#E08C10;transform:translateY(-2px);box-shadow:0 12px 40px rgba(243,156,18,0.5);}
+.btn-hero-secondary{background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);color:#fff;padding:16px 34px;border-radius:8px;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,0.3);transition:all .3s;}
+.btn-hero-secondary:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.5);}
+.hero-stats{display:flex;gap:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.15);}
+.hs-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#fff;line-height:1;}
+.hs-num span{font-size:1.8rem;}
+.hs-lbl{font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px;letter-spacing:0.5px;text-transform:uppercase;}
+/* Scroll indicator */
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.4));animation:scrollLine 2s infinite;}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}100%{transform:scaleY(0);transform-origin:bottom;}}
 
-footer{background:#111;padding:72px 40px 40px;}
-.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:32px;}
-.fl-logo img{height:44px;width:auto;filter:brightness(0) invert(1);opacity:0.65;margin-bottom:12px;}
-.fl-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#fff;margin-bottom:4px;}
-.fl-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
-.fl-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
-.fc h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.fc ul a{font-size:13px;color:rgba(255,255,255,0.32);transition:color .2s;}
-.fc ul a:hover{color:#fff;}
-.fci{display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.32);}
-.fci a{color:rgba(255,255,255,0.32);transition:color .2s;}
-.fci a:hover{color:#fff;}
-.fbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.fbot p{font-size:11px;color:rgba(255,255,255,0.2);}
-@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
-@media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.fbot{flex-direction:column;text-align:center;}}
-
-/* HERO */
-.hero{margin-top:72px;display:grid;grid-template-columns:55% 45%;min-height:88vh;background:#1C2B1F;}
-.hero-left{padding:80px 56px;display:flex;flex-direction:column;justify-content:center;}
-.hero-badge{display:inline-block;background:rgba(194,91,42,0.22);border:1px solid rgba(194,91,42,0.45);color:#E8845A;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:3px;margin-bottom:32px;width:fit-content;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.8rem);font-weight:900;color:#fff;line-height:1.07;margin-bottom:22px;letter-spacing:-1.5px;}
-.hero h1 em{font-style:italic;color:#E8845A;}
-.hero-desc{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.82;max-width:460px;margin-bottom:38px;font-weight:300;}
-.hero-btns{display:flex;gap:16px;align-items:center;margin-bottom:52px;flex-wrap:wrap;}
-.btn-orange{background:#C25B2A;color:#fff;padding:15px 30px;border-radius:4px;font-size:14px;font-weight:600;transition:background .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
-.btn-orange:hover{background:#A34820;}
-.btn-call{color:rgba(255,255,255,0.75);font-size:14px;border-bottom:1px solid rgba(255,255,255,0.35);padding-bottom:2px;font-weight:500;white-space:nowrap;}
-.hero-stats{display:flex;gap:44px;padding-top:38px;border-top:1px solid rgba(255,255,255,0.12);}
-.stat-n{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:#fff;line-height:1;}
-.stat-l{font-size:11px;color:rgba(255,255,255,0.42);margin-top:5px;letter-spacing:0.5px;}
-.hero-right{display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;gap:3px;overflow:hidden;}
-.hi{overflow:hidden;position:relative;}
-.hi.main{grid-row:1/3;}
-.hi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
-.hi:hover img{transform:scale(1.04);}
-.hero-tag{position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,0.95);padding:12px 16px;border-radius:3px;}
-.hero-tag-title{font-size:13px;font-weight:600;color:#1a1a1a;}
-.hero-tag-sub{font-size:11px;color:#888;margin-top:2px;}
-/* TRUST */
-.trust{background:#1a1a1a;padding:20px 40px;}
-.trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;}
-.ti{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:12px;}
-.ti-dot{width:6px;height:6px;border-radius:50%;background:#C25B2A;flex-shrink:0;}
+/* ── TRUST BAR ── */
+.trust{background:var(--navy);padding:18px 40px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.trust-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+.ti{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,0.55);font-size:12px;font-weight:400;}
+.ti-ic{color:var(--accent);font-size:15px;flex-shrink:0;}
 .tsep{width:1px;height:16px;background:rgba(255,255,255,0.1);}
-/* SECTION */
-.sec{padding:88px 40px;}
-.sec-tag{font-size:11px;color:#C25B2A;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.sec-tag::before{content:'';display:block;width:28px;height:1px;background:#C25B2A;}
-.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;color:#1a1a1a;line-height:1.12;margin-bottom:16px;}
-.sec-title.light{color:#fff;}
-.sec-sub{font-size:15px;color:#777;line-height:1.8;font-weight:300;max-width:580px;}
-/* SERVICES */
-.svc-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:52px;flex-wrap:wrap;}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.svc{background:#f8f7f4;padding:40px 32px;border-left:3px solid transparent;transition:all .3s;}
-.svc:hover{border-left-color:#C25B2A;transform:translateY(-4px);background:#fff;box-shadow:0 8px 32px rgba(0,0,0,0.08);}
-.svc-n{font-size:11px;color:#ccc;letter-spacing:2px;margin-bottom:14px;}
-.svc-ic{font-size:26px;margin-bottom:14px;}
-.svc-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:10px;}
-.svc-desc{font-size:13px;color:#777;line-height:1.75;font-weight:300;margin-bottom:14px;}
+
+/* ── SECTION BASE ── */
+.section{padding:96px 40px;}
+.container{max-width:1280px;margin:0 auto;}
+.s-tag{font-size:11px;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;font-weight:600;}
+.s-tag::before{content:'';display:block;width:28px;height:2px;background:var(--blue);border-radius:2px;}
+.s-tag.light{color:var(--accent);}
+.s-tag.light::before{background:var(--accent);}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--text);line-height:1.12;margin-bottom:16px;}
+.s-title.light{color:#fff;}
+.s-sub{font-size:15px;color:var(--text-light);line-height:1.8;font-weight:300;max-width:560px;}
+
+/* ── ABOUT STRIP ── */
+.about-strip{background:var(--blue-bg);padding:80px 40px;}
+.about-layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-photos{display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;gap:8px;border-radius:12px;overflow:hidden;}
+.about-photo{overflow:hidden;}
+.about-photo.main{grid-row:1/3;}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.about-photo:hover img{transform:scale(1.03);}
+.about-badge{display:inline-flex;align-items:center;gap:12px;background:var(--blue);color:#fff;padding:14px 20px;border-radius:8px;margin-bottom:24px;}
+.about-badge-text{font-size:12px;font-weight:600;letter-spacing:0.5px;}
+.about-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:18px;}
+.about-text h2 em{font-style:italic;color:var(--blue);}
+.about-text p{font-size:15px;color:var(--text-light);line-height:1.88;margin-bottom:16px;font-weight:300;}
+.about-text p strong{color:var(--text);font-weight:600;}
+.about-quote{border-left:3px solid var(--blue);padding:16px 20px;background:rgba(27,79,138,0.06);border-radius:0 8px 8px 0;margin:20px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--text);line-height:1.7;}
+
+/* ── SERVICES ── */
+.services-bg{background:#fff;}
+.svc-header{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:56px;flex-wrap:wrap;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.svc-card{background:var(--blue-bg);border-radius:12px;padding:36px 28px;border:1px solid var(--border);transition:all .3s;cursor:default;}
+.svc-card:hover{background:#fff;border-color:var(--blue);transform:translateY(-6px);box-shadow:0 16px 48px rgba(27,79,138,0.12);}
+.svc-n{font-size:11px;color:rgba(27,79,138,0.4);letter-spacing:2px;margin-bottom:14px;font-weight:600;}
+.svc-ic{width:52px;height:52px;background:rgba(27,79,138,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;transition:background .3s;}
+.svc-card:hover .svc-ic{background:var(--blue);}
+.svc-t{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.svc-d{font-size:13px;color:var(--text-light);line-height:1.75;margin-bottom:14px;font-weight:300;}
 .svc-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
-.svc-list li{font-size:12px;color:#555;display:flex;align-items:flex-start;gap:8px;}
-.svc-list li::before{content:'&#8594;';color:#C25B2A;flex-shrink:0;font-size:11px;margin-top:1px;}
-/* WHY */
-.why{background:#1C2B1F;padding:88px 40px;}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:52px;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
-.pillar{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:30px 24px;transition:background .3s;}
-.pillar:hover{background:rgba(255,255,255,0.08);}
-.pn{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:rgba(255,255,255,0.06);line-height:1;margin-bottom:10px;}
+.svc-list li{font-size:12px;color:var(--text-light);display:flex;align-items:flex-start;gap:8px;}
+.svc-list li::before{content:'→';color:var(--blue);flex-shrink:0;font-size:11px;margin-top:1px;}
+
+/* ── WHY US ── */
+.why-section{background:linear-gradient(135deg, var(--navy) 0%, #0D2B5E 50%, #1A3A6A 100%);position:relative;overflow:hidden;}
+.why-section::before{content:'';position:absolute;inset:0;background:url("hero-bg.svg") center/cover;opacity:0.15;pointer-events:none;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:56px;position:relative;}
+.pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pillar{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:28px 22px;transition:background .3s;}
+.pillar:hover{background:rgba(255,255,255,0.1);}
+.pn{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(255,255,255,0.07);line-height:1;margin-bottom:10px;}
 .pt{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#e8e8e8;margin-bottom:8px;}
-.pd{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.7;}
-.why-text p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.88;font-weight:300;margin-bottom:18px;}
-.why-text p strong{color:#e8e8e8;font-weight:500;}
-.creds{margin-top:26px;display:flex;flex-direction:column;gap:10px;}
-.cred{display:flex;align-items:center;gap:10px;font-size:13px;color:#e0d8cc;}
-.cred-dot{width:6px;height:6px;border-radius:50%;background:#C9A84C;flex-shrink:0;}
-/* PROCESS */
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:60px;position:relative;}
-.steps::before{content:'';position:absolute;top:23px;left:10%;right:10%;height:1px;background:#e8e2d9;}
-.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;position:relative;z-index:1;}
-.step-n{width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #e8e2d9;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#C25B2A;margin-bottom:20px;transition:all .3s;}
-.step:hover .step-n{background:#C25B2A;border-color:#C25B2A;color:#fff;}
-.step-t{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
-.step-d{font-size:11px;color:#999;line-height:1.65;}
-/* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:52px;}
-.tc{background:#f8f7f4;padding:40px 32px;border-top:3px solid transparent;transition:border-color .3s;}
-.tc:hover{border-top-color:#C25B2A;}
-.tc.feat{background:#1C2B1F;border-top-color:#C9A84C;}
-.stars{color:#C9A84C;font-size:14px;letter-spacing:2px;margin-bottom:16px;}
-.tq{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:#1a1a1a;line-height:1.78;margin-bottom:22px;}
-.tc.feat .tq{color:#e8e8e8;}
+.pd{font-size:12px;color:rgba(255,255,255,0.42);line-height:1.7;}
+.why-text p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:18px;font-weight:300;}
+.why-text p strong{color:#e8f4ff;font-weight:500;}
+.cred-list{margin-top:28px;display:flex;flex-direction:column;gap:10px;}
+.cred{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.75);}
+.cred::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;}
+
+/* ── PROCESS ── */
+.process-bg{background:var(--blue-bg);}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:64px;position:relative;}
+.steps::before{content:'';position:absolute;top:24px;left:10%;right:10%;height:2px;background:var(--border);}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;z-index:1;}
+.step-n{width:52px;height:52px;border-radius:50%;background:#fff;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--blue);margin-bottom:20px;transition:all .3s;box-shadow:0 4px 16px rgba(27,79,138,0.1);}
+.step:hover .step-n{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.1);}
+.step-t{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.step-d{font-size:12px;color:var(--text-light);line-height:1.65;}
+
+/* ── TESTIMONIALS ── */
+.testi-bg{background:#fff;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+.tc{background:var(--blue-bg);border-radius:12px;padding:36px 30px;border:1px solid var(--border);border-top:3px solid transparent;transition:all .3s;}
+.tc:hover{border-top-color:var(--blue);transform:translateY(-4px);box-shadow:0 12px 40px rgba(27,79,138,0.1);}
+.tc.feat{background:linear-gradient(135deg,var(--navy),#1A3A7A);border-top-color:var(--accent);}
+.stars{color:var(--accent);font-size:14px;letter-spacing:2px;margin-bottom:16px;}
+.tq{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--text);line-height:1.78;margin-bottom:22px;}
+.tc.feat .tq{color:rgba(255,255,255,0.9);}
 .ta{display:flex;align-items:center;gap:12px;}
-.tav{width:42px;height:42px;border-radius:50%;background:#e8e2d9;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#555;flex-shrink:0;}
-.tc.feat .tav{background:rgba(255,255,255,0.12);color:#e8e8e8;}
-.tname{font-size:13px;font-weight:600;color:#1a1a1a;}
-.tc.feat .tname{color:#e8e8e8;}
-.tproj{font-size:11px;color:#999;margin-top:2px;}
-.tc.feat .tproj{color:rgba(255,255,255,0.38);}
-/* FAQ */
-.faq-layout{display:grid;grid-template-columns:280px 1fr;gap:60px;margin-top:52px;align-items:flex-start;}
+.tav{width:44px;height:44px;border-radius:50%;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--blue);flex-shrink:0;}
+.tc.feat .tav{background:rgba(255,255,255,0.15);color:#fff;}
+.tname{font-size:13px;font-weight:600;color:var(--text);}
+.tc.feat .tname{color:#fff;}
+.tproj{font-size:11px;color:var(--text-light);margin-top:2px;}
+.tc.feat .tproj{color:rgba(255,255,255,0.5);}
+
+/* ── FAQ ── */
+.faq-bg{background:var(--blue-bg);}
+.faq-layout{display:grid;grid-template-columns:280px 1fr;gap:56px;margin-top:52px;align-items:flex-start;}
 .faq-sidebar{position:sticky;top:90px;}
-.faq-sidebar p{color:#777;font-size:13px;line-height:1.75;font-weight:300;margin:16px 0 24px;}
+.faq-sidebar p{color:var(--text-light);font-size:13px;line-height:1.75;margin:16px 0 24px;}
 .faq-cats{display:flex;flex-direction:column;gap:3px;}
-.faq-cat{text-align:left;background:none;border:none;border-left:2px solid transparent;padding:10px 14px;font-family:'Inter',sans-serif;font-size:13px;color:#999;cursor:pointer;transition:all .2s;}
-.faq-cat.active,.faq-cat:hover{color:#C25B2A;border-left-color:#C25B2A;background:rgba(194,91,42,0.04);}
-.faq-items{display:flex;flex-direction:column;gap:2px;}
-.faq-item{background:#f8f7f4;}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#1a1a1a;cursor:pointer;background:none;border:none;text-align:left;gap:16px;transition:color .2s;}
-.faq-q:hover{color:#C25B2A;}
-.faq-chev{flex-shrink:0;transition:transform .3s;color:#C25B2A;font-size:18px;line-height:1;}
+.faq-cat{text-align:left;background:none;border:none;border-left:2px solid transparent;padding:10px 14px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--text-light);cursor:pointer;transition:all .2s;border-radius:0 6px 6px 0;}
+.faq-cat.active,.faq-cat:hover{color:var(--blue);border-left-color:var(--blue);background:rgba(27,79,138,0.06);}
+.faq-items{display:flex;flex-direction:column;gap:8px;}
+.faq-item{background:#fff;border-radius:10px;border:1px solid var(--border);overflow:hidden;transition:border-color .2s;}
+.faq-item.open{border-color:var(--blue);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--text);cursor:pointer;background:none;border:none;text-align:left;gap:16px;transition:color .2s;}
+.faq-q:hover{color:var(--blue);}
+.faq-chev{flex-shrink:0;transition:transform .3s;color:var(--blue);font-size:20px;line-height:1;}
 .faq-item.open .faq-chev{transform:rotate(180deg);}
 .faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease;}
 .faq-item.open .faq-ans{max-height:500px;}
-.faq-ans-inner{padding:0 24px 24px;font-size:13px;color:#777;line-height:1.88;font-weight:300;}
-.faq-ans-inner strong{color:#1a1a1a;font-weight:600;}
-/* KB */
-.kb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:52px;}
-.kbc{background:#fff;padding:36px 30px;transition:transform .3s;cursor:pointer;}
-.kbc:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.08);}
-.kbt{display:inline-block;font-size:10px;color:#C25B2A;background:rgba(194,91,42,0.08);padding:4px 11px;border-radius:100px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
-.kbtitle{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;line-height:1.35;margin-bottom:10px;}
-.kbex{font-size:13px;color:#777;line-height:1.75;font-weight:300;}
-.kblink{display:inline-block;margin-top:14px;font-size:12px;color:#C25B2A;font-weight:600;border-bottom:1px solid rgba(194,91,42,0.3);}
-/* AREAS */
-.areas{background:#1C2B1F;padding:72px 40px;}
-.areas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:44px;}
-.area{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:24px 16px;text-align:center;transition:background .2s;}
-.area:hover{background:rgba(255,255,255,0.09);}
-.area-ic{font-size:24px;margin-bottom:10px;}
-.area-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#e8e8e8;margin-bottom:6px;}
-.area-cities{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.55;}
-/* CTA */
-.cta{background:#C25B2A;padding:88px 40px;position:relative;overflow:hidden;}
-.cta::after{content:'BUILD';position:absolute;right:-20px;top:-40px;font-family:'Playfair Display',serif;font-size:280px;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;}
-.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;position:relative;z-index:1;}
-.cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:#fff;line-height:1.1;}
-.cta h2 em{font-style:italic;opacity:0.72;}
-.cta-right{display:flex;flex-direction:column;gap:14px;align-items:center;flex-shrink:0;}
-.btn-white{background:#fff;color:#C25B2A;padding:16px 34px;border-radius:4px;font-size:15px;font-weight:700;transition:background .2s;white-space:nowrap;}
-.btn-white:hover{background:#f5ede7;}
+.faq-ans-inner{padding:0 22px 22px;font-size:13px;color:var(--text-light);line-height:1.88;}
+.faq-ans-inner strong{color:var(--text);font-weight:600;}
+
+/* ── KB PREVIEW ── */
+.kb-bg{background:#fff;}
+.kb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+.kbc{background:var(--blue-bg);border-radius:12px;padding:32px 28px;border:1px solid var(--border);transition:all .3s;cursor:pointer;}
+.kbc:hover{background:#fff;border-color:var(--blue);transform:translateY(-4px);box-shadow:0 12px 36px rgba(27,79,138,0.1);}
+.kbt{display:inline-block;font-size:10px;color:var(--blue);background:rgba(27,79,138,0.1);padding:4px 12px;border-radius:100px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;font-weight:600;}
+.kbtitle{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:10px;}
+.kbex{font-size:13px;color:var(--text-light);line-height:1.75;font-weight:300;}
+.kblink{display:inline-block;margin-top:14px;font-size:12px;color:var(--blue);font-weight:600;border-bottom:1px solid var(--blue-light);}
+
+/* ── AREAS ── */
+.areas-section{background:linear-gradient(160deg,var(--navy) 0%, #0F2A5A 100%);position:relative;overflow:hidden;}
+.areas-section::before{content:'';position:absolute;inset:0;background:url("hero-bg.svg") center/cover;opacity:0.2;pointer-events:none;}
+.areas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px;position:relative;}
+.area{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:24px 16px;text-align:center;transition:all .3s;}
+.area:hover{background:rgba(255,255,255,0.12);transform:translateY(-4px);}
+.area-ic{font-size:26px;margin-bottom:12px;}
+.area-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;}
+.area-cities{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.6;}
+
+/* ── CTA ── */
+.cta-section{background:var(--blue);padding:96px 40px;position:relative;overflow:hidden;}
+.cta-section::after{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;}
+.cta-section::before{content:'';position:absolute;left:-80px;bottom:-80px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.03);pointer-events:none;}
+.cta-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px;position:relative;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.12;}
+.cta-title em{font-style:italic;opacity:0.75;}
+.cta-actions{display:flex;flex-direction:column;gap:14px;align-items:center;flex-shrink:0;}
+.btn-white{background:#fff;color:var(--blue);padding:16px 36px;border-radius:8px;font-size:15px;font-weight:700;white-space:nowrap;transition:all .3s;display:inline-block;}
+.btn-white:hover{background:var(--blue-pale);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
 .cta-phone{font-size:13px;color:rgba(255,255,255,0.65);}
 .cta-phone a{color:#fff;font-weight:600;}
-/* RESPONSIVE */
-@media(max-width:1100px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:72px 32px;}.svc-grid{grid-template-columns:1fr 1fr;}.why-grid{grid-template-columns:1fr;gap:40px;}.testi-grid{grid-template-columns:1fr 1fr;}.faq-layout{grid-template-columns:1fr;}.faq-sidebar{position:static;}.kb-grid{grid-template-columns:1fr 1fr;}.areas-grid{grid-template-columns:repeat(3,1fr);}.steps{grid-template-columns:repeat(3,1fr);}.steps::before{display:none;}.cta-inner{flex-direction:column;text-align:center;}}
-@media(max-width:680px){.sec{padding:60px 20px;}.hero-left{padding:56px 20px;}.svc-grid{grid-template-columns:1fr;}.testi-grid{grid-template-columns:1fr;}.kb-grid{grid-template-columns:1fr;}.areas-grid{grid-template-columns:1fr 1fr;}.steps{grid-template-columns:1fr 1fr;}.pillars{grid-template-columns:1fr;}.hero-stats{gap:24px;}.trust{padding:16px 20px;}.areas{padding:56px 20px;}.cta{padding:64px 20px;}}
+
+/* ── FOOTER ── */
+.footer{background:#06101E;padding:80px 40px 44px;}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:40px;}
+.fl-logo img{height:48px;width:auto;filter:brightness(0) invert(1);opacity:0.65;margin-bottom:14px;}
+.fl-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;}
+.fl-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.fl-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
+.fc h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#3A5A7A;margin-bottom:18px;font-weight:600;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.fc ul a{font-size:13px;color:rgba(255,255,255,0.38);transition:color .2s;}
+.fc ul a:hover{color:#fff;}
+.fci{display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.38);}
+.fci a{color:rgba(255,255,255,0.38);transition:color .2s;}
+.fci a:hover{color:#fff;}
+.fbot{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.fbot p{font-size:11px;color:rgba(255,255,255,0.18);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .nav-inner{padding:0 28px;}
+  .hero-content{padding:100px 28px 70px;}
+  .section,.about-strip{padding:72px 28px;}
+  .about-layout{grid-template-columns:1fr;gap:40px;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr;gap:40px;}
+  .testi-grid{grid-template-columns:1fr 1fr;}
+  .faq-layout{grid-template-columns:1fr;}
+  .faq-sidebar{position:static;}
+  .kb-grid{grid-template-columns:1fr 1fr;}
+  .areas-grid{grid-template-columns:repeat(3,1fr);}
+  .steps{grid-template-columns:repeat(3,1fr);}
+  .steps::before{display:none;}
+  .cta-inner{flex-direction:column;text-align:center;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+  .cta-section,.areas-section{padding:72px 28px;}
+  .trust{padding:16px 28px;}
+}
+@media(max-width:680px){
+  .hero h1{letter-spacing:-1px;}
+  .hero-stats{gap:28px;}
+  .hero-stats .hs-num{font-size:2.2rem;}
+  .svc-grid,.testi-grid,.kb-grid{grid-template-columns:1fr;}
+  .areas-grid{grid-template-columns:1fr 1fr;}
+  .pillar-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .fbot{flex-direction:column;text-align:center;}
+  .section,.about-strip{padding:60px 20px;}
+  .nav-inner{padding:0 20px;}
+  .hero-content{padding:90px 20px 60px;}
+  .trust{padding:16px 20px;}
+  .trust-inner{gap:16px;}
+  .tsep{display:none;}
+  .cta-section,.areas-section{padding:64px 20px;}
+  .footer{padding:64px 20px 36px;}
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Howard Construction Inc."></a>
-  <ul class="nav-links"><li><a href="index.html" class="active">Home</a></li>
-<li><a href="services.html" >Services</a></li>
-<li><a href="knowledge.html" >Knowledge Base</a></li>
-<li><a href="about.html" >About</a></li>
-<li><a href="testimonials.html" >Reviews</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
-  <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+<!-- NAV -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html"><img src="logo.png" alt="Howard Construction Inc." style="height:52px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="knowledge.html">Knowledge Base</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
+    </ul>
+    <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 <div class="mob-nav" id="mobNav">
   <a href="index.html">Home</a>
@@ -204,206 +316,254 @@ footer{background:#111;padding:72px 40px 40px;}
   <a href="testimonials.html">Client Reviews</a>
   <a href="contact.html">Get a Free Estimate</a>
 </div>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-badge">Northern California &middot; CA Licensed &middot; Est. 2000</div>
-    <h1>We Build<br><em>What Matters</em><br>Most to You</h1>
-    <p class="hero-desc">Howard Construction Inc. is Northern California's trusted general contractor &mdash; experts in Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, Vallejo, Petaluma, Healdsburg, and all surrounding communities. Transparent pricing. Guaranteed craftsmanship. Zero surprises.</p>
+  <div class="hero-bg">
+    <img src="hero-bg.svg" alt="Northern California landscape" style="width:100%;height:100%;object-fit:cover;">
+  </div>
+  <!-- Floating particles -->
+  <div class="hero-particles">
+    <div class="particle" style="left:10%;top:30%;width:4px;height:4px;animation-delay:0s;"></div>
+    <div class="particle" style="left:25%;top:60%;width:3px;height:3px;animation-delay:2s;"></div>
+    <div class="particle" style="left:70%;top:40%;width:5px;height:5px;animation-delay:4s;"></div>
+    <div class="particle" style="left:85%;top:65%;width:3px;height:3px;animation-delay:1s;"></div>
+    <div class="particle" style="left:45%;top:20%;width:4px;height:4px;animation-delay:3s;"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      Northern California &bull; CA Licensed &bull; Est. 2000
+    </div>
+    <h1>Building <em>Dreams</em><br>Across Northern<br>California</h1>
+    <p class="hero-sub">Howard Construction Inc. is the North Bay's most trusted general contractor — serving <strong>Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville</strong> and all surrounding communities since 2000. Transparent pricing. Guaranteed craftsmanship.</p>
     <div class="hero-btns">
-      <a href="contact.html" class="btn-orange">Get a Free Estimate &#8594;</a>
-      <a href="tel:+17075786565" class="btn-call">&#9742; (707) 578-6565</a>
+      <a href="contact.html" class="btn-hero-primary">Get a Free Estimate &rarr;</a>
+      <a href="tel:+17075786565" class="btn-hero-secondary">&#9742; (707) 578-6565</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-n">25+</div><div class="stat-l">Years Serving Northern CA</div></div>
-      <div><div class="stat-n">500+</div><div class="stat-l">Projects Completed</div></div>
-      <div><div class="stat-n">5&#9733;</div><div class="stat-l">Average Rating</div></div>
+      <div><div class="hs-num">25<span>+</span></div><div class="hs-lbl">Years Serving Northern CA</div></div>
+      <div><div class="hs-num">500<span>+</span></div><div class="hs-lbl">Projects Completed</div></div>
+      <div><div class="hs-num">5<span>&#9733;</span></div><div class="hs-lbl">Average Rating</div></div>
+      <div><div class="hs-num">50<span>+</span></div><div class="hs-lbl">Communities Served</div></div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hi main">
-      <img src="hero1.jpg" alt="Howard Construction kitchen remodel Santa Rosa CA">
-      <div class="hero-tag"><div class="hero-tag-title">Kitchen Transformation</div><div class="hero-tag-sub">Santa Rosa, CA &middot; 2024</div></div>
-    </div>
-    <div class="hi"><img src="hero2.jpg" alt="Home addition Sonoma County"></div>
-    <div class="hi"><img src="hero3.jpg" alt="Pool construction Napa Valley"></div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
+
 <!-- TRUST BAR -->
 <div class="trust">
   <div class="trust-inner">
-    <div class="ti"><div class="ti-dot"></div>CA Licensed &amp; Insured</div>
+    <div class="ti"><span class="ti-ic">&#10003;</span> CA Licensed &amp; Insured</div>
     <div class="tsep"></div>
-    <div class="ti"><div class="ti-dot"></div>On-Time Delivery Guarantee</div>
+    <div class="ti"><span class="ti-ic">&#9733;</span> BBB Accredited</div>
     <div class="tsep"></div>
-    <div class="ti"><div class="ti-dot"></div>BBB Accredited Business</div>
+    <div class="ti"><span class="ti-ic">&#10003;</span> On-Time Delivery Guarantee</div>
     <div class="tsep"></div>
-    <div class="ti"><div class="ti-dot"></div>Serving 50+ Northern CA Communities</div>
+    <div class="ti"><span class="ti-ic">&#9650;</span> Houzz Pro Verified</div>
     <div class="tsep"></div>
-    <div class="ti"><div class="ti-dot"></div>5-Star Rated on Houzz &amp; Google</div>
+    <div class="ti"><span class="ti-ic">&#10003;</span> NCBE Member</div>
+    <div class="tsep"></div>
+    <div class="ti"><span class="ti-ic">&#9733;</span> 5-Star Rated</div>
   </div>
 </div>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-layout">
+    <div class="about-photos">
+      <div class="about-photo main"><img src="phil1_edited.jpg" alt="Philip Howard on active construction job site Northern California"></div>
+      <div class="about-photo"><img src="phil2_edited.jpg" alt="Philip Howard overseeing project Sonoma Valley"></div>
+      <div class="about-photo"><img src="phil3_edited.jpg" alt="Philip Howard field operations"></div>
+    </div>
+    <div class="about-text">
+      <div class="about-badge"><span>&#9679;</span><span class="about-badge-text">Meet Philip Howard &mdash; Owner &amp; President</span></div>
+      <h2>A Third-Generation Builder Who Treats Your Home <em>Like His Own</em></h2>
+      <p>Philip Howard is a Sonoma County native and <strong>third-generation builder</strong> who has personally led every Howard Construction project since founding the company in 2000. His grandfather was a carpenter. His father was a carpenter. Phil has 25+ years of hands-on Northern California construction experience.</p>
+      <p>When you hire Howard Construction, you hire Phil directly. He visits your home, writes your estimate, supervises your build, and walks your final punch list. <strong>No middlemen. No surprises. No excuses.</strong></p>
+      <div class="about-quote">"My grandfather always said: your reputation is built one nail at a time. I've never forgotten that."</div>
+      <a href="about.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:13px 26px;border-radius:7px;font-size:14px;font-weight:600;transition:background .2s;margin-top:8px;">Meet Philip Howard &rarr;</a>
+    </div>
+  </div>
+</div>
+
 <!-- SERVICES -->
-<section class="sec" style="background:#f8f7f4;">
-  <div class="svc-intro">
-    <div>
-      <div class="sec-tag">What We Build</div>
-      <div class="sec-title">Full-Service Construction<br>&amp; Remodeling</div>
-      <p class="sec-sub">From a single bathroom to a complete custom build &mdash; we manage every permit, subcontractor, and detail across Northern California.</p>
+<section class="section services-bg">
+  <div class="container">
+    <div class="svc-header">
+      <div>
+        <div class="s-tag">What We Build</div>
+        <div class="s-title">Full-Service Construction<br>&amp; Remodeling</div>
+        <p class="s-sub">From a single bathroom to a full custom build &mdash; we manage every permit, subcontractor, and detail across all of Northern California.</p>
+      </div>
+      <a href="services.html" style="color:var(--blue);font-size:13px;font-weight:600;border-bottom:1px solid var(--blue-light);padding-bottom:2px;white-space:nowrap;flex-shrink:0;">View All Services &rarr;</a>
     </div>
-    <a href="services.html" style="color:#C25B2A;font-size:13px;font-weight:600;border-bottom:1px solid #C25B2A;padding-bottom:2px;white-space:nowrap;flex-shrink:0;">View All Services &#8594;</a>
-  </div>
-  <div class="svc-grid">
-    <div class="svc"><div class="svc-n">01</div><div class="svc-ic">&#127968;</div><div class="svc-title">Home Remodels</div><p class="svc-desc">Kitchen, bathroom, and whole-home renovations that respect your budget and your daily routine &mdash; including when you live in the space during construction.</p><ul class="svc-list"><li>Kitchen renovations &mdash; full gut or cosmetic refresh</li><li>Bathroom remodels and master suite upgrades</li><li>Open floor plan conversions and structural work</li><li>Flooring, drywall, finish carpentry, and paint</li><li>Window and door replacements</li></ul></div>
-    <div class="svc"><div class="svc-n">02</div><div class="svc-ic">&#127959;</div><div class="svc-title">Home Additions</div><p class="svc-desc">Seamlessly integrated additions that match your home's architecture and significantly increase property value throughout Northern California.</p><ul class="svc-list"><li>Single-story and second-story room additions</li><li>ADU construction (detached and attached)</li><li>Master bedroom and bath suite additions</li><li>Garage conversions to living space</li><li>Sunroom and family room additions</li></ul></div>
-    <div class="svc"><div class="svc-n">03</div><div class="svc-ic">&#127946;</div><div class="svc-title">Pool &amp; Outdoor Living</div><p class="svc-desc">Custom pool construction and complete backyard transformations for homeowners across Sonoma Valley, Napa Valley, Fairfield, and the greater North Bay.</p><ul class="svc-list"><li>Fiberglass pool installation</li><li>Gunite and vinyl pool construction</li><li>Pool deck and surrounding hardscape</li><li>Outdoor kitchens and barbecue centers</li><li>Complete backyard renovation</li></ul></div>
-    <div class="svc"><div class="svc-n">04</div><div class="svc-ic">&#129683;</div><div class="svc-title">Decks &amp; Pergolas</div><p class="svc-desc">Custom wood, composite, and Trex&reg; deck systems with pergolas and built-in seating designed for Northern California's climate.</p><ul class="svc-list"><li>New deck framing and construction</li><li>Deck replacement and structural repair</li><li>Pergolas, arbors, and shade structures</li><li>Built-in benches, planters, and railings</li><li>Concrete patios and walkways</li></ul></div>
-    <div class="svc"><div class="svc-n">05</div><div class="svc-ic">&#128295;</div><div class="svc-title">Garages &amp; Utility</div><p class="svc-desc">Detached garages, utility rooms, and outbuildings built to California code with the same quality as our primary residential work.</p><ul class="svc-list"><li>Detached and attached garage construction</li><li>Garage rebuilds after damage</li><li>Utility room and laundry room builds</li><li>Workshop and storage structures</li><li>Electrical and plumbing rough-in</li></ul></div>
-    <div class="svc"><div class="svc-n">06</div><div class="svc-ic">&#127969;</div><div class="svc-title">ADU Construction</div><p class="svc-desc">We guide you from site assessment through design, permits, construction, and final sign-off. All California ADU laws handled.</p><ul class="svc-list"><li>Detached ADU new construction</li><li>Attached ADU additions</li><li>Garage conversion to ADU</li><li>Junior ADU within existing home</li><li>Full permit management &mdash; all Northern CA counties</li></ul></div>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="svc-n">01</div><div class="svc-ic">&#127968;</div><div class="svc-t">Home Remodels</div><p class="svc-d">Kitchen, bathroom, and whole-home renovations built around your life, your budget, and your timeline.</p><ul class="svc-list"><li>Kitchen &amp; bathroom renovations</li><li>Open floor plan conversions</li><li>Whole-home renovations</li><li>Flooring, carpentry &amp; finishes</li></ul></div>
+      <div class="svc-card"><div class="svc-n">02</div><div class="svc-ic">&#127959;</div><div class="svc-t">Home Additions</div><p class="svc-d">Seamlessly integrated additions that match your home's character and grow your property value.</p><ul class="svc-list"><li>Single &amp; second-story additions</li><li>ADU construction</li><li>Master suite additions</li><li>Garage conversions</li></ul></div>
+      <div class="svc-card"><div class="svc-n">03</div><div class="svc-ic">&#127946;</div><div class="svc-t">Pool &amp; Outdoor Living</div><p class="svc-d">Custom pools and complete backyard transformations for Northern California's outdoor lifestyle.</p><ul class="svc-list"><li>Fiberglass &amp; gunite pools</li><li>Outdoor kitchens &amp; pergolas</li><li>Pool decks &amp; hardscape</li><li>Full backyard renovation</li></ul></div>
+      <div class="svc-card"><div class="svc-n">04</div><div class="svc-ic">&#129683;</div><div class="svc-t">Decks &amp; Pergolas</div><p class="svc-d">Custom wood, composite, and Trex&reg; decks designed for Northern California's climate and lifestyle.</p><ul class="svc-list"><li>New deck construction</li><li>Deck replacement &amp; repair</li><li>Pergolas &amp; shade structures</li><li>Concrete patios</li></ul></div>
+      <div class="svc-card"><div class="svc-n">05</div><div class="svc-ic">&#128295;</div><div class="svc-t">Garages &amp; Utility</div><p class="svc-d">Detached garages and outbuildings built to California code with the same quality as our residential work.</p><ul class="svc-list"><li>Detached garage construction</li><li>Garage rebuilds after damage</li><li>Utility &amp; workshop buildings</li><li>Electrical &amp; plumbing rough-in</li></ul></div>
+      <div class="svc-card"><div class="svc-n">06</div><div class="svc-ic">&#127969;</div><div class="svc-t">ADU Construction</div><p class="svc-d">Complete ADU builds across all Northern California counties &mdash; from permits to certificate of occupancy.</p><ul class="svc-list"><li>Detached &amp; attached ADUs</li><li>Garage conversion to ADU</li><li>Junior ADU (JADU)</li><li>Full permit management</li></ul></div>
+    </div>
   </div>
 </section>
+
 <!-- WHY US -->
-<section class="why">
-  <div class="sec-tag" style="color:#C9A84C;">Why Howard Construction</div>
-  <div class="sec-title light">Built on Integrity.<br>Finished with Precision.</div>
-  <div class="why-grid">
-    <div class="pillars">
-      <div class="pillar"><div class="pn">01</div><div class="pt">Transparent Pricing</div><p class="pd">Detailed written estimates. No change orders without your written approval. No hidden fees ever.</p></div>
-      <div class="pillar"><div class="pn">02</div><div class="pt">On-Time Delivery</div><p class="pd">Realistic timelines we actually meet. Nightly cleanup, magnetic nail sweeps, professional crews every day.</p></div>
-      <div class="pillar"><div class="pn">03</div><div class="pt">Licensed &amp; Insured</div><p class="pd">California Class B General Contractor license. Full liability and workers' comp on every project.</p></div>
-      <div class="pillar"><div class="pn">04</div><div class="pt">Direct Access</div><p class="pd">Philip Howard personally runs every project. You call the decision-maker directly &mdash; no middlemen.</p></div>
-    </div>
-    <div class="why-text">
-      <p>When you hire Howard Construction, you are hiring <strong>Philip Howard directly</strong> &mdash; not a salesperson who hands your project off to a crew you have never met. Phil has led every project personally since founding the company in 2000.</p>
-      <p>We are <strong>Northern California construction specialists</strong> &mdash; with deep knowledge of permit offices in Santa Rosa, Napa, Fairfield, San Francisco, and every county we serve. We know the local building codes, the climate-specific requirements, and the subcontractors worth trusting. That local knowledge saves our clients both time and money.</p>
-      <p>Our <strong>most-cited attribute</strong> across all client reviews is not the quality of the finish work &mdash; it is that we communicate proactively. You will always know exactly where your project stands.</p>
-      <div class="creds">
-        <div class="cred"><div class="cred-dot"></div>California Contractor License &mdash; Class B General Building</div>
-        <div class="cred"><div class="cred-dot"></div>BBB Accredited &mdash; Greater San Francisco region</div>
-        <div class="cred"><div class="cred-dot"></div>NCBE Member &mdash; North Coast Builders Exchange</div>
-        <div class="cred"><div class="cred-dot"></div>Houzz Pro &mdash; Verified &amp; top-rated since 2012</div>
+<section class="section why-section">
+  <div class="container">
+    <div class="s-tag light">Why Howard Construction</div>
+    <div class="s-title light">Built on Integrity.<br>Finished with Precision.</div>
+    <div class="why-grid">
+      <div class="pillar-grid">
+        <div class="pillar"><div class="pn">01</div><div class="pt">Transparent Pricing</div><p class="pd">Detailed written estimates. No change orders without your written approval. No hidden fees.</p></div>
+        <div class="pillar"><div class="pn">02</div><div class="pt">On-Time Delivery</div><p class="pd">Realistic timelines we actually meet. Nightly cleanup, professional crews every single day.</p></div>
+        <div class="pillar"><div class="pn">03</div><div class="pt">Licensed &amp; Insured</div><p class="pd">CA Class B license. Full liability and workers' comp on every project we take.</p></div>
+        <div class="pillar"><div class="pn">04</div><div class="pt">Phil Answers His Phone</div><p class="pd">No call center, no assistant. You reach the decision-maker directly, always.</p></div>
+      </div>
+      <div class="why-text">
+        <p>We are <strong>Northern California construction specialists</strong> with deep knowledge of permit offices in Santa Rosa, Napa, Fairfield, San Francisco, and every county we serve. We know the local codes, the climate-specific requirements, and the subcontractors worth trusting.</p>
+        <p>Our most-cited attribute across all reviews is not the quality of the finish work &mdash; it is that <strong>we communicate proactively</strong>. You always know exactly where your project stands.</p>
+        <div class="cred-list">
+          <div class="cred">California Contractor License &mdash; Class B General Building</div>
+          <div class="cred">BBB Accredited &mdash; Greater San Francisco region</div>
+          <div class="cred">NCBE Member &mdash; North Coast Builders Exchange</div>
+          <div class="cred">Houzz Pro &mdash; Verified &amp; top-rated since 2012</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <!-- PROCESS -->
-<section class="sec" style="background:#f8f7f4;">
-  <div style="text-align:center;">
-    <div class="sec-tag" style="justify-content:center;">How It Works</div>
-    <div class="sec-title">Our 5-Step Project Process</div>
-    <p class="sec-sub" style="margin:14px auto 0;text-align:center;">Every Howard Construction project follows the same proven process &mdash; designed to protect you, your home, and your budget from day one to final walkthrough.</p>
-  </div>
-  <div class="steps">
-    <div class="step"><div class="step-n">1</div><div class="step-t">Free Consultation</div><p class="step-d">We visit your home, listen to your vision, and ask the right questions about scope and budget.</p></div>
-    <div class="step"><div class="step-n">2</div><div class="step-t">Detailed Estimate</div><p class="step-d">Written line-item estimate. No vague numbers, no bait-and-switch pricing.</p></div>
-    <div class="step"><div class="step-n">3</div><div class="step-t">Permits &amp; Planning</div><p class="step-d">We file all permits, finalize material selections, and schedule your start date.</p></div>
-    <div class="step"><div class="step-n">4</div><div class="step-t">Construction</div><p class="step-d">Daily updates, clean site, professional crew from first day to last.</p></div>
-    <div class="step"><div class="step-n">5</div><div class="step-t">Final Walkthrough</div><p class="step-d">We walk every punch list item. We don't leave until you're fully satisfied.</p></div>
+<section class="section process-bg">
+  <div class="container" style="text-align:center;">
+    <div class="s-tag" style="justify-content:center;">How It Works</div>
+    <div class="s-title">Our Simple 5-Step Process</div>
+    <p class="s-sub" style="margin:14px auto 0;text-align:center;">Clear, predictable, no surprises &mdash; from first call to final walkthrough.</p>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-t">Free Consultation</div><p class="step-d">Phil visits your home, listens, and asks the right questions.</p></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t">Detailed Estimate</div><p class="step-d">Written line-item pricing. No vague numbers.</p></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t">Permits &amp; Planning</div><p class="step-d">We file all permits and finalize your start date.</p></div>
+      <div class="step"><div class="step-n">4</div><div class="step-t">Construction</div><p class="step-d">Daily updates, clean site, professional crew.</p></div>
+      <div class="step"><div class="step-n">5</div><div class="step-t">Final Walkthrough</div><p class="step-d">We don't leave until every item is resolved.</p></div>
+    </div>
   </div>
 </section>
+
 <!-- TESTIMONIALS -->
-<section class="sec" style="background:#fff;">
-  <div class="sec-tag">Client Reviews</div>
-  <div class="sec-title">What Our Clients Say</div>
-  <div class="testi-grid">
-    <div class="tc feat"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Philip Howard is the most professional contractor I've worked with in 30 years. Best ideas, most knowledge, and the finest quality of work one could ever hope for. We couldn't be happier."</p><div class="ta"><div class="tav">ML</div><div><div class="tname">Michael Lash</div><div class="tproj">Complete Home Remodel &middot; Santa Rosa</div></div></div></div>
-    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Their nightly cleanup was remarkable &mdash; right down to magnetic nail sweeping. Their respect for our property and neighbors set them apart from every other contractor we have ever hired."</p><div class="ta"><div class="tav">LL</div><div><div class="tname">Larry Lapsley &amp; Justine Lott</div><div class="tproj">Deck &amp; Pergola &middot; Santa Rosa</div></div></div></div>
-    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"We couldn't be happier with our pool. Howard Construction took time to explain every option and helped us choose what was right for our yard and budget. Outstanding work."</p><div class="ta"><div class="tav">RD</div><div><div class="tname">Ron Darbellay</div><div class="tproj">Pool Installation &middot; Sonoma County</div></div></div></div>
-    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"We hired Howard Construction for a complete kitchen and master bath renovation at our Napa Valley home. Philip ran a flawless project &mdash; the craftsmanship was absolutely beautiful."</p><div class="ta"><div class="tav">DM</div><div><div class="tname">Diana &amp; Robert Marchetti</div><div class="tproj">Kitchen &amp; Master Bath &middot; Napa Valley</div></div></div></div>
-    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Phil and his crew handled unexpected dry rot without missing our deadline for out-of-town guests. We lived in the house the entire time. Remarkable professionalism."</p><div class="ta"><div class="tav">BH</div><div><div class="tname">Barbara Howell &amp; Michael Snethlage</div><div class="tproj">Bathroom Remodel &mdash; Lived In</div></div></div></div>
-    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"After the fires, Phil Howard came out personally, walked the property, and gave us a plan that made us feel hopeful again. His team rebuilt our home beautifully &mdash; better than before."</p><div class="ta"><div class="tav">TW</div><div><div class="tname">Thomas &amp; Linda Whitfield</div><div class="tproj">Fire Rebuild &middot; Santa Rosa</div></div></div></div>
+<section class="section testi-bg">
+  <div class="container">
+    <div class="s-tag">Client Reviews</div>
+    <div class="s-title">What Our Clients Say</div>
+    <div class="testi-grid">
+      <div class="tc feat"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Philip Howard is the most professional contractor I've worked with in 30 years. Best ideas, most knowledge, and the finest quality of work one could ever hope for."</p><div class="ta"><div class="tav">ML</div><div><div class="tname">Michael Lash</div><div class="tproj">Complete Home Remodel &middot; Santa Rosa</div></div></div></div>
+      <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Their nightly cleanup was remarkable &mdash; right down to magnetic nail sweeping. Set them apart from every contractor we have ever hired."</p><div class="ta"><div class="tav">LL</div><div><div class="tname">Larry Lapsley &amp; Justine Lott</div><div class="tproj">Deck &amp; Pergola &middot; Santa Rosa</div></div></div></div>
+      <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"We hired Howard Construction for a complete kitchen and master bath in Napa Valley. Philip ran a flawless project &mdash; the craftsmanship was absolutely beautiful."</p><div class="ta"><div class="tav">DM</div><div><div class="tname">Diana &amp; Robert Marchetti</div><div class="tproj">Kitchen &amp; Bath &middot; Napa Valley</div></div></div></div>
+      <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Phil and his crew handled unexpected dry rot without missing our deadline. We lived in the house the entire time. Remarkable professionalism."</p><div class="ta"><div class="tav">BH</div><div><div class="tname">Barbara Howell &amp; Michael Snethlage</div><div class="tproj">Bathroom Remodel &middot; Lived In</div></div></div></div>
+      <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"After the fires, Phil came out personally and gave us a plan that made us feel hopeful again. His team rebuilt our home better than before."</p><div class="ta"><div class="tav">TW</div><div><div class="tname">Thomas &amp; Linda Whitfield</div><div class="tproj">Fire Rebuild &middot; Santa Rosa</div></div></div></div>
+      <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tq">"Built an ADU on our Sonoma Valley property. Howard Construction handled every permit, every sub, and kept us informed weekly. The finished unit is gorgeous."</p><div class="ta"><div class="tav">SF</div><div><div class="tname">Susan &amp; Frank Delgado</div><div class="tproj">ADU Construction &middot; Sonoma Valley</div></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;"><a href="testimonials.html" style="color:var(--blue);font-size:13px;font-weight:600;border-bottom:1px solid var(--blue-light);padding-bottom:2px;">Read All Reviews &rarr;</a></div>
   </div>
-  <div style="text-align:center;margin-top:40px;"><a href="testimonials.html" style="color:#C25B2A;font-size:13px;font-weight:600;border-bottom:1px solid #C25B2A;padding-bottom:2px;">Read All Reviews &#8594;</a></div>
 </section>
+
 <!-- FAQ -->
-<section class="sec" style="background:#f8f7f4;">
-  <div class="faq-layout">
-    <div class="faq-sidebar">
-      <div class="sec-tag">FAQ</div>
-      <div class="sec-title" style="font-size:1.9rem;">Frequently Asked Questions</div>
-      <p>Answers to the questions we hear most from homeowners planning a project across Northern California.</p>
-      <div class="faq-cats">
-        <button class="faq-cat active" onclick="fFilter('all',this)">All Questions</button>
-        <button class="faq-cat" onclick="fFilter('hiring',this)">Hiring a Contractor</button>
-        <button class="faq-cat" onclick="fFilter('cost',this)">Costs &amp; Budgeting</button>
-        <button class="faq-cat" onclick="fFilter('permits',this)">Permits &amp; Legal</button>
-        <button class="faq-cat" onclick="fFilter('timeline',this)">Timelines</button>
-        <button class="faq-cat" onclick="fFilter('process',this)">Our Process</button>
-        <button class="faq-cat" onclick="fFilter('quality',this)">Quality &amp; Warranty</button>
+<section class="section faq-bg">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sidebar">
+        <div class="s-tag">FAQ</div>
+        <div class="s-title" style="font-size:1.9rem;">Frequently Asked Questions</div>
+        <p>Answers to the questions we hear most from homeowners planning a project across Northern California.</p>
+        <div class="faq-cats">
+          <button class="faq-cat active" onclick="fFilter('all',this)">All Questions</button>
+          <button class="faq-cat" onclick="fFilter('hiring',this)">Hiring a Contractor</button>
+          <button class="faq-cat" onclick="fFilter('cost',this)">Costs &amp; Budgeting</button>
+          <button class="faq-cat" onclick="fFilter('permits',this)">Permits &amp; Legal</button>
+          <button class="faq-cat" onclick="fFilter('timeline',this)">Timelines</button>
+          <button class="faq-cat" onclick="fFilter('process',this)">Our Process</button>
+          <button class="faq-cat" onclick="fFilter('quality',this)">Quality &amp; Warranty</button>
+        </div>
+      </div>
+      <div class="faq-items" id="faqList">
+        <div class="faq-item" data-cat="hiring"><button class="faq-q" onclick="fToggle(this)">How do I verify a contractor is licensed in California?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Visit <strong>CSLB.ca.gov</strong> and look up the license number. Confirm it is active, Class B, and insurance is current. A legitimate contractor provides it immediately without hesitation.</div></div></div>
+        <div class="faq-item" data-cat="hiring"><button class="faq-q" onclick="fToggle(this)">Should I get multiple bids before choosing?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner"><strong>Yes &mdash; get 2 to 3 detailed bids.</strong> Never automatically choose the lowest. A low bid often means inferior materials or gaps in scope that appear as change orders later. Compare line by line and ask what is NOT included.</div></div></div>
+        <div class="faq-item" data-cat="hiring"><button class="faq-q" onclick="fToggle(this)">What questions should I ask before hiring?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner"><strong>(1)</strong> What is your CA license number? <strong>(2)</strong> Who manages the job site daily? <strong>(3)</strong> How do you handle change orders? <strong>(4)</strong> What is your payment schedule? <strong>(5)</strong> Can you provide 3 references from the last 2 years? <strong>(6)</strong> Are all subs licensed and insured?</div></div></div>
+        <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">How much does a kitchen remodel cost in Northern California?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Mid-range typically runs <strong>$40,000&ndash;$90,000</strong>. High-end custom kitchens reach $120,000&ndash;$200,000+. Key drivers: cabinet quality, plumbing/electrical moves, countertop material. We provide line-item estimates so every dollar is accounted for.</div></div></div>
+        <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">What does a home addition cost per square foot?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">In Northern California, additions typically cost <strong>$300&ndash;$550 per sq ft</strong> for standard work, $600&ndash;$900+ for high-end finishes. A 600 sq ft ADU might run $180,000&ndash;$350,000 all-in.</div></div></div>
+        <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">How much contingency should I budget?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">The industry standard is <strong>10&ndash;20% above the quoted price.</strong> Older homes often reveal hidden issues once walls open &mdash; dry rot, outdated wiring, plumbing. We communicate all discoveries immediately and never proceed without your written authorization.</div></div></div>
+        <div class="faq-item" data-cat="permits"><button class="faq-q" onclick="fToggle(this)">Do I need a permit for a bathroom remodel?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner"><strong>Cosmetic work</strong> typically does not need a permit. <strong>Structural or system changes do</strong> &mdash; moving walls, relocating plumbing, adding circuits, changing layout. Unpermitted work in California can affect insurance and create problems at resale.</div></div></div>
+        <div class="faq-item" data-cat="permits"><button class="faq-q" onclick="fToggle(this)">What permits are required for a home addition?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">A home addition requires Building, Electrical, Plumbing, and Mechanical permits. We have established relationships with permit offices across Northern California &mdash; Santa Rosa, Napa, Fairfield, and beyond &mdash; and handle the entire submission and follow-up for you.</div></div></div>
+        <div class="faq-item" data-cat="timeline"><button class="faq-q" onclick="fToggle(this)">How long does a kitchen remodel take?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">A standard kitchen (no structural changes) takes <strong>4&ndash;8 weeks</strong> from demo to punch list. Complex remodels extend to 10&ndash;14 weeks. We pre-order all long-lead materials before demo begins so nothing waits on parts.</div></div></div>
+        <div class="faq-item" data-cat="timeline"><button class="faq-q" onclick="fToggle(this)">Can I live in my home during a remodel?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Yes &mdash; we have extensive experience making this work. Daily dust barriers, nightly cleanup, and noise schedules around your hours. We have completed full remodels with families living on-site throughout.</div></div></div>
+        <div class="faq-item" data-cat="process"><button class="faq-q" onclick="fToggle(this)">Who manages my project day to day?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Philip Howard personally oversees every project. Lead foreman Rich is on-site daily for larger builds. You always have Phil's direct cell number &mdash; no call center, no buffer. You reach the decision-maker directly.</div></div></div>
+        <div class="faq-item" data-cat="process"><button class="faq-q" onclick="fToggle(this)">What happens if an unexpected problem is found?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">We stop, photograph the issue, and call you immediately. We explain your options and costs, and do not proceed without written authorization. We never deliver surprise invoices. Transparency is non-negotiable.</div></div></div>
+        <div class="faq-item" data-cat="quality"><button class="faq-q" onclick="fToggle(this)">What warranty do you provide?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">All projects include a <strong>1-year workmanship warranty.</strong> California law also provides a 10-year structural defect warranty on new construction and major structural work. All documentation provided at project completion.</div></div></div>
+        <div class="faq-item" data-cat="quality"><button class="faq-q" onclick="fToggle(this)">How do you vet your subcontractors?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Every sub is <strong>licensed, bonded, and insured</strong> in California. We work with trusted specialists we have partnered with for 10+ years. We verify CSLB status before every project and require proof of insurance.</div></div></div>
       </div>
     </div>
-    <div class="faq-items" id="faqList">
-      <div class="faq-item" data-cat="hiring"><button class="faq-q" onclick="fToggle(this)">How do I verify a contractor is licensed in California?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Visit <strong>CSLB.ca.gov</strong> and look up the contractor's license number. Confirm it is active, the classification is Class B (General Building), and the bond and insurance are current. Always ask for the license number before signing any contract &mdash; a legitimate contractor provides it immediately.</div></div></div>
-      <div class="faq-item" data-cat="hiring"><button class="faq-q" onclick="fToggle(this)">Should I get multiple bids before choosing a contractor?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner"><strong>Yes &mdash; get 2 to 3 detailed bids.</strong> But never automatically choose the lowest. A low bid often means inferior materials, unlicensed subs, or gaps in scope that show up as change orders once work starts. Compare bids line by line and ask each contractor what is NOT included.</div></div></div>
-      <div class="faq-item" data-cat="hiring"><button class="faq-q" onclick="fToggle(this)">What questions should I ask before hiring a contractor?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Ask: <strong>(1)</strong> What is your CA license number? <strong>(2)</strong> Who manages the job site daily? <strong>(3)</strong> How do you handle change orders? <strong>(4)</strong> What is your payment schedule? <strong>(5)</strong> Can you provide 3 references from similar projects in the last 2 years? <strong>(6)</strong> Are all subcontractors licensed and insured?</div></div></div>
-      <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">How much does a kitchen remodel cost in Northern California?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">A mid-range kitchen remodel in Sonoma or Napa County typically runs <strong>$40,000&ndash;$90,000</strong>. High-end custom kitchens with structural changes can reach $120,000&ndash;$200,000+. Key cost drivers: cabinet quality, whether you are moving plumbing or electrical, and countertop material. We provide line-item estimates so you see exactly where every dollar goes.</div></div></div>
-      <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">What does a home addition cost per square foot in California?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">In Northern California, home additions typically cost <strong>$300&ndash;$550 per square foot</strong> for standard construction, and $600&ndash;$900+ for high-end finishes. A 600 sq ft ADU might run $180,000&ndash;$350,000 all-in depending on site and utility requirements.</div></div></div>
-      <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">How much contingency budget should I set aside?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">The industry standard is <strong>10&ndash;20% above your quoted contract price.</strong> Older homes are more likely to reveal hidden issues once walls are opened &mdash; dry rot, outdated wiring, or plumbing. We communicate all discoveries immediately and never proceed without your written authorization.</div></div></div>
-      <div class="faq-item" data-cat="cost"><button class="faq-q" onclick="fToggle(this)">How much does a pool cost in Northern California?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">A complete fiberglass pool installation in Northern California typically runs <strong>$65,000&ndash;$110,000</strong> including excavation, shell, plumbing, electrical, and decking. Gunite pools run higher ($90,000&ndash;$150,000+). Fiberglass pools are lower maintenance long-term &mdash; no replastering, smoother surface, faster installation.</div></div></div>
-      <div class="faq-item" data-cat="permits"><button class="faq-q" onclick="fToggle(this)">Do I need a permit for a bathroom remodel?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner"><strong>Cosmetic work</strong> (replacing fixtures, tile, or vanity in the same location) typically does not require a permit. <strong>Structural or system changes do</strong> &mdash; including moving walls, relocating plumbing, adding an electrical circuit, or changing the layout. Unpermitted work in California can affect your insurance and create problems at resale.</div></div></div>
-      <div class="faq-item" data-cat="permits"><button class="faq-q" onclick="fToggle(this)">What permits are required for a home addition?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">A home addition requires a <strong>Building Permit</strong> plus separate permits for Electrical, Plumbing, and Mechanical (HVAC). We have established relationships with permit offices in Santa Rosa, Napa, Fairfield, and all Northern California counties we serve. We handle the entire submission and follow-up process on your behalf.</div></div></div>
-      <div class="faq-item" data-cat="timeline"><button class="faq-q" onclick="fToggle(this)">How long does a kitchen remodel take?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">A standard kitchen remodel (no structural changes) takes <strong>4&ndash;8 weeks</strong> from demo to final punch list. Complex remodels with structural modifications or custom cabinetry can extend to 10&ndash;14 weeks. We pre-order all long-lead materials before demo begins so your kitchen is not left open waiting on parts.</div></div></div>
-      <div class="faq-item" data-cat="timeline"><button class="faq-q" onclick="fToggle(this)">Can I live in my home during a remodel?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Yes &mdash; and we have extensive experience making this work. We use daily dust barriers, schedule noisy work during hours you specify, perform nightly site cleanup, and maintain access to essential areas. We have completed numerous full remodels with families living on-site throughout the entire construction period.</div></div></div>
-      <div class="faq-item" data-cat="process"><button class="faq-q" onclick="fToggle(this)">Who will be on-site managing my project day to day?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Philip Howard personally oversees every Howard Construction project. Our lead foreman Rich is on-site daily for larger projects, with Phil visiting multiple times per week. You will always have Philip's direct cell number &mdash; no call center, no office buffer. If you have a question, you reach the decision-maker directly.</div></div></div>
-      <div class="faq-item" data-cat="process"><button class="faq-q" onclick="fToggle(this)">What happens if an unexpected problem is found during construction?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">We stop work, document the issue with photos, and contact you immediately. We explain the options and costs and do not proceed until you have authorized any additional scope in writing. We never surprise clients with change order costs at the end of a project. Transparency is non-negotiable.</div></div></div>
-      <div class="faq-item" data-cat="process"><button class="faq-q" onclick="fToggle(this)">How does the payment schedule work?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">California law limits the initial deposit to <strong>10% of the contract price or $1,000, whichever is less</strong> for home improvement contracts. After that, payments are tied to project milestones &mdash; never paid ahead of work completed. Final payment is only due after your written sign-off on the completed punch list.</div></div></div>
-      <div class="faq-item" data-cat="quality"><button class="faq-q" onclick="fToggle(this)">What warranty do you provide on your work?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">All Howard Construction projects include a <strong>1-year workmanship warranty</strong> covering defects in labor and installation. California law also provides a 10-year structural defect warranty on new construction and major structural work. We provide all warranty documentation at project completion.</div></div></div>
-      <div class="faq-item" data-cat="quality"><button class="faq-q" onclick="fToggle(this)">How do you vet your subcontractors?<span class="faq-chev">&#8964;</span></button><div class="faq-ans"><div class="faq-ans-inner">Every subcontractor we use is <strong>licensed, bonded, and insured</strong> in California. We work with a trusted network of plumbers, electricians, tile setters, and other specialists &mdash; many of whom we have worked with for 10+ years. We verify their CSLB license status before every project.</div></div></div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE BASE -->
+<section class="section kb-bg">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:0;">
+      <div>
+        <div class="s-tag">Knowledge Base</div>
+        <div class="s-title">Free Guides for<br>Northern California Homeowners</div>
+        <p class="s-sub">25 years of construction knowledge &mdash; freely shared so you can plan with confidence.</p>
+      </div>
+      <a href="knowledge.html" style="color:var(--blue);font-size:13px;font-weight:600;border-bottom:1px solid var(--blue-light);padding-bottom:2px;white-space:nowrap;flex-shrink:0;">Browse All Guides &rarr;</a>
+    </div>
+    <div class="kb-grid">
+      <div class="kbc" onclick="location.href='knowledge.html'"><span class="kbt">Budgeting</span><div class="kbtitle">The True Cost of a Kitchen Remodel in Northern California (2025)</div><p class="kbex">Every cost category with real price ranges from current projects in Santa Rosa, Napa Valley, and Sonoma Valley.</p><span class="kblink">Read Guide &rarr;</span></div>
+      <div class="kbc" onclick="location.href='knowledge.html'"><span class="kbt">ADUs</span><div class="kbtitle">ADU Guide: What Northern California Homeowners Need to Know in 2025</div><p class="kbex">Permits, setbacks, costs, and timelines for Sonoma, Napa, Fairfield, and all Northern California counties.</p><span class="kblink">Read Guide &rarr;</span></div>
+      <div class="kbc" onclick="location.href='knowledge.html'"><span class="kbt">Hiring</span><div class="kbtitle">10 Red Flags When Hiring a Contractor in California</div><p class="kbex">How to spot unlicensed contractors, deceptive bids, and risky contracts before you sign anything.</p><span class="kblink">Read Guide &rarr;</span></div>
     </div>
   </div>
 </section>
-<!-- KNOWLEDGE BASE PREVIEW -->
-<section class="sec" style="background:#f8f7f4;">
-  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:0;">
-    <div>
-      <div class="sec-tag">Knowledge Base</div>
-      <div class="sec-title">Free Guides for<br>Northern California Homeowners</div>
-      <p class="sec-sub">25 years of construction knowledge &mdash; freely shared so you can plan your project with confidence.</p>
-    </div>
-    <a href="knowledge.html" style="color:#C25B2A;font-size:13px;font-weight:600;border-bottom:1px solid #C25B2A;padding-bottom:2px;white-space:nowrap;flex-shrink:0;">Browse All Guides &#8594;</a>
-  </div>
-  <div class="kb-grid">
-    <div class="kbc" onclick="location.href='knowledge.html'"><span class="kbt">Budgeting</span><div class="kbtitle">The True Cost of a Kitchen Remodel in Northern California (2025)</div><p class="kbex">Every cost category broken down &mdash; labor, cabinets, countertops, appliances, plumbing, electrical &mdash; with real price ranges from current projects in Santa Rosa, Napa Valley, and Sonoma Valley.</p><span class="kblink">Read Guide &#8594;</span></div>
-    <div class="kbc" onclick="location.href='knowledge.html'"><span class="kbt">ADUs</span><div class="kbtitle">ADU Guide: What Northern California Homeowners Need to Know in 2025</div><p class="kbex">Permit requirements, setback rules, utility hookups, and realistic costs for adding a legal second unit in Sonoma, Napa, Fairfield, and all Northern California counties.</p><span class="kblink">Read Guide &#8594;</span></div>
-    <div class="kbc" onclick="location.href='knowledge.html'"><span class="kbt">Hiring</span><div class="kbtitle">10 Red Flags When Hiring a Contractor in California</div><p class="kbex">How to spot unlicensed contractors, deceptive bids, and contract language that puts you at serious legal and financial risk before you sign anything.</p><span class="kblink">Read Guide &#8594;</span></div>
-  </div>
-</section>
+
 <!-- SERVICE AREAS -->
-<section class="areas">
-  <div style="text-align:center;margin-bottom:0;">
-    <div class="sec-tag" style="justify-content:center;color:#C9A84C;">Where We Work</div>
-    <div class="sec-title light">Proudly Serving All of <em style="font-style:italic;color:#E8845A;">Northern California</em></div>
-    <p style="font-size:15px;color:rgba(255,255,255,0.45);line-height:1.8;font-weight:300;max-width:640px;margin:14px auto 0;">From the wine country of Sonoma and Napa to the cities of San Francisco, Fairfield, and Vacaville &mdash; Howard Construction brings 25 years of expert craftsmanship to every corner of Northern California.</p>
-  </div>
-  <div class="areas-grid">
-    <div class="area"><div class="area-ic">&#127861;</div><div class="area-name">Sonoma Valley</div><div class="area-cities">Santa Rosa &middot; Petaluma &middot; Healdsburg<br>Windsor &middot; Sebastopol &middot; Sonoma</div></div>
-    <div class="area"><div class="area-ic">&#127807;</div><div class="area-name">Napa Valley</div><div class="area-cities">Napa &middot; Calistoga &middot; St. Helena<br>Yountville &middot; Rutherford &middot; American Canyon</div></div>
-    <div class="area"><div class="area-ic">&#127753;</div><div class="area-name">Bay Area</div><div class="area-cities">San Francisco &middot; Marin County<br>Novato &middot; San Rafael &middot; Mill Valley</div></div>
-    <div class="area"><div class="area-ic">&#127961;</div><div class="area-name">Solano County</div><div class="area-cities">Fairfield &middot; Vacaville &middot; Vallejo<br>Benicia &middot; Dixon &middot; Rio Vista</div></div>
-    <div class="area"><div class="area-ic">&#127956;</div><div class="area-name">North Bay &amp; Beyond</div><div class="area-cities">Lake County &middot; Mendocino<br>Ukiah &middot; Cloverdale &middot; Willits</div></div>
-  </div>
-  <div style="text-align:center;margin-top:32px;">
-    <p style="font-size:13px;color:rgba(255,255,255,0.3);font-style:italic;">Not sure if we serve your area? Call us at <a href="tel:+17075786565" style="color:#C9A84C;text-decoration:none;font-weight:600;">(707) 578-6565</a> &mdash; chances are we do.</p>
+<section class="section areas-section">
+  <div class="container" style="text-align:center;position:relative;">
+    <div class="s-tag light" style="justify-content:center;">Where We Work</div>
+    <div class="s-title light">Proudly Serving All of <em style="font-style:italic;color:#F9C45A;">Northern California</em></div>
+    <p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.8;font-weight:300;max-width:600px;margin:14px auto 0;">From the vineyards of Sonoma and Napa to the cities of San Francisco and Fairfield &mdash; Howard Construction brings 25 years of expert craftsmanship to every corner of Northern California.</p>
+    <div class="areas-grid">
+      <div class="area"><div class="area-ic">&#127861;</div><div class="area-name">Sonoma Valley</div><div class="area-cities">Santa Rosa &middot; Petaluma<br>Healdsburg &middot; Sebastopol</div></div>
+      <div class="area"><div class="area-ic">&#127807;</div><div class="area-name">Napa Valley</div><div class="area-cities">Napa &middot; Calistoga<br>St. Helena &middot; Yountville</div></div>
+      <div class="area"><div class="area-ic">&#127753;</div><div class="area-name">Bay Area</div><div class="area-cities">San Francisco &middot; Marin<br>Novato &middot; San Rafael</div></div>
+      <div class="area"><div class="area-ic">&#127961;</div><div class="area-name">Solano County</div><div class="area-cities">Fairfield &middot; Vacaville<br>Vallejo &middot; Benicia</div></div>
+      <div class="area"><div class="area-ic">&#127956;</div><div class="area-name">North Bay &amp; Beyond</div><div class="area-cities">Lake County &middot; Mendocino<br>Ukiah &middot; Cloverdale</div></div>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,0.3);margin-top:28px;font-style:italic;">Not sure if we cover your area? Call <a href="tel:+17075786565" style="color:#F9C45A;font-weight:600;">(707) 578-6565</a> &mdash; chances are we do.</p>
   </div>
 </section>
+
 <!-- CTA -->
-<section class="cta">
+<section class="cta-section">
   <div class="cta-inner">
-    <h2>Ready to start your<br><em>dream project?</em></h2>
-    <div class="cta-right">
-      <a href="contact.html" class="btn-white">Get a Free Estimate &#8594;</a>
+    <div class="cta-title">Ready to start your<br><em>dream project?</em></div>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-white">Get a Free Estimate &rarr;</a>
       <div class="cta-phone">or call <a href="tel:+17075786565">(707) 578-6565</a></div>
     </div>
   </div>
 </section>
 
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
   <div class="footer-grid">
     <div>
       <div class="fl-logo"><img src="logo.png" alt="Howard Construction Inc."></div>
       <div class="fl-name">Howard Construction Inc.</div>
       <div class="fl-lic">CA Lic. #B-XXXXXX &middot; BBB Accredited &middot; NCBE Member</div>
-      <p class="fl-desc">Northern California's trusted general contractor serving Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, Vallejo, Petaluma, Healdsburg, and all surrounding communities since 2000.</p>
+      <p class="fl-desc">Northern California's trusted general contractor serving Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, and all surrounding communities since 2000.</p>
     </div>
     <div class="fc"><h4>Services</h4><ul>
       <li><a href="services.html">Home Remodels</a></li>
@@ -423,7 +583,7 @@ footer{background:#111;padding:72px 40px 40px;}
     <div class="fc"><h4>Contact</h4>
       <div class="fci">&#128222; <a href="tel:+17075786565">(707) 578-6565</a></div>
       <div class="fci">&#9993; <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
-      <div class="fci">&#128205; 4012 Cervantes Road, Santa Rosa CA 95403</div>
+      <div class="fci">&#128205; 4012 Cervantes Rd, Santa Rosa CA 95403</div>
       <div class="fci">&#128336; Mon&ndash;Fri 7am&ndash;6pm &middot; Sat 8am&ndash;2pm</div>
     </div>
   </div>
@@ -433,189 +593,67 @@ footer{background:#111;padding:72px 40px 40px;}
   </div>
 </footer>
 
-<!-- CHAT -->
-<style>
-#cb{position:fixed;bottom:28px;right:28px;width:62px;height:62px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;z-index:3000;box-shadow:0 4px 20px rgba(194,91,42,0.5);display:flex;align-items:center;justify-content:center;transition:transform .2s;}
-#cb:hover{transform:scale(1.08);}
-#cbadge{position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:50%;background:#1C2B1F;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;}
-#cbox{position:fixed;bottom:104px;right:28px;width:360px;background:#fff;border-radius:14px;box-shadow:0 16px 56px rgba(0,0,0,0.2);z-index:3000;display:none;flex-direction:column;overflow:hidden;max-height:560px;}
-#chead{background:#1C2B1F;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;}
-#chead-l{display:flex;align-items:center;gap:12px;}
-#cav{width:40px;height:40px;border-radius:50%;background:#C25B2A;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;}
-#cname{font-size:14px;font-weight:600;color:#fff;}
-#cstatus{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
-#cx{background:none;border:none;color:rgba(255,255,255,0.7);font-size:26px;cursor:pointer;line-height:1;padding:0 2px;}
-#cx:hover{color:#fff;}
-#cmsgs{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f5f0e8;min-height:180px;max-height:360px;}
-#cmsgs::-webkit-scrollbar{width:4px;}
-#cmsgs::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px;}
-.cm{display:flex;flex-direction:column;gap:3px;max-width:88%;}
-.cm.bot{align-self:flex-start;}
-.cm.usr{align-self:flex-end;}
-.cm-b{padding:11px 14px;border-radius:12px;font-size:13px;line-height:1.65;}
-.cm.bot .cm-b{background:#fff;color:#1a1a1a;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
-.cm.usr .cm-b{background:#C25B2A;color:#fff;border-radius:12px 4px 12px 12px;}
-.cm-t{font-size:10px;color:#bbb;}
-.cm.usr .cm-t{text-align:right;}
-.cqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
-.cq{background:#fff;border:1.5px solid #e0d8cc;color:#C25B2A;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;}
-.cq:hover{background:#C25B2A;border-color:#C25B2A;color:#fff;}
-#cdots{display:none;align-self:flex-start;padding:12px 14px;background:#fff;border-radius:4px 12px 12px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.07);}
-#cdots span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#C25B2A;margin:0 2px;animation:cdt 1.2s infinite;}
-#cdots span:nth-child(2){animation-delay:.2s;}
-#cdots span:nth-child(3){animation-delay:.4s;}
-@keyframes cdt{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
-#cfoot{padding:12px 14px;background:#fff;border-top:1px solid #e8e2d9;display:flex;gap:8px;align-items:center;}
-#cinp{flex:1;border:1.5px solid #e8e2d9;border-radius:22px;padding:9px 15px;font-size:13px;font-family:'Inter',sans-serif;outline:none;color:#1a1a1a;}
-#cinp:focus{border-color:#C25B2A;}
-#cgo{width:38px;height:38px;border-radius:50%;background:#C25B2A;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-#cgo:hover{background:#A34820;}
-@media(max-width:440px){#cbox{width:calc(100vw - 24px);right:12px;}#cb{right:16px;bottom:20px;}}
-</style>
-<button id="cb" aria-label="Chat with us">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-  <div id="cbadge">1</div>
-</button>
-<div id="cbox">
-  <div id="chead">
-    <div id="chead-l">
-      <div id="cav">HC</div>
-      <div><div id="cname">Howard Construction</div><div id="cstatus">&#9679; Online &mdash; Northern CA Experts</div></div>
-    </div>
-    <button id="cx">&times;</button>
-  </div>
-  <div id="cmsgs">
-    <div class="cm bot">
-      <div class="cm-b">Welcome to <strong>Howard Construction Inc.</strong><br><br>We are Northern California's trusted general contractor &mdash; serving <strong>Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville</strong> and all surrounding communities since 2000.<br><br>How can we help you today?</div>
-      <div class="cm-t">Now</div>
-      <div class="cqs">
-        <button class="cq" data-q="Where are you building?">Where are you building?</button>
-        <button class="cq" data-q="What is your project?">What is your project?</button>
-        <button class="cq" data-q="How much does it cost?">How much does it cost?</button>
-        <button class="cq" data-q="How do I get a free estimate?">Free estimate</button>
-        <button class="cq" data-q="What are California building codes?">CA Building Codes</button>
-        <button class="cq" data-q="Show me structural calculations">Structural Math</button>
-      </div>
-    </div>
-    <div id="cdots"><span></span><span></span><span></span></div>
-  </div>
-  <div id="cfoot">
-    <input id="cinp" type="text" placeholder="Ask us anything..." autocomplete="off">
-    <button id="cgo" aria-label="Send">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </button>
-  </div>
-</div>
+<!-- SCRIPTS -->
 <script>
+// Nav scroll effect
+window.addEventListener('scroll',function(){
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+
+// Mobile menu
 (function(){
-var _open=false;
-var A={
-  greet:"Hi there! We are Northern California's trusted general contractor, serving Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, Vallejo, Petaluma, Healdsburg, and all surrounding areas. What can I help you with today?",
-  location:"We serve all of Northern California including:<br><br>Santa Rosa &amp; Sonoma Valley<br>Napa Valley &amp; Calistoga<br>San Francisco &amp; Marin County<br>Fairfield, Vacaville &amp; Vallejo (Solano County)<br>Petaluma, Healdsburg, Windsor, Sebastopol<br>Novato, San Rafael, Mill Valley<br>St. Helena, Yountville, Rutherford<br>Lake County, Mendocino, Ukiah<br><br>Not sure? Call us at (707) 578-6565 and we can confirm!",
-  project:"We build and remodel all types of residential projects:<br><br>Kitchen &amp; Bathroom Remodels<br>Home Additions &amp; Second Stories<br>ADU / Second Unit Construction<br>Pool &amp; Outdoor Living Areas<br>Decks, Pergolas &amp; Patios<br>Garages &amp; Utility Buildings<br>Fire Rebuild &amp; Restoration<br><br>What type of project are you planning?",
-  cost:"General pricing for Northern California (2025):<br><br>Kitchen remodel: $40,000&ndash;$200,000<br>Bathroom remodel: $15,000&ndash;$60,000<br>Home addition: $300&ndash;$550 per sq ft<br>ADU construction: $180,000&ndash;$350,000<br>Pool (fiberglass): $65,000&ndash;$110,000<br>Pool (gunite): $90,000&ndash;$150,000+<br>Deck construction: $25&ndash;$60 per sq ft<br>Garage build: $50,000&ndash;$120,000<br><br>For an accurate estimate, call Phil at (707) 578-6565.",
-  estimate:"Getting your free estimate is easy:<br><br>1. Fill out our form on the Contact page<br>2. Call Philip Howard: (707) 578-6565<br>3. Email: info@howardconstructioninc.com<br><br>Phil personally reviews every inquiry and responds within one business day. Free on-site consultation, zero pressure.",
-  calcode:"California Building Code (CBC) Key Points:<br><br>Title 24 &mdash; R-38 attic insulation, R-15 walls, dual-pane windows max U-0.30, solar mandatory on all new homes<br><br>CBC Chapter 16 &mdash; Seismic Design Category D in Northern CA. Shear walls, anchor bolts at 6 ft max spacing<br><br>Fire Code 7A (SRA Zones) &mdash; Class A roofing, ember-resistant vents, non-combustible decking within 5 ft<br><br>Plumbing &mdash; Max 1.28 gpf toilets, 1.8 gpm showerheads<br><br>Electrical &mdash; AFCI in bedrooms and living areas, GFCI in kitchens, baths, garages<br><br>We handle all code compliance and permitting on every project.",
-  structural:"Structural Engineering Basics:<br><br>Beam Sizing: S = M divided by Fb<br>Douglas Fir No.2: Fb = 900 psi<br><br>Floor Joist Spans (40 psf live + 10 psf dead):<br>2x8 at 16in: max span 12ft 4in<br>2x10 at 16in: max span 15ft 7in<br>2x12 at 16in: max span 18ft 10in<br><br>Header Sizing:<br>Up to 4ft opening: double 2x6<br>Up to 6ft: double 2x8<br>Up to 8ft: double 2x10<br>Up to 10ft: double 2x12<br>Over 10ft: Engineered LVL required<br><br>Want more details on any specific calculation?",
-  calculations:"Common Construction Calculations:<br><br>Concrete: Length x Width x Thickness(ft) / 27 = cubic yards. Add 10% waste.<br>Example: 20x30x0.33ft = 7.4 cubic yards<br><br>Roof Pitch Multipliers:<br>4:12 = 1.054 &nbsp; 6:12 = 1.118 &nbsp; 12:12 = 1.414<br>Rafter length = run x multiplier<br><br>Stairs: Max riser 7-3/4in, Min tread 10in<br>9ft floor-to-floor = 16 risers x 6.75in each<br><br>Drainage: Min 1% slope (1/8in per foot)<br><br>Electrical: 15-amp = 1800W max, 20-amp = 2400W max",
-  adu:"ADU Guide for California 2025:<br><br>All single-family lots may have at least one ADU by law<br>Junior ADU: Max 500 sq ft within existing structure<br>Attached ADU: Max 50% of primary or 1,200 sq ft<br>Detached ADU: Max 1,200 sq ft<br>Setbacks: 4 ft rear and sides minimum<br><br>Costs in Northern California:<br>Garage conversion: $80,000&ndash;$150,000<br>Attached ADU: $150,000&ndash;$250,000<br>New detached ADU: $200,000&ndash;$350,000<br><br>Rental income in Sonoma/Napa: $2,500&ndash;$4,500/month average<br><br>We manage the entire process from design through certificate of occupancy.",
-  pool:"Pool Construction Guide:<br><br>Fiberglass Pool: $65,000&ndash;$110,000 installed, 3&ndash;6 weeks, lowest maintenance, best for most Northern CA homeowners<br><br>Gunite Pool: $90,000&ndash;$150,000+, 3&ndash;6 months, fully custom shapes, needs replastering every 10&ndash;15 years<br><br>Vinyl Liner: $55,000&ndash;$85,000, liner replacement every 10&ndash;15 years<br><br>Permits required: Building permit, electrical, safety fence 4ft min height<br><br>Would you like to schedule a free pool consultation?",
-  permit:"Permit Guide for Sonoma &amp; Napa Counties:<br><br>Always requires a permit: structural work, electrical circuits, plumbing changes, HVAC, additions, ADUs, pools<br><br>Timelines: Same day for simple projects, 4&ndash;8 weeks standard residential, 8&ndash;16 weeks for large additions or ADUs<br><br>Approximate Fees: Kitchen $500&ndash;$2,000, Addition $8&ndash;$15/sq ft, ADU $5,000&ndash;$15,000, Pool $1,500&ndash;$4,000<br><br>We handle all permit filing and follow-up on every project.",
-  contact:"Reach us directly:<br><br>Phone: (707) 578-6565<br>Email: info@howardconstructioninc.com<br>Address: 4012 Cervantes Road, Santa Rosa CA 95403<br>Hours: Mon&ndash;Fri 7am&ndash;6pm, Sat 8am&ndash;2pm<br><br>Philip Howard personally handles every inquiry. Visit our Contact page to submit a project request.",
-  philip:"Philip Howard is the owner, president, and hands-on project manager of Howard Construction Inc.:<br><br>Third-generation builder from Sonoma County<br>25+ years of Northern California construction experience<br>CA Class B Licensed General Contractor<br>BBB Accredited, Houzz Pro Verified 5-star<br>NCBE Member<br><br>Phil personally oversees every project from first call to final walkthrough. When you hire Howard Construction, you work directly with Phil.",
-  fallback:"Great question! For the most accurate answer for your project in Northern California, speak with Philip Howard directly:<br><br>Phone: (707) 578-6565<br>Email: info@howardconstructioninc.com<br><br>Or visit our Contact page to submit a project request. Phil responds within one business day."
-};
-function R(m){
-  var s=m.toLowerCase();
-  if(/hello|^hi |^hey|howdy|good (morning|afternoon|evening)/.test(s))return A.greet;
-  if(/where.*build|what.*city|what.*area|location|serve|napa|sonoma|santa rosa|calistoga|san francisco|fairfield|vacaville|vallejo|northern california/.test(s))return A.location;
-  if(/what.*project|type of project|what.*build|what.*do you|your services|what.*offer/.test(s))return A.project;
-  if(/how much|cost|price|pricing|budget|expensive|what.*charge/.test(s))return A.cost;
-  if(/free estimate|get.*estimate|quote|schedule|consult/.test(s))return A.estimate;
-  if(/california.*code|building code|cbc|title 24|fire code|energy code/.test(s))return A.calcode;
-  if(/beam|joist|header|structural|span|shear wall|seismic|earthquake|anchor bolt|framing/.test(s))return A.structural;
-  if(/calculat|formula|cubic yard|board feet|stair|rafter|pitch|slope|drainage|concrete|lumber|math/.test(s))return A.calculations;
-  if(/adu|accessory|second unit|granny|in.?law|junior/.test(s))return A.adu;
-  if(/pool|swim|fiberglass|gunite|vinyl|spa/.test(s))return A.pool;
-  if(/permit|approval|inspection|permit.*fee|permit.*time/.test(s))return A.permit;
-  if(/contact|phone|call|email|address|hours|reach|talk to/.test(s))return A.contact;
-  if(/philip|phil|owner|founder|who is|about us|about.*company/.test(s))return A.philip;
-  if(/kitchen|bathroom|remodel|addition|deck|garage|service|offer|build/.test(s))return A.project;
-  return A.fallback;
-}
-function T(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?"PM":"AM";h=h%12||12;return h+":"+(m<10?"0"+m:m)+" "+ap;}
-function addM(txt,type){
-  var msgs=document.getElementById("cmsgs");
-  var dots=document.getElementById("cdots");
-  var d=document.createElement("div");
-  d.className="cm "+type;
-  d.innerHTML='<div class="cm-b">'+txt+'</div><div class="cm-t">'+T()+"</div>";
-  msgs.insertBefore(d,dots);
-  msgs.scrollTop=msgs.scrollHeight;
-}
-function send(txt){
-  var inp=document.getElementById("cinp");
-  var msg=txt||(inp?inp.value.trim():"");
-  if(!msg)return;
-  if(!txt&&inp)inp.value="";
-  addM(msg,"usr");
-  var dots=document.getElementById("cdots");
-  var msgs=document.getElementById("cmsgs");
-  dots.style.display="flex";
-  msgs.scrollTop=msgs.scrollHeight;
-  setTimeout(function(){dots.style.display="none";addM(R(msg),"bot");},600+Math.floor(Math.random()*400));
-}
-function toggle(){
-  _open=!_open;
-  var box=document.getElementById("cbox");
-  var badge=document.getElementById("cbadge");
-  box.style.display=_open?"flex":"none";
-  if(_open&&badge)badge.style.display="none";
-  if(_open){setTimeout(function(){var i=document.getElementById("cinp");if(i)i.focus();},80);}
-}
-window.addEventListener("load",function(){
-  var btn=document.getElementById("cb");
-  var x=document.getElementById("cx");
-  var go=document.getElementById("cgo");
-  var inp=document.getElementById("cinp");
-  if(btn)btn.addEventListener("click",toggle);
-  if(x)x.addEventListener("click",toggle);
-  if(go)go.addEventListener("click",function(){send();});
-  if(inp)inp.addEventListener("keydown",function(e){if(e.key==="Enter")send();});
-  document.querySelectorAll(".cq").forEach(function(q){
-    q.addEventListener("click",function(){send(q.getAttribute("data-q"));});
-  });
-  /* Mobile nav */
-  var hbgr=document.getElementById("hbgr");
-  var mobNav=document.getElementById("mobNav");
-  if(hbgr&&mobNav){
-    hbgr.addEventListener("click",function(e){
+  var btn=document.getElementById('hbgr');
+  var menu=document.getElementById('mobNav');
+  if(btn&&menu){
+    btn.addEventListener('click',function(e){
       e.stopPropagation();
-      mobNav.style.display=(mobNav.style.display==="flex")?"none":"flex";
+      menu.style.display=(menu.style.display==='flex')?'none':'flex';
     });
-    mobNav.querySelectorAll("a").forEach(function(a){
-      a.addEventListener("click",function(){mobNav.style.display="none";});
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){menu.style.display='none';});
     });
-    document.addEventListener("click",function(e){
-      if(hbgr&&mobNav&&!hbgr.contains(e.target)&&!mobNav.contains(e.target)){
-        mobNav.style.display="none";
+    document.addEventListener('click',function(e){
+      if(btn&&menu&&!btn.contains(e.target)&&!menu.contains(e.target)){
+        menu.style.display='none';
       }
     });
   }
-  /* Nav scroll shadow */
-  window.addEventListener("scroll",function(){
-    var nav=document.querySelector("nav");
-    if(nav)nav.style.boxShadow=window.scrollY>20?"0 2px 24px rgba(0,0,0,0.1)":"none";
-  },{passive:true});
-});
 })();
+
+// FAQ
+function fToggle(btn){
+  var item=btn.parentElement;
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)item.classList.add('open');
+}
+function fFilter(cat,btn){
+  document.querySelectorAll('.faq-cat').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none';
+  });
+}
+document.querySelector('.faq-item').classList.add('open');
+
+// Reveal on scroll
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='none';
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.svc-card,.tc,.kbc,.pillar,.step,.area').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(20px)';
+  el.style.transition='opacity 0.6s ease,transform 0.6s ease';
+  obs.observe(el);
+});
 </script>
-<!-- END CHAT -->
-<script>
-function fToggle(btn){var item=btn.parentElement;var isOpen=item.classList.contains("open");document.querySelectorAll(".faq-item.open").forEach(function(i){i.classList.remove("open");});if(!isOpen)item.classList.add("open");}
-function fFilter(cat,btn){document.querySelectorAll(".faq-cat").forEach(function(b){b.classList.remove("active");});btn.classList.add("active");document.querySelectorAll(".faq-item").forEach(function(item){item.style.display=(cat==="all"||item.dataset.cat===cat)?"":"none";});}
-document.querySelector(".faq-item").classList.add("open");
-</script>
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

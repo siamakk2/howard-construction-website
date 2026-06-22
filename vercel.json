@@ -1,12 +1,3 @@
 {
-  "version": 2,
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/index", "dest": "/index.html" },
-    { "src": "/services", "dest": "/services.html" },
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/testimonials", "dest": "/testimonials.html" },
-    { "src": "/knowledge", "dest": "/knowledge.html" },
-    { "src": "/contact", "dest": "/contact.html" }
-  ]
+  "version": 2
 }

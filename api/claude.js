@@ -1,19 +1,15 @@
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    res.status(500).json({ error: 'ANTHROPIC_API_KEY is not set in Vercel environment variables.' });
-    return;
+    return res.status(500).json({ error: 'ANTHROPIC_API_KEY is not set in Vercel environment variables.' });
   }
 
   try {
-    let body = req.body;
-    if (typeof body === 'string') body = JSON.parse(body);
-    const { system, messages, max_tokens, model } = body || {};
+    const { system, messages, max_tokens, model } = req.body || {};
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -32,11 +28,10 @@ module.exports = async function handler(req, res) {
 
     const data = await response.json();
     if (!response.ok) {
-      res.status(response.status).json({ error: data.error ? data.error.message : 'Anthropic API error' });
-      return;
+      return res.status(response.status).json({ error: data.error?.message || 'Anthropic API error' });
     }
-    res.status(200).json(data);
+    return res.status(200).json(data);
   } catch (err) {
-    res.status(500).json({ error: 'Server error: ' + err.message });
+    return res.status(500).json({ error: err.message });
   }
-};
+}

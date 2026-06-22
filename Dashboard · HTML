@@ -3,55 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Dashboard | Howard Construction Inc.</title>
-<meta name="description" content="Internal job management dashboard for Howard Construction Inc. Track active projects, crew scheduling, hours, and client updates across Northern California job sites.">
+<title>Site Manager AI | Howard Construction Inc.</title>
+<meta name="description" content="AI-powered project management for Howard Construction Inc.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0A1628; --navy2:#0D2B4E; --blue:#1565C0; --blue-dk:#0D47A1;
-  --accent:#F9A825; --bg:#F0F4F8; --card:#FFFFFF; --ink:#0A1628;
-  --muted:#5A6B7D; --line:#E1E8F0; --green:#2E7D32; --amber:#F9A825; --red:#D32F2F;
+  --navy:#0A1628;--navy2:#0D2B4E;--blue:#1565C0;--blue-dk:#0D47A1;
+  --accent:#F9A825;--bg:#EEF3F8;--card:#FFFFFF;--ink:#0A1628;
+  --muted:#5A6B7D;--line:#E1E8F0;--green:#2E7D32;--amber:#F9A825;--red:#D32F2F;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* TOP BAR */
 .topbar{background:var(--card);border-bottom:2px solid var(--blue);position:sticky;top:0;z-index:100;}
-.topbar-inner{max-width:1280px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.topbar-inner{max-width:1320px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .topbar img{height:46px;width:auto;display:block;}
 .topbar-right{display:flex;align-items:center;gap:14px;}
-.back-link{font-size:13px;color:var(--blue);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:5px;}
+.back-link{font-size:13px;color:var(--blue);text-decoration:none;font-weight:600;}
 .back-link:hover{text-decoration:underline;}
 .crew-badge{font-size:12px;background:rgba(21,101,192,0.1);color:var(--blue);padding:6px 12px;border-radius:100px;font-weight:600;}
-
-/* HEADER */
-.dash-head{max-width:1280px;margin:0 auto;padding:28px 20px 8px;}
-.dash-head h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--navy);}
+.dash-head{max-width:1320px;margin:0 auto;padding:24px 20px 4px;}
+.dash-head h1{font-family:'Playfair Display',serif;font-size:27px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.ai-pill{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--blue-dk));color:#fff;padding:4px 11px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;}
 .dash-head p{font-size:14px;color:var(--muted);margin-top:4px;}
-
-/* STAT STRIP */
-.stats{max-width:1280px;margin:0 auto;padding:18px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
-.stat-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--blue);line-height:1;}
-.stat-lbl{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;}
-.stat.accent .stat-num{color:var(--accent);}
-.stat.green .stat-num{color:var(--green);}
-
-/* TABS */
-.tabs{max-width:1280px;margin:0 auto;padding:8px 20px 0;display:flex;gap:6px;border-bottom:1px solid var(--line);}
-.tab{background:none;border:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);padding:12px 18px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .2s;}
+.tabs{max-width:1320px;margin:0 auto;padding:14px 20px 0;display:flex;gap:6px;border-bottom:1px solid var(--line);overflow-x:auto;}
+.tab{background:none;border:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);padding:12px 16px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all .2s;}
 .tab.active{color:var(--blue);border-bottom-color:var(--blue);}
 .tab:hover{color:var(--navy);}
-
-/* CONTENT */
-.content{max-width:1280px;margin:0 auto;padding:22px 20px 60px;}
+.content{max-width:1320px;margin:0 auto;padding:22px 20px 60px;}
 .panel{display:none;}
 .panel.active{display:block;animation:fade .3s;}
 @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
-
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px;}
 .panel-head h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);}
 .btn{background:var(--blue);color:#fff;border:none;border-radius:9px;padding:10px 18px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .2s;}
@@ -59,9 +43,59 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .btn svg{width:16px;height:16px;}
 .btn-ghost{background:rgba(21,101,192,0.08);color:var(--blue);}
 .btn-ghost:hover{background:rgba(21,101,192,0.16);}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px;}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--blue);line-height:1;}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;}
+.stat.accent .stat-num{color:var(--accent);}
+.stat.green .stat-num{color:var(--green);}
+.stat.red .stat-num{color:var(--red);}
+
+/* AI BRIEFING */
+.briefing{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:16px;padding:24px 26px;color:#fff;margin-bottom:20px;position:relative;overflow:hidden;}
+.briefing::before{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(21,101,192,0.4),transparent 70%);}
+.briefing-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;position:relative;}
+.briefing-head .ai-dot{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
+.briefing-head h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;}
+.briefing-head .sub{font-size:12px;color:rgba(255,255,255,0.6);}
+.briefing-body{font-size:14.5px;line-height:1.7;position:relative;color:rgba(255,255,255,0.92);}
+.briefing-body h4{color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px;font-weight:700;}
+.briefing-body ul{list-style:none;margin:0;padding:0;}
+.briefing-body li{padding:7px 0 7px 24px;position:relative;border-bottom:1px solid rgba(255,255,255,0.08);}
+.briefing-body li::before{content:"";position:absolute;left:2px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.briefing-body li:last-child{border-bottom:none;}
+.briefing-body strong{color:#fff;}
+.briefing-loading{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.7);font-size:14px;padding:10px 0;}
+.spinner{width:20px;height:20px;border:2.5px solid rgba(255,255,255,0.2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.refresh-brief{position:relative;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:12px;padding:7px 14px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:600;margin-top:14px;display:inline-flex;align-items:center;gap:6px;}
+.refresh-brief:hover{background:rgba(255,255,255,0.2);}
+
+/* RISK RADAR */
+.risk-list{display:flex;flex-direction:column;gap:12px;}
+.risk{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--muted);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
+.risk.high{border-left-color:var(--red);}
+.risk.med{border-left-color:var(--amber);}
+.risk.low{border-left-color:var(--green);}
+.risk-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.risk.high .risk-icon{background:rgba(211,47,47,0.12);}
+.risk.med .risk-icon{background:rgba(249,168,37,0.16);}
+.risk.low .risk-icon{background:rgba(46,125,50,0.12);}
+.risk-icon svg{width:20px;height:20px;}
+.risk.high .risk-icon svg{color:var(--red);}
+.risk.med .risk-icon svg{color:var(--amber);}
+.risk.low .risk-icon svg{color:var(--green);}
+.risk-body{flex:1;}
+.risk-title{font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px;}
+.risk-job{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:5px;}
+.risk-desc{font-size:13.5px;color:var(--muted);line-height:1.55;}
+.risk-sev{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 9px;border-radius:100px;align-self:flex-start;}
+.risk.high .risk-sev{background:rgba(211,47,47,0.12);color:var(--red);}
+.risk.med .risk-sev{background:rgba(249,168,37,0.16);color:#B45309;}
+.risk.low .risk-sev{background:rgba(46,125,50,0.12);color:var(--green);}
 
 /* JOB CARDS */
-.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;}
+.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
 .job{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s;}
 .job:hover{box-shadow:0 8px 28px rgba(13,43,78,0.1);transform:translateY(-2px);}
 .job-top{padding:16px 18px 12px;border-bottom:1px solid var(--line);}
@@ -81,14 +115,50 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .job-progress-lbl b{color:var(--navy);}
 .progress-track{height:8px;background:var(--line);border-radius:100px;overflow:hidden;}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--accent));border-radius:100px;transition:width .4s;}
+.job-budget{margin-top:12px;font-size:12.5px;}
+.budget-bar{height:6px;background:var(--line);border-radius:100px;overflow:hidden;margin-top:5px;}
+.budget-fill{height:100%;border-radius:100px;}
 .job-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:12.5px;color:var(--muted);}
 .job-meta div{display:flex;align-items:center;gap:5px;}
 .job-meta svg{width:14px;height:14px;color:var(--blue);}
 .job-foot{padding:12px 18px;background:#F7FAFD;border-top:1px solid var(--line);display:flex;gap:8px;}
 .job-foot button{flex:1;font-size:12.5px;padding:8px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--navy);font-family:inherit;font-weight:600;cursor:pointer;transition:all .15s;}
 .job-foot button:hover{border-color:var(--blue);color:var(--blue);}
+.job-foot button.ai-btn{background:linear-gradient(135deg,var(--blue),var(--blue-dk));color:#fff;border:none;}
+.job-foot button.ai-btn:hover{opacity:0.9;color:#fff;}
 
-/* CREW / SCHEDULE */
+/* AI ASSISTANT CHAT */
+.assistant-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;height:600px;max-height:75vh;}
+.assistant-head{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:16px 20px;display:flex;align-items:center;gap:12px;}
+.assistant-head .ai-dot{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:15px;}
+.assistant-head h3{color:#fff;font-size:15px;font-weight:700;}
+.assistant-head .sub{font-size:12px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:5px;}
+.assistant-head .sub::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);}
+.chat-msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:#F7FAFD;}
+.cmsg{display:flex;flex-direction:column;gap:4px;max-width:88%;}
+.cmsg.user{align-self:flex-end;}
+.cmsg.ai{align-self:flex-start;}
+.cmsg-b{padding:13px 16px;border-radius:13px;font-size:14px;line-height:1.65;}
+.cmsg.ai .cmsg-b{background:#fff;color:var(--ink);border-radius:4px 13px 13px 13px;box-shadow:0 2px 10px rgba(13,43,78,0.06);border:1px solid var(--line);}
+.cmsg.user .cmsg-b{background:linear-gradient(135deg,var(--blue),var(--blue-dk));color:#fff;border-radius:13px 4px 13px 13px;}
+.cmsg-b strong{font-weight:700;}
+.cmsg-b h4{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);margin:10px 0 5px;}
+.cmsg.ai .cmsg-b ul{margin:6px 0 6px 18px;}
+.cmsg.ai .cmsg-b li{margin:3px 0;}
+.chat-suggest{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;}
+.chat-sug{background:#fff;border:1.5px solid #BBDEFB;color:var(--blue);font-size:12px;font-weight:600;padding:7px 13px;border-radius:100px;cursor:pointer;transition:all .2s;}
+.chat-sug:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
+.chat-foot{padding:14px;background:#fff;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;}
+.chat-inp{flex:1;border:1.5px solid var(--line);border-radius:22px;padding:11px 17px;font-family:inherit;font-size:14px;outline:none;color:var(--ink);}
+.chat-inp:focus{border-color:var(--blue);}
+.chat-send{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dk));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chat-dots{display:none;align-self:flex-start;padding:13px 16px;background:#fff;border-radius:4px 13px 13px 13px;box-shadow:0 2px 10px rgba(13,43,78,0.06);}
+.chat-dots span{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue);margin:0 2px;animation:cdot 1.2s infinite;}
+.chat-dots span:nth-child(2){animation-delay:.2s;}
+.chat-dots span:nth-child(3){animation-delay:.4s;}
+@keyframes cdot{0%,60%,100%{transform:translateY(0);opacity:.5;}30%{transform:translateY(-5px);opacity:1;}}
+
+/* CREW + HOURS (compact) */
 .crew-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
 .crew-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;}
 .crew-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
@@ -100,8 +170,6 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .crew-status{font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;margin-left:auto;}
 .on-site{background:rgba(46,125,50,0.14);color:var(--green);}
 .off{background:rgba(90,107,125,0.14);color:var(--muted);}
-
-/* HOURS TABLE */
 .hours-table{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
 .hours-row{display:grid;grid-template-columns:1.4fr 1.6fr 1fr 0.8fr;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:13.5px;align-items:center;}
 .hours-row:last-child{border-bottom:none;}
@@ -112,7 +180,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 /* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(10,22,40,0.6);z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;}
 .modal-bg.show{display:flex;}
-.modal{background:#fff;border-radius:16px;width:100%;max-width:480px;padding:26px;}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:500px;padding:26px;}
 .modal h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-bottom:18px;}
 .field{margin-bottom:14px;}
 .field label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
@@ -121,63 +189,122 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .modal-foot{display:flex;gap:10px;margin-top:8px;}
 .modal-foot .btn{flex:1;justify-content:center;}
-
+.ai-output{background:#F7FAFD;border:1px solid var(--line);border-radius:10px;padding:16px;font-size:14px;line-height:1.65;color:var(--ink);margin-top:6px;white-space:pre-wrap;max-height:340px;overflow-y:auto;}
 .empty{text-align:center;padding:50px 20px;color:var(--muted);}
 .empty svg{width:54px;height:54px;color:var(--line);margin-bottom:14px;}
 .empty p{font-size:15px;margin-bottom:6px;}
-.empty span{font-size:13px;}
 
 @media(max-width:760px){
   .stats{grid-template-columns:1fr 1fr;}
-  .dash-head h1{font-size:23px;}
+  .dash-head h1{font-size:22px;}
   .topbar img{height:38px;}
   .hours-row{grid-template-columns:1.3fr 1fr 0.8fr;font-size:12.5px;padding:11px 14px;}
   .hours-row .h-site{display:none;}
   .tab{padding:11px 13px;font-size:13px;}
   .content{padding:18px 14px 50px;}
-  .stats{padding:16px 14px;}
+  .assistant-wrap{height:540px;}
 }
 </style>
 </head>
 <body>
-
 <div class="topbar">
   <div class="topbar-inner">
     <a href="index.html"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDAgNzIiIHdpZHRoPSIzNDAiIGhlaWdodD0iNzIiPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjcyIiByeD0iNiIgZmlsbD0iI0ZGRkZGRiIvPgo8cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzM4IiBoZWlnaHQ9IjcwIiByeD0iNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTU2NUMwIiBzdHJva2Utd2lkdGg9IjIiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIsMTApIj4KPHJlY3QgeD0iMzgiIHk9IjIiIHdpZHRoPSI5IiBoZWlnaHQ9IjE0IiBmaWxsPSIjMEQ0N0ExIi8+Cjxwb2x5Z29uIHBvaW50cz0iMzAsMiA0LDI0IDU2LDI0IiBmaWxsPSIjMEQ0N0ExIi8+CjxyZWN0IHg9IjkiIHk9IjIzIiB3aWR0aD0iNDIiIGhlaWdodD0iMjciIGZpbGw9IiMxNTY1QzAiLz4KPHJlY3QgeD0iMjMiIHk9IjMzIiB3aWR0aD0iMTUiIGhlaWdodD0iMTciIHJ4PSIyIiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHg9IjEyIiB5PSIyNyIgd2lkdGg9IjkiIGhlaWdodD0iOCIgcng9IjEiIGZpbGw9IiM5MENBRjkiLz4KPHJlY3QgeD0iMzkiIHk9IjI3IiB3aWR0aD0iOSIgaGVpZ2h0PSI4IiByeD0iMSIgZmlsbD0iIzkwQ0FGOSIvPgo8cG9seWdvbiBwb2ludHM9IjMwLDkgMzIsMTQgMzcsMTQgMzMsMTcgMzUsMjIgMzAsMTkgMjUsMjIgMjcsMTcgMjMsMTQgMjgsMTQiIGZpbGw9IiNGOUE4MjUiLz4KPC9nPgo8dGV4dCB4PSI3NCIgeT0iMzYiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzBBMTYyOCI+SE9XQVJEPC90ZXh0Pgo8dGV4dCB4PSI3NCIgeT0iNTQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzE1NjVDMCIgbGV0dGVyLXNwYWNpbmc9IjIiPkNPTlNUUlVDVElPTjwvdGV4dD4KPHRleHQgeD0iMjQwIiB5PSI1NCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjRjlBODI1Ij5JTkMuPC90ZXh0Pgo8L3N2Zz4=" alt="Howard Construction Inc."></a>
     <div class="topbar-right">
-      <span class="crew-badge">Crew Portal</span>
+      <span class="crew-badge">Site Manager AI</span>
       <a href="index.html" class="back-link">&larr; Main Site</a>
     </div>
   </div>
 </div>
 
 <div class="dash-head">
-  <h1>Job Dashboard</h1>
+  <h1>Site Manager <span class="ai-pill">AI Powered</span></h1>
   <p id="dashDate">Loading...</p>
 </div>
 
-<div class="stats">
-  <div class="stat"><div class="stat-num" id="statActive">0</div><div class="stat-lbl">Active Jobs</div></div>
-  <div class="stat accent"><div class="stat-num" id="statWeek">0</div><div class="stat-lbl">Due This Month</div></div>
-  <div class="stat green"><div class="stat-num" id="statCrew">0</div><div class="stat-lbl">Crew On Site</div></div>
-  <div class="stat"><div class="stat-num" id="statHours">0</div><div class="stat-lbl">Hours This Week</div></div>
-</div>
-
 <div class="tabs">
-  <button class="tab active" data-tab="jobs">Jobs</button>
-  <button class="tab" data-tab="crew">Crew &amp; Schedule</button>
-  <button class="tab" data-tab="hours">Hours Log</button>
+  <button class="tab active" data-tab="today">Today</button>
+  <button class="tab" data-tab="jobs">Jobs</button>
+  <button class="tab" data-tab="risks">Risk Radar</button>
+  <button class="tab" data-tab="assistant">Ask Phil's AI</button>
+  <button class="tab" data-tab="crew">Crew</button>
+  <button class="tab" data-tab="hours">Hours</button>
 </div>
 
 <div class="content">
 
+  <!-- TODAY PANEL -->
+  <div class="panel active" id="panel-today">
+    <div class="stats" style="margin-bottom:20px;">
+      <div class="stat"><div class="stat-num" id="statActive">0</div><div class="stat-lbl">Active Jobs</div></div>
+      <div class="stat red"><div class="stat-num" id="statRisk">0</div><div class="stat-lbl">At Risk</div></div>
+      <div class="stat green"><div class="stat-num" id="statCrew">0</div><div class="stat-lbl">Crew On Site</div></div>
+      <div class="stat accent"><div class="stat-num" id="statBudget">0%</div><div class="stat-lbl">Avg Budget Used</div></div>
+    </div>
+
+    <div class="briefing">
+      <div class="briefing-head">
+        <div class="ai-dot">AI</div>
+        <div>
+          <h3>Your Morning Briefing</h3>
+          <div class="sub">Claude analyzed all your projects &middot; <span id="briefTime"></span></div>
+        </div>
+      </div>
+      <div class="briefing-body" id="briefingBody">
+        <div class="briefing-loading"><div class="spinner"></div> Reading your projects and preparing today's briefing...</div>
+      </div>
+      <button class="refresh-brief" onclick="generateBriefing()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Refresh Briefing</button>
+    </div>
+  </div>
+
   <!-- JOBS PANEL -->
-  <div class="panel active" id="panel-jobs">
+  <div class="panel" id="panel-jobs">
     <div class="panel-head">
       <h2>Active Projects</h2>
       <button class="btn" onclick="openJobModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>New Job</button>
     </div>
     <div class="jobs-grid" id="jobsGrid"></div>
+  </div>
+
+  <!-- RISK RADAR PANEL -->
+  <div class="panel" id="panel-risks">
+    <div class="panel-head">
+      <h2>Risk Radar</h2>
+      <button class="btn" onclick="generateRisks()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10"/></svg>Re-scan</button>
+    </div>
+    <div class="risk-list" id="riskList">
+      <div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Scanning all jobs for risks...</div>
+    </div>
+  </div>
+
+  <!-- ASSISTANT PANEL -->
+  <div class="panel" id="panel-assistant">
+    <div class="assistant-wrap">
+      <div class="assistant-head">
+        <div class="ai-dot">AI</div>
+        <div>
+          <h3>Phil's Site Manager AI</h3>
+          <div class="sub">Knows all your jobs, crew &amp; schedule</div>
+        </div>
+      </div>
+      <div class="chat-msgs" id="chatMsgs">
+        <div class="cmsg ai">
+          <div class="cmsg-b">Morning, Phil. I've got eyes on all your jobs, crew, and hours. Ask me anything &mdash; like which projects are slipping, who I'd move to cover Calistoga, or what to tell a client. What do you need?
+          <div class="chat-suggest">
+            <button class="chat-sug" data-q="Which jobs are at risk right now?">Which jobs are at risk?</button>
+            <button class="chat-sug" data-q="Who can I move to the Calistoga job?">Who can I reassign?</button>
+            <button class="chat-sug" data-q="What should I focus on today?">What's my priority today?</button>
+            <button class="chat-sug" data-q="Which jobs are over budget?">Budget check</button>
+          </div>
+          </div>
+        </div>
+        <div class="chat-dots" id="chatDots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="chat-foot">
+        <input class="chat-inp" id="chatInp" type="text" placeholder="Ask about your jobs, crew, schedule, budgets..." autocomplete="off">
+        <button class="chat-send" onclick="sendChat()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      </div>
+    </div>
   </div>
 
   <!-- CREW PANEL -->
@@ -200,82 +327,63 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 
 </div>
 
-<!-- JOB MODAL -->
-<div class="modal-bg" id="jobModal">
-  <div class="modal">
-    <h3 id="jobModalTitle">New Job</h3>
-    <input type="hidden" id="jobId">
-    <div class="field"><label>Project Name</label><input type="text" id="jobName" placeholder="e.g. Sonoma Vista Residence"></div>
-    <div class="field"><label>Client Name</label><input type="text" id="jobClient" placeholder="e.g. The Andersons"></div>
-    <div class="field"><label>Location</label><input type="text" id="jobLocation" placeholder="e.g. Santa Rosa, CA"></div>
-    <div class="field-row">
-      <div class="field"><label>Phase</label><select id="jobStatus">
-        <option value="planning">Planning</option>
-        <option value="foundation">Foundation</option>
-        <option value="framing">Framing</option>
-        <option value="rough">Rough-In</option>
-        <option value="finishing">Finishing</option>
-        <option value="inspection">Inspection</option>
-        <option value="complete">Complete</option>
-      </select></div>
-      <div class="field"><label>Progress %</label><input type="number" id="jobProgress" min="0" max="100" value="0"></div>
-    </div>
-    <div class="field-row">
-      <div class="field"><label>Crew Assigned</label><input type="number" id="jobCrew" min="0" value="0"></div>
-      <div class="field"><label>Target Date</label><input type="date" id="jobDate"></div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn btn-ghost" onclick="closeModal('jobModal')">Cancel</button>
-      <button class="btn" onclick="saveJob()">Save Job</button>
-    </div>
-  </div>
-</div>
-
-<!-- CREW MODAL -->
-<div class="modal-bg" id="crewModal">
-  <div class="modal">
-    <h3 id="crewModalTitle">Add Crew Member</h3>
-    <input type="hidden" id="crewId">
-    <div class="field"><label>Name</label><input type="text" id="crewName" placeholder="e.g. Mike Torres"></div>
-    <div class="field"><label>Role</label><input type="text" id="crewRole" placeholder="e.g. Lead Framer"></div>
-    <div class="field"><label>Assigned To</label><input type="text" id="crewAssign" placeholder="e.g. Sonoma Vista Residence"></div>
-    <div class="field"><label>Status Today</label><select id="crewStatus">
-      <option value="on-site">On Site</option>
-      <option value="off">Off / Unassigned</option>
+<!-- MODALS -->
+<div class="modal-bg" id="jobModal"><div class="modal">
+  <h3 id="jobModalTitle">New Job</h3>
+  <input type="hidden" id="jobId">
+  <div class="field"><label>Project Name</label><input type="text" id="jobName" placeholder="e.g. Sonoma Vista Residence"></div>
+  <div class="field"><label>Client Name</label><input type="text" id="jobClient" placeholder="e.g. The Andersons"></div>
+  <div class="field"><label>Location</label><input type="text" id="jobLocation" placeholder="e.g. Santa Rosa, CA"></div>
+  <div class="field-row">
+    <div class="field"><label>Phase</label><select id="jobStatus">
+      <option value="planning">Planning</option><option value="foundation">Foundation</option><option value="framing">Framing</option><option value="rough">Rough-In</option><option value="finishing">Finishing</option><option value="inspection">Inspection</option><option value="complete">Complete</option>
     </select></div>
-    <div class="modal-foot">
-      <button class="btn btn-ghost" onclick="closeModal('crewModal')">Cancel</button>
-      <button class="btn" onclick="saveCrew()">Save</button>
-    </div>
+    <div class="field"><label>Progress %</label><input type="number" id="jobProgress" min="0" max="100" value="0"></div>
   </div>
-</div>
+  <div class="field-row">
+    <div class="field"><label>Crew Assigned</label><input type="number" id="jobCrew" min="0" value="0"></div>
+    <div class="field"><label>Target Date</label><input type="date" id="jobDate"></div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label>Budget ($)</label><input type="number" id="jobBudget" min="0" placeholder="450000"></div>
+    <div class="field"><label>Spent ($)</label><input type="number" id="jobSpent" min="0" placeholder="180000"></div>
+  </div>
+  <div class="field"><label>Next Milestone / Notes</label><textarea id="jobNotes" rows="2" placeholder="e.g. Framing inspection scheduled, waiting on window delivery"></textarea></div>
+  <div class="modal-foot"><button class="btn btn-ghost" onclick="closeModal('jobModal')">Cancel</button><button class="btn" onclick="saveJob()">Save Job</button></div>
+</div></div>
 
-<!-- HOURS MODAL -->
-<div class="modal-bg" id="hoursModal">
-  <div class="modal">
-    <h3>Log Hours</h3>
-    <div class="field"><label>Crew Member</label><input type="text" id="hoursName" placeholder="e.g. Mike Torres"></div>
-    <div class="field"><label>Job Site</label><input type="text" id="hoursSite" placeholder="e.g. Sonoma Vista Residence"></div>
-    <div class="field-row">
-      <div class="field"><label>Date</label><input type="date" id="hoursDate"></div>
-      <div class="field"><label>Hours</label><input type="number" id="hoursAmount" min="0" max="24" step="0.5" placeholder="8"></div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn btn-ghost" onclick="closeModal('hoursModal')">Cancel</button>
-      <button class="btn" onclick="saveHours()">Log Hours</button>
-    </div>
-  </div>
-</div>
+<div class="modal-bg" id="crewModal"><div class="modal">
+  <h3 id="crewModalTitle">Add Crew Member</h3>
+  <input type="hidden" id="crewId">
+  <div class="field"><label>Name</label><input type="text" id="crewName" placeholder="e.g. Mike Torres"></div>
+  <div class="field"><label>Role</label><input type="text" id="crewRole" placeholder="e.g. Lead Framer"></div>
+  <div class="field"><label>Assigned To</label><input type="text" id="crewAssign" placeholder="e.g. Sonoma Vista Residence"></div>
+  <div class="field"><label>Status Today</label><select id="crewStatus"><option value="on-site">On Site</option><option value="off">Off / Unassigned</option></select></div>
+  <div class="modal-foot"><button class="btn btn-ghost" onclick="closeModal('crewModal')">Cancel</button><button class="btn" onclick="saveCrew()">Save</button></div>
+</div></div>
+
+<div class="modal-bg" id="hoursModal"><div class="modal">
+  <h3>Log Hours</h3>
+  <div class="field"><label>Crew Member</label><input type="text" id="hoursName" placeholder="e.g. Mike Torres"></div>
+  <div class="field"><label>Job Site</label><input type="text" id="hoursSite" placeholder="e.g. Sonoma Vista Residence"></div>
+  <div class="field-row"><div class="field"><label>Date</label><input type="date" id="hoursDate"></div><div class="field"><label>Hours</label><input type="number" id="hoursAmount" min="0" max="24" step="0.5" placeholder="8"></div></div>
+  <div class="modal-foot"><button class="btn btn-ghost" onclick="closeModal('hoursModal')">Cancel</button><button class="btn" onclick="saveHours()">Log Hours</button></div>
+</div></div>
+
+<div class="modal-bg" id="aiModal"><div class="modal">
+  <h3 id="aiModalTitle">AI Analysis</h3>
+  <div class="ai-output" id="aiModalBody"><div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Analyzing...</div></div>
+  <div class="modal-foot" style="margin-top:16px;"><button class="btn btn-ghost" onclick="closeModal('aiModal')">Close</button><button class="btn" id="aiCopyBtn" onclick="copyAiOutput()">Copy</button></div>
+</div></div>
 
 <script>
-// ---- Data layer (in-memory, seeded) ----
 var STATUS_LABELS={planning:'Planning',foundation:'Foundation',framing:'Framing',rough:'Rough-In',finishing:'Finishing',inspection:'Inspection',complete:'Complete'};
 
 var jobs=[
-  {id:'j1',name:'Sonoma Vista Residence',client:'The Andersons',location:'Santa Rosa, CA',status:'framing',progress:45,crew:5,date:'2026-09-15'},
-  {id:'j2',name:'Valley View Estate',client:'M. Reynolds',location:'Sonoma, CA',status:'finishing',progress:78,crew:4,date:'2026-07-30'},
-  {id:'j3',name:'Hillside ADU Project',client:'J. Castellano',location:'Napa, CA',status:'rough',progress:55,crew:3,date:'2026-08-20'},
-  {id:'j4',name:'Calistoga Pool & Deck',client:'The Bennetts',location:'Calistoga, CA',status:'foundation',progress:20,crew:2,date:'2026-08-10'}
+  {id:'j1',name:'Sonoma Vista Residence',client:'The Andersons',location:'Santa Rosa, CA',status:'framing',progress:45,crew:5,date:'2026-09-15',budget:680000,spent:298000,notes:'Framing inspection scheduled for next week. Waiting on window delivery (2 wk lead).'},
+  {id:'j2',name:'Valley View Estate',client:'M. Reynolds',location:'Sonoma, CA',status:'finishing',progress:78,crew:4,date:'2026-07-30',budget:540000,spent:475000,notes:'Final finishes underway. Client wants to add wine cellar - potential change order.'},
+  {id:'j3',name:'Hillside ADU Project',client:'J. Castellano',location:'Napa, CA',status:'rough',progress:55,crew:3,date:'2026-08-20',budget:240000,spent:142000,notes:'Electrical rough-in this week. Inspector visit pending.'},
+  {id:'j4',name:'Calistoga Pool & Deck',client:'The Bennetts',location:'Calistoga, CA',status:'foundation',progress:20,crew:2,date:'2026-08-10',budget:135000,spent:38000,notes:'Excavation done. Rebar and gunite next. Behind 1 week due to rain.'}
 ];
 var crew=[
   {id:'c1',name:'Mike Torres',role:'Lead Framer',assign:'Sonoma Vista Residence',status:'on-site'},
@@ -291,84 +399,221 @@ var hours=[
   {id:'h4',name:'Steve Park',site:'Hillside ADU Project',date:'2026-06-21',amount:6}
 ];
 
-// ---- Persistence (sessionStorage-free: use in-memory + window var) ----
-function load(){
-  try{
-    var d=window.__HCI_DASH;
-    if(d){jobs=d.jobs;crew=d.crew;hours=d.hours;}
-  }catch(e){}
-}
-function save(){
-  window.__HCI_DASH={jobs:jobs,crew:crew,hours:hours};
-}
-
+function save(){try{window.__HCI=JSON.stringify({jobs:jobs,crew:crew,hours:hours});}catch(e){}}
+function load(){try{if(window.__HCI){var d=JSON.parse(window.__HCI);jobs=d.jobs;crew=d.crew;hours=d.hours;}}catch(e){}}
 function uid(){return 'x'+Date.now()+Math.floor(Math.random()*1000);}
+function esc(s){return String(s||'').replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
+function fmtDate(d){if(!d)return '';var dt=new Date(d+'T00:00:00');return dt.toLocaleDateString('en-US',{month:'short',day:'numeric'});}
+function daysUntil(d){if(!d)return null;var dt=new Date(d+'T00:00:00');var now=new Date();now.setHours(0,0,0,0);return Math.round((dt-now)/(1000*60*60*24));}
 
-// ---- Render ----
+// ====== CLAUDE API INTEGRATION ======
+function buildContext(){
+  var ctx="You are the AI site manager for Howard Construction Inc., a Northern California general contractor owned by Philip Howard. You think like an experienced construction project manager. Today is "+new Date().toDateString()+".\n\nHere is the current state of all projects:\n\n";
+  jobs.forEach(function(j){
+    var d=daysUntil(j.date);
+    var budgetPct=j.budget?Math.round(j.spent/j.budget*100):0;
+    ctx+="PROJECT: "+j.name+" (client: "+j.client+", "+j.location+")\n";
+    ctx+="  Phase: "+STATUS_LABELS[j.status]+" | Progress: "+j.progress+"%\n";
+    ctx+="  Crew assigned: "+j.crew+" | Target completion: "+(j.date||'not set')+(d!==null?" ("+(d<0?Math.abs(d)+" days overdue":d+" days away")+")":"")+"\n";
+    if(j.budget)ctx+="  Budget: $"+j.budget.toLocaleString()+" | Spent: $"+j.spent.toLocaleString()+" ("+budgetPct+"% used)\n";
+    if(j.notes)ctx+="  Notes: "+j.notes+"\n";
+    ctx+="\n";
+  });
+  ctx+="CREW:\n";
+  crew.forEach(function(c){ctx+="  "+c.name+" - "+c.role+" - "+(c.status==='on-site'?'ON SITE at '+c.assign:'OFF/UNASSIGNED')+"\n";});
+  ctx+="\nHOURS THIS WEEK:\n";
+  hours.forEach(function(h){ctx+="  "+h.name+": "+h.amount+"h at "+h.site+" ("+h.date+")\n";});
+  return ctx;
+}
+
+function callClaude(systemPrompt, userMessage, cb, errCb){
+  fetch("/api/claude",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      model:"claude-sonnet-4-6",
+      max_tokens:1200,
+      system:systemPrompt,
+      messages:[{role:"user",content:userMessage}]
+    })
+  }).then(function(r){return r.json();}).then(function(data){
+    if(data&&data.error){errCb&&errCb(data.error);return;}
+    var text="";
+    if(data&&data.content){text=data.content.filter(function(b){return b.type==="text";}).map(function(b){return b.text;}).join("\n");}
+    if(text){cb(text);}else{errCb&&errCb("No response from AI");}
+  }).catch(function(e){errCb&&errCb(e.message);});
+}
+
+function mdToHtml(t){
+  t=esc(t);
+  t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t=t.replace(/^### (.+)$/gm,'<h4>$1</h4>');
+  t=t.replace(/^## (.+)$/gm,'<h4>$1</h4>');
+  t=t.replace(/^[-*] (.+)$/gm,'<li>$1</li>');
+  t=t.replace(/(<li>.*<\/li>)/s,'<ul>$1</ul>');
+  t=t.replace(/\n\n/g,'<br><br>');
+  return t;
+}
+
+// ====== MORNING BRIEFING ======
+function generateBriefing(){
+  var el=document.getElementById('briefingBody');
+  el.innerHTML='<div class="briefing-loading"><div class="spinner"></div> Reading your projects and preparing today\'s briefing...</div>';
+  document.getElementById('briefTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  var sys=buildContext()+"\n\nYou are giving Phil his morning briefing. Be direct and practical like a sharp foreman. Use this exact format:\n### Top Priorities Today\n(2-4 bullet points of what needs Phil's attention most, mentioning specific projects)\n### Watch Out\n(1-3 bullets on risks, delays, or budget concerns building up)\n### Quick Wins\n(1-2 bullets on things that can be knocked out easily)\nKeep it tight - Phil is busy. Reference real project names, dates, and numbers. No fluff.";
+  callClaude(sys,"Give me my morning briefing.",function(text){
+    el.innerHTML=mdToHtml(text);
+  },function(err){
+    el.innerHTML='<div style="color:rgba(255,255,255,0.85);">I could not reach the AI service right now. '+esc(err)+'<br><br>Your projects are still tracked below in the Jobs tab.</div>';
+  });
+}
+
+// ====== RISK RADAR ======
+function generateRisks(){
+  var el=document.getElementById('riskList');
+  el.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Scanning all jobs for risks...</div>';
+  var sys=buildContext()+'\n\nAnalyze every project for risks. Return ONLY a JSON array (no other text, no markdown fences). Each item: {"severity":"high|med|low","job":"project name","title":"short risk title","desc":"one sentence explaining the risk and what to do"}. Consider: budget overruns (spent vs budget vs progress), schedule slips (days to deadline vs progress), inspection timing, crew coverage gaps, change orders, weather delays, material lead times. Order by severity, high first. Max 6 risks.';
+  callClaude(sys,"Scan for risks and return the JSON array.",function(text){
+    try{
+      var jsonText=text.replace(/```json/g,'').replace(/```/g,'').trim();
+      var start=jsonText.indexOf('[');var end=jsonText.lastIndexOf(']');
+      if(start>=0&&end>=0)jsonText=jsonText.substring(start,end+1);
+      var risks=JSON.parse(jsonText);
+      renderRisks(risks);
+    }catch(e){
+      el.innerHTML='<div class="risk med"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="risk-body"><div class="risk-title">Could not parse risk analysis</div><div class="risk-desc">'+esc(text.substring(0,200))+'</div></div></div>';
+    }
+  },function(err){
+    el.innerHTML='<div class="empty"><p>Risk scan unavailable</p><span>'+esc(err)+'</span></div>';
+  });
+}
+
+function renderRisks(risks){
+  var el=document.getElementById('riskList');
+  if(!risks.length){el.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>No major risks detected</p><span>All projects look on track.</span></div>';return;}
+  var icons={high:'<path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',med:'<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',low:'<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'};
+  el.innerHTML=risks.map(function(r){
+    var sev=(r.severity||'med').toLowerCase();
+    if(['high','med','low'].indexOf(sev)<0)sev='med';
+    return '<div class="risk '+sev+'"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+icons[sev]+'</svg></div><div class="risk-body"><div class="risk-job">'+esc(r.job||'')+'</div><div class="risk-title">'+esc(r.title||'')+'</div><div class="risk-desc">'+esc(r.desc||'')+'</div></div><span class="risk-sev">'+sev+'</span></div>';
+  }).join('');
+}
+
+// ====== CHAT ASSISTANT ======
+var chatHistory=[];
+function sendChat(q){
+  var inp=document.getElementById('chatInp');
+  var msg=q||inp.value.trim();
+  if(!msg)return;
+  inp.value='';
+  addChatMsg(msg,'user');
+  var dots=document.getElementById('chatDots');var msgs=document.getElementById('chatMsgs');
+  dots.style.display='block';msgs.scrollTop=msgs.scrollHeight;
+  var sys=buildContext()+"\n\nYou are Phil's AI site manager. Answer his question directly and practically, like an experienced construction PM who knows these exact jobs. Reference specific projects, crew names, dates, and dollar figures from the data. Be concise - 2-4 short paragraphs or a tight bulleted list. If he asks who to move or reassign, name specific crew and explain the tradeoff. Use **bold** for key points.";
+  var convo=chatHistory.slice(-4).map(function(m){return (m.role==='user'?'Phil':'You')+': '+m.text;}).join('\n');
+  var fullMsg=(convo?convo+'\n\n':'')+'Phil: '+msg;
+  callClaude(sys,fullMsg,function(text){
+    dots.style.display='none';
+    addChatMsg(text,'ai');
+    chatHistory.push({role:'user',text:msg});
+    chatHistory.push({role:'ai',text:text});
+  },function(err){
+    dots.style.display='none';
+    addChatMsg("I couldn't reach the AI service right now ("+esc(err)+"). Try again in a moment.",'ai');
+  });
+}
+function addChatMsg(text,who){
+  var msgs=document.getElementById('chatMsgs');var dots=document.getElementById('chatDots');
+  var d=document.createElement('div');d.className='cmsg '+who;
+  d.innerHTML='<div class="cmsg-b">'+(who==='ai'?mdToHtml(text):esc(text))+'</div>';
+  msgs.insertBefore(d,dots);msgs.scrollTop=msgs.scrollHeight;
+}
+
+// ====== PER-JOB AI ANALYSIS ======
+var lastAiOutput='';
+function analyzeJob(id){
+  var j=jobs.find(function(x){return x.id===id;});if(!j)return;
+  openModal('aiModal');
+  document.getElementById('aiModalTitle').textContent='AI Analysis: '+j.name;
+  var body=document.getElementById('aiModalBody');
+  body.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Analyzing this project...</div>';
+  var sys=buildContext()+"\n\nPhil wants a focused analysis of ONE project: "+j.name+". Give him: (1) where it really stands, (2) the biggest risk or concern, (3) 2-3 specific recommended next actions. Be direct and practical. Reference the real numbers.";
+  callClaude(sys,"Analyze the "+j.name+" project for me.",function(text){
+    lastAiOutput=text;
+    body.innerHTML=mdToHtml(text);
+  },function(err){
+    body.innerHTML='Could not analyze right now: '+esc(err);
+  });
+}
+
+// ====== DRAFT CLIENT UPDATE ======
+function draftClientUpdate(id){
+  var j=jobs.find(function(x){return x.id===id;});if(!j)return;
+  openModal('aiModal');
+  document.getElementById('aiModalTitle').textContent='Client Update: '+j.client;
+  var body=document.getElementById('aiModalBody');
+  body.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Drafting a client update...</div>';
+  var sys=buildContext()+"\n\nWrite a warm, professional progress update email from Philip Howard to the client "+j.client+" about their "+j.name+" project. Mention current phase, recent progress, what's coming next, and keep it reassuring and clear. 2 short paragraphs. Sign off as Phil. Don't mention internal budget numbers or crew names.";
+  callClaude(sys,"Draft the client update email.",function(text){
+    lastAiOutput=text;
+    body.innerHTML=mdToHtml(text);
+  },function(err){
+    body.innerHTML='Could not draft right now: '+esc(err);
+  });
+}
+function copyAiOutput(){
+  if(!lastAiOutput)return;
+  navigator.clipboard.writeText(lastAiOutput).then(function(){
+    var b=document.getElementById('aiCopyBtn');b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1800);
+  });
+}
+
+// ====== RENDER ======
 function renderStats(){
   var active=jobs.filter(function(j){return j.status!=='complete';}).length;
-  var now=new Date();var month=now.getMonth();var yr=now.getFullYear();
-  var dueMonth=jobs.filter(function(j){if(!j.date)return false;var d=new Date(j.date);return d.getMonth()===month&&d.getFullYear()===yr;}).length;
+  var atRisk=jobs.filter(function(j){var bp=j.budget?j.spent/j.budget*100:0;var d=daysUntil(j.date);return (bp>j.progress+15)||(d!==null&&d<14&&j.progress<70);}).length;
   var onSite=crew.filter(function(c){return c.status==='on-site';}).length;
-  var wkHours=hours.reduce(function(s,h){return s+(parseFloat(h.amount)||0);},0);
+  var budgets=jobs.filter(function(j){return j.budget;});
+  var avgBudget=budgets.length?Math.round(budgets.reduce(function(s,j){return s+j.spent/j.budget*100;},0)/budgets.length):0;
   document.getElementById('statActive').textContent=active;
-  document.getElementById('statWeek').textContent=dueMonth;
+  document.getElementById('statRisk').textContent=atRisk;
   document.getElementById('statCrew').textContent=onSite;
-  document.getElementById('statHours').textContent=wkHours;
+  document.getElementById('statBudget').textContent=avgBudget+'%';
 }
-
 function renderJobs(){
   var g=document.getElementById('jobsGrid');
-  if(!jobs.length){g.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg><p>No active jobs yet</p><span>Click \'New Job\' to add your first project.</span></div>';return;}
+  if(!jobs.length){g.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg><p>No active jobs yet</p><span>Click New Job to add your first project.</span></div>';return;}
   g.innerHTML=jobs.map(function(j){
-    return '<div class="job">'+
-      '<div class="job-top"><div class="job-name-row"><div><div class="job-name">'+esc(j.name)+'</div><div class="job-client">'+esc(j.client)+'</div></div><span class="job-status s-'+j.status+'">'+STATUS_LABELS[j.status]+'</span></div></div>'+
-      '<div class="job-body">'+
-        '<div class="job-progress-lbl"><span>Progress</span><b>'+j.progress+'%</b></div>'+
-        '<div class="progress-track"><div class="progress-fill" style="width:'+j.progress+'%"></div></div>'+
-        '<div class="job-meta">'+
-          '<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+esc(j.location)+'</div>'+
-          '<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>'+j.crew+' crew</div>'+
-          (j.date?'<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'+fmtDate(j.date)+'</div>':'')+
-        '</div>'+
-      '</div>'+
-      '<div class="job-foot"><button onclick="editJob(\''+j.id+'\')">Edit</button><button onclick="delJob(\''+j.id+'\')">Remove</button></div>'+
-    '</div>';
+    var d=daysUntil(j.date);
+    var bp=j.budget?Math.round(j.spent/j.budget*100):0;
+    var bcolor=bp>j.progress+15?'var(--red)':bp>j.progress+5?'var(--amber)':'var(--green)';
+    return '<div class="job"><div class="job-top"><div class="job-name-row"><div><div class="job-name">'+esc(j.name)+'</div><div class="job-client">'+esc(j.client)+'</div></div><span class="job-status s-'+j.status+'">'+STATUS_LABELS[j.status]+'</span></div></div>'+
+      '<div class="job-body"><div class="job-progress-lbl"><span>Progress</span><b>'+j.progress+'%</b></div><div class="progress-track"><div class="progress-fill" style="width:'+j.progress+'%"></div></div>'+
+      (j.budget?'<div class="job-budget"><div class="job-progress-lbl" style="margin-top:10px;"><span>Budget &middot; $'+(j.spent/1000).toFixed(0)+'k / $'+(j.budget/1000).toFixed(0)+'k</span><b style="color:'+bcolor+'">'+bp+'%</b></div><div class="budget-bar"><div class="budget-fill" style="width:'+Math.min(100,bp)+'%;background:'+bcolor+'"></div></div></div>':'')+
+      '<div class="job-meta"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+esc(j.location)+'</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>'+j.crew+' crew</div>'+(j.date?'<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>'+(d!==null&&d<0?Math.abs(d)+'d over':d+'d')+'</div>':'')+'</div></div>'+
+      '<div class="job-foot"><button class="ai-btn" onclick="analyzeJob(\''+j.id+'\')">AI Analyze</button><button onclick="draftClientUpdate(\''+j.id+'\')">Client Update</button><button onclick="editJob(\''+j.id+'\')">Edit</button></div></div>';
   }).join('');
 }
-
 function renderCrew(){
   var g=document.getElementById('crewGrid');
-  if(!crew.length){g.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><p>No crew added yet</p><span>Click \'Add Crew\' to build your team list.</span></div>';return;}
+  if(!crew.length){g.innerHTML='<div class="empty"><p>No crew added yet</p></div>';return;}
   g.innerHTML=crew.map(function(c){
-    var initials=c.name.split(' ').map(function(n){return n[0];}).join('').substring(0,2).toUpperCase();
-    return '<div class="crew-card">'+
-      '<div class="crew-top"><div class="crew-av">'+initials+'</div><div><div class="crew-name">'+esc(c.name)+'</div><div class="crew-role">'+esc(c.role)+'</div></div><span class="crew-status '+(c.status==='on-site'?'on-site':'off')+'">'+(c.status==='on-site'?'On Site':'Off')+'</span></div>'+
-      '<div class="crew-assign"><span>Assigned to</span><br>'+esc(c.assign||'Unassigned')+'</div>'+
-      '<div class="job-foot" style="background:none;border:none;padding:10px 0 0;"><button onclick="editCrew(\''+c.id+'\')">Edit</button><button onclick="delCrew(\''+c.id+'\')">Remove</button></div>'+
-    '</div>';
+    var ini=c.name.split(' ').map(function(n){return n[0];}).join('').substring(0,2).toUpperCase();
+    return '<div class="crew-card"><div class="crew-top"><div class="crew-av">'+ini+'</div><div><div class="crew-name">'+esc(c.name)+'</div><div class="crew-role">'+esc(c.role)+'</div></div><span class="crew-status '+(c.status==='on-site'?'on-site':'off')+'">'+(c.status==='on-site'?'On Site':'Off')+'</span></div><div class="crew-assign"><span>Assigned to</span><br>'+esc(c.assign||'Unassigned')+'</div><div class="job-foot" style="background:none;border:none;padding:10px 0 0;"><button onclick="editCrew(\''+c.id+'\')">Edit</button><button onclick="delCrew(\''+c.id+'\')">Remove</button></div></div>';
   }).join('');
 }
-
 function renderHours(){
   var t=document.getElementById('hoursTable');
   var rows='<div class="hours-row head"><div>Crew</div><div class="h-site">Job Site</div><div>Date</div><div>Hours</div></div>';
-  if(!hours.length){t.innerHTML=rows+'<div class="empty"><p>No hours logged yet</p><span>Click \'Log Hours\' to record time.</span></div>';return;}
-  rows+=hours.map(function(h){
-    return '<div class="hours-row"><div class="h-name">'+esc(h.name)+'</div><div class="h-site">'+esc(h.site)+'</div><div>'+fmtDate(h.date)+'</div><div class="hours-total">'+h.amount+'h</div></div>';
-  }).join('');
+  if(!hours.length){t.innerHTML=rows+'<div class="empty"><p>No hours logged yet</p></div>';return;}
+  rows+=hours.map(function(h){return '<div class="hours-row"><div class="h-name">'+esc(h.name)+'</div><div class="h-site">'+esc(h.site)+'</div><div>'+fmtDate(h.date)+'</div><div class="hours-total">'+h.amount+'h</div></div>';}).join('');
   var total=hours.reduce(function(s,h){return s+(parseFloat(h.amount)||0);},0);
   rows+='<div class="hours-row" style="background:#F7FAFD;font-weight:700;"><div class="h-name">Total</div><div class="h-site"></div><div></div><div class="hours-total">'+total+'h</div></div>';
   t.innerHTML=rows;
 }
-
 function renderAll(){renderStats();renderJobs();renderCrew();renderHours();save();}
 
-// ---- Helpers ----
-function esc(s){return String(s||'').replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
-function fmtDate(d){if(!d)return '';var dt=new Date(d+'T00:00:00');return dt.toLocaleDateString('en-US',{month:'short',day:'numeric'});}
-
-// ---- Tabs ----
+// ====== TABS ======
 document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click',function(){
     document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
@@ -377,28 +622,30 @@ document.querySelectorAll('.tab').forEach(function(t){
     document.getElementById('panel-'+t.dataset.tab).classList.add('active');
   });
 });
-
-// ---- Modals ----
+// ====== MODALS ======
 function openModal(id){document.getElementById(id).classList.add('show');}
 function closeModal(id){document.getElementById(id).classList.remove('show');}
 document.querySelectorAll('.modal-bg').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeModal(m.id);});});
-
-function openJobModal(){document.getElementById('jobModalTitle').textContent='New Job';document.getElementById('jobId').value='';document.getElementById('jobName').value='';document.getElementById('jobClient').value='';document.getElementById('jobLocation').value='';document.getElementById('jobStatus').value='planning';document.getElementById('jobProgress').value=0;document.getElementById('jobCrew').value=0;document.getElementById('jobDate').value='';openModal('jobModal');}
-function editJob(id){var j=jobs.find(function(x){return x.id===id;});if(!j)return;document.getElementById('jobModalTitle').textContent='Edit Job';document.getElementById('jobId').value=j.id;document.getElementById('jobName').value=j.name;document.getElementById('jobClient').value=j.client;document.getElementById('jobLocation').value=j.location;document.getElementById('jobStatus').value=j.status;document.getElementById('jobProgress').value=j.progress;document.getElementById('jobCrew').value=j.crew;document.getElementById('jobDate').value=j.date||'';openModal('jobModal');}
-function saveJob(){var id=document.getElementById('jobId').value;var name=document.getElementById('jobName').value.trim();if(!name){alert('Please enter a project name.');return;}var data={name:name,client:document.getElementById('jobClient').value.trim(),location:document.getElementById('jobLocation').value.trim(),status:document.getElementById('jobStatus').value,progress:Math.min(100,Math.max(0,parseInt(document.getElementById('jobProgress').value)||0)),crew:parseInt(document.getElementById('jobCrew').value)||0,date:document.getElementById('jobDate').value};if(id){var j=jobs.find(function(x){return x.id===id;});Object.assign(j,data);}else{data.id=uid();jobs.unshift(data);}closeModal('jobModal');renderAll();}
+function openJobModal(){document.getElementById('jobModalTitle').textContent='New Job';['jobId','jobName','jobClient','jobLocation','jobNotes'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('jobStatus').value='planning';document.getElementById('jobProgress').value=0;document.getElementById('jobCrew').value=0;document.getElementById('jobDate').value='';document.getElementById('jobBudget').value='';document.getElementById('jobSpent').value='';openModal('jobModal');}
+function editJob(id){var j=jobs.find(function(x){return x.id===id;});if(!j)return;document.getElementById('jobModalTitle').textContent='Edit Job';document.getElementById('jobId').value=j.id;document.getElementById('jobName').value=j.name;document.getElementById('jobClient').value=j.client;document.getElementById('jobLocation').value=j.location;document.getElementById('jobStatus').value=j.status;document.getElementById('jobProgress').value=j.progress;document.getElementById('jobCrew').value=j.crew;document.getElementById('jobDate').value=j.date||'';document.getElementById('jobBudget').value=j.budget||'';document.getElementById('jobSpent').value=j.spent||'';document.getElementById('jobNotes').value=j.notes||'';openModal('jobModal');}
+function saveJob(){var id=document.getElementById('jobId').value;var name=document.getElementById('jobName').value.trim();if(!name){alert('Please enter a project name.');return;}var data={name:name,client:document.getElementById('jobClient').value.trim(),location:document.getElementById('jobLocation').value.trim(),status:document.getElementById('jobStatus').value,progress:Math.min(100,Math.max(0,parseInt(document.getElementById('jobProgress').value)||0)),crew:parseInt(document.getElementById('jobCrew').value)||0,date:document.getElementById('jobDate').value,budget:parseInt(document.getElementById('jobBudget').value)||0,spent:parseInt(document.getElementById('jobSpent').value)||0,notes:document.getElementById('jobNotes').value.trim()};if(id){var j=jobs.find(function(x){return x.id===id;});Object.assign(j,data);}else{data.id=uid();jobs.unshift(data);}closeModal('jobModal');renderAll();}
 function delJob(id){if(confirm('Remove this job?')){jobs=jobs.filter(function(x){return x.id!==id;});renderAll();}}
-
-function openCrewModal(){document.getElementById('crewModalTitle').textContent='Add Crew Member';document.getElementById('crewId').value='';document.getElementById('crewName').value='';document.getElementById('crewRole').value='';document.getElementById('crewAssign').value='';document.getElementById('crewStatus').value='on-site';openModal('crewModal');}
+function openCrewModal(){document.getElementById('crewModalTitle').textContent='Add Crew Member';['crewId','crewName','crewRole','crewAssign'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('crewStatus').value='on-site';openModal('crewModal');}
 function editCrew(id){var c=crew.find(function(x){return x.id===id;});if(!c)return;document.getElementById('crewModalTitle').textContent='Edit Crew Member';document.getElementById('crewId').value=c.id;document.getElementById('crewName').value=c.name;document.getElementById('crewRole').value=c.role;document.getElementById('crewAssign').value=c.assign;document.getElementById('crewStatus').value=c.status;openModal('crewModal');}
 function saveCrew(){var id=document.getElementById('crewId').value;var name=document.getElementById('crewName').value.trim();if(!name){alert('Please enter a name.');return;}var data={name:name,role:document.getElementById('crewRole').value.trim(),assign:document.getElementById('crewAssign').value.trim(),status:document.getElementById('crewStatus').value};if(id){var c=crew.find(function(x){return x.id===id;});Object.assign(c,data);}else{data.id=uid();crew.push(data);}closeModal('crewModal');renderAll();}
 function delCrew(id){if(confirm('Remove this crew member?')){crew=crew.filter(function(x){return x.id!==id;});renderAll();}}
-
-function openHoursModal(){document.getElementById('hoursName').value='';document.getElementById('hoursSite').value='';document.getElementById('hoursDate').value=new Date().toISOString().split('T')[0];document.getElementById('hoursAmount').value='';openModal('hoursModal');}
+function openHoursModal(){['hoursName','hoursSite','hoursAmount'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('hoursDate').value=new Date().toISOString().split('T')[0];openModal('hoursModal');}
 function saveHours(){var name=document.getElementById('hoursName').value.trim();var amt=parseFloat(document.getElementById('hoursAmount').value);if(!name||!amt){alert('Please enter a name and hours.');return;}hours.unshift({id:uid(),name:name,site:document.getElementById('hoursSite').value.trim(),date:document.getElementById('hoursDate').value||new Date().toISOString().split('T')[0],amount:amt});closeModal('hoursModal');renderAll();}
 
-// ---- Init ----
+// chat input enter + suggestions
+document.getElementById('chatInp').addEventListener('keydown',function(e){if(e.key==='Enter')sendChat();});
+document.querySelectorAll('.chat-sug').forEach(function(s){s.addEventListener('click',function(){sendChat(s.getAttribute('data-q'));});});
+
+// ====== INIT ======
 document.getElementById('dashDate').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
 load();renderAll();
+generateBriefing();
+setTimeout(generateRisks,500);
 </script>
 </body>
 </html>

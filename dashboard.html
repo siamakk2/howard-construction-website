@@ -450,7 +450,7 @@ function save(){
   // Debounced save to shared database (silently no-ops if DB not configured)
   if(_saveTimer)clearTimeout(_saveTimer);
   _saveTimer=setTimeout(function(){
-    fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{jobs:jobs,crew:crew,hours:hours}})}).then(function(r){return r.json();}).then(function(o){if(o&&!o.error)_dbReady=true;}).catch(function(){});
+    fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{saved:true,jobs:jobs,crew:crew,hours:hours}})}).then(function(r){return r.json();}).then(function(o){if(o&&!o.error)_dbReady=true;}).catch(function(){});
   },600);
 }
 var _dbReady=false;
@@ -462,8 +462,12 @@ function load(cb){
   var timer=setTimeout(finish,3000);
   fetch('/api/data').then(function(r){return r.json();}).then(function(out){
     clearTimeout(timer);
-    if(out&&!out.error&&out.data&&out.data.jobs){
-      jobs=out.data.jobs;crew=out.data.crew||[];hours=out.data.hours||[];_dbReady=true;
+    if(out&&!out.error&&out.data&&out.data.saved){
+      // User has saved data before (even if empty) - it is authoritative
+      jobs=Array.isArray(out.data.jobs)?out.data.jobs:[];
+      crew=Array.isArray(out.data.crew)?out.data.crew:[];
+      hours=Array.isArray(out.data.hours)?out.data.hours:[];
+      _dbReady=true;
     }
     finish();
   }).catch(function(){clearTimeout(timer);finish();});
@@ -718,7 +722,12 @@ function clearAllData(){
   if(!confirm('Are you absolutely sure? All sample data will be erased.'))return;
   jobs=[];crew=[];hours=[];
   renderAll();
-  alert('All cleared! Start adding your real projects and crew with the New Job and Add Crew buttons.');
+  // Force an immediate save of the empty state so samples never come back
+  fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{saved:true,jobs:[],crew:[],hours:[]}})}).then(function(){
+    alert('All cleared and saved! Start adding your real projects and crew with the New Job and Add Crew buttons.');
+  }).catch(function(){
+    alert('Cleared on screen, but could not reach the database to save. Check your connection and try again.');
+  });
 }
 function delJob(id){if(confirm('Remove this job?')){jobs=jobs.filter(function(x){return x.id!==id;});renderAll();}}
 function openCrewModal(){document.getElementById('crewModalTitle').textContent='Add Crew Member';['crewId','crewName','crewRole','crewAssign'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('crewStatus').value='on-site';openModal('crewModal');}

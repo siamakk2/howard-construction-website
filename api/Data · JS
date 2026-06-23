@@ -1,8 +1,5 @@
 // Vercel serverless function — shared data store for Howard Construction Site Manager.
 // Uses Upstash Redis (REST API) so Phil and his managers all see the same live data.
-// Requires two environment variables in Vercel:
-//   UPSTASH_REDIS_REST_URL
-//   UPSTASH_REDIS_REST_TOKEN
 
 module.exports = async function handler(req, res) {
   const url = process.env.UPSTASH_REDIS_REST_URL;
@@ -17,7 +14,6 @@ module.exports = async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
-      // Load the data
       const r = await fetch(`${url}/get/${KEY}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -31,7 +27,6 @@ module.exports = async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      // Save the data
       let body = req.body;
       if (typeof body === 'string') body = JSON.parse(body);
       const payload = JSON.stringify(body.data || {});

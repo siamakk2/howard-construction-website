@@ -12,32 +12,14 @@ module.exports = async function handler(req, res) {
   const auth = { Authorization: 'Bearer ' + token };
 
   try {
-    if (req.method === 'GET') {
-      const r = await fetch(url + '/get/' + KEY, { headers: auth });
-      const out = await r.json();
-      let data = null;
-      if (out && out.result) {
-        try { data = JSON.parse(out.result); } catch (e) { data = null; }
-      }
-      res.status(200).json({ data: data });
-      return;
-    }
-
     if (req.method === 'POST') {
-      let raw = '';
-      if (req.body) {
-        raw = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
-      } else {
-        raw = await new Promise(function (resolve) {
-          let d = '';
-          req.on('data', function (c) { d += c; });
-          req.on('end', function () { resolve(d); });
-        });
+      let data = {};
+      if (req.body && typeof req.body === 'object') {
+        data = req.body.data || {};
+      } else if (typeof req.body === 'string') {
+        try { data = (JSON.parse(req.body)).data || {}; } catch (e) { data = {}; }
       }
-
-      let parsed = {};
-      try { parsed = JSON.parse(raw); } catch (e) { parsed = {}; }
-      const payload = JSON.stringify(parsed.data || {});
+      const payload = JSON.stringify(data);
 
       const r = await fetch(url + '/set/' + KEY, {
         method: 'POST',
@@ -45,17 +27,22 @@ module.exports = async function handler(req, res) {
         body: payload
       });
       const out = await r.json();
-
       if (out && out.error) {
-        res.status(500).json({ error: 'Upstash: ' + out.error });
+        res.status(500).json({ error: 'Upstash rejected: ' + out.error });
         return;
       }
-      res.status(200).json({ ok: true, result: out });
+      res.status(200).json({ ok: true });
       return;
     }
 
-    res.status(405).json({ error: 'Method not allowed' });
+    const r = await fetch(url + '/get/' + KEY, { headers: auth });
+    const out = await r.json();
+    let data = null;
+    if (out && out.result) {
+      try { data = JSON.parse(out.result); } catch (e) { data = null; }
+    }
+    res.status(200).json({ data: data });
   } catch (err) {
-    res.status(500).json({ error: 'Database error: ' + err.message });
+    res.status(500).json({ error: 'Server error: ' + err.message });
   }
 };

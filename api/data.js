@@ -1,48 +1,50 @@
-// Shared data store for Howard Construction Site Manager — Upstash Redis.
+// Shared data store — Upstash Redis. Crash-proof version.
 module.exports = async function handler(req, res) {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-
-  if (!url || !token) {
-    res.status(500).json({ error: 'Database not configured.' });
-    return;
-  }
-
-  const KEY = 'hci_site_data';
-  const auth = { Authorization: 'Bearer ' + token };
-
   try {
-    if (req.method === 'POST') {
-      let data = {};
-      if (req.body && typeof req.body === 'object') {
-        data = req.body.data || {};
-      } else if (typeof req.body === 'string') {
-        try { data = (JSON.parse(req.body)).data || {}; } catch (e) { data = {}; }
-      }
-      const payload = JSON.stringify(data);
+    const url = process.env.UPSTASH_REDIS_REST_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN;
 
-      const r = await fetch(url + '/set/' + KEY, {
-        method: 'POST',
-        headers: auth,
-        body: payload
-      });
-      const out = await r.json();
-      if (out && out.error) {
-        res.status(500).json({ error: 'Upstash rejected: ' + out.error });
-        return;
-      }
-      res.status(200).json({ ok: true });
-      return;
+    if (!url || !token) {
+      return res.status(200).json({ error: 'Database not configured.' });
     }
 
-    const r = await fetch(url + '/get/' + KEY, { headers: auth });
-    const out = await r.json();
+    const KEY = 'hci_site_data';
+    const base = url.replace(/\/+$/, '');
+
+    if (req.method === 'POST') {
+      let bodyObj = req.body;
+      if (typeof bodyObj === 'string') {
+        try { bodyObj = JSON.parse(bodyObj); } catch (e) { bodyObj = {}; }
+      }
+      if (!bodyObj || typeof bodyObj !== 'object') bodyObj = {};
+      const value = JSON.stringify(bodyObj.data || {});
+
+      const resp = await fetch(base + '/set/' + KEY, {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + token },
+        body: value
+      });
+      const text = await resp.text();
+      let parsed = null;
+      try { parsed = JSON.parse(text); } catch (e) {}
+
+      if (!resp.ok) {
+        return res.status(200).json({ error: 'Upstash status ' + resp.status + ': ' + text });
+      }
+      return res.status(200).json({ ok: true, upstash: parsed || text });
+    }
+
+    const resp = await fetch(base + '/get/' + KEY, {
+      headers: { Authorization: 'Bearer ' + token }
+    });
+    const out = await resp.json();
     let data = null;
     if (out && out.result) {
       try { data = JSON.parse(out.result); } catch (e) { data = null; }
     }
-    res.status(200).json({ data: data });
+    return res.status(200).json({ data: data });
+
   } catch (err) {
-    res.status(500).json({ error: 'Server error: ' + err.message });
+    return res.status(200).json({ error: 'Caught: ' + (err && err.message ? err.message : String(err)) });
   }
 };

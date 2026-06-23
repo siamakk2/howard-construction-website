@@ -367,7 +367,10 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
   <div class="panel" id="panel-hours">
     <div class="panel-head">
       <h2>This Week's Hours</h2>
-      <button class="btn" onclick="openHoursModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Log Hours</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-ghost" onclick="clearHours()" style="color:var(--red);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>Clear Hours</button>
+        <button class="btn" onclick="openHoursModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Log Hours</button>
+      </div>
     </div>
     <div class="hours-table" id="hoursTable"></div>
   </div>
@@ -694,7 +697,7 @@ function renderHours(){
   var t=document.getElementById('hoursTable');
   var rows='<div class="hours-row head"><div>Crew</div><div class="h-site">Job Site</div><div>Date</div><div>Hours</div></div>';
   if(!hours.length){t.innerHTML=rows+'<div class="empty"><p>No hours logged yet</p></div>';return;}
-  rows+=hours.map(function(h){return '<div class="hours-row"><div class="h-name">'+esc(h.name)+'</div><div class="h-site">'+esc(h.site)+'</div><div>'+fmtDate(h.date)+'</div><div class="hours-total">'+h.amount+'h</div></div>';}).join('');
+  rows+=hours.map(function(h){return '<div class="hours-row"><div class="h-name">'+esc(h.name)+'</div><div class="h-site">'+esc(h.site)+'</div><div>'+fmtDate(h.date)+'</div><div class="hours-total">'+h.amount+'h <span onclick="delHours(\''+h.id+'\')" style="color:#D32F2F;cursor:pointer;font-weight:700;margin-left:8px;" title="Remove">&times;</span></div></div>';}).join('');
   var total=hours.reduce(function(s,h){return s+(parseFloat(h.amount)||0);},0);
   rows+='<div class="hours-row" style="background:#F7FAFD;font-weight:700;"><div class="h-name">Total</div><div class="h-site"></div><div></div><div class="hours-total">'+total+'h</div></div>';
   t.innerHTML=rows;
@@ -724,6 +727,23 @@ function manualSave(){
   if(b)b.textContent='Saving...';
   saveNow(function(ok){
     if(b){b.textContent=ok?'Saved!':'Save failed';setTimeout(function(){b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save';},2000);}
+  });
+}
+
+
+function delHours(id){
+  if(!confirm('Remove this hours entry?'))return;
+  hours=hours.filter(function(x){return x.id!==id;});
+  renderAll();saveNow();
+}
+function clearHours(){
+  if(!hours.length){alert('There are no hours to clear.');return;}
+  if(!confirm('Clear all logged hours for this week? Your jobs and crew will NOT be affected.'))return;
+  hours=[];
+  renderAll();
+  saveNow(function(ok){
+    if(ok){alert('Hours cleared and saved. Ready for a fresh week.');}
+    else{alert('Cleared on screen, but could not save to the database. Try again.');}
   });
 }
 function clearAllData(){

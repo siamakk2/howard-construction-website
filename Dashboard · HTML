@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Site Manager | Howard Construction Inc.</title>
+<title>Site Manager AI | Howard Construction Inc.</title>
+<meta name="description" content="AI-powered project management for Howard Construction Inc.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -41,17 +43,19 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .btn svg{width:16px;height:16px;}
 .btn-ghost{background:rgba(21,101,192,0.08);color:var(--blue);}
 .btn-ghost:hover{background:rgba(21,101,192,0.16);}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px;}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;}
 .stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--blue);line-height:1;}
 .stat-lbl{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;}
 .stat.accent .stat-num{color:var(--accent);}
 .stat.green .stat-num{color:var(--green);}
 .stat.red .stat-num{color:var(--red);}
+
+/* AI BRIEFING */
 .briefing{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:16px;padding:24px 26px;color:#fff;margin-bottom:20px;position:relative;overflow:hidden;}
 .briefing::before{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(21,101,192,0.4),transparent 70%);}
 .briefing-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;position:relative;}
-.briefing-head .ai-dot{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;color:#fff;}
+.briefing-head .ai-dot{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
 .briefing-head h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;}
 .briefing-head .sub{font-size:12px;color:rgba(255,255,255,0.6);}
 .briefing-body{font-size:14.5px;line-height:1.7;position:relative;color:rgba(255,255,255,0.92);}
@@ -66,6 +70,8 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 @keyframes spin{to{transform:rotate(360deg);}}
 .refresh-brief{position:relative;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:12px;padding:7px 14px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:600;margin-top:14px;display:inline-flex;align-items:center;gap:6px;}
 .refresh-brief:hover{background:rgba(255,255,255,0.2);}
+
+/* RISK RADAR */
 .risk-list{display:flex;flex-direction:column;gap:12px;}
 .risk{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--muted);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
 .risk.high{border-left-color:var(--red);}
@@ -87,6 +93,8 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .risk.high .risk-sev{background:rgba(211,47,47,0.12);color:var(--red);}
 .risk.med .risk-sev{background:rgba(249,168,37,0.16);color:#B45309;}
 .risk.low .risk-sev{background:rgba(46,125,50,0.12);color:var(--green);}
+
+/* JOB CARDS */
 .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
 .job{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s;}
 .job:hover{box-shadow:0 8px 28px rgba(13,43,78,0.1);transform:translateY(-2px);}
@@ -118,6 +126,8 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .job-foot button:hover{border-color:var(--blue);color:var(--blue);}
 .job-foot button.ai-btn{background:linear-gradient(135deg,var(--blue),var(--blue-dk));color:#fff;border:none;}
 .job-foot button.ai-btn:hover{opacity:0.9;color:#fff;}
+
+/* AI ASSISTANT CHAT */
 .assistant-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;height:600px;max-height:75vh;}
 .assistant-head{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:16px 20px;display:flex;align-items:center;gap:12px;}
 .assistant-head .ai-dot{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:15px;}
@@ -147,6 +157,8 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .chat-dots span:nth-child(2){animation-delay:.2s;}
 .chat-dots span:nth-child(3){animation-delay:.4s;}
 @keyframes cdot{0%,60%,100%{transform:translateY(0);opacity:.5;}30%{transform:translateY(-5px);opacity:1;}}
+
+/* CREW + HOURS (compact) */
 .crew-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
 .crew-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;}
 .crew-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
@@ -164,6 +176,8 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .hours-row.head{background:#F7FAFD;font-weight:600;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
 .hours-row .h-name{font-weight:600;color:var(--navy);}
 .hours-total{font-weight:700;color:var(--blue);}
+
+/* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(10,22,40,0.6);z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;}
 .modal-bg.show{display:flex;}
 .modal{background:#fff;border-radius:16px;width:100%;max-width:500px;padding:26px;}
@@ -179,6 +193,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .empty{text-align:center;padding:50px 20px;color:var(--muted);}
 .empty svg{width:54px;height:54px;color:var(--line);margin-bottom:14px;}
 .empty p{font-size:15px;margin-bottom:6px;}
+
 @media(max-width:760px){
   .stats{grid-template-columns:1fr 1fr;}
   .dash-head h1{font-size:22px;}
@@ -189,6 +204,23 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
   .content{padding:18px 14px 50px;}
   .assistant-wrap{height:540px;}
 }
+
+.chat-mic{width:42px;height:42px;border-radius:50%;background:rgba(21,101,192,0.1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue);transition:all .2s;}
+.chat-mic:hover{background:rgba(21,101,192,0.18);}
+.chat-mic.listening{background:var(--red);color:#fff;animation:micpulse 1.2s infinite;}
+@keyframes micpulse{0%,100%{box-shadow:0 0 0 0 rgba(211,47,47,0.4);}50%{box-shadow:0 0 0 8px rgba(211,47,47,0);}}
+.voice-bar{background:linear-gradient(135deg,var(--blue),var(--blue-dk));border-radius:14px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;color:#fff;}
+.voice-mic-big{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.18);border:2px solid rgba(255,255,255,0.3);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;transition:all .2s;}
+.voice-mic-big:hover{background:rgba(255,255,255,0.28);}
+.voice-mic-big.listening{background:#fff;color:var(--red);animation:micpulse 1.2s infinite;}
+.voice-mic-big svg{width:26px;height:26px;}
+.voice-bar-text{flex:1;}
+.voice-bar-text h4{font-size:15px;font-weight:700;margin-bottom:3px;}
+.voice-bar-text p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.4;}
+.voice-status{font-size:13px;color:rgba(255,255,255,0.95);font-style:italic;min-height:18px;}
+.voice-toggle-speak{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:12px;padding:7px 13px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:600;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.voice-toggle-speak.on{background:var(--accent);color:var(--navy);border-color:var(--accent);}
+@media(max-width:600px){.voice-bar{flex-wrap:wrap;}.voice-toggle-speak{width:100%;justify-content:center;}}
 </style>
 </head>
 <body>
@@ -217,13 +249,26 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 </div>
 
 <div class="content">
+
+  <!-- TODAY PANEL -->
   <div class="panel active" id="panel-today">
-    <div class="stats">
+    <div class="stats" style="margin-bottom:20px;">
       <div class="stat"><div class="stat-num" id="statActive">0</div><div class="stat-lbl">Active Jobs</div></div>
       <div class="stat red"><div class="stat-num" id="statRisk">0</div><div class="stat-lbl">At Risk</div></div>
       <div class="stat green"><div class="stat-num" id="statCrew">0</div><div class="stat-lbl">Crew On Site</div></div>
       <div class="stat accent"><div class="stat-num" id="statBudget">0%</div><div class="stat-lbl">Avg Budget Used</div></div>
     </div>
+
+    <div class="voice-bar">
+      <button class="voice-mic-big" id="voiceMicBig" onclick="toggleVoiceCommand()" title="Speak a command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
+      <div class="voice-bar-text">
+        <h4>Talk to your Site Manager</h4>
+        <p id="voiceHint">Tap the mic and say things like "Mike worked 8 hours at Sonoma Vista" or "Move Carlos to Calistoga" or "Set Valley View to 85 percent."</p>
+        <div class="voice-status" id="voiceStatus"></div>
+      </div>
+      <button class="voice-toggle-speak" id="speakToggle" onclick="toggleSpeak()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg> Voice replies: Off</button>
+    </div>
+
     <div class="briefing">
       <div class="briefing-head">
         <div class="ai-dot">AI</div>
@@ -235,13 +280,11 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
       <div class="briefing-body" id="briefingBody">
         <div class="briefing-loading"><div class="spinner"></div> Reading your projects and preparing today's briefing...</div>
       </div>
-      <button class="refresh-brief" onclick="generateBriefing()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
-        Refresh Briefing
-      </button>
+      <button class="refresh-brief" onclick="generateBriefing()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Refresh Briefing</button>
     </div>
   </div>
 
+  <!-- JOBS PANEL -->
   <div class="panel" id="panel-jobs">
     <div class="panel-head">
       <h2>Active Projects</h2>
@@ -250,6 +293,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     <div class="jobs-grid" id="jobsGrid"></div>
   </div>
 
+  <!-- RISK RADAR PANEL -->
   <div class="panel" id="panel-risks">
     <div class="panel-head">
       <h2>Risk Radar</h2>
@@ -260,6 +304,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     </div>
   </div>
 
+  <!-- ASSISTANT PANEL -->
   <div class="panel" id="panel-assistant">
     <div class="assistant-wrap">
       <div class="assistant-head">
@@ -271,7 +316,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
       </div>
       <div class="chat-msgs" id="chatMsgs">
         <div class="cmsg ai">
-          <div class="cmsg-b">Morning, Phil. I've got eyes on all your jobs, crew, and hours. Ask me anything.
+          <div class="cmsg-b">Morning, Phil. I've got eyes on all your jobs, crew, and hours. Ask me anything &mdash; like which projects are slipping, who I'd move to cover Calistoga, or what to tell a client. What do you need?
           <div class="chat-suggest">
             <button class="chat-sug" data-q="Which jobs are at risk right now?">Which jobs are at risk?</button>
             <button class="chat-sug" data-q="Who can I move to the Calistoga job?">Who can I reassign?</button>
@@ -283,12 +328,14 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
         <div class="chat-dots" id="chatDots"><span></span><span></span><span></span></div>
       </div>
       <div class="chat-foot">
-        <input class="chat-inp" id="chatInp" type="text" placeholder="Ask about your jobs, crew, schedule, budgets..." autocomplete="off">
+        <button class="chat-mic" id="chatMic" onclick="toggleVoiceChat()" title="Speak your question"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
+        <input class="chat-inp" id="chatInp" type="text" placeholder="Ask or speak..." autocomplete="off">
         <button class="chat-send" onclick="sendChat()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
       </div>
     </div>
   </div>
 
+  <!-- CREW PANEL -->
   <div class="panel" id="panel-crew">
     <div class="panel-head">
       <h2>Crew &amp; Today's Assignments</h2>
@@ -297,6 +344,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     <div class="crew-grid" id="crewGrid"></div>
   </div>
 
+  <!-- HOURS PANEL -->
   <div class="panel" id="panel-hours">
     <div class="panel-head">
       <h2>This Week's Hours</h2>
@@ -304,6 +352,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     </div>
     <div class="hours-table" id="hoursTable"></div>
   </div>
+
 </div>
 
 <!-- MODALS -->
@@ -327,7 +376,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     <div class="field"><label>Budget ($)</label><input type="number" id="jobBudget" min="0" placeholder="450000"></div>
     <div class="field"><label>Spent ($)</label><input type="number" id="jobSpent" min="0" placeholder="180000"></div>
   </div>
-  <div class="field"><label>Notes</label><textarea id="jobNotes" rows="2" placeholder="e.g. Framing inspection scheduled"></textarea></div>
+  <div class="field"><label>Next Milestone / Notes</label><textarea id="jobNotes" rows="2" placeholder="e.g. Framing inspection scheduled, waiting on window delivery"></textarea></div>
   <div class="modal-foot"><button class="btn btn-ghost" onclick="closeModal('jobModal')">Cancel</button><button class="btn" onclick="saveJob()">Save Job</button></div>
 </div></div>
 
@@ -378,52 +427,61 @@ var hours=[
   {id:'h4',name:'Steve Park',site:'Hillside ADU Project',date:'2026-06-21',amount:6}
 ];
 
+var _saveTimer=null;
+function save(){
+  // Debounced save to shared database
+  if(_saveTimer)clearTimeout(_saveTimer);
+  _saveTimer=setTimeout(function(){
+    fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{jobs:jobs,crew:crew,hours:hours}})}).catch(function(){});
+  },600);
+}
+function load(cb){
+  fetch('/api/data').then(function(r){return r.json();}).then(function(out){
+    if(out&&out.data&&out.data.jobs){jobs=out.data.jobs;crew=out.data.crew||[];hours=out.data.hours||[];}
+    if(cb)cb();
+  }).catch(function(){if(cb)cb();});
+}
 function uid(){return 'x'+Date.now()+Math.floor(Math.random()*1000);}
 function esc(s){return String(s||'').replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
 function fmtDate(d){if(!d)return '';var dt=new Date(d+'T00:00:00');return dt.toLocaleDateString('en-US',{month:'short',day:'numeric'});}
 function daysUntil(d){if(!d)return null;var dt=new Date(d+'T00:00:00');var now=new Date();now.setHours(0,0,0,0);return Math.round((dt-now)/(1000*60*60*24));}
 
+// ====== CLAUDE API INTEGRATION ======
 function buildContext(){
-  var ctx='You are the AI site manager for Howard Construction Inc., owned by Philip Howard. Today is '+new Date().toDateString()+'.\n\nCurrent projects:\n\n';
+  var ctx="You are the AI site manager for Howard Construction Inc., a Northern California general contractor owned by Philip Howard. You think like an experienced construction project manager. Today is "+new Date().toDateString()+".\n\nHere is the current state of all projects:\n\n";
   jobs.forEach(function(j){
     var d=daysUntil(j.date);
-    var bp=j.budget?Math.round(j.spent/j.budget*100):0;
-    ctx+='PROJECT: '+j.name+' (client: '+j.client+', '+j.location+')\n';
-    ctx+='  Phase: '+STATUS_LABELS[j.status]+' | Progress: '+j.progress+'%\n';
-    ctx+='  Crew: '+j.crew+' | Target: '+(j.date||'not set')+(d!==null?' ('+(d<0?Math.abs(d)+' days overdue':d+' days away')+')':'')+'\n';
-    if(j.budget)ctx+='  Budget: $'+j.budget.toLocaleString()+' | Spent: $'+j.spent.toLocaleString()+' ('+bp+'% used)\n';
-    if(j.notes)ctx+='  Notes: '+j.notes+'\n';
-    ctx+='\n';
+    var budgetPct=j.budget?Math.round(j.spent/j.budget*100):0;
+    ctx+="PROJECT: "+j.name+" (client: "+j.client+", "+j.location+")\n";
+    ctx+="  Phase: "+STATUS_LABELS[j.status]+" | Progress: "+j.progress+"%\n";
+    ctx+="  Crew assigned: "+j.crew+" | Target completion: "+(j.date||'not set')+(d!==null?" ("+(d<0?Math.abs(d)+" days overdue":d+" days away")+")":"")+"\n";
+    if(j.budget)ctx+="  Budget: $"+j.budget.toLocaleString()+" | Spent: $"+j.spent.toLocaleString()+" ("+budgetPct+"% used)\n";
+    if(j.notes)ctx+="  Notes: "+j.notes+"\n";
+    ctx+="\n";
   });
-  ctx+='CREW:\n';
-  crew.forEach(function(c){ctx+='  '+c.name+' - '+c.role+' - '+(c.status==='on-site'?'ON SITE at '+c.assign:'OFF/UNASSIGNED')+'\n';});
-  ctx+='\nHOURS THIS WEEK:\n';
-  hours.forEach(function(h){ctx+='  '+h.name+': '+h.amount+'h at '+h.site+' ('+h.date+')\n';});
+  ctx+="CREW:\n";
+  crew.forEach(function(c){ctx+="  "+c.name+" - "+c.role+" - "+(c.status==='on-site'?'ON SITE at '+c.assign:'OFF/UNASSIGNED')+"\n";});
+  ctx+="\nHOURS THIS WEEK:\n";
+  hours.forEach(function(h){ctx+="  "+h.name+": "+h.amount+"h at "+h.site+" ("+h.date+")\n";});
   return ctx;
 }
 
-function callClaude(systemPrompt,userMessage,cb,errCb){
-  fetch('/api/claude',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
+function callClaude(systemPrompt, userMessage, cb, errCb){
+  fetch("/api/claude",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
     body:JSON.stringify({
-      model:'claude-sonnet-4-6',
+      model:"claude-sonnet-4-6",
       max_tokens:1200,
       system:systemPrompt,
-      messages:[{role:'user',content:userMessage}]
+      messages:[{role:"user",content:userMessage}]
     })
-  })
-  .then(function(r){
-    if(!r.ok){return r.text().then(function(t){throw new Error('Server error '+r.status+': '+t.substring(0,100));});}
-    return r.json();
-  })
-  .then(function(data){
+  }).then(function(r){return r.json();}).then(function(data){
     if(data&&data.error){errCb&&errCb(data.error);return;}
-    var text='';
-    if(data&&data.content){text=data.content.filter(function(b){return b.type==='text';}).map(function(b){return b.text;}).join('\n');}
-    if(text){cb(text);}else{errCb&&errCb('No response from AI');}
-  })
-  .catch(function(e){errCb&&errCb(e.message);});
+    var text="";
+    if(data&&data.content){text=data.content.filter(function(b){return b.type==="text";}).map(function(b){return b.text;}).join("\n");}
+    if(text){cb(text);}else{errCb&&errCb("No response from AI");}
+  }).catch(function(e){errCb&&errCb(e.message);});
 }
 
 function mdToHtml(t){
@@ -437,30 +495,33 @@ function mdToHtml(t){
   return t;
 }
 
+// ====== MORNING BRIEFING ======
 function generateBriefing(){
   var el=document.getElementById('briefingBody');
-  el.innerHTML='<div class="briefing-loading"><div class="spinner"></div> Reading your projects...</div>';
+  el.innerHTML='<div class="briefing-loading"><div class="spinner"></div> Reading your projects and preparing today\'s briefing...</div>';
   document.getElementById('briefTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  var sys=buildContext()+'\n\nGive Phil his morning briefing. Be direct. Format:\n### Top Priorities Today\n### Watch Out\n### Quick Wins\nKeep it tight. Reference real project names and numbers.';
-  callClaude(sys,'Give me my morning briefing.',function(text){
+  var sys=buildContext()+"\n\nYou are giving Phil his morning briefing. Be direct and practical like a sharp foreman. Use this exact format:\n### Top Priorities Today\n(2-4 bullet points of what needs Phil's attention most, mentioning specific projects)\n### Watch Out\n(1-3 bullets on risks, delays, or budget concerns building up)\n### Quick Wins\n(1-2 bullets on things that can be knocked out easily)\nKeep it tight - Phil is busy. Reference real project names, dates, and numbers. No fluff.";
+  callClaude(sys,"Give me my morning briefing.",function(text){
     el.innerHTML=mdToHtml(text);
   },function(err){
-    el.innerHTML='<div style="color:rgba(255,255,255,0.85);">Could not reach AI: '+esc(err)+'</div>';
+    el.innerHTML='<div style="color:rgba(255,255,255,0.85);">I could not reach the AI service right now. '+esc(err)+'<br><br>Your projects are still tracked below in the Jobs tab.</div>';
   });
 }
 
+// ====== RISK RADAR ======
 function generateRisks(){
   var el=document.getElementById('riskList');
-  el.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Scanning...</div>';
-  var sys=buildContext()+'\n\nReturn ONLY a JSON array of risks. Each: {"severity":"high|med|low","job":"name","title":"short title","desc":"one sentence"}. Max 6. Order high first. No markdown, no extra text.';
-  callClaude(sys,'Scan for risks.',function(text){
+  el.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Scanning all jobs for risks...</div>';
+  var sys=buildContext()+'\n\nAnalyze every project for risks. Return ONLY a JSON array (no other text, no markdown fences). Each item: {"severity":"high|med|low","job":"project name","title":"short risk title","desc":"one sentence explaining the risk and what to do"}. Consider: budget overruns (spent vs budget vs progress), schedule slips (days to deadline vs progress), inspection timing, crew coverage gaps, change orders, weather delays, material lead times. Order by severity, high first. Max 6 risks.';
+  callClaude(sys,"Scan for risks and return the JSON array.",function(text){
     try{
-      var t=text.replace(/```json/g,'').replace(/```/g,'').trim();
-      var s=t.indexOf('['),e=t.lastIndexOf(']');
-      if(s>=0&&e>=0)t=t.substring(s,e+1);
-      renderRisks(JSON.parse(t));
+      var jsonText=text.replace(/```json/g,'').replace(/```/g,'').trim();
+      var start=jsonText.indexOf('[');var end=jsonText.lastIndexOf(']');
+      if(start>=0&&end>=0)jsonText=jsonText.substring(start,end+1);
+      var risks=JSON.parse(jsonText);
+      renderRisks(risks);
     }catch(e){
-      el.innerHTML='<div class="empty"><p>Could not parse risks</p><span>'+esc(text.substring(0,100))+'</span></div>';
+      el.innerHTML='<div class="risk med"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="risk-body"><div class="risk-title">Could not parse risk analysis</div><div class="risk-desc">'+esc(text.substring(0,200))+'</div></div></div>';
     }
   },function(err){
     el.innerHTML='<div class="empty"><p>Risk scan unavailable</p><span>'+esc(err)+'</span></div>';
@@ -469,7 +530,7 @@ function generateRisks(){
 
 function renderRisks(risks){
   var el=document.getElementById('riskList');
-  if(!risks.length){el.innerHTML='<div class="empty"><p>No major risks detected</p></div>';return;}
+  if(!risks.length){el.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>No major risks detected</p><span>All projects look on track.</span></div>';return;}
   var icons={high:'<path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',med:'<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',low:'<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'};
   el.innerHTML=risks.map(function(r){
     var sev=(r.severity||'med').toLowerCase();
@@ -478,6 +539,7 @@ function renderRisks(risks){
   }).join('');
 }
 
+// ====== CHAT ASSISTANT ======
 var chatHistory=[];
 function sendChat(q){
   var inp=document.getElementById('chatInp');
@@ -487,49 +549,66 @@ function sendChat(q){
   addChatMsg(msg,'user');
   var dots=document.getElementById('chatDots');var msgs=document.getElementById('chatMsgs');
   dots.style.display='block';msgs.scrollTop=msgs.scrollHeight;
-  var sys=buildContext()+'\n\nYou are Phil\'s AI site manager. Answer directly and practically. Reference specific projects, crew, dates, and numbers. Be concise.';
+  var sys=buildContext()+"\n\nYou are Phil's AI site manager. Answer his question directly and practically, like an experienced construction PM who knows these exact jobs. Reference specific projects, crew names, dates, and dollar figures from the data. Be concise - 2-4 short paragraphs or a tight bulleted list. If he asks who to move or reassign, name specific crew and explain the tradeoff. Use **bold** for key points.";
   var convo=chatHistory.slice(-4).map(function(m){return (m.role==='user'?'Phil':'You')+': '+m.text;}).join('\n');
-  callClaude(sys,(convo?convo+'\n\n':'')+'Phil: '+msg,function(text){
+  var fullMsg=(convo?convo+'\n\n':'')+'Phil: '+msg;
+  callClaude(sys,fullMsg,function(text){
     dots.style.display='none';
     addChatMsg(text,'ai');
-    chatHistory.push({role:'user',text:msg},{role:'ai',text:text});
+    chatHistory.push({role:'user',text:msg});
+    chatHistory.push({role:'ai',text:text});
   },function(err){
     dots.style.display='none';
-    addChatMsg('Could not reach AI right now: '+esc(err),'ai');
+    addChatMsg("I couldn't reach the AI service right now ("+esc(err)+"). Try again in a moment.",'ai');
   });
 }
-
 function addChatMsg(text,who){
   var msgs=document.getElementById('chatMsgs');var dots=document.getElementById('chatDots');
   var d=document.createElement('div');d.className='cmsg '+who;
   d.innerHTML='<div class="cmsg-b">'+(who==='ai'?mdToHtml(text):esc(text))+'</div>';
-  msgs.insertBefore(d,dots);msgs.scrollTop=msgs.scrollHeight;
+  msgs.insertBefore(d,dots);msgs.scrollTop=msgs.scrollHeight;if(who==='ai')speak(text);
 }
 
+// ====== PER-JOB AI ANALYSIS ======
 var lastAiOutput='';
 function analyzeJob(id){
   var j=jobs.find(function(x){return x.id===id;});if(!j)return;
   openModal('aiModal');
   document.getElementById('aiModalTitle').textContent='AI Analysis: '+j.name;
   var body=document.getElementById('aiModalBody');
-  body.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Analyzing...</div>';
-  callClaude(buildContext()+'\n\nAnalyze ONE project: '+j.name+'. Give: (1) where it stands, (2) biggest risk, (3) 2-3 next actions. Be direct.','Analyze the '+j.name+' project.',function(text){lastAiOutput=text;body.innerHTML=mdToHtml(text);},function(err){body.innerHTML='Could not analyze: '+esc(err);});
+  body.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Analyzing this project...</div>';
+  var sys=buildContext()+"\n\nPhil wants a focused analysis of ONE project: "+j.name+". Give him: (1) where it really stands, (2) the biggest risk or concern, (3) 2-3 specific recommended next actions. Be direct and practical. Reference the real numbers.";
+  callClaude(sys,"Analyze the "+j.name+" project for me.",function(text){
+    lastAiOutput=text;
+    body.innerHTML=mdToHtml(text);
+  },function(err){
+    body.innerHTML='Could not analyze right now: '+esc(err);
+  });
 }
 
+// ====== DRAFT CLIENT UPDATE ======
 function draftClientUpdate(id){
   var j=jobs.find(function(x){return x.id===id;});if(!j)return;
   openModal('aiModal');
   document.getElementById('aiModalTitle').textContent='Client Update: '+j.client;
   var body=document.getElementById('aiModalBody');
-  body.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Drafting...</div>';
-  callClaude(buildContext()+'\n\nWrite a warm professional update email from Philip Howard to '+j.client+' about '+j.name+'. Current phase, recent progress, what\'s next. 2 short paragraphs. Sign off as Phil.','Draft the client update.',function(text){lastAiOutput=text;body.innerHTML=mdToHtml(text);},function(err){body.innerHTML='Could not draft: '+esc(err);});
+  body.innerHTML='<div class="briefing-loading" style="color:var(--muted);"><div class="spinner" style="border-color:var(--line);border-top-color:var(--blue);"></div> Drafting a client update...</div>';
+  var sys=buildContext()+"\n\nWrite a warm, professional progress update email from Philip Howard to the client "+j.client+" about their "+j.name+" project. Mention current phase, recent progress, what's coming next, and keep it reassuring and clear. 2 short paragraphs. Sign off as Phil. Don't mention internal budget numbers or crew names.";
+  callClaude(sys,"Draft the client update email.",function(text){
+    lastAiOutput=text;
+    body.innerHTML=mdToHtml(text);
+  },function(err){
+    body.innerHTML='Could not draft right now: '+esc(err);
+  });
 }
-
 function copyAiOutput(){
   if(!lastAiOutput)return;
-  navigator.clipboard.writeText(lastAiOutput).then(function(){var b=document.getElementById('aiCopyBtn');b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1800);});
+  navigator.clipboard.writeText(lastAiOutput).then(function(){
+    var b=document.getElementById('aiCopyBtn');b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1800);
+  });
 }
 
+// ====== RENDER ======
 function renderStats(){
   var active=jobs.filter(function(j){return j.status!=='complete';}).length;
   var atRisk=jobs.filter(function(j){var bp=j.budget?j.spent/j.budget*100:0;var d=daysUntil(j.date);return (bp>j.progress+15)||(d!==null&&d<14&&j.progress<70);}).length;
@@ -541,22 +620,20 @@ function renderStats(){
   document.getElementById('statCrew').textContent=onSite;
   document.getElementById('statBudget').textContent=avgBudget+'%';
 }
-
 function renderJobs(){
   var g=document.getElementById('jobsGrid');
-  if(!jobs.length){g.innerHTML='<div class="empty"><p>No active jobs yet</p></div>';return;}
+  if(!jobs.length){g.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg><p>No active jobs yet</p><span>Click New Job to add your first project.</span></div>';return;}
   g.innerHTML=jobs.map(function(j){
     var d=daysUntil(j.date);
     var bp=j.budget?Math.round(j.spent/j.budget*100):0;
-    var bc=bp>j.progress+15?'var(--red)':bp>j.progress+5?'var(--amber)':'var(--green)';
+    var bcolor=bp>j.progress+15?'var(--red)':bp>j.progress+5?'var(--amber)':'var(--green)';
     return '<div class="job"><div class="job-top"><div class="job-name-row"><div><div class="job-name">'+esc(j.name)+'</div><div class="job-client">'+esc(j.client)+'</div></div><span class="job-status s-'+j.status+'">'+STATUS_LABELS[j.status]+'</span></div></div>'+
       '<div class="job-body"><div class="job-progress-lbl"><span>Progress</span><b>'+j.progress+'%</b></div><div class="progress-track"><div class="progress-fill" style="width:'+j.progress+'%"></div></div>'+
-      (j.budget?'<div class="job-budget"><div class="job-progress-lbl" style="margin-top:10px;"><span>Budget &middot; $'+(j.spent/1000).toFixed(0)+'k / $'+(j.budget/1000).toFixed(0)+'k</span><b style="color:'+bc+'">'+bp+'%</b></div><div class="budget-bar"><div class="budget-fill" style="width:'+Math.min(100,bp)+'%;background:'+bc+'"></div></div></div>':'')+
+      (j.budget?'<div class="job-budget"><div class="job-progress-lbl" style="margin-top:10px;"><span>Budget &middot; $'+(j.spent/1000).toFixed(0)+'k / $'+(j.budget/1000).toFixed(0)+'k</span><b style="color:'+bcolor+'">'+bp+'%</b></div><div class="budget-bar"><div class="budget-fill" style="width:'+Math.min(100,bp)+'%;background:'+bcolor+'"></div></div></div>':'')+
       '<div class="job-meta"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+esc(j.location)+'</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>'+j.crew+' crew</div>'+(j.date?'<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>'+(d!==null&&d<0?Math.abs(d)+'d over':d+'d')+'</div>':'')+'</div></div>'+
       '<div class="job-foot"><button class="ai-btn" onclick="analyzeJob(\''+j.id+'\')">AI Analyze</button><button onclick="draftClientUpdate(\''+j.id+'\')">Client Update</button><button onclick="editJob(\''+j.id+'\')">Edit</button></div></div>';
   }).join('');
 }
-
 function renderCrew(){
   var g=document.getElementById('crewGrid');
   if(!crew.length){g.innerHTML='<div class="empty"><p>No crew added yet</p></div>';return;}
@@ -565,7 +642,6 @@ function renderCrew(){
     return '<div class="crew-card"><div class="crew-top"><div class="crew-av">'+ini+'</div><div><div class="crew-name">'+esc(c.name)+'</div><div class="crew-role">'+esc(c.role)+'</div></div><span class="crew-status '+(c.status==='on-site'?'on-site':'off')+'">'+(c.status==='on-site'?'On Site':'Off')+'</span></div><div class="crew-assign"><span>Assigned to</span><br>'+esc(c.assign||'Unassigned')+'</div><div class="job-foot" style="background:none;border:none;padding:10px 0 0;"><button onclick="editCrew(\''+c.id+'\')">Edit</button><button onclick="delCrew(\''+c.id+'\')">Remove</button></div></div>';
   }).join('');
 }
-
 function renderHours(){
   var t=document.getElementById('hoursTable');
   var rows='<div class="hours-row head"><div>Crew</div><div class="h-site">Job Site</div><div>Date</div><div>Hours</div></div>';
@@ -575,9 +651,9 @@ function renderHours(){
   rows+='<div class="hours-row" style="background:#F7FAFD;font-weight:700;"><div class="h-name">Total</div><div class="h-site"></div><div></div><div class="hours-total">'+total+'h</div></div>';
   t.innerHTML=rows;
 }
+function renderAll(){renderStats();renderJobs();renderCrew();renderHours();save();}
 
-function renderAll(){renderStats();renderJobs();renderCrew();renderHours();}
-
+// ====== TABS ======
 document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click',function(){
     document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
@@ -586,14 +662,14 @@ document.querySelectorAll('.tab').forEach(function(t){
     document.getElementById('panel-'+t.dataset.tab).classList.add('active');
   });
 });
-
+// ====== MODALS ======
 function openModal(id){document.getElementById(id).classList.add('show');}
 function closeModal(id){document.getElementById(id).classList.remove('show');}
 document.querySelectorAll('.modal-bg').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeModal(m.id);});});
-
 function openJobModal(){document.getElementById('jobModalTitle').textContent='New Job';['jobId','jobName','jobClient','jobLocation','jobNotes'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('jobStatus').value='planning';document.getElementById('jobProgress').value=0;document.getElementById('jobCrew').value=0;document.getElementById('jobDate').value='';document.getElementById('jobBudget').value='';document.getElementById('jobSpent').value='';openModal('jobModal');}
 function editJob(id){var j=jobs.find(function(x){return x.id===id;});if(!j)return;document.getElementById('jobModalTitle').textContent='Edit Job';document.getElementById('jobId').value=j.id;document.getElementById('jobName').value=j.name;document.getElementById('jobClient').value=j.client;document.getElementById('jobLocation').value=j.location;document.getElementById('jobStatus').value=j.status;document.getElementById('jobProgress').value=j.progress;document.getElementById('jobCrew').value=j.crew;document.getElementById('jobDate').value=j.date||'';document.getElementById('jobBudget').value=j.budget||'';document.getElementById('jobSpent').value=j.spent||'';document.getElementById('jobNotes').value=j.notes||'';openModal('jobModal');}
 function saveJob(){var id=document.getElementById('jobId').value;var name=document.getElementById('jobName').value.trim();if(!name){alert('Please enter a project name.');return;}var data={name:name,client:document.getElementById('jobClient').value.trim(),location:document.getElementById('jobLocation').value.trim(),status:document.getElementById('jobStatus').value,progress:Math.min(100,Math.max(0,parseInt(document.getElementById('jobProgress').value)||0)),crew:parseInt(document.getElementById('jobCrew').value)||0,date:document.getElementById('jobDate').value,budget:parseInt(document.getElementById('jobBudget').value)||0,spent:parseInt(document.getElementById('jobSpent').value)||0,notes:document.getElementById('jobNotes').value.trim()};if(id){var j=jobs.find(function(x){return x.id===id;});Object.assign(j,data);}else{data.id=uid();jobs.unshift(data);}closeModal('jobModal');renderAll();}
+function delJob(id){if(confirm('Remove this job?')){jobs=jobs.filter(function(x){return x.id!==id;});renderAll();}}
 function openCrewModal(){document.getElementById('crewModalTitle').textContent='Add Crew Member';['crewId','crewName','crewRole','crewAssign'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('crewStatus').value='on-site';openModal('crewModal');}
 function editCrew(id){var c=crew.find(function(x){return x.id===id;});if(!c)return;document.getElementById('crewModalTitle').textContent='Edit Crew Member';document.getElementById('crewId').value=c.id;document.getElementById('crewName').value=c.name;document.getElementById('crewRole').value=c.role;document.getElementById('crewAssign').value=c.assign;document.getElementById('crewStatus').value=c.status;openModal('crewModal');}
 function saveCrew(){var id=document.getElementById('crewId').value;var name=document.getElementById('crewName').value.trim();if(!name){alert('Please enter a name.');return;}var data={name:name,role:document.getElementById('crewRole').value.trim(),assign:document.getElementById('crewAssign').value.trim(),status:document.getElementById('crewStatus').value};if(id){var c=crew.find(function(x){return x.id===id;});Object.assign(c,data);}else{data.id=uid();crew.push(data);}closeModal('crewModal');renderAll();}
@@ -601,13 +677,137 @@ function delCrew(id){if(confirm('Remove this crew member?')){crew=crew.filter(fu
 function openHoursModal(){['hoursName','hoursSite','hoursAmount'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('hoursDate').value=new Date().toISOString().split('T')[0];openModal('hoursModal');}
 function saveHours(){var name=document.getElementById('hoursName').value.trim();var amt=parseFloat(document.getElementById('hoursAmount').value);if(!name||!amt){alert('Please enter a name and hours.');return;}hours.unshift({id:uid(),name:name,site:document.getElementById('hoursSite').value.trim(),date:document.getElementById('hoursDate').value||new Date().toISOString().split('T')[0],amount:amt});closeModal('hoursModal');renderAll();}
 
+// chat input enter + suggestions
 document.getElementById('chatInp').addEventListener('keydown',function(e){if(e.key==='Enter')sendChat();});
 document.querySelectorAll('.chat-sug').forEach(function(s){s.addEventListener('click',function(){sendChat(s.getAttribute('data-q'));});});
 
+
+// ====== VOICE FEATURES ======
+var _speakOn=false;
+var _recog=null;
+var _recogActive=false;
+var _recogTarget=null; // 'command' or 'chat'
+
+function initVoice(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){
+    var hint=document.getElementById('voiceHint');
+    if(hint)hint.textContent='Voice input is not supported in this browser. Try Chrome or Safari. You can still type below.';
+    var mic=document.getElementById('voiceMicBig');if(mic)mic.style.display='none';
+    var cmic=document.getElementById('chatMic');if(cmic)cmic.style.display='none';
+    return;
+  }
+  _recog=new SR();
+  _recog.continuous=false;
+  _recog.interimResults=true;
+  _recog.lang='en-US';
+  _recog.onresult=function(e){
+    var txt='';
+    for(var i=e.resultIndex;i<e.results.length;i++){txt+=e.results[i][0].transcript;}
+    if(_recogTarget==='command'){
+      document.getElementById('voiceStatus').textContent='"'+txt+'"';
+      if(e.results[e.results.length-1].isFinal){processVoiceCommand(txt);}
+    }else if(_recogTarget==='chat'){
+      document.getElementById('chatInp').value=txt;
+      if(e.results[e.results.length-1].isFinal){_stopRecog();sendChat();}
+    }
+  };
+  _recog.onend=function(){_recogActive=false;updateMicUI();};
+  _recog.onerror=function(e){_recogActive=false;updateMicUI();var s=document.getElementById('voiceStatus');if(s&&_recogTarget==='command')s.textContent='Didn\'t catch that — tap the mic and try again.';};
+}
+
+function updateMicUI(){
+  var big=document.getElementById('voiceMicBig');var chat=document.getElementById('chatMic');
+  if(big)big.classList.toggle('listening',_recogActive&&_recogTarget==='command');
+  if(chat)chat.classList.toggle('listening',_recogActive&&_recogTarget==='chat');
+}
+function _stopRecog(){if(_recog&&_recogActive){try{_recog.stop();}catch(e){}}_recogActive=false;updateMicUI();}
+
+function toggleVoiceCommand(){
+  if(!_recog)return;
+  if(_recogActive&&_recogTarget==='command'){_stopRecog();return;}
+  if(_recogActive)_stopRecog();
+  _recogTarget='command';_recogActive=true;updateMicUI();
+  document.getElementById('voiceStatus').textContent='Listening...';
+  try{_recog.start();}catch(e){}
+}
+function toggleVoiceChat(){
+  if(!_recog)return;
+  if(_recogActive&&_recogTarget==='chat'){_stopRecog();return;}
+  if(_recogActive)_stopRecog();
+  _recogTarget='chat';_recogActive=true;updateMicUI();
+  document.getElementById('chatInp').placeholder='Listening...';
+  try{_recog.start();}catch(e){}
+  setTimeout(function(){document.getElementById('chatInp').placeholder='Ask or speak...';},4000);
+}
+
+function toggleSpeak(){
+  _speakOn=!_speakOn;
+  var b=document.getElementById('speakToggle');
+  b.classList.toggle('on',_speakOn);
+  b.innerHTML=b.innerHTML.replace(/Voice replies: (On|Off)/,'Voice replies: '+(_speakOn?'On':'Off'));
+  if(_speakOn)speak('Voice replies are on. I\'ll read my answers out loud.');
+}
+function speak(text){
+  if(!_speakOn||!window.speechSynthesis)return;
+  var clean=text.replace(/[#*_>`]/g,'').replace(/\n+/g,'. ');
+  var u=new SpeechSynthesisUtterance(clean);
+  u.rate=1.02;u.pitch=1;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+
+// ====== AI-POWERED VOICE COMMAND PARSER ======
+function processVoiceCommand(text){
+  document.getElementById('voiceStatus').textContent='Got it — working on: "'+text+'"';
+  var sys=buildContext()+'\n\nPhil just gave you a spoken command. Convert it into a structured action. Return ONLY a JSON object (no markdown, no other text) with this shape:\n{"action":"log_hours|assign_crew|update_job|add_note|set_progress|set_status|unknown","params":{...},"confirm":"a short friendly confirmation sentence to read back to Phil"}\n\nExamples:\n- "Mike worked 8 hours at Sonoma Vista today" -> {"action":"log_hours","params":{"name":"Mike Torres","site":"Sonoma Vista Residence","amount":8,"date":"TODAY"},"confirm":"Logged 8 hours for Mike Torres at Sonoma Vista Residence."}\n- "Move Carlos to Calistoga" -> {"action":"assign_crew","params":{"name":"Carlos Mendez","assign":"Calistoga Pool & Deck","status":"on-site"},"confirm":"Moved Carlos Mendez to Calistoga Pool & Deck."}\n- "Set Valley View to 85 percent" -> {"action":"set_progress","params":{"job":"Valley View Estate","progress":85},"confirm":"Updated Valley View Estate to 85 percent complete."}\n- "Sonoma Vista is now in finishing" -> {"action":"set_status","params":{"job":"Sonoma Vista Residence","status":"finishing"},"confirm":"Set Sonoma Vista Residence to finishing phase."}\n\nMatch names and project names to the CLOSEST existing one in the data, even if Phil says a short version. For status use one of: planning, foundation, framing, rough, finishing, inspection, complete. If you truly cannot tell, use action "unknown" with a confirm asking him to repeat.';
+  callClaude(sys,'Command: "'+text+'"',function(resp){
+    try{
+      var jt=resp.replace(/```json/g,'').replace(/```/g,'').trim();
+      var s=jt.indexOf('{');var e=jt.lastIndexOf('}');
+      if(s>=0&&e>=0)jt=jt.substring(s,e+1);
+      var act=JSON.parse(jt);
+      applyVoiceAction(act);
+    }catch(err){
+      document.getElementById('voiceStatus').textContent='I had trouble with that one. Try rephrasing.';
+    }
+  },function(e){document.getElementById('voiceStatus').textContent='Could not reach AI: '+e;});
+}
+
+function applyVoiceAction(act){
+  var p=act.params||{};
+  var today=new Date().toISOString().split('T')[0];
+  var done=false;
+  if(act.action==='log_hours'){
+    hours.unshift({id:uid(),name:p.name||'',site:p.site||'',date:(p.date==='TODAY'||!p.date)?today:p.date,amount:parseFloat(p.amount)||0});
+    done=true;
+  }else if(act.action==='assign_crew'){
+    var c=crew.find(function(x){return x.name.toLowerCase().indexOf((p.name||'').toLowerCase().split(' ')[0])>=0;});
+    if(c){c.assign=p.assign||c.assign;if(p.status)c.status=p.status;done=true;}
+  }else if(act.action==='set_progress'||act.action==='update_job'){
+    var j=jobs.find(function(x){return x.name.toLowerCase().indexOf((p.job||'').toLowerCase().split(' ')[0])>=0;});
+    if(j){if(p.progress!=null)j.progress=Math.min(100,Math.max(0,parseInt(p.progress)));if(p.status)j.status=p.status;if(p.crew!=null)j.crew=parseInt(p.crew);done=true;}
+  }else if(act.action==='set_status'){
+    var j2=jobs.find(function(x){return x.name.toLowerCase().indexOf((p.job||'').toLowerCase().split(' ')[0])>=0;});
+    if(j2&&p.status){j2.status=p.status;done=true;}
+  }else if(act.action==='add_note'){
+    var j3=jobs.find(function(x){return x.name.toLowerCase().indexOf((p.job||'').toLowerCase().split(' ')[0])>=0;});
+    if(j3){j3.notes=(j3.notes?j3.notes+' ':'')+(p.note||'');done=true;}
+  }
+  var msg=act.confirm||(done?'Done.':'I could not complete that — try again.');
+  document.getElementById('voiceStatus').textContent=(done?'✓ ':'')+msg;
+  if(done){renderAll();}
+  speak(msg);
+}
+
+// ====== INIT ======
 document.getElementById('dashDate').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-renderAll();
-generateBriefing();
-setTimeout(generateRisks,500);
+load(function(){
+  renderAll();
+  generateBriefing();
+  setTimeout(generateRisks,500);
+});
+initVoice();
 </script>
 </body>
 </html>

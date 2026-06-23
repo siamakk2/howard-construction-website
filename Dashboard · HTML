@@ -429,17 +429,26 @@ var hours=[
 
 var _saveTimer=null;
 function save(){
-  // Debounced save to shared database
+  // Debounced save to shared database (silently no-ops if DB not configured)
   if(_saveTimer)clearTimeout(_saveTimer);
   _saveTimer=setTimeout(function(){
-    fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{jobs:jobs,crew:crew,hours:hours}})}).catch(function(){});
+    fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:{jobs:jobs,crew:crew,hours:hours}})}).then(function(r){return r.json();}).then(function(o){if(o&&!o.error)_dbReady=true;}).catch(function(){});
   },600);
 }
+var _dbReady=false;
 function load(cb){
+  // Try the shared database, but NEVER block the app if it's not set up.
+  var done=false;
+  var finish=function(){if(done)return;done=true;if(cb)cb();};
+  // Safety timeout — if DB doesn't answer in 3s, start anyway with seed data
+  var timer=setTimeout(finish,3000);
   fetch('/api/data').then(function(r){return r.json();}).then(function(out){
-    if(out&&out.data&&out.data.jobs){jobs=out.data.jobs;crew=out.data.crew||[];hours=out.data.hours||[];}
-    if(cb)cb();
-  }).catch(function(){if(cb)cb();});
+    clearTimeout(timer);
+    if(out&&!out.error&&out.data&&out.data.jobs){
+      jobs=out.data.jobs;crew=out.data.crew||[];hours=out.data.hours||[];_dbReady=true;
+    }
+    finish();
+  }).catch(function(){clearTimeout(timer);finish();});
 }
 function uid(){return 'x'+Date.now()+Math.floor(Math.random()*1000);}
 function esc(s){return String(s||'').replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}

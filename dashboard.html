@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Site Manager AI | Howard Construction Inc.</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="AI-powered project management for Howard Construction Inc.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,6 +232,30 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 body.locked .topbar,body.locked .dash-head,body.locked .tabs,body.locked .content{display:none !important;}
 #logoutBar{display:none;}
 body.authed #logoutBar{display:flex;}
+
+  .rep-controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:#fff;border:1px solid var(--line,#E1E8F0);border-radius:12px;padding:18px;margin-bottom:20px;}
+  .rep-field{display:flex;flex-direction:column;gap:5px;}
+  .rep-field label{font-size:12px;font-weight:600;color:#5A6B7D;}
+  .rep-field select,.rep-field input{border:1.5px solid #E1E8F0;border-radius:9px;padding:10px 12px;font-family:inherit;font-size:14px;outline:none;min-width:160px;}
+  .rep-actions{display:flex;gap:8px;margin-left:auto;}
+  .report-output{background:#fff;border:1px solid #E1E8F0;border-radius:12px;padding:26px;min-height:200px;}
+  .rep-title{font-size:20px;font-weight:800;color:#0A1628;margin-bottom:4px;}
+  .rep-sub{font-size:13px;color:#5A6B7D;margin-bottom:20px;}
+  .rep-table{width:100%;border-collapse:collapse;font-size:14px;}
+  .rep-table th{text-align:left;padding:11px 12px;background:#F4F7FA;color:#5A6B7D;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.03em;border-bottom:2px solid #E1E8F0;}
+  .rep-table td{padding:11px 12px;border-bottom:1px solid #EEF2F6;color:#1a2733;}
+  .rep-table tr:last-child td{border-bottom:none;}
+  .rep-table .rep-total-row td{font-weight:800;background:#F4F7FA;color:#0A1628;border-top:2px solid #E1E8F0;}
+  .rep-table .num{text-align:right;font-variant-numeric:tabular-nums;}
+  .rep-bar{height:7px;background:#EEF2F6;border-radius:10px;overflow:hidden;min-width:90px;display:inline-block;vertical-align:middle;}
+  .rep-bar i{display:block;height:100%;border-radius:10px;}
+  .rep-empty{text-align:center;color:#9aa7b4;padding:40px;}
+  .rep-pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:capitalize;}
+  @media print{
+    nav,.topbar,.tabs,.rep-controls,.panel-head,#logoutBar{display:none !important;}
+    .report-output{border:none;padding:0;}
+    body{background:#fff;}
+  }
 </style>
 </head>
 <body class="locked">
@@ -299,6 +325,7 @@ body.authed #logoutBar{display:flex;}
   <button class="tab" data-tab="assistant">Ask Phil's AI</button>
   <button class="tab" data-tab="crew">Crew</button>
   <button class="tab" data-tab="hours">Hours</button>
+  <button class="tab" data-tab="reports" data-mgronly>Reports</button>
   <button class="tab" data-tab="subs" data-mgronly>Subcontractors</button>
   <button class="tab" id="tabAdmin" data-tab="admin" data-owneronly>Team &amp; Access</button>
 </div>
@@ -423,6 +450,51 @@ body.authed #logoutBar{display:flex;}
       </div>
     </div>
     <div class="hours-table" id="hoursTable"></div>
+  </div>
+
+  <!-- REPORTS PANEL -->
+  <div class="panel" id="panel-reports">
+    <div class="panel-head">
+      <h2>Reports</h2>
+    </div>
+
+    <!-- Controls -->
+    <div class="rep-controls">
+      <div class="rep-field">
+        <label>Report</label>
+        <select id="repType" onchange="renderReport()">
+          <option value="payroll">Hours / Payroll — totals per worker</option>
+          <option value="jobcost">Job Cost — budget vs. spent per job</option>
+          <option value="productivity">Crew Productivity — who worked what</option>
+          <option value="status">Job Status — all jobs at a glance</option>
+        </select>
+      </div>
+      <div class="rep-field">
+        <label>Date range</label>
+        <select id="repRange" onchange="repRangeChange()">
+          <option value="thisweek">This week</option>
+          <option value="lastweek">Last week</option>
+          <option value="thismonth">This month</option>
+          <option value="all">All time</option>
+          <option value="custom">Custom dates</option>
+        </select>
+      </div>
+      <div class="rep-field rep-custom" id="repCustomFrom" style="display:none;">
+        <label>From</label>
+        <input type="date" id="repFrom" onchange="renderReport()">
+      </div>
+      <div class="rep-field rep-custom" id="repCustomTo" style="display:none;">
+        <label>To</label>
+        <input type="date" id="repTo" onchange="renderReport()">
+      </div>
+      <div class="rep-actions">
+        <button class="btn btn-ghost" onclick="exportReportCSV()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Excel/CSV</button>
+        <button class="btn" onclick="exportReportPDF()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z"/><polyline points="14 2 14 8 20 8"/></svg>PDF / Print</button>
+      </div>
+    </div>
+
+    <!-- Report output -->
+    <div id="reportOutput" class="report-output"></div>
   </div>
 
   <!-- SUBCONTRACTORS PANEL -->
@@ -844,6 +916,7 @@ document.querySelectorAll('.tab').forEach(function(t){
     t.classList.add('active');
     document.getElementById('panel-'+t.dataset.tab).classList.add('active');
     if(t.dataset.tab==='admin'){loadUsers();}
+    if(t.dataset.tab==='reports'){renderReport();}
   });
 });
 // ====== MODALS ======
@@ -1237,6 +1310,187 @@ function changeUserRole(username){
   if(['owner','manager','crew'].indexOf(role)<0){alert('Please type owner, manager, or crew.');return;}
   fetch('/api/accounts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'setRole',callerRole:CURRENT_USER.role,username:username,role:role})})
     .then(function(r){return r.json();}).then(function(d){if(d&&d.ok){loadUsers();}else{alert((d&&d.error)||'Could not change role.');}});
+}
+
+
+// ====== REPORTS ======
+function repRangeChange(){
+  var v=document.getElementById('repRange').value;
+  var show=(v==='custom');
+  document.getElementById('repCustomFrom').style.display=show?'':'none';
+  document.getElementById('repCustomTo').style.display=show?'':'none';
+  renderReport();
+}
+function repDateBounds(){
+  var v=document.getElementById('repRange').value;
+  var now=new Date();var from=null,to=null;
+  function ymd(d){return d.toISOString().split('T')[0];}
+  if(v==='thisweek'){
+    var day=now.getDay();var diff=(day===0?6:day-1);
+    var mon=new Date(now);mon.setDate(now.getDate()-diff);
+    from=ymd(mon);to=ymd(now);
+  }else if(v==='lastweek'){
+    var day2=now.getDay();var diff2=(day2===0?6:day2-1);
+    var lastMon=new Date(now);lastMon.setDate(now.getDate()-diff2-7);
+    var lastSun=new Date(lastMon);lastSun.setDate(lastMon.getDate()+6);
+    from=ymd(lastMon);to=ymd(lastSun);
+  }else if(v==='thismonth'){
+    from=ymd(new Date(now.getFullYear(),now.getMonth(),1));to=ymd(now);
+  }else if(v==='custom'){
+    from=document.getElementById('repFrom').value||null;
+    to=document.getElementById('repTo').value||null;
+  }else{from=null;to=null;}
+  return {from:from,to:to};
+}
+function inRange(dateStr,b){
+  if(!dateStr)return false;
+  if(b.from&&dateStr<b.from)return false;
+  if(b.to&&dateStr>b.to)return false;
+  return true;
+}
+function repRangeLabel(){
+  var b=repDateBounds();
+  if(!b.from&&!b.to)return 'All time';
+  var f=b.from||'beginning';var t=b.to||'today';
+  return f+'  to  '+t;
+}
+function money(n){return '$'+(n||0).toLocaleString();}
+
+function renderReport(){
+  var type=document.getElementById('repType').value;
+  var out=document.getElementById('reportOutput');
+  if(type==='payroll')out.innerHTML=repPayroll();
+  else if(type==='jobcost')out.innerHTML=repJobCost();
+  else if(type==='productivity')out.innerHTML=repProductivity();
+  else if(type==='status')out.innerHTML=repStatus();
+}
+
+function repHead(title){
+  return '<div class="rep-title">'+title+'</div><div class="rep-sub">Howard Construction Inc. &nbsp;·&nbsp; '+repRangeLabel()+' &nbsp;·&nbsp; Generated '+new Date().toLocaleDateString()+'</div>';
+}
+
+// 1. PAYROLL — hours per worker
+function repPayroll(){
+  var b=repDateBounds();
+  var filtered=hours.filter(function(h){return inRange(h.date,b);});
+  if(!filtered.length)return repHead('Hours / Payroll Report')+'<div class="rep-empty">No hours logged in this date range.</div>';
+  var byWorker={};
+  filtered.forEach(function(h){
+    if(!byWorker[h.name])byWorker[h.name]={total:0,jobs:{}};
+    byWorker[h.name].total+=Number(h.amount)||0;
+    var s=h.site||'Unassigned';
+    byWorker[h.name].jobs[s]=(byWorker[h.name].jobs[s]||0)+(Number(h.amount)||0);
+  });
+  var rows='',grand=0;
+  Object.keys(byWorker).sort().forEach(function(name){
+    var w=byWorker[name];grand+=w.total;
+    var jobList=Object.keys(w.jobs).map(function(j){return j+' ('+w.jobs[j]+'h)';}).join(', ');
+    rows+='<tr><td><b>'+esc(name)+'</b></td><td>'+esc(jobList)+'</td><td class="num"><b>'+w.total+'</b></td></tr>';
+  });
+  rows+='<tr class="rep-total-row"><td>TOTAL</td><td></td><td class="num">'+grand+' hrs</td></tr>';
+  return repHead('Hours / Payroll Report')+
+    '<table class="rep-table"><thead><tr><th>Worker</th><th>Jobs Worked</th><th class="num">Total Hours</th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+
+// 2. JOB COST — budget vs spent
+function repJobCost(){
+  if(!jobs.length)return repHead('Job Cost Report')+'<div class="rep-empty">No jobs to report on.</div>';
+  var rows='',tBudget=0,tSpent=0;
+  jobs.forEach(function(j){
+    var budget=Number(j.budget)||0;var spent=Number(j.spent)||0;
+    tBudget+=budget;tSpent+=spent;
+    var pct=budget>0?Math.round(spent/budget*100):0;
+    var color=pct>90?'#D32F2F':(pct>75?'#F9A825':'#2E7D32');
+    rows+='<tr><td><b>'+esc(j.name)+'</b></td><td>'+esc(j.client||'')+'</td><td class="num">'+money(budget)+'</td><td class="num">'+money(spent)+'</td><td class="num" style="color:'+color+';font-weight:700;">'+pct+'%</td><td><span class="rep-bar"><i style="width:'+Math.min(100,pct)+'%;background:'+color+';"></i></span></td></tr>';
+  });
+  var totPct=tBudget>0?Math.round(tSpent/tBudget*100):0;
+  rows+='<tr class="rep-total-row"><td>TOTAL</td><td></td><td class="num">'+money(tBudget)+'</td><td class="num">'+money(tSpent)+'</td><td class="num">'+totPct+'%</td><td></td></tr>';
+  return repHead('Job Cost Report')+
+    '<table class="rep-table"><thead><tr><th>Job</th><th>Client</th><th class="num">Budget</th><th class="num">Spent</th><th class="num">Used</th><th>Progress</th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+
+// 3. PRODUCTIVITY — hours per worker per job (matrix-ish)
+function repProductivity(){
+  var b=repDateBounds();
+  var filtered=hours.filter(function(h){return inRange(h.date,b);});
+  if(!filtered.length)return repHead('Crew Productivity Report')+'<div class="rep-empty">No hours logged in this date range.</div>';
+  var byWorker={};
+  filtered.forEach(function(h){
+    if(!byWorker[h.name])byWorker[h.name]={total:0,days:{}};
+    byWorker[h.name].total+=Number(h.amount)||0;
+    byWorker[h.name].days[h.date]=(byWorker[h.name].days[h.date]||0)+(Number(h.amount)||0);
+  });
+  var rows='';
+  Object.keys(byWorker).sort(function(a,b){return byWorker[b].total-byWorker[a].total;}).forEach(function(name){
+    var w=byWorker[name];
+    var daysWorked=Object.keys(w.days).length;
+    var avg=daysWorked>0?(w.total/daysWorked).toFixed(1):0;
+    rows+='<tr><td><b>'+esc(name)+'</b></td><td class="num">'+w.total+'</td><td class="num">'+daysWorked+'</td><td class="num">'+avg+'</td></tr>';
+  });
+  return repHead('Crew Productivity Report')+
+    '<table class="rep-table"><thead><tr><th>Worker</th><th class="num">Total Hours</th><th class="num">Days Worked</th><th class="num">Avg Hrs/Day</th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+
+// 4. STATUS — all jobs at a glance
+function repStatus(){
+  if(!jobs.length)return repHead('Job Status Overview')+'<div class="rep-empty">No jobs to report on.</div>';
+  var rows='';
+  jobs.forEach(function(j){
+    var prog=Number(j.progress)||0;
+    rows+='<tr><td><b>'+esc(j.name)+'</b></td><td>'+esc(j.client||'')+'</td><td>'+esc(j.location||'')+'</td><td><span class="rep-pill" style="background:rgba(21,101,192,0.1);color:#1565C0;">'+esc(j.status||'')+'</span></td><td class="num">'+prog+'%</td><td><span class="rep-bar"><i style="width:'+prog+'%;background:linear-gradient(90deg,#1565C0,#F9A825);"></i></span></td></tr>';
+  });
+  return repHead('Job Status Overview')+
+    '<table class="rep-table"><thead><tr><th>Job</th><th>Client</th><th>Location</th><th>Phase</th><th class="num">Progress</th><th>&nbsp;</th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+
+// ===== EXPORTS =====
+function currentReportData(){
+  // Build a 2D array (rows of cells) for CSV based on current report
+  var type=document.getElementById('repType').value;
+  var b=repDateBounds();
+  var data=[];
+  if(type==='payroll'){
+    data.push(['Worker','Jobs Worked','Total Hours']);
+    var bw={};hours.filter(function(h){return inRange(h.date,b);}).forEach(function(h){
+      if(!bw[h.name])bw[h.name]={total:0,jobs:{}};bw[h.name].total+=Number(h.amount)||0;
+      var s=h.site||'Unassigned';bw[h.name].jobs[s]=(bw[h.name].jobs[s]||0)+(Number(h.amount)||0);
+    });
+    var g=0;Object.keys(bw).sort().forEach(function(n){var w=bw[n];g+=w.total;
+      data.push([n,Object.keys(w.jobs).map(function(j){return j+' ('+w.jobs[j]+'h)';}).join('; '),w.total]);});
+    data.push(['TOTAL','',g]);
+  }else if(type==='jobcost'){
+    data.push(['Job','Client','Budget','Spent','Used %']);
+    var tb=0,ts=0;jobs.forEach(function(j){var bd=Number(j.budget)||0,sp=Number(j.spent)||0;tb+=bd;ts+=sp;
+      data.push([j.name,j.client||'',bd,sp,(bd>0?Math.round(sp/bd*100):0)+'%']);});
+    data.push(['TOTAL','',tb,ts,(tb>0?Math.round(ts/tb*100):0)+'%']);
+  }else if(type==='productivity'){
+    data.push(['Worker','Total Hours','Days Worked','Avg Hrs/Day']);
+    var bw2={};hours.filter(function(h){return inRange(h.date,b);}).forEach(function(h){
+      if(!bw2[h.name])bw2[h.name]={total:0,days:{}};bw2[h.name].total+=Number(h.amount)||0;bw2[h.name].days[h.date]=1;});
+    Object.keys(bw2).sort(function(a,c){return bw2[c].total-bw2[a].total;}).forEach(function(n){
+      var w=bw2[n];var d=Object.keys(w.days).length;data.push([n,w.total,d,d>0?(w.total/d).toFixed(1):0]);});
+  }else{
+    data.push(['Job','Client','Location','Phase','Progress %']);
+    jobs.forEach(function(j){data.push([j.name,j.client||'',j.location||'',j.status||'',(Number(j.progress)||0)+'%']);});
+  }
+  return data;
+}
+function exportReportCSV(){
+  var data=currentReportData();
+  var csv=data.map(function(row){return row.map(function(cell){
+    var s=String(cell).replace(/"/g,'""');
+    return /[",\n]/.test(s)?'"'+s+'"':s;
+  }).join(',');}).join('\n');
+  var type=document.getElementById('repType').value;
+  var blob=new Blob([csv],{type:'text/csv'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='HowardConstruction-'+type+'-'+new Date().toISOString().split('T')[0]+'.csv';
+  a.click();
+}
+function exportReportPDF(){
+  // Use the browser's print -> Save as PDF (clean print CSS already hides chrome)
+  window.print();
 }
 
 // ====== INIT ======

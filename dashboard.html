@@ -562,7 +562,7 @@ body.authed #logoutBar{display:flex;}
   </div>
   <div class="field-row">
     <div class="field"><label>Budget ($)</label><input type="number" id="jobBudget" min="0" placeholder="450000"></div>
-    <div class="field"><label>Spent ($)</label><input type="number" id="jobSpent" min="0" placeholder="180000"></div>
+    <div class="field"><label>Extra Costs &mdash; materials, subs ($)</label><input type="number" id="jobSpent" min="0" placeholder="0"><div style="font-size:12px;color:#5A6B7D;margin-top:4px;">Labor is auto-calculated from logged hours times each worker rate. Add materials and subcontractor costs here.</div></div>
   </div>
   <div class="field"><label>Next Milestone / Notes</label><textarea id="jobNotes" rows="2" placeholder="e.g. Framing inspection scheduled, waiting on window delivery"></textarea></div>
   <div class="modal-foot"><button class="btn btn-ghost" onclick="closeModal('jobModal')">Cancel</button><button class="btn" onclick="saveJob()">Save Job</button></div>
@@ -573,6 +573,7 @@ body.authed #logoutBar{display:flex;}
   <input type="hidden" id="crewId">
   <div class="field"><label>Name</label><input type="text" id="crewName" placeholder="e.g. Mike Torres"></div>
   <div class="field"><label>Role</label><input type="text" id="crewRole" placeholder="e.g. Lead Framer"></div>
+  <div class="field"><label>Labor Rate ($/hour)</label><input type="number" id="crewRate" placeholder="e.g. 45" min="0" step="1"></div>
   <div class="field"><label>Assigned To</label><input type="text" id="crewAssign" placeholder="e.g. Sonoma Vista Residence"></div>
   <div class="field"><label>Status Today</label><select id="crewStatus"><option value="on-site">On Site</option><option value="off">Off / Unassigned</option></select></div>
   <div class="modal-foot"><button class="btn btn-ghost" onclick="closeModal('crewModal')">Cancel</button><button class="btn" onclick="saveCrew()">Save</button></div>
@@ -679,15 +680,15 @@ function daysUntil(d){if(!d)return null;var dt=new Date(d+'T00:00:00');var now=n
 
 // ====== CLAUDE API INTEGRATION ======
 function buildContext(){
-  var EXPERTISE="You are the AI Site Manager for Howard Construction Inc., a Northern California general contractor owned by Philip Howard (3rd-generation builder, 25+ years). You are a seasoned expert and trusted right hand. Your knowledge runs deep across:\n\nCONSTRUCTION & BUILDING: residential & light commercial construction, framing, foundations, concrete, roofing, ADUs, remodels, decks, pools. California Building Code (CBC), Title 24 energy, seismic/structural requirements, Sonoma/Napa County permitting, inspections sequence (foundation, rough framing, rough electrical/plumbing/mechanical, insulation, drywall, final), and what triggers each. Material lead times, weather windows, scheduling dependencies, and how delays cascade.\n\nCONSTRUCTION MANAGEMENT: critical-path scheduling, sequencing trades, managing subs, RFIs, change orders, punch lists, avoiding bottlenecks, keeping multiple jobs moving, and preventing the owner from being the constraint.\n\nBOOKKEEPING & JOB COSTING: estimating, bidding, markup vs margin, job costing, draw schedules, progress billing, AIA-style invoicing, retention, tracking spent vs budget, labor burden, overhead allocation, cash flow, and spotting margin erosion early. Practical small-contractor bookkeeping (not heavy accounting jargon).\n\nCREW & LABOR MANAGEMENT: crew scheduling, assigning the right trade to the right job, tracking hours, labor productivity, prevailing wage awareness, keeping crews busy but not double-booked, and simple HR sense.\n\nWhen you advise, be specific and practical like a master builder who also runs the books — reference real numbers and names from the data below. Today is "+new Date().toDateString()+".\n\n";
+  var EXPERTISE="You are the AI Site Manager for Howard Construction Inc., a Northern California general contractor owned by Philip Howard (3rd-generation builder, 25+ years). You are a seasoned expert and trusted right hand. Your knowledge runs deep across:\n\nCONSTRUCTION & BUILDING: residential & light commercial construction, framing, foundations, concrete, roofing, ADUs, remodels, decks, pools. California Building Code (CBC), Title 24 energy, seismic/structural requirements, Sonoma/Napa County permitting, inspections sequence (foundation, rough framing, rough electrical/plumbing/mechanical, insulation, drywall, final), and what triggers each. Material lead times, weather windows, scheduling dependencies, and how delays cascade.\n\nPERMITTING & CODE EXPERTISE (high priority — this is one of the most valuable things you help with):\n\n1) WHEN A PERMIT IS TYPICALLY REQUIRED: new structures and additions; structural changes (removing/altering load-bearing walls, headers, beams); foundations; re-roofs (most jurisdictions); electrical, plumbing, or mechanical/HVAC work beyond simple like-for-like fixture swaps; water heaters; windows when altering openings; decks above a height threshold (often 30 inches above grade); pools and spas; ADUs; retaining walls above a height threshold (often 4 feet, or lower if surcharged); demolition; grading. Generally NOT required for cosmetic work: paint, flooring, cabinets, trim, like-for-like fixture replacement — but this varies locally. ALWAYS tell the user to confirm with their local building department, because thresholds differ by city/county.\n\n2) TYPICAL INSPECTION SEQUENCE (residential): (a) setbacks/site & temporary power, (b) foundation/footing before pour, (c) under-slab plumbing/electrical before concrete, (d) rough framing, (e) rough electrical, plumbing, mechanical, (f) often a combined 'rough-in' before cover, (g) insulation & Title 24/energy, (h) drywall/nailing, (i) lath/scratch for stucco, (j) final inspections for each trade, (k) final building & certificate of occupancy. Each phase must pass before covering it up — failing to call an inspection before cover is the most expensive mistake a contractor makes.\n\n3) RESIDENTIAL CODE BASICS (IRC / California Residential Code) you can speak to generally: egress requirements for bedrooms, smoke & CO detector placement, stair rise/run and handrail/guardrail rules, GFCI/AFCI protection locations, water-heater strapping (seismic), ventilation, and energy (Title 24 in California). Give the general principle, then say exact numbers must be confirmed against the current adopted code edition for their jurisdiction.\n\n4) LICENSING & COMPLIANCE: in California, the CSLB licenses contractors; jobs over $500 (labor+materials) generally require a licensed contractor; workers' comp and proper classification matter; prevailing wage applies on public works; mechanic's lien and preliminary-notice timelines matter for getting paid. Mention these as practical reminders, not legal advice.\n\n5) KEY CALIFORNIA JURISDICTIONS you often deal with (Southern California is your main market):\\n- STATEWIDE CODE FRAMEWORK (applies to ALL California cities/counties): California builds on the California Building Standards Code (Title 24), which includes the California Building Code (CBC), California Residential Code (CRC), and CALGREEN (the California Green Building Standards Code). CALGreen is California mandatory green-building code — it sets requirements for construction waste diversion/recycling (often 65% diversion), water-efficient fixtures (flow rates for toilets, faucets, showerheads), indoor air quality (low-VOC paints, adhesives, sealants, flooring), EV-charging readiness in many new builds, and a CALGreen compliance checklist often submitted with permits. Title 24 Part 6 is the energy code (insulation, HVAC efficiency, cool roofs, solar-ready/solar-required on many new homes). These apply across all of California, so they are universal city to city — what changes locally is amendments and enforcement.\\n- SOUTHERN CALIFORNIA (your main region — LA, Orange, Riverside, San Bernardino, San Diego, Ventura counties): SoCal jurisdictions are largely uniform because they all build on the same state code and most are in high Seismic Design Categories (D/E), so seismic detailing and structural rigor are consistent expectations region-wide. Common SoCal triggers: hillside/grading review and geotech/soils reports, fire-hazard (WUI) requirements in foothill and wildland areas, and coastal-zone review near the coast (Coastal Commission). Each city is the AHJ if incorporated; the county building department covers unincorporated areas.\\n- LOS ANGELES: LA City permits go through LADBS (LA Dept of Building and Safety); LA County unincorporated areas go through LA County Public Works. Strict soft-story/seismic retrofit rules, hillside ordinance, and zoning sign-off are common.\\n- ORANGE COUNTY: incorporated cities (Irvine, Anaheim, Santa Ana, Huntington Beach, Newport Beach, etc.) each run their own building departments; unincorporated areas go through OC Development Services. Same CBC/CRC/CALGreen/Title 24 base; coastal cities add Coastal Commission review.\\n- Most SoCal cities offer over-the-counter permits for simple work and plan-check for larger jobs. Solar, ADUs, and re-roofs are common permit triggers; California streamlined ADU and solar permitting statewide but permits are still required.\n- SONOMA & NAPA COUNTIES (NorCal): county permit centers; wildfire/WUI (Wildland-Urban Interface) requirements are significant — ignition-resistant materials, defensible space; septic/well considerations in rural parcels.\n- General rule: the AHJ (city if incorporated, county if unincorporated) is who issues the permit. Confirm which applies to the parcel.\n\nCRITICAL SAFETY RULE FOR CODE QUESTIONS: Building codes are LOCAL and change on adoption cycles. You may not have the current adopted edition for a specific city or county. So: give the general rule and typical practice to be genuinely helpful, but ALWAYS remind the user to verify specifics with their local Authority Having Jurisdiction (AHJ) / building department before relying on it. If they haven't told you their jurisdiction, ask which city/county the job is in. NEVER state an exact code number, setback, load, or dimension as definitive without telling them to confirm it locally. It is better to be approximately right and tell them to verify than to be confidently wrong.\n\nCONSTRUCTION MANAGEMENT: critical-path scheduling, sequencing trades, managing subs, RFIs, change orders, punch lists, avoiding bottlenecks, keeping multiple jobs moving, and preventing the owner from being the constraint.\n\nBOOKKEEPING & JOB COSTING: estimating, bidding, markup vs margin, job costing, draw schedules, progress billing, AIA-style invoicing, retention, tracking spent vs budget, labor burden, overhead allocation, cash flow, and spotting margin erosion early. Practical small-contractor bookkeeping (not heavy accounting jargon).\n\nCREW & LABOR MANAGEMENT: crew scheduling, assigning the right trade to the right job, tracking hours, labor productivity, prevailing wage awareness, keeping crews busy but not double-booked, and simple HR sense.\n\nWhen you advise, be specific and practical like a master builder who also runs the books — reference real numbers and names from the data below. Today is "+new Date().toDateString()+".\n\n";
   var ctx=EXPERTISE+"CURRENT STATE OF ALL PROJECTS:\n\n";
   jobs.forEach(function(j){
     var d=daysUntil(j.date);
-    var budgetPct=j.budget?Math.round(j.spent/j.budget*100):0;
+    var budgetPct=j.budget?Math.round(jobSpent(j)/j.budget*100):0;
     ctx+="PROJECT: "+j.name+" (client: "+j.client+", "+j.location+")\n";
     ctx+="  Phase: "+STATUS_LABELS[j.status]+" | Progress: "+j.progress+"%\n";
     ctx+="  Crew assigned: "+j.crew+" | Target completion: "+(j.date||'not set')+(d!==null?" ("+(d<0?Math.abs(d)+" days overdue":d+" days away")+")":"")+"\n";
-    if(j.budget)ctx+="  Budget: $"+j.budget.toLocaleString()+" | Spent: $"+j.spent.toLocaleString()+" ("+budgetPct+"% used)\n";
+    if(j.budget)ctx+="  Budget: $"+j.budget.toLocaleString()+" | Spent: $"+jobSpent(j).toLocaleString()+" ("+budgetPct+"% used)\n";
     if(j.notes)ctx+="  Notes: "+j.notes+"\n";
     ctx+="\n";
   });
@@ -858,10 +859,10 @@ function copyAiOutput(){
 // ====== RENDER ======
 function renderStats(){
   var active=jobs.filter(function(j){return j.status!=='complete';}).length;
-  var atRisk=jobs.filter(function(j){var bp=j.budget?j.spent/j.budget*100:0;var d=daysUntil(j.date);return (bp>j.progress+15)||(d!==null&&d<14&&j.progress<70);}).length;
+  var atRisk=jobs.filter(function(j){var bp=j.budget?jobSpent(j)/j.budget*100:0;var d=daysUntil(j.date);return (bp>j.progress+15)||(d!==null&&d<14&&j.progress<70);}).length;
   var onSite=crew.filter(function(c){return c.status==='on-site';}).length;
   var budgets=jobs.filter(function(j){return j.budget;});
-  var avgBudget=budgets.length?Math.round(budgets.reduce(function(s,j){return s+j.spent/j.budget*100;},0)/budgets.length):0;
+  var avgBudget=budgets.length?Math.round(budgets.reduce(function(s,j){return s+jobSpent(j)/j.budget*100;},0)/budgets.length):0;
   document.getElementById('statActive').textContent=active;
   document.getElementById('statRisk').textContent=atRisk;
   document.getElementById('statCrew').textContent=onSite;
@@ -880,7 +881,7 @@ function renderJobs(){
   if(!visibleJobs.length){g.innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg><p>No active jobs yet</p><span>Click New Job to add your first project.</span></div>';return;}
   g.innerHTML=visibleJobs.map(function(j){
     var d=daysUntil(j.date);
-    var bp=j.budget?Math.round(j.spent/j.budget*100):0;
+    var bp=j.budget?Math.round(jobSpent(j)/j.budget*100):0;
     var bcolor=bp>j.progress+15?'var(--red)':bp>j.progress+5?'var(--amber)':'var(--green)';
     return '<div class="job"><div class="job-top"><div class="job-name-row"><div><div class="job-name">'+esc(j.name)+'</div><div class="job-client">'+esc(j.client)+'</div></div><span class="job-status s-'+j.status+'">'+STATUS_LABELS[j.status]+'</span></div></div>'+
       '<div class="job-body"><div class="job-progress-lbl"><span>Progress</span><b>'+j.progress+'%</b></div><div class="progress-track"><div class="progress-fill" style="width:'+j.progress+'%"></div></div>'+
@@ -924,8 +925,8 @@ function openModal(id){document.getElementById(id).classList.add('show');}
 function closeModal(id){document.getElementById(id).classList.remove('show');}
 document.querySelectorAll('.modal-bg').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeModal(m.id);});});
 function openJobModal(){document.getElementById('jobModalTitle').textContent='New Job';['jobId','jobName','jobClient','jobLocation','jobNotes'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('jobStatus').value='planning';document.getElementById('jobProgress').value=0;document.getElementById('jobCrew').value=0;document.getElementById('jobDate').value='';document.getElementById('jobBudget').value='';document.getElementById('jobSpent').value='';openModal('jobModal');}
-function editJob(id){var j=jobs.find(function(x){return x.id===id;});if(!j)return;document.getElementById('jobModalTitle').textContent='Edit Job';document.getElementById('jobId').value=j.id;document.getElementById('jobName').value=j.name;document.getElementById('jobClient').value=j.client;document.getElementById('jobLocation').value=j.location;document.getElementById('jobStatus').value=j.status;document.getElementById('jobProgress').value=j.progress;document.getElementById('jobCrew').value=j.crew;document.getElementById('jobDate').value=j.date||'';document.getElementById('jobBudget').value=j.budget||'';document.getElementById('jobSpent').value=j.spent||'';document.getElementById('jobNotes').value=j.notes||'';openModal('jobModal');}
-function saveJob(){var id=document.getElementById('jobId').value;var name=document.getElementById('jobName').value.trim();if(!name){alert('Please enter a project name.');return;}var data={name:name,client:document.getElementById('jobClient').value.trim(),location:document.getElementById('jobLocation').value.trim(),status:document.getElementById('jobStatus').value,progress:Math.min(100,Math.max(0,parseInt(document.getElementById('jobProgress').value)||0)),crew:parseInt(document.getElementById('jobCrew').value)||0,date:document.getElementById('jobDate').value,budget:parseInt(document.getElementById('jobBudget').value)||0,spent:parseInt(document.getElementById('jobSpent').value)||0,notes:document.getElementById('jobNotes').value.trim()};if(id){var j=jobs.find(function(x){return x.id===id;});Object.assign(j,data);}else{data.id=uid();jobs.unshift(data);}closeModal('jobModal');renderAll();}
+function editJob(id){var j=jobs.find(function(x){return x.id===id;});if(!j)return;document.getElementById('jobModalTitle').textContent='Edit Job';document.getElementById('jobId').value=j.id;document.getElementById('jobName').value=j.name;document.getElementById('jobClient').value=j.client;document.getElementById('jobLocation').value=j.location;document.getElementById('jobStatus').value=j.status;document.getElementById('jobProgress').value=j.progress;document.getElementById('jobCrew').value=j.crew;document.getElementById('jobDate').value=j.date||'';document.getElementById('jobBudget').value=j.budget||'';document.getElementById('jobSpent').value=j.spentManual||'';document.getElementById('jobNotes').value=j.notes||'';openModal('jobModal');}
+function saveJob(){var id=document.getElementById('jobId').value;var name=document.getElementById('jobName').value.trim();if(!name){alert('Please enter a project name.');return;}var data={name:name,client:document.getElementById('jobClient').value.trim(),location:document.getElementById('jobLocation').value.trim(),status:document.getElementById('jobStatus').value,progress:Math.min(100,Math.max(0,parseInt(document.getElementById('jobProgress').value)||0)),crew:parseInt(document.getElementById('jobCrew').value)||0,date:document.getElementById('jobDate').value,budget:parseInt(document.getElementById('jobBudget').value)||0,spentManual:parseInt(document.getElementById('jobSpent').value)||0,notes:document.getElementById('jobNotes').value.trim()};if(id){var j=jobs.find(function(x){return x.id===id;});Object.assign(j,data);}else{data.id=uid();jobs.unshift(data);}closeModal('jobModal');renderAll();}
 
 
 function manualSave(){
@@ -970,9 +971,9 @@ function saveNow(cb){
     .catch(function(){if(cb)cb(false);});
 }
 function delJob(id){if(confirm('Remove this job?')){jobs=jobs.filter(function(x){return x.id!==id;});renderAll();saveNow();}}
-function openCrewModal(){document.getElementById('crewModalTitle').textContent='Add Crew Member';['crewId','crewName','crewRole','crewAssign'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('crewStatus').value='on-site';openModal('crewModal');}
-function editCrew(id){var c=crew.find(function(x){return x.id===id;});if(!c)return;document.getElementById('crewModalTitle').textContent='Edit Crew Member';document.getElementById('crewId').value=c.id;document.getElementById('crewName').value=c.name;document.getElementById('crewRole').value=c.role;document.getElementById('crewAssign').value=c.assign;document.getElementById('crewStatus').value=c.status;openModal('crewModal');}
-function saveCrew(){var id=document.getElementById('crewId').value;var name=document.getElementById('crewName').value.trim();if(!name){alert('Please enter a name.');return;}var data={name:name,role:document.getElementById('crewRole').value.trim(),assign:document.getElementById('crewAssign').value.trim(),status:document.getElementById('crewStatus').value};if(id){var c=crew.find(function(x){return x.id===id;});Object.assign(c,data);}else{data.id=uid();crew.push(data);}closeModal('crewModal');renderAll();}
+function openCrewModal(){document.getElementById('crewModalTitle').textContent='Add Crew Member';['crewId','crewName','crewRole','crewRate','crewAssign'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('crewStatus').value='on-site';openModal('crewModal');}
+function editCrew(id){var c=crew.find(function(x){return x.id===id;});if(!c)return;document.getElementById('crewModalTitle').textContent='Edit Crew Member';document.getElementById('crewId').value=c.id;document.getElementById('crewName').value=c.name;document.getElementById('crewRole').value=c.role;document.getElementById('crewRate').value=c.rate||'';document.getElementById('crewAssign').value=c.assign;document.getElementById('crewStatus').value=c.status;openModal('crewModal');}
+function saveCrew(){var id=document.getElementById('crewId').value;var name=document.getElementById('crewName').value.trim();if(!name){alert('Please enter a name.');return;}var data={name:name,role:document.getElementById('crewRole').value.trim(),rate:parseFloat(document.getElementById('crewRate').value)||0,assign:document.getElementById('crewAssign').value.trim(),status:document.getElementById('crewStatus').value};if(id){var c=crew.find(function(x){return x.id===id;});Object.assign(c,data);}else{data.id=uid();crew.push(data);}closeModal('crewModal');renderAll();}
 function delCrew(id){if(confirm('Remove this crew member?')){crew=crew.filter(function(x){return x.id!==id;});renderAll();saveNow();}}
 function openHoursModal(){['hoursName','hoursSite','hoursAmount'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('hoursDate').value=new Date().toISOString().split('T')[0];openModal('hoursModal');}
 function saveHours(){var name=document.getElementById('hoursName').value.trim();var amt=parseFloat(document.getElementById('hoursAmount').value);if(!name||!amt){alert('Please enter a name and hours.');return;}hours.unshift({id:uid(),name:name,site:document.getElementById('hoursSite').value.trim(),date:document.getElementById('hoursDate').value||new Date().toISOString().split('T')[0],amount:amt});closeModal('hoursModal');renderAll();}
@@ -1313,6 +1314,31 @@ function changeUserRole(username){
 }
 
 
+
+// ====== AUTO-CALCULATE JOB SPEND FROM HOURS x LABOR RATE ======
+function laborRateFor(workerName){
+  var m=crew.find(function(x){return x.name===workerName;});
+  return (m&&m.rate)?Number(m.rate):0;
+}
+function calcJobLaborCost(jobName){
+  // Sum hours logged on this job, times each worker's labor rate
+  var total=0;
+  hours.forEach(function(h){
+    if(h.site===jobName){
+      total += (Number(h.amount)||0) * laborRateFor(h.name);
+    }
+  });
+  return Math.round(total);
+}
+// Returns the spent figure for a job: auto-calculated labor + any manual extra
+function jobSpent(job){
+  var labor=calcJobLaborCost(job.name);
+  var manual=Number(job.spentManual)||0; // optional manual add (materials, subs)
+  // If auto labor is 0 and an old manual 'spent' exists, fall back to it
+  if(labor===0 && manual===0 && job.spent) return Number(job.spent)||0;
+  return labor+manual;
+}
+
 // ====== REPORTS ======
 function repRangeChange(){
   var v=document.getElementById('repRange').value;
@@ -1397,7 +1423,7 @@ function repJobCost(){
   if(!jobs.length)return repHead('Job Cost Report')+'<div class="rep-empty">No jobs to report on.</div>';
   var rows='',tBudget=0,tSpent=0;
   jobs.forEach(function(j){
-    var budget=Number(j.budget)||0;var spent=Number(j.spent)||0;
+    var budget=Number(j.budget)||0;var spent=jobSpent(j);
     tBudget+=budget;tSpent+=spent;
     var pct=budget>0?Math.round(spent/budget*100):0;
     var color=pct>90?'#D32F2F':(pct>75?'#F9A825':'#2E7D32');
@@ -1460,7 +1486,7 @@ function currentReportData(){
     data.push(['TOTAL','',g]);
   }else if(type==='jobcost'){
     data.push(['Job','Client','Budget','Spent','Used %']);
-    var tb=0,ts=0;jobs.forEach(function(j){var bd=Number(j.budget)||0,sp=Number(j.spent)||0;tb+=bd;ts+=sp;
+    var tb=0,ts=0;jobs.forEach(function(j){var bd=Number(j.budget)||0,sp=jobSpent(j);tb+=bd;ts+=sp;
       data.push([j.name,j.client||'',bd,sp,(bd>0?Math.round(sp/bd*100):0)+'%']);});
     data.push(['TOTAL','',tb,ts,(tb>0?Math.round(ts/tb*100):0)+'%']);
   }else if(type==='productivity'){

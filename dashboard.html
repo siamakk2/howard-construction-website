@@ -328,6 +328,7 @@ body.authed #logoutBar{display:flex;}
   <button class="tab" data-tab="reports" data-mgronly>Reports</button>
   <button class="tab" data-tab="subs" data-mgronly>Subcontractors</button>
   <button class="tab" id="tabAdmin" data-tab="admin" data-owneronly>Team &amp; Access</button>
+  <button class="tab" data-tab="help">📘 How to Use</button>
 </div>
 
 <div class="content">
@@ -542,6 +543,55 @@ body.authed #logoutBar{display:flex;}
   
 
 </div>
+
+  <div class="panel" id="panel-help">
+    <div class="panel-head">
+      <h2>📘 How to Use This App</h2>
+    </div>
+    <div style="max-width:760px;margin:0 auto;line-height:1.6;color:#2D3E50;">
+      <div style="background:#EEF3F8;border-radius:10px;padding:16px 18px;margin-bottom:20px;">
+        <b style="color:#0A1628;">Welcome!</b> This is your AI-powered Site Manager. It keeps all your jobs, crew, and hours in one place — and you can run most of it just by typing or talking. Here's how each part works.
+      </div>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">🏠 Today</h3>
+      <p style="margin:0 0 14px;">Your home screen. See active jobs, anything at risk, and crew on site at a glance. The <b>AI Morning Briefing</b> summarizes what needs your attention. Tap the <b>microphone</b> and just talk — say something like <i>"Log 8 hours for Paco at Longhorn Ridge"</i> and it does it for you.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">🏗️ Jobs</h3>
+      <p style="margin:0 0 14px;">Add each project here: name, client, location, budget, and due date. Each job shows its progress and how much of the budget is used. The budget "spent" number <b>fills in automatically</b> from the hours your crew logs (hours × their pay rate), plus any materials/sub costs you add.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">👷 Crew</h3>
+      <p style="margin:0 0 14px;">Add each worker: their name, role, <b>labor rate ($/hour)</b>, and which job they're on. The labor rate is important — it's what lets the app calculate job costs and payroll automatically.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">⏱️ Hours</h3>
+      <p style="margin:0 0 14px;">Log who worked, on which job, how many hours, and the date. This feeds both your payroll totals and the automatic job-costing. You can also log hours by voice from the Today screen.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">📊 Reports <span style="font-size:12px;color:#5A6B7D;font-weight:600;">(owner &amp; managers)</span></h3>
+      <p style="margin:0 0 14px;">Run a <b>Payroll</b> report (hours per worker for the pay period), a <b>Job Cost</b> report (budget vs. actual per job), and more. Pick a date range and export to <b>Excel or PDF</b> with one click.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">⚠️ Risk Radar</h3>
+      <p style="margin:0 0 14px;">The AI automatically flags jobs that are over budget or falling behind schedule, so problems surface early instead of at the end.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">💬 Ask Phil's AI</h3>
+      <p style="margin:0 0 14px;">Ask anything in plain English: <i>"Which job is over budget?"</i>, <i>"How many hours did Paco work this week?"</i>, or even <i>"What inspections do I need before drywall?"</i> The AI knows your business and California building codes. <b>Always confirm permit specifics with your local building department</b> — the AI gives general guidance, not official rulings.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">🤝 Subcontractors <span style="font-size:12px;color:#5A6B7D;font-weight:600;">(owner &amp; managers)</span></h3>
+      <p style="margin:0 0 14px;">Keep track of your subs — name, trade, phone, and which job they're on.</p>
+
+      <h3 style="color:#1565C0;margin:22px 0 6px;">👥 Team &amp; Access <span style="font-size:12px;color:#5A6B7D;font-weight:600;">(owner only)</span></h3>
+      <p style="margin:0 0 14px;">Add your team and set what they can see:<br>
+      • <b>Owner</b> — full control, including accounts and financials<br>
+      • <b>Manager</b> — manages jobs, crew, hours, subs, and financials<br>
+      • <b>Crew</b> — sees only their assigned jobs and logs hours (no financials)</p>
+
+      <div style="background:#E8F5E9;border-left:4px solid #2E7D32;border-radius:8px;padding:14px 16px;margin-top:22px;">
+        <b style="color:#1B5E20;">💡 Tip:</b> The fastest way to use the app day-to-day is the <b>voice button</b> on the Today screen. Just talk to it like you'd talk to an assistant. Need help? Tap <b>Ask Phil's AI</b> anytime.
+      </div>
+
+      <div style="text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid #E1E8F0;color:#5A6B7D;font-size:13px;">
+        Powered by <b style="color:#1565C0;">Siamak Kalhor Consulting</b> &nbsp;·&nbsp; Questions? Call (323) 657-7752
+      </div>
+    </div>
+  </div>
 
 <!-- MODALS -->
 <div class="modal-bg" id="jobModal"><div class="modal">

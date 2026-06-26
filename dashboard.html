@@ -1311,9 +1311,39 @@ function renderSubs(){
       '<div class="job-foot" style="background:none;border:none;padding:10px 0 0;"><button onclick="editSub(\''+s.id+'\')">Edit</button><button onclick="delSub(\''+s.id+'\')" style="color:var(--red);">Remove</button></div></div>';
   }).join('');
 }
-function openSubModal(){document.getElementById('subModalTitle').textContent='Add Subcontractor';['subId','subName','subPhone','subJob','subNotes'].forEach(function(i){document.getElementById(i).value='';});document.getElementById('subTrade').value='Electrical';openModal('subModal');}
+function openSubModal(){
+  try{
+    if(typeof subs==='undefined'||!Array.isArray(subs)){window.subs=[];}
+    var t=document.getElementById('subModalTitle');if(t)t.textContent='Add Subcontractor';
+    ['subId','subName','subPhone','subJob','subNotes'].forEach(function(i){var el=document.getElementById(i);if(el)el.value='';});
+    var tr=document.getElementById('subTrade');if(tr)tr.value='Electrical';
+    var m=document.getElementById('subModal');
+    if(!m){alert('The subcontractor form is missing. Please refresh the page.');return;}
+    m.classList.add('show');
+  }catch(e){alert('Could not open the form: '+e.message);}
+}
 function editSub(id){var s=subs.find(function(x){return x.id===id;});if(!s)return;document.getElementById('subModalTitle').textContent='Edit Subcontractor';document.getElementById('subId').value=s.id;document.getElementById('subName').value=s.name;document.getElementById('subTrade').value=s.trade;document.getElementById('subPhone').value=s.phone||'';document.getElementById('subJob').value=s.job||'';document.getElementById('subNotes').value=s.notes||'';openModal('subModal');}
-function saveSub(){var name=document.getElementById('subName').value.trim();if(!name){alert('Enter a name.');return;}var id=document.getElementById('subId').value;var data={name:name,trade:document.getElementById('subTrade').value,phone:document.getElementById('subPhone').value.trim(),job:document.getElementById('subJob').value.trim(),notes:document.getElementById('subNotes').value.trim()};if(id){var s=subs.find(function(x){return x.id===id;});Object.assign(s,data);}else{data.id=uid();subs.push(data);}closeModal('subModal');renderSubs();saveNow();}
+function saveSub(){
+  try{
+    if(typeof subs==='undefined'||!Array.isArray(subs)){window.subs=[];}
+    var nameEl=document.getElementById('subName');
+    var name=nameEl?nameEl.value.trim():'';
+    if(!name){alert('Please enter a company or name.');return;}
+    var id=document.getElementById('subId').value;
+    var data={
+      name:name,
+      trade:document.getElementById('subTrade').value,
+      phone:(document.getElementById('subPhone').value||'').trim(),
+      job:(document.getElementById('subJob').value||'').trim(),
+      notes:(document.getElementById('subNotes').value||'').trim()
+    };
+    if(id){var s=subs.find(function(x){return x.id===id;});if(s)Object.assign(s,data);}
+    else{data.id=(typeof uid==='function'?uid():'s'+Date.now());subs.push(data);}
+    var m=document.getElementById('subModal');if(m)m.classList.remove('show');
+    if(typeof renderSubs==='function')renderSubs();
+    if(typeof saveNow==='function')saveNow();
+  }catch(e){alert('Could not save: '+e.message);}
+}
 function delSub(id){if(confirm('Remove this subcontractor?')){subs=subs.filter(function(x){return x.id!==id;});renderSubs();saveNow();}}
 
 // ====== USER MANAGEMENT (Admin) ======

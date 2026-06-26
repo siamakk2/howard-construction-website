@@ -322,7 +322,7 @@ body.authed #logoutBar{display:flex;}
   <button class="tab active" data-tab="today">Today</button>
   <button class="tab" data-tab="jobs">Jobs</button>
   <button class="tab" data-tab="risks">Risk Radar</button>
-  <button class="tab" data-tab="assistant">Ask Phil's AI</button>
+  <button class="tab" data-tab="assistant">Ask Howard</button>
   <button class="tab" data-tab="crew">Crew</button>
   <button class="tab" data-tab="hours">Hours</button>
   <button class="tab" data-tab="reports" data-mgronly>Reports</button>
@@ -571,7 +571,7 @@ body.authed #logoutBar{display:flex;}
       <h3 style="color:#1565C0;margin:22px 0 6px;">⚠️ Risk Radar</h3>
       <p style="margin:0 0 14px;">The AI automatically flags jobs that are over budget or falling behind schedule, so problems surface early instead of at the end.</p>
 
-      <h3 style="color:#1565C0;margin:22px 0 6px;">💬 Ask Phil's AI</h3>
+      <h3 style="color:#1565C0;margin:22px 0 6px;">💬 Ask Howard</h3>
       <p style="margin:0 0 14px;">Ask anything in plain English: <i>"Which job is over budget?"</i>, <i>"How many hours did Paco work this week?"</i>, or even <i>"What inspections do I need before drywall?"</i> The AI knows your business and California building codes. <b>Always confirm permit specifics with your local building department</b> — the AI gives general guidance, not official rulings.</p>
 
       <h3 style="color:#1565C0;margin:22px 0 6px;">🤝 Subcontractors <span style="font-size:12px;color:#5A6B7D;font-weight:600;">(owner &amp; managers)</span></h3>
@@ -584,7 +584,7 @@ body.authed #logoutBar{display:flex;}
       • <b>Crew</b> — sees only their assigned jobs and logs hours (no financials)</p>
 
       <div style="background:#E8F5E9;border-left:4px solid #2E7D32;border-radius:8px;padding:14px 16px;margin-top:22px;">
-        <b style="color:#1B5E20;">💡 Tip:</b> The fastest way to use the app day-to-day is the <b>voice button</b> on the Today screen. Just talk to it like you'd talk to an assistant. Need help? Tap <b>Ask Phil's AI</b> anytime.
+        <b style="color:#1B5E20;">💡 Tip:</b> The fastest way to use the app day-to-day is the <b>voice button</b> on the Today screen. Just talk to it like you'd talk to an assistant. Need help? Tap <b>Ask Howard</b> anytime.
       </div>
 
       <div style="text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid #E1E8F0;color:#5A6B7D;font-size:13px;">
@@ -847,7 +847,7 @@ function sendChat(q){
   addChatMsg(msg,'user');
   var dots=document.getElementById('chatDots');var msgs=document.getElementById('chatMsgs');
   dots.style.display='block';msgs.scrollTop=msgs.scrollHeight;
-  var sys=buildContext()+"\n\nYou are Phil's AI site manager. Answer his question directly and practically, like an experienced construction PM who knows these exact jobs. Reference specific projects, crew names, dates, and dollar figures from the data. Be concise - 2-4 short paragraphs or a tight bulleted list. If he asks who to move or reassign, name specific crew and explain the tradeoff. Use **bold** for key points.";
+  var sys=buildContext()+"\n\nYou are Howard's AI site manager. Answer his question directly and practically, like an experienced construction PM who knows these exact jobs. Reference specific projects, crew names, dates, and dollar figures from the data. Be concise - 2-4 short paragraphs or a tight bulleted list. If he asks who to move or reassign, name specific crew and explain the tradeoff. Use **bold** for key points.";
   var convo=chatHistory.slice(-4).map(function(m){return (m.role==='user'?'Phil':'You')+': '+m.text;}).join('\n');
   var fullMsg=(convo?convo+'\n\n':'')+'Phil: '+msg;
   callClaude(sys,fullMsg,function(text){

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Gallery | Howard Construction Inc.</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="description" content="Real project photos from Howard Construction Inc. — custom homes, remodels, kitchens, bathrooms, and additions across Northern California, from framing to finish.">
+<link rel="canonical" href="https://howard-construction-website.vercel.app/gallery.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Outfit',sans-serif;color:#0A1628;background:#fff;overflow-x:hidden;}img{display:block;max-width:100%;}a{text-decoration:none;color:inherit;}
+:root{--navy:#0A1628;--blue:#1565C0;--blue-mid:#1976D2;--blue-light:#42A5F5;--blue-pale:#E3F2FD;--blue-bg:#F0F7FF;--accent:#F9A825;--accent-dark:#F57F17;--white:#FDFEFF;--text:#0A1628;--text-light:#4A5568;--border:#BBDEFB;}
+/* ── NAV (matches site) ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:2px solid var(--blue);box-shadow:0 2px 20px rgba(21,101,192,0.12);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-links{display:flex;align-items:center;gap:18px;list-style:none;}
+.nav-links a{font-size:13px;font-weight:600;color:var(--text);transition:color .2s;white-space:nowrap;position:relative;padding-bottom:3px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:right;transition:transform .3s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-links a.active{color:var(--blue);}
+.nav-links a.active::after{transform:scaleX(1);}
+.nav-phone-btn{display:inline-flex!important;align-items:center;gap:7px;background:#F9A825!important;color:#0A1628!important;padding:10px 16px;border-radius:6px;font-weight:700!important;font-size:13px;white-space:nowrap;box-shadow:0 4px 14px rgba(249,168,37,0.35);transition:all .2s;}
+.nav-phone-btn:hover{background:#F57F17!important;transform:translateY(-1px);}
+.nav-phone-btn::after{display:none!important;}
+.nav-cta-btn{background:var(--blue)!important;color:#fff!important;padding:10px 18px;border-radius:6px;font-weight:700!important;font-size:13px;white-space:nowrap;box-shadow:0 4px 14px rgba(21,101,192,0.3);transition:all .2s;}
+.nav-cta-btn:hover{background:#0D47A1!important;transform:translateY(-1px);}
+.nav-cta-btn::after{display:none!important;}
+.hbgr{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.hbgr span{display:block;width:24px;height:2.5px;background:var(--navy);border-radius:2px;}
+.mob-nav{display:none;position:fixed;top:76px;left:0;right:0;background:#fff;border-top:2px solid var(--blue);z-index:999;padding:20px 28px 28px;flex-direction:column;box-shadow:0 8px 32px rgba(21,101,192,0.15);}
+.mob-nav a{display:block;padding:14px 0;font-size:16px;font-weight:600;color:var(--text);border-bottom:1px solid var(--blue-pale);}
+.mob-nav a:last-child{border-bottom:none;margin-top:12px;background:var(--blue);color:#fff!important;text-align:center;padding:14px;border-radius:6px;}
+@media(max-width:900px){.nav-links{display:none!important;}.hbgr{display:flex;}}
+/* ── HERO ── */
+.g-hero{padding:150px 32px 56px;background:linear-gradient(180deg,var(--blue-bg) 0%,#fff 100%);text-align:center;}
+.g-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,5vw,54px);font-weight:900;color:var(--navy);margin-bottom:14px;}
+.g-hero h1 em{color:var(--blue);font-style:italic;}
+.g-hero p{max-width:640px;margin:0 auto;color:var(--text-light);font-size:17px;line-height:1.6;}
+/* ── FILTER BAR ── */
+.filterbar{position:sticky;top:76px;z-index:500;background:#fff;border-bottom:1px solid var(--blue-pale);padding:16px 32px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.chip{border:2px solid var(--blue-pale);background:#fff;color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:30px;cursor:pointer;transition:all .2s;}
+.chip:hover{border-color:var(--blue-light);}
+.chip.active{background:var(--blue);border-color:var(--blue);color:#fff;}
+/* ── SECTIONS / GRID ── */
+.g-wrap{max-width:1320px;margin:0 auto;padding:48px 32px 90px;}
+.g-section{margin-bottom:52px;}
+.g-section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;}
+.g-section-head h2{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700;color:var(--navy);}
+.g-section-head .count{color:var(--text-light);font-size:13px;font-weight:500;}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;}
+.g-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:var(--blue-bg);box-shadow:0 2px 10px rgba(10,22,40,0.08);transition:transform .25s,box-shadow .25s;}
+.g-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(10,22,40,0.18);}
+.g-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.g-card .g-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;background:linear-gradient(0deg,rgba(10,22,40,0.85) 0%,rgba(10,22,40,0) 100%);color:#fff;font-size:12.5px;font-weight:600;line-height:1.35;}
+.g-card .hero-badge{position:absolute;top:10px;left:10px;background:var(--accent);color:var(--navy);font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:20px;letter-spacing:.5px;}
+/* ── LIGHTBOX ── */
+.lb{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.94);z-index:3000;align-items:center;justify-content:center;padding:40px;}
+.lb.open{display:flex;}
+.lb img{max-width:100%;max-height:78vh;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.lb-cap{color:#fff;text-align:center;margin-top:16px;font-size:14px;font-weight:500;max-width:640px;}
+.lb-close,.lb-prev,.lb-next{position:absolute;background:rgba(255,255,255,0.12);border:none;color:#fff;cursor:pointer;border-radius:50%;width:46px;height:46px;font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.25);}
+.lb-close{top:24px;right:24px;}
+.lb-prev{left:24px;top:50%;transform:translateY(-50%);}
+.lb-next{right:24px;top:50%;transform:translateY(-50%);}
+@media(max-width:640px){.lb-prev,.lb-next{width:40px;height:40px;font-size:16px;}.lb-prev{left:8px;}.lb-next{right:8px;}}
+/* ── CTA STRIP ── */
+.g-cta{background:var(--navy);padding:56px 32px;text-align:center;}
+.g-cta h3{font-family:'Playfair Display',Georgia,serif;color:#fff;font-size:26px;margin-bottom:10px;}
+.g-cta p{color:rgba(255,255,255,0.7);margin-bottom:22px;font-size:15px;}
+.g-cta a{display:inline-block;background:var(--accent);color:var(--navy);font-weight:700;padding:14px 30px;border-radius:6px;font-size:14px;}
+.g-cta a:hover{background:var(--accent-dark);}
+/* ── FOOTER (matches site) ── */
+.footer{background:var(--navy);color:rgba(255,255,255,0.75);padding:60px 32px 30px;}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.fl-name{font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#fff;font-weight:700;margin:14px 0 6px;}
+.fl-lic{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px;}
+.fl-desc{font-size:13.5px;line-height:1.7;color:rgba(255,255,255,0.6);}
+.fc h4{color:#fff;font-size:14px;margin-bottom:16px;}
+.fc ul{list-style:none;}
+.fc li{margin-bottom:10px;}
+.fc a{font-size:13.5px;color:rgba(255,255,255,0.6);}
+.fc a:hover{color:var(--accent);}
+.fci{font-size:13.5px;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+.fci a{color:rgba(255,255,255,0.6);}
+.fbot{max-width:1280px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:rgba(255,255,255,0.4);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;}.g-hero{padding:130px 20px 40px;}.filterbar{padding:14px 16px;}.g-wrap{padding:36px 16px 70px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" style="flex-shrink:0;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDAgNzIiIHdpZHRoPSIzNDAiIGhlaWdodD0iNzIiPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjcyIiByeD0iNiIgZmlsbD0iI0ZGRkZGRiIvPgo8cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzM4IiBoZWlnaHQ9IjcwIiByeD0iNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTU2NUMwIiBzdHJva2Utd2lkdGg9IjIiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIsMTApIj4KPHJlY3QgeD0iMzgiIHk9IjIiIHdpZHRoPSI5IiBoZWlnaHQ9IjE0IiBmaWxsPSIjMEQ0N0ExIi8+Cjxwb2x5Z29uIHBvaW50cz0iMzAsMiA0LDI0IDU2LDI0IiBmaWxsPSIjMEQ0N0ExIi8+CjxyZWN0IHg9IjkiIHk9IjIzIiB3aWR0aD0iNDIiIGhlaWdodD0iMjciIGZpbGw9IiMxNTY1QzAiLz4KPHJlY3QgeD0iMjMiIHk9IjMzIiB3aWR0aD0iMTUiIGhlaWdodD0iMTciIHJ4PSIyIiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHg9IjEyIiB5PSIyNyIgd2lkdGg9IjkiIGhlaWdodD0iOCIgcng9IjEiIGZpbGw9IiM5MENBRjkiLz4KPHJlY3QgeD0iMzkiIHk9IjI3IiB3aWR0aD0iOSIgaGVpZ2h0PSI4IiByeD0iMSIgZmlsbD0iIzkwQ0FGOSIvPgo8cG9seWdvbiBwb2ludHM9IjMwLDkgMzIsMTQgMzcsMTQgMzMsMTcgMzUsMjIgMzAsMTkgMjUsMjIgMjcsMTcgMjMsMTQgMjgsMTQiIGZpbGw9IiNGOUE4MjUiLz4KPC9nPgo8dGV4dCB4PSI3NCIgeT0iMzYiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzBBMTYyOCI+SE9XQVJEPC90ZXh0Pgo8dGV4dCB4PSI3NCIgeT0iNTQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzE1NjVDMCIgbGV0dGVyLXNwYWNpbmc9IjIiPkNPTlNUUlVDVElPTjwvdGV4dD4KPHRleHQgeD0iMjQwIiB5PSI1NCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjRjlBODI1Ij5JTkMuPC90ZXh0Pgo8L3N2Zz4=" alt="Howard Construction Inc." style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="knowledge.html">Knowledge Base</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="testimonials.html">Reviews</a></li><li><a href="dashboard.html" style="color:#F9A825;font-weight:700;">Site Manager</a></li>
+      <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
+      <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
+    </ul>
+    <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html" style="color:var(--blue);">Gallery</a>
+  <a href="knowledge.html">Knowledge Base</a>
+  <a href="about.html">About Us</a>
+  <a href="testimonials.html">Reviews</a><a href="dashboard.html" style="color:#F9A825;font-weight:700;">Site Manager AI</a>
+  <a href="tel:+17075786565" class="mob-phone-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a>
+  <a href="contact.html">Get a Free Estimate</a>
+</div>
+
+<section class="g-hero">
+  <h1>Our Work, <em>In Progress</em> &amp; Finished</h1>
+  <p>Real photos from Howard Construction job sites across Northern California &mdash; from framing to final walkthrough. Browse by room, or filter to see a project's full arc.</p>
+</section>
+
+<div class="filterbar" id="filterbar">
+  <button class="chip active" data-group="all">All Photos</button>
+  <button class="chip" data-group="exterior">Exteriors</button>
+  <button class="chip" data-group="framing">Framing &amp; Progress</button>
+  <button class="chip" data-group="kitchens">Kitchens</button>
+  <button class="chip" data-group="living">Living Spaces</button>
+  <button class="chip" data-group="bathrooms">Bathrooms</button>
+  <button class="chip" data-group="bedrooms">Bedrooms</button>
+</div>
+
+<div class="g-wrap" id="gwrap"></div>
+
+<div class="g-cta">
+  <h3>Like what you see?</h3>
+  <p>Let's talk about your project &mdash; free estimates for remodels, additions, and custom builds.</p>
+  <a href="contact.html">Get a Free Estimate &rarr;</a>
+</div>
+
+<footer class="footer"><div class="footer-grid">
+  <div>
+    <div class="fl-name">Howard Construction Inc.</div>
+    <div class="fl-lic">CA Lic. #B-XXXXXX &middot; BBB Accredited &middot; NCBE Member</div>
+    <p class="fl-desc">Northern California&rsquo;s trusted general contractor serving Santa Rosa, Sonoma Valley, Napa Valley, San Francisco, Calistoga, Fairfield, Vacaville, and all surrounding communities since 2000.</p>
+  </div>
+  <div class="fc"><h4>Services</h4><ul>
+    <li><a href="services.html">Home Remodels</a></li>
+    <li><a href="services.html">Home Additions</a></li>
+    <li><a href="services.html">Pool &amp; Outdoor</a></li>
+    <li><a href="services.html">Decks &amp; Pergolas</a></li>
+    <li><a href="services.html">Garages</a></li>
+    <li><a href="services.html">ADU Construction</a></li>
+  </ul></div>
+  <div class="fc"><h4>Company</h4><ul>
+    <li><a href="about.html">About Philip Howard</a></li>
+    <li><a href="gallery.html">Project Gallery</a></li>
+    <li><a href="testimonials.html">Client Reviews</a></li>
+    <li><a href="knowledge.html">Knowledge Base</a></li>
+    <li><a href="contact.html">Free Estimate</a></li>
+  </ul></div>
+  <div class="fc"><h4>Contact</h4>
+    <div class="fci">&#128222; <a href="tel:+17075786565">(707) 578-6565</a></div>
+    <div class="fci">&#9993; <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
+    <div class="fci">&#128205; 4012 Cervantes Rd, Santa Rosa CA 95403</div>
+    <div class="fci">&#128336; Mon&ndash;Fri 7am&ndash;6pm &middot; Sat 8am&ndash;2pm</div>
+  </div>
+</div><div class="fbot">
+  <p>&copy; 2025 Howard Construction Inc. All rights reserved. CA Lic. #B-XXXXXX.</p>
+  <p><a href="sitemap.xml" style="color:rgba(255,255,255,0.2);">Sitemap</a></p>
+</div></footer>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <img id="lbImg" src="" alt="">
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+  <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+
+<script>
+(function(){
+  var hbgr=document.getElementById('hbgr');
+  var mob=document.getElementById('mobNav');
+  if(hbgr&&mob){
+    hbgr.addEventListener('click',function(e){e.stopPropagation();mob.style.display=(mob.style.display==='flex')?'none':'flex';});
+    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.style.display='none';});});
+    document.addEventListener('click',function(e){if(!hbgr.contains(e.target)&&!mob.contains(e.target))mob.style.display='none';});
+  }
+})();
+
+var PHOTOS = [
+  {file:"IMG_0375.jpg",group:"exterior",label:"Full elevation — wide site view",hero:false},
+  {file:"IMG_0376.jpg",group:"exterior",label:"Full elevation, house wrapped, solar staged",hero:false},
+  {file:"IMG_0729.jpg",group:"exterior",label:"Rear deck framing under way",hero:false},
+  {file:"IMG_1491.jpg",group:"exterior",label:"Covered entry — reclaimed door & stone wainscot",hero:false},
+  {file:"IMG_1492.jpg",group:"exterior",label:"Rear deck — stone-wainscot exterior",hero:false},
+  {file:"IMG_1498.jpg",group:"exterior",label:"Rear deck — French doors & covered porch",hero:false},
+  {file:"IMG_1499.jpg",group:"exterior",label:"Rear deck — pergola & covered patio",hero:false},
+  {file:"IMG_1501.jpg",group:"exterior",label:"Roof sheathing & weather wrap",hero:false},
+  {file:"IMG_5454.jpg",group:"exterior",label:"Hillside view — modern exterior",hero:false},
+  {file:"IMG_5461.jpg",group:"exterior",label:"Modern exterior — gravel patio",hero:false},
+  {file:"IMG_5462.jpg",group:"exterior",label:"Modern exterior — pool deck",hero:false},
+  {file:"IMG_5465.jpg",group:"exterior",label:"Modern exterior — pool & patio",hero:true},
+  {file:"IMG_5467.jpg",group:"exterior",label:"Modern exterior — fire pit at dusk",hero:false},
+  {file:"IMG_5470.jpg",group:"exterior",label:"Modern exterior — garden & patio",hero:false},
+  {file:"Poolhouse.jpg",group:"exterior",label:"Modern pool house — hillside setting",hero:false},
+  {file:"IMG_1951.jpg",group:"framing",label:"Vaulted ceiling framing — skylights roughed in",hero:false},
+  {file:"IMG_1949.jpg",group:"framing",label:"Exposed beam detail with dual skylights",hero:false},
+  {file:"Progress.jpg",group:"framing",label:"Framing stage — structure taking shape",hero:false},
+  {file:"IMG_4263.jpg",group:"framing",label:"Second-story loft — framing stage",hero:false},
+  {file:"IMG_4265.jpg",group:"framing",label:"Reclaimed wood walls & stair rail",hero:false},
+  {file:"IMG_4266.jpg",group:"framing",label:"Great room shell — window openings framed",hero:false},
+  {file:"IMG_4267.jpg",group:"framing",label:"Stone chimney rising through the loft",hero:false},
+  {file:"IMG_4268.jpg",group:"framing",label:"Stone fireplace chimney — herringbone firebox",hero:false},
+  {file:"IMG_4272.jpg",group:"framing",label:"Loft & great room — framing stage",hero:false},
+  {file:"IMG_4273.jpg",group:"framing",label:"Stone chimney with ring pendant rough-in",hero:false},
+  {file:"IMG_1506.jpg",group:"kitchens",label:"Kitchen — wood beams & stainless appliances",hero:false},
+  {file:"IMG_1508.jpg",group:"kitchens",label:"Kitchen — vaulted ceiling & waterfall island",hero:false},
+  {file:"IMG_1919.jpg",group:"kitchens",label:"Great room kitchen — vaulted beams & dining",hero:true},
+  {file:"Downs.jpg",group:"living",label:"Great room — vaulted ceiling & stone fireplace",hero:false},
+  {file:"Fireplace.jpg",group:"living",label:"Living room — river-rock fireplace & built-ins",hero:false},
+  {file:"IMG_1510.jpg",group:"living",label:"Great room — open-concept living & kitchen",hero:false},
+  {file:"IMG_1511.jpg",group:"living",label:"Great room — living area, alternate view",hero:false},
+  {file:"IMG_1512.jpg",group:"living",label:"Great room — pendant lighting",hero:false},
+  {file:"IMG_1514.jpg",group:"living",label:"Great room — mountain views at dusk",hero:false},
+  {file:"IMG_1526.jpg",group:"living",label:"Living room — fireplace with staged furnishings",hero:true},
+  {file:"IMG_1920.jpg",group:"living",label:"Great room — living & dining from the sofa",hero:false},
+  {file:"IMG_1922.jpg",group:"living",label:"Reading nook — botanical wallpaper",hero:true},
+  {file:"IMG_1500.jpg",group:"bathrooms",label:"Bathroom — frameless glass shower",hero:false},
+  {file:"IMG_1921.jpg",group:"bathrooms",label:"Guest bath — subway tile & barn-door shower",hero:false},
+  {file:"IMG_1923.jpg",group:"bathrooms",label:"Clawfoot soaking tub",hero:true},
+  {file:"IMG_1924.jpg",group:"bathrooms",label:"Marble walk-in shower",hero:true},
+  {file:"IMG_1925.jpg",group:"bathrooms",label:"Guest bath — oval mirrors & soaking tub",hero:false},
+  {file:"IMG_1930.jpg",group:"bathrooms",label:"Primary bath — ebony vanity & steel windows",hero:false},
+  {file:"IMG_1926.jpg",group:"bedrooms",label:"Custom bunk beds — detail",hero:true},
+  {file:"IMG_1928.jpg",group:"bedrooms",label:"Bunk room — full built-in wall",hero:false}
+];
+
+var GROUP_LABELS = {exterior:"Exteriors",framing:"Framing & Progress",kitchens:"Kitchens",living:"Living Spaces",bathrooms:"Bathrooms",bedrooms:"Bedrooms"};
+var GROUP_ORDER = ["exterior","framing","kitchens","living","bathrooms","bedrooms"];
+
+var gwrap = document.getElementById('gwrap');
+
+function render(filter){
+  gwrap.innerHTML = '';
+  var groups = filter === 'all' ? GROUP_ORDER : [filter];
+  groups.forEach(function(g){
+    var items = PHOTOS.filter(function(p){ return p.group === g; });
+    if(!items.length) return;
+    var section = document.createElement('div');
+    section.className = 'g-section';
+    var head = document.createElement('div');
+    head.className = 'g-section-head';
+    head.innerHTML = '<h2>' + GROUP_LABELS[g] + '</h2><span class="count">' + items.length + ' photo' + (items.length===1?'':'s') + '</span>';
+    section.appendChild(head);
+    var grid = document.createElement('div');
+    grid.className = 'g-grid';
+    items.forEach(function(p){
+      var card = document.createElement('div');
+      card.className = 'g-card';
+      card.innerHTML = (p.hero ? '<span class="hero-badge">Featured</span>' : '') +
+        '<img src="gallery-photos/' + p.file + '" alt="' + p.label + '" loading="lazy">' +
+        '<div class="g-cap">' + p.label + '</div>';
+      card.addEventListener('click', function(){ openLB(p); });
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    gwrap.appendChild(section);
+  });
+}
+
+var filterbar = document.getElementById('filterbar');
+filterbar.addEventListener('click', function(e){
+  if(!e.target.classList.contains('chip')) return;
+  filterbar.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
+  e.target.classList.add('active');
+  render(e.target.dataset.group);
+});
+
+/* Lightbox */
+var lb = document.getElementById('lb');
+var lbImg = document.getElementById('lbImg');
+var lbCap = document.getElementById('lbCap');
+var currentList = [];
+var currentIdx = 0;
+
+function openLB(photo){
+  currentList = PHOTOS;
+  currentIdx = currentList.indexOf(photo);
+  showLB();
+  lb.classList.add('open');
+}
+function showLB(){
+  var p = currentList[currentIdx];
+  lbImg.src = 'gallery-photos/' + p.file;
+  lbImg.alt = p.label;
+  lbCap.textContent = p.label;
+}
+document.getElementById('lbClose').addEventListener('click', function(){ lb.classList.remove('open'); });
+document.getElementById('lbPrev').addEventListener('click', function(e){ e.stopPropagation(); currentIdx = (currentIdx - 1 + currentList.length) % currentList.length; showLB(); });
+document.getElementById('lbNext').addEventListener('click', function(e){ e.stopPropagation(); currentIdx = (currentIdx + 1) % currentList.length; showLB(); });
+lb.addEventListener('click', function(e){ if(e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', function(e){
+  if(!lb.classList.contains('open')) return;
+  if(e.key === 'Escape') lb.classList.remove('open');
+  if(e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if(e.key === 'ArrowRight') document.getElementById('lbNext').click();
+});
+
+render('all');
+</script>
+
+</body>
+</html>

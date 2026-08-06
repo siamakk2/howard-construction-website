@@ -132,6 +132,7 @@
 <div class="filterbar" id="filterbar">
   <button class="chip active" data-group="all">All Photos</button>
   <button class="chip" data-group="exterior">Exteriors</button>
+  <button class="chip" data-group="aerial">Aerial Views</button>
   <button class="chip" data-group="framing">Framing &amp; Progress</button>
   <button class="chip" data-group="kitchens">Kitchens</button>
   <button class="chip" data-group="living">Living Spaces</button>
@@ -216,6 +217,31 @@ var PHOTOS = [
   {file:"IMG_5467.jpg",group:"exterior",label:"Modern exterior — fire pit at dusk",hero:false},
   {file:"IMG_5470.jpg",group:"exterior",label:"Modern exterior — garden & patio",hero:false},
   {file:"Poolhouse.jpg",group:"exterior",label:"Modern pool house — hillside setting",hero:false},
+  {file:"IMG_2054.jpg",group:"exterior",label:"Hillside modern ranch — approach & garage court",hero:false},
+  {file:"IMG_2058.jpg",group:"exterior",label:"Modern ranch — native drought-tolerant landscaping",hero:false},
+  {file:"IMG_2059.jpg",group:"exterior",label:"Detached three-bay garage — clean modern lines",hero:false},
+  {file:"IMG_2128.jpg",group:"exterior",label:"Rear elevation — clerestory windows & new plantings",hero:false},
+  {file:"IMG_2118.jpg",group:"exterior",label:"Covered outdoor room — tongue-and-groove cedar ceiling",hero:false},
+  {file:"IMG_2122.jpg",group:"exterior",label:"Outdoor kitchen & dining deck — built-in grill",hero:true},
+  {file:"IMG_2124.jpg",group:"exterior",label:"Covered deck — indoor-outdoor living",hero:false},
+  {file:"IMG_2126.jpg",group:"exterior",label:"Wraparound deck at the covered outdoor room",hero:false},
+  {file:"IMG_2127.jpg",group:"exterior",label:"Deck & clerestory glazing — hillside site",hero:false},
+  {file:"IMG_3583.jpg",group:"exterior",label:"Custom carriage house — exterior stair & balcony",hero:false},
+  {file:"IMG_3585.jpg",group:"exterior",label:"Carriage house — rear elevation with skylights",hero:false},
+  {file:"IMG_3586.jpg",group:"exterior",label:"Carriage house — three-bay garage with loft above",hero:true},
+  {file:"IMG_3588.jpg",group:"exterior",label:"Carriage house — carriage-style doors & cupola",hero:false},
+  {file:"IMG_3589.jpg",group:"exterior",label:"Carriage house — barn door & upper balcony",hero:false},
+  {file:"IMG_4321.jpg",group:"exterior",label:"New-construction duplex — corner elevation",hero:false},
+  {file:"IMG_4322.jpg",group:"exterior",label:"New-construction duplex — street view & split-rail fence",hero:false},
+  {file:"DJI_0002.jpg",group:"aerial",label:"Aerial — home & garage from the drive",hero:false},
+  {file:"DJI_0008.jpg",group:"aerial",label:"Aerial — front elevation against the hillside",hero:false},
+  {file:"DJI_0012.jpg",group:"aerial",label:"Aerial — completed home with solar, oak-studded site",hero:true},
+  {file:"DJI_0014.jpg",group:"aerial",label:"Aerial — home nestled in the oaks",hero:false},
+  {file:"DJI_0016.jpg",group:"aerial",label:"Aerial — full property with drive & landscaping",hero:false},
+  {file:"DJI_0019.jpg",group:"aerial",label:"Aerial — valley view across the site",hero:false},
+  {file:"DJI_0021.jpg",group:"aerial",label:"Aerial — canyon setting",hero:false},
+  {file:"DJI_0023.jpg",group:"aerial",label:"Aerial — hillside neighborhood context",hero:false},
+  {file:"DJI_0025.jpg",group:"aerial",label:"Aerial — top-down of home & metal roof",hero:false},
   {file:"IMG_1951.jpg",group:"framing",label:"Vaulted ceiling framing — skylights roughed in",hero:false},
   {file:"IMG_1949.jpg",group:"framing",label:"Exposed beam detail with dual skylights",hero:false},
   {file:"Progress.jpg",group:"framing",label:"Framing stage — structure taking shape",hero:false},
@@ -229,6 +255,16 @@ var PHOTOS = [
   {file:"IMG_1506.jpg",group:"kitchens",label:"Kitchen — wood beams & stainless appliances",hero:false},
   {file:"IMG_1508.jpg",group:"kitchens",label:"Kitchen — vaulted ceiling & waterfall island",hero:false},
   {file:"IMG_1919.jpg",group:"kitchens",label:"Great room kitchen — vaulted beams & dining",hero:true},
+  {file:"IMG_2076.jpg",group:"kitchens",label:"Modern kitchen — white oak cabinetry & exposed beams",hero:false},
+  {file:"IMG_2077.jpg",group:"kitchens",label:"Galley kitchen — quartz counters & clerestory light",hero:false},
+  {file:"IMG_2081.jpg",group:"kitchens",label:"Kitchen island — waterfall quartz & bar seating",hero:false},
+  {file:"IMG_2082.jpg",group:"kitchens",label:"Kitchen & dining — open plan under vaulted beams",hero:false},
+  {file:"IMG_2087.jpg",group:"kitchens",label:"Kitchen island & dining — full great-room view",hero:true},
+  {file:"IMG_6988.jpg",group:"kitchens",label:"Kitchen remodel — marble waterfall island & brass pendants",hero:true},
+  {file:"IMG_6989.jpg",group:"kitchens",label:"Kitchen remodel — custom hood & glass-front uppers",hero:false},
+  {file:"IMG_6990.jpg",group:"kitchens",label:"Kitchen remodel — beverage center & pantry wall",hero:false},
+  {file:"IMG_6992.jpg",group:"kitchens",label:"Kitchen island — bookmatched marble & built-ins beyond",hero:false},
+  {file:"IMG_3596.jpg",group:"kitchens",label:"Kitchen — navy island, herringbone backsplash & linear pendant",hero:false},
   {file:"Downs.jpg",group:"living",label:"Great room — vaulted ceiling & stone fireplace",hero:false},
   {file:"Fireplace.jpg",group:"living",label:"Living room — river-rock fireplace & built-ins",hero:false},
   {file:"IMG_1510.jpg",group:"living",label:"Great room — open-concept living & kitchen",hero:false},
@@ -238,18 +274,35 @@ var PHOTOS = [
   {file:"IMG_1526.jpg",group:"living",label:"Living room — fireplace with staged furnishings",hero:true},
   {file:"IMG_1920.jpg",group:"living",label:"Great room — living & dining from the sofa",hero:false},
   {file:"IMG_1922.jpg",group:"living",label:"Reading nook — botanical wallpaper",hero:true},
+  {file:"IMG_2061.jpg",group:"living",label:"Entry hall — wood ceiling & full-height glass",hero:false},
+  {file:"IMG_2070.jpg",group:"living",label:"Great room — exposed beams & wall of windows",hero:false},
+  {file:"IMG_2072.jpg",group:"living",label:"Living area — media wall & garden views",hero:false},
+  {file:"IMG_2093.jpg",group:"living",label:"Open-plan living & dining — vaulted ceiling",hero:false},
+  {file:"IMG_6991.jpg",group:"living",label:"Family room — custom painted built-ins",hero:false},
   {file:"IMG_1500.jpg",group:"bathrooms",label:"Bathroom — frameless glass shower",hero:false},
   {file:"IMG_1921.jpg",group:"bathrooms",label:"Guest bath — subway tile & barn-door shower",hero:false},
   {file:"IMG_1923.jpg",group:"bathrooms",label:"Clawfoot soaking tub",hero:true},
   {file:"IMG_1924.jpg",group:"bathrooms",label:"Marble walk-in shower",hero:true},
   {file:"IMG_1925.jpg",group:"bathrooms",label:"Guest bath — oval mirrors & soaking tub",hero:false},
   {file:"IMG_1930.jpg",group:"bathrooms",label:"Primary bath — ebony vanity & steel windows",hero:false},
+  {file:"IMG_2063.jpg",group:"bathrooms",label:"Powder room — floating vanity & tile accent wall",hero:false},
+  {file:"IMG_2095.jpg",group:"bathrooms",label:"Primary bath — freestanding tub & double vanity",hero:false},
+  {file:"IMG_2098.jpg",group:"bathrooms",label:"Primary bath — curbless glass shower & soaking tub",hero:false},
+  {file:"IMG_2100.jpg",group:"bathrooms",label:"Primary bath — marble-tiled shower with window views",hero:false},
+  {file:"IMG_2110.jpg",group:"bathrooms",label:"Bath — extended oak vanity & backlit mirror",hero:false},
+  {file:"IMG_6984.jpg",group:"bathrooms",label:"Bath remodel — freestanding tub & frameless shower",hero:false},
+  {file:"IMG_6987.jpg",group:"bathrooms",label:"Bath remodel — soaking tub under the window",hero:false},
+  {file:"IMG_6985.jpg",group:"bathrooms",label:"Double vanity — custom painted cabinetry & sconces",hero:false},
+  {file:"IMG_6986.jpg",group:"bathrooms",label:"Double vanity & tower storage — detail",hero:false},
+  {file:"IMG_bath_marble1.jpg",group:"bathrooms",label:"Carrara marble bath — glass shower & basketweave floor",hero:false},
+  {file:"IMG_bath_marble2.jpg",group:"bathrooms",label:"Carrara marble shower — rain head & niche detail",hero:false},
   {file:"IMG_1926.jpg",group:"bedrooms",label:"Custom bunk beds — detail",hero:true},
-  {file:"IMG_1928.jpg",group:"bedrooms",label:"Bunk room — full built-in wall",hero:false}
+  {file:"IMG_1928.jpg",group:"bedrooms",label:"Bunk room — full built-in wall",hero:false},
+  {file:"IMG_2101.jpg",group:"bedrooms",label:"Primary bedroom — hillside views & vaulted beams",hero:false}
 ];
 
-var GROUP_LABELS = {exterior:"Exteriors",framing:"Framing & Progress",kitchens:"Kitchens",living:"Living Spaces",bathrooms:"Bathrooms",bedrooms:"Bedrooms"};
-var GROUP_ORDER = ["exterior","framing","kitchens","living","bathrooms","bedrooms"];
+var GROUP_LABELS = {exterior:"Exteriors",aerial:"Aerial Views",framing:"Framing & Progress",kitchens:"Kitchens",living:"Living Spaces",bathrooms:"Bathrooms",bedrooms:"Bedrooms"};
+var GROUP_ORDER = ["exterior","aerial","framing","kitchens","living","bathrooms","bedrooms"];
 
 var gwrap = document.getElementById('gwrap');
 

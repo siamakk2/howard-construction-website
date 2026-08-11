@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-<rect x="0" y="0" width="64" height="64" rx="10" fill="#0A1628"/>
-<g transform="translate(6,10)">
-<rect x="38" y="2" width="9" height="14" fill="#90CAF9"/>
-<polygon points="30,1 3,25 57,25" fill="#90CAF9"/>
-<rect x="9" y="24" width="42" height="28" fill="#1565C0"/>
-<rect x="23" y="34" width="15" height="18" rx="2" fill="#FFFFFF"/>
-<rect x="12" y="28" width="9" height="8" rx="1" fill="#90CAF9"/>
-<rect x="39" y="28" width="9" height="8" rx="1" fill="#90CAF9"/>
-<polygon points="30,9 32,14 37,14 33,17 35,22 30,19 25,22 27,17 23,14 28,14" fill="#F9A825"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 924 924">
+<rect width="924" height="924" rx="150" fill="#FFFFFF"/>
+<rect x="16" y="16" width="892" height="892" rx="136" fill="none" stroke="#2E3FAE" stroke-width="30"/>
+<g transform="translate(-508.0,120) scale(1.5)"><path fill-rule="evenodd" fill="#101215" d="M495.8 0.0L498.0 3.5L529.5 8.0L630.5 35.6L668.5 35.8L677.0 39.7L689.5 36.0L702.6 40.5L713.5 55.3L745.5 60.0L766.5 67.6L781.0 67.6L787.5 63.8L799.5 67.7L806.5 63.9L826.0 64.2L855.1 105.0L854.5 111.1L848.5 110.6L831.1 81.0L824.0 75.8L790.0 107.3L751.0 103.8L748.4 110.5L790.0 159.5L812.5 159.7L818.0 156.5L832.5 159.7L846.0 155.3L850.5 132.6L895.0 180.9L895.3 186.0L637.5 187.3L620.5 170.6L494.5 12.6L434.5 63.1L416.7 62.5L491.8 0.0Z M721.5 151.5L723.5 86.0L698.0 52.2L692.5 52.8L654.0 91.3L600.7 89.0L628.8 127.0L653.0 151.1L721.5 151.5Z M701.5 135.5L680.2 134.0L681.5 88.2L703.3 89.5L701.5 135.5Z M825.5 143.5L812.0 141.5L814.0 104.0L831.5 106.0L827.8 123.5L831.6 137.0L825.5 143.5Z"/></g>
+<text x="462" y="812" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="290" fill="#2E3FAE" text-anchor="middle">HC</text>
 </svg>

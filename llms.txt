@@ -7,19 +7,19 @@ Services: home remodels (kitchens, bathrooms, whole-home), home additions, ADU c
 Service area: Napa, Yountville, St. Helena, Calistoga, American Canyon, Angwin, Deer Park, Oakville, Rutherford, Pope Valley, Sonoma, Glen Ellen, Kenwood, Santa Rosa, Petaluma, Healdsburg, Windsor, Fairfield, Vacaville, Vallejo, San Francisco, and Marin County.
 
 ## Pages
-- [Home](https://www.howardconstructioninc.com/index.html): Company overview and services summary
-- [Services](https://www.howardconstructioninc.com/services.html): Detailed service descriptions
-- [Service Areas](https://www.howardconstructioninc.com/service-areas.html): All communities served, with local expertise
-- [Napa](https://www.howardconstructioninc.com/general-contractor-napa.html): Remodels, additions, ADUs and seismic-aware renovation in Napa
-- [Yountville](https://www.howardconstructioninc.com/general-contractor-yountville.html): High-end remodels and guest houses
-- [St. Helena](https://www.howardconstructioninc.com/general-contractor-st-helena.html): Historic homes, vineyard estates, fire-hardened hillside construction
-- [Calistoga](https://www.howardconstructioninc.com/general-contractor-calistoga.html): Serving Calistoga since 2000; remodels and fire rebuilds
-- [American Canyon](https://www.howardconstructioninc.com/general-contractor-american-canyon.html): Additions, ADUs and garage conversions
-- [Angwin & Deer Park](https://www.howardconstructioninc.com/general-contractor-angwin.html): Howell Mountain construction and Glass Fire rebuilds
-- [Sonoma & Glen Ellen](https://www.howardconstructioninc.com/general-contractor-sonoma.html): Sonoma Valley remodels and estates
-- [Marin County](https://www.howardconstructioninc.com/general-contractor-marin.html): San Rafael, Novato & Mill Valley — hillside construction, remodels and ADUs
-- [Project Gallery](https://www.howardconstructioninc.com/gallery.html): 97 real project photos across 7 categories
-- [Knowledge Base](https://www.howardconstructioninc.com/knowledge.html): Construction guides for homeowners
-- [About](https://www.howardconstructioninc.com/about.html): Philip Howard and company history
-- [Reviews](https://www.howardconstructioninc.com/testimonials.html): Client testimonials
-- [Contact](https://www.howardconstructioninc.com/contact.html): Free estimates
+- [Home](https://howard-construction-website.vercel.app/index.html): Company overview and services summary
+- [Services](https://howard-construction-website.vercel.app/services.html): Detailed service descriptions
+- [Service Areas](https://howard-construction-website.vercel.app/service-areas.html): All communities served, with local expertise
+- [Napa](https://howard-construction-website.vercel.app/general-contractor-napa.html): Remodels, additions, ADUs and seismic-aware renovation in Napa
+- [Yountville](https://howard-construction-website.vercel.app/general-contractor-yountville.html): High-end remodels and guest houses
+- [St. Helena](https://howard-construction-website.vercel.app/general-contractor-st-helena.html): Historic homes, vineyard estates, fire-hardened hillside construction
+- [Calistoga](https://howard-construction-website.vercel.app/general-contractor-calistoga.html): Serving Calistoga since 2000; remodels and fire rebuilds
+- [American Canyon](https://howard-construction-website.vercel.app/general-contractor-american-canyon.html): Additions, ADUs and garage conversions
+- [Angwin & Deer Park](https://howard-construction-website.vercel.app/general-contractor-angwin.html): Howell Mountain construction and Glass Fire rebuilds
+- [Sonoma & Glen Ellen](https://howard-construction-website.vercel.app/general-contractor-sonoma.html): Sonoma Valley remodels and estates
+- [Marin County](https://howard-construction-website.vercel.app/general-contractor-marin.html): San Rafael, Novato & Mill Valley — hillside construction, remodels and ADUs
+- [Project Gallery](https://howard-construction-website.vercel.app/gallery.html): 97 real project photos across 7 categories
+- [Knowledge Base](https://howard-construction-website.vercel.app/knowledge.html): Construction guides for homeowners
+- [About](https://howard-construction-website.vercel.app/about.html): Philip Howard and company history
+- [Reviews](https://howard-construction-website.vercel.app/testimonials.html): Client testimonials
+- [Contact](https://howard-construction-website.vercel.app/contact.html): Free estimates

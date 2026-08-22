@@ -58,3 +58,7 @@ Service area: Napa, Yountville, St. Helena, Calistoga, American Canyon, Angwin, 
 ## Services by City
 
 - [Kitchen Remodeling Contractor in Santa Rosa](https://www.howardconstructioninc.com/kitchen-remodeling-santa-rosa.html): Full-service kitchen remodeling in Santa Rosa. Scope by phase, what older Santa Rosa housing stock reveals by era and neighborhood, City of Santa Rosa electrical code requirements, real project photography, $45K-$180K typical range.
+
+## Legal
+
+- [Privacy Policy](https://www.howardconstructioninc.com/privacy-policy.html): What Howard Construction collects via the website (estimate form, Google Analytics), the service providers involved (Vercel, Resend, Upstash, Google), retention, and California CCPA/CPRA rights. No sale or sharing of personal information.

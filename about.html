@@ -553,18 +553,19 @@ footer h1, footer h2, footer p,
     <div class="form-box">
       <div class="form-title">Request a Free Estimate</div>
       <div class="form-sub">Fill out this form and Phil Howard will personally follow up within one business day.</div>
-      <form id="aboutForm" onsubmit="submitForm(event)">
+      <form id="aboutForm" onsubmit="submitForm(event)" novalidate>
+<div style="position:absolute;left:-9999px;" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
         <div class="form-row">
-          <div class="form-group"><label>First Name *</label><input type="text" required placeholder="John"></div>
-          <div class="form-group"><label>Last Name *</label><input type="text" required placeholder="Smith"></div>
+          <div class="form-group"><label>First Name *</label><input name="firstName" type="text" required placeholder="John"></div>
+          <div class="form-group"><label>Last Name *</label><input name="lastName" type="text" required placeholder="Smith"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Phone Number *</label><input type="tel" required placeholder="(707) 555-0100"></div>
-          <div class="form-group"><label>Email Address *</label><input type="email" required placeholder="john@email.com"></div>
+          <div class="form-group"><label>Phone Number *</label><input name="phone" type="tel" required placeholder="(707) 555-0100"></div>
+          <div class="form-group"><label>Email Address *</label><input name="email" type="email" required placeholder="john@email.com"></div>
         </div>
-        <div class="form-group"><label>City / Area</label><input type="text" placeholder="Santa Rosa, Napa, Sonoma, Calistoga, San Francisco…"></div>
+        <div class="form-group"><label>City / Area</label><input name="projectAddress" type="text" placeholder="Santa Rosa, Napa, Sonoma, Calistoga, San Francisco…"></div>
         <div class="form-group"><label>Type of Project *</label>
-          <select required>
+          <select name="projectType" required>
             <option value="">Select project type…</option>
             <option>Kitchen Remodel</option>
             <option>Bathroom Remodel</option>
@@ -578,7 +579,7 @@ footer h1, footer h2, footer p,
             <option>Other / Not Sure Yet</option>
           </select>
         </div>
-        <div class="form-group"><label>Tell Us About Your Project</label><textarea placeholder="Describe what you're hoping to build or remodel. Don't worry about having all the details — that's what the consultation is for."></textarea></div>
+        <div class="form-group"><label>Tell Us About Your Project</label><textarea name="details" placeholder="Describe what you're hoping to build or remodel. Don't worry about having all the details — that's what the consultation is for."></textarea></div>
         <button type="submit" class="form-submit">Send My Request →</button>
         <div class="form-note">Phil personally reviews every inquiry. Your information is never shared.</div>
         <div class="success-msg" id="successMsg2">✅ <strong>Request received!</strong> Phil Howard will follow up with you within one business day. Thank you for reaching out to Howard Construction.</div>
@@ -653,13 +654,35 @@ footer h1, footer h2, footer p,
 window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>20?'0 2px 24px rgba(0,0,0,0.1)':'none';},{passive:true});
 function submitForm(e){
   e.preventDefault();
-  var btn=document.querySelector('.form-submit');
-  btn.textContent='Sending…';btn.disabled=true;
-  setTimeout(function(){
-    document.getElementById('successMsg2').classList.add('show');
-    document.getElementById('aboutForm').reset();
-    btn.textContent='Send My Request →';btn.disabled=false;
-  },1200);
+  var form=e.target;
+  var btn=form.querySelector('.form-submit');
+  var msg=document.getElementById('successMsg2');
+  if(!form.checkValidity()){form.reportValidity();return;}
+  var original=btn.textContent;
+  btn.textContent='Sending\u2026';btn.disabled=true;
+  var data={source:document.title};
+  new FormData(form).forEach(function(v,k){data[k]=v;});
+  fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)})
+  .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.ok,body:j};});})
+  .then(function(res){
+    btn.textContent=original;btn.disabled=false;
+    if(res.ok){msg.classList.add('show');form.reset();
+      msg.scrollIntoView({behavior:'smooth',block:'center'});}
+    else{showError(form,res.body&&res.body.error?res.body.error:'Something went wrong. Please call (707) 578-6565.');}
+  }).catch(function(){
+    btn.textContent=original;btn.disabled=false;
+    showError(form,'Network error. Please call (707) 578-6565.');
+  });
+}
+function showError(form,text){
+  var err=document.getElementById('formError2');
+  if(!err){err=document.createElement('div');err.id='formError2';
+    err.setAttribute('role','alert');
+    err.style.cssText='background:#FDECEA;border-left:4px solid #C62828;color:#7F1D1D;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;font-size:15px;';
+    form.parentNode.insertBefore(err,form);}
+  err.textContent=text;err.style.display='block';
+  err.scrollIntoView({behavior:'smooth',block:'center'});
 }
 </script>
 

@@ -25,7 +25,9 @@
 <link rel="canonical" href="https://www.howardconstructioninc.com/gallery.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap"></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Outfit',sans-serif;color:#0A1628;background:#fff;overflow-x:hidden;}img{display:block;max-width:100%;}a{text-decoration:none;color:inherit;}
 :root{--navy:#0A1628;--blue:#1565C0;--blue-mid:#1976D2;--blue-light:#42A5F5;--blue-pale:#E3F2FD;--blue-bg:#F0F7FF;--accent:#F9A825;--accent-dark:#F57F17;--white:#FDFEFF;--text:#0A1628;--text-light:#4A5568;--border:#BBDEFB;}
@@ -263,7 +265,7 @@
   <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
   <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
   <div style="display:flex;flex-direction:column;align-items:center;">
-    <img id="lbImg" src="" alt="">
+    <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
     <div class="lb-cap" id="lbCap"></div>
   </div>
   <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>

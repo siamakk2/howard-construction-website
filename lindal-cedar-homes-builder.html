@@ -154,6 +154,24 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .statbox{background:var(--blue-bg);border:1px solid var(--border);border-radius:12px;padding:22px;text-align:center;}
 .statnum{font-family:'Playfair Display',serif;font-size:32px;color:var(--blue);font-weight:700;line-height:1;}
 .statlbl{font-size:12.5px;color:var(--text-light);margin-top:8px;line-height:1.4;}
+
+.has-drop{position:relative;}
+.has-drop>a::before{content:'';position:absolute;left:0;right:0;top:100%;height:14px;}
+.drop{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(-6px);
+  min-width:232px;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);
+  border-radius:10px;box-shadow:0 16px 40px rgba(10,22,40,0.18);padding:8px;list-style:none;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:1200;}
+.has-drop:hover>.drop,.has-drop:focus-within>.drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.drop li{margin:0;}
+.drop a{display:block;padding:9px 14px;font-size:13px;font-weight:500;color:var(--text);border-radius:6px;white-space:nowrap;}
+.drop a::after{display:none;}
+.drop a:hover,.drop a:focus{background:var(--blue-bg);color:var(--blue);}
+.drop .drop-all{border-top:1px solid var(--border);margin-top:6px;padding-top:6px;}
+.drop .drop-all a{font-weight:700;color:var(--blue);}
+.drop-caret{display:inline-block;margin-left:4px;font-size:9px;vertical-align:middle;opacity:.65;}
+.mob-sub{display:flex;flex-direction:column;background:var(--blue-bg);border-radius:8px;margin:2px 0 8px;}
+.mob-sub a{padding:10px 16px!important;font-size:13.5px!important;font-weight:500!important;border-bottom:1px solid rgba(21,101,192,0.08)!important;}
+.mob-sub a:last-child{border-bottom:none!important;font-weight:700!important;color:var(--blue)!important;}
 </style>
 </head>
 <body>
@@ -164,7 +182,22 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="service-areas.html">Service Areas</a></li>
+      <li class="has-drop">
+        <a href="service-areas.html" aria-haspopup="true">Service Areas<span class="drop-caret" aria-hidden="true">&#9660;</span></a>
+        <ul class="drop">
+        <li><a href="general-contractor-santa-rosa.html">Santa Rosa</a></li>
+        <li><a href="general-contractor-sonoma-county.html">Sonoma County</a></li>
+        <li><a href="general-contractor-sonoma.html">Sonoma &amp; Glen Ellen</a></li>
+        <li><a href="general-contractor-napa.html">Napa</a></li>
+        <li><a href="general-contractor-yountville.html">Yountville</a></li>
+        <li><a href="general-contractor-st-helena.html">St. Helena</a></li>
+        <li><a href="general-contractor-calistoga.html">Calistoga</a></li>
+        <li><a href="general-contractor-angwin.html">Angwin &amp; Deer Park</a></li>
+        <li><a href="general-contractor-american-canyon.html">American Canyon</a></li>
+        <li><a href="general-contractor-marin.html">Marin County</a></li>
+          <li class="drop-all"><a href="service-areas.html">All Service Areas &rarr;</a></li>
+        </ul>
+      </li>
       <li><a href="knowledge.html">Knowledge Base</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="testimonials.html">Reviews</a></li>
@@ -180,6 +213,19 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   <a href="services.html">Services</a>
   <a href="gallery.html">Gallery</a>
   <a href="service-areas.html">Service Areas</a>
+  <div class="mob-sub">
+    <a href="general-contractor-santa-rosa.html">Santa Rosa</a>
+    <a href="general-contractor-sonoma-county.html">Sonoma County</a>
+    <a href="general-contractor-sonoma.html">Sonoma &amp; Glen Ellen</a>
+    <a href="general-contractor-napa.html">Napa</a>
+    <a href="general-contractor-yountville.html">Yountville</a>
+    <a href="general-contractor-st-helena.html">St. Helena</a>
+    <a href="general-contractor-calistoga.html">Calistoga</a>
+    <a href="general-contractor-angwin.html">Angwin &amp; Deer Park</a>
+    <a href="general-contractor-american-canyon.html">American Canyon</a>
+    <a href="general-contractor-marin.html">Marin County</a>
+    <a href="service-areas.html">All Service Areas &rarr;</a>
+  </div>
   <a href="knowledge.html">Knowledge Base</a>
   <a href="about.html">About Us</a>
   <a href="testimonials.html">Reviews</a>

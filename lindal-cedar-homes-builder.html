@@ -60,7 +60,8 @@
 .mob-nav a{padding:13px 4px;font-weight:600;font-size:15px;border-bottom:1px solid var(--blue-pale);}
 .mob-nav.open{display:flex;}
 @media(max-width:1080px){.nav-links{display:none;}.hbgr{display:flex;}}
-.hero{margin-top:76px;background:linear-gradient(135deg,#0A1628 0%,#0D2140 55%,#123a6b 100%);color:#fff;padding:88px 32px 72px;position:relative;overflow:hidden;}
+.hero{margin-top:76px;color:#fff;padding:88px 32px 72px;position:relative;overflow:hidden;background-image:linear-gradient(100deg,rgba(10,22,40,0.94) 0%,rgba(10,22,40,0.86) 42%,rgba(13,43,78,0.72) 70%,rgba(21,101,192,0.55) 100%),url('hero/hero-lindal.jpg');background-size:cover;background-position:center 42%;}
+@media(max-width:760px){.hero{background-image:linear-gradient(180deg,rgba(10,22,40,0.93) 0%,rgba(10,22,40,0.88) 55%,rgba(13,43,78,0.80) 100%),url('hero/hero-lindal.jpg');padding:64px 24px 56px;}}
 .hero::after{content:'';position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(249,168,37,0.18),transparent 70%);}
 .hero-in{max-width:1080px;margin:0 auto;position:relative;z-index:1;}
 .crumbs{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:18px;}
@@ -172,6 +173,17 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .mob-sub{display:flex;flex-direction:column;background:var(--blue-bg);border-radius:8px;margin:2px 0 8px;}
 .mob-sub a{padding:10px 16px!important;font-size:13.5px!important;font-weight:500!important;border-bottom:1px solid rgba(21,101,192,0.08)!important;}
 .mob-sub a:last-child{border-bottom:none!important;font-weight:700!important;color:var(--blue)!important;}
+
+/* --- contrast fix: <strong> inside dark panels was inheriting navy --- */
+.answerbox strong,.answerbox b{color:#FFD98A!important;font-weight:700;}
+.keytake strong,.keytake b{color:#FFD98A!important;font-weight:700;}
+.endcta strong,.endcta b{color:#FFD98A!important;font-weight:700;}
+.answerbox a{color:#FFD98A!important;text-decoration:underline;}
+.endcta a:not(.btn-a){color:#FFD98A!important;text-decoration:underline;}
+.keytake a{color:#FFD98A!important;text-decoration:underline;}
+.answerbox li,.keytake li{color:rgba(255,255,255,0.92)!important;}
+.svc-strip strong,.cta-band strong{color:#FFD98A!important;}
+.cta-band a:not(.btn-a):not(.btn-white){color:#FFD98A!important;}
 </style>
 </head>
 <body>

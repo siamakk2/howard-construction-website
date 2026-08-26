@@ -28,12 +28,64 @@ function escapeHtml(s) {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Only our own origins may post to this endpoint. Blocks the trivial case of
+// a third-party page scripting our form to send mail on our behalf.
+const ALLOWED_ORIGINS = [
+  'https://www.howardconstructioninc.com',
+  'https://howardconstructioninc.com'
+];
+
+function clientIp(req) {
+  return String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+}
+
+// Fixed-window rate limit in Upstash: 5 submissions per IP per 10 minutes.
+// Fails OPEN — if the store is unreachable we would rather accept a real lead
+// than reject it, since this endpoint is the business's primary intake.
+async function rateLimited(req) {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return false;
+  try {
+    const base = url.replace(/\/+$/, '');
+    const auth = { Authorization: 'Bearer ' + token };
+    const win = Math.floor(Date.now() / 600000);
+    const key = 'rl:contact:' + win + ':' +
+      require('crypto').createHash('sha256').update(clientIp(req)).digest('hex').slice(0, 24);
+    const r = await fetch(base + '/incr/' + key, { headers: auth });
+    const out = await r.json();
+    const hits = Number(out && out.result) || 0;
+    if (hits === 1) {
+      await fetch(base + '/expire/' + key + '/900', { headers: auth });
+    }
+    return hits > 5;
+  } catch (e) {
+    return false;
+  }
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
 
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ ok: false, error: 'Method not allowed.' });
+  }
+
+  // Reject cross-site posts. Same-origin form submissions from our own pages
+  // send a matching Origin; requests with no Origin at all are allowed through
+  // so that non-browser clients and older browsers are not broken.
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.indexOf(origin) === -1) {
+    return res.status(403).json({ ok: false, error: 'Forbidden.' });
+  }
+
+  if (await rateLimited(req)) {
+    res.setHeader('Retry-After', '600');
+    return res.status(429).json({
+      ok: false,
+      error: 'Too many requests. Please call (707) 578-6565 if this is urgent.'
+    });
   }
 
   try {

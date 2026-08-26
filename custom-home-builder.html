@@ -120,7 +120,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4.6vw,50px);line-he
 .fl-name{font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:6px;}
 .fl-lic{font-size:12px;color:var(--accent);margin-bottom:14px;}
 .fl-desc{font-size:13.5px;line-height:1.7;}
-.fc h4{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:0.5px;}
+.fc h2,.fc .fc-h{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:0.5px;}
 .fc ul{list-style:none;}
 .fc li{margin-bottom:9px;}
 .fc a{font-size:13.5px;color:rgba(255,255,255,0.65);transition:color .2s;}
@@ -160,12 +160,12 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .shotgrid img{width:100%;border-radius:12px;border:1px solid var(--border);display:block;}
 .scope{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:26px 0;}
 .scopecard{background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:10px;padding:22px;}
-.scopecard h4{font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin:0 0 10px;font-weight:700;}
+.scopecard h3{font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin:0 0 10px;font-weight:700;}
 .scopecard ul{margin:0 0 0 18px;font-size:14.5px;line-height:1.65;color:var(--text-light);}
 .scopecard li{margin-bottom:6px;}
 .phase{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--border);}
 .phasenum{flex:0 0 46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;}
-.phasebody h4{font-family:'Outfit',sans-serif;font-size:16.5px;color:var(--navy);margin:4px 0 6px;font-weight:600;}
+.phasebody h3{font-family:'Outfit',sans-serif;font-size:16.5px;color:var(--navy);margin:4px 0 6px;font-weight:600;}
 .phasebody p{font-size:15px;color:var(--text-light);line-height:1.65;margin:0;}
 .phasebody .dur{font-size:12.5px;color:var(--blue);font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
 .endcta{background:linear-gradient(135deg,#1565C0,#0A1628);border-radius:16px;padding:44px 40px;text-align:center;color:#fff;margin-top:60px;}
@@ -176,9 +176,15 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .relcard:hover{border-color:var(--blue);transform:translateY(-2px);}
 .relcard span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-weight:700;}
 .relcard p{font-size:14.5px;color:var(--navy)!important;font-weight:600;margin:7px 0 0!important;line-height:1.4;}
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#F9A825;color:#0A1628;padding:12px 20px;font-weight:700;border-radius:0 0 8px 0;}
+.skip-link:focus{left:0;outline:3px solid #0A1628;outline-offset:2px;}
+:focus-visible{outline:3px solid #1565C0;outline-offset:2px;}
+.nav-phone-btn:focus-visible,.nav-cta-btn:focus-visible,.btn-a:focus-visible{outline:3px solid #0A1628;outline-offset:3px;}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <nav class="nav" id="navbar">
   <div class="nav-inner">
     <a href="index.html" style="flex-shrink:0;"><img src="logo.svg" alt="Howard Construction Inc — Licensed General Contractor, Lic. #836369" style="height:64px;width:auto;display:block;"></a>
@@ -194,7 +200,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
       <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
     </ul>
-    <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hbgr" id="hbgr" aria-label="Menu" aria-expanded="false" aria-controls="mobNav"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
@@ -209,6 +215,8 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   <a href="tel:+17075786565" class="mob-phone-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a>
   <a href="contact.html">Get a Free Estimate</a>
 </div>
+<main id="main">
+
 
 <section class="hero">
   <div class="hero-in">
@@ -246,42 +254,42 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   <p>Plenty of contractors describe themselves as home builders and then subcontract the coordination to someone else, or hand you off to a project manager running fifteen jobs. Here is the complete scope we carry ourselves on a ground-up build:</p>
 
   <div class="scope">
-    <div class="scopecard"><h4>Ground &amp; Structure</h4><ul>
+    <div class="scopecard"><h3>Ground &amp; Structure</h3><ul>
       <li>Site evaluation, survey coordination, soils report</li>
       <li>Grading, drainage and retaining</li>
       <li>Utility trenching, well and septic</li>
       <li>Engineered slab, stem wall or drilled-pier foundations</li>
       <li>Framing, structural steel where specified</li>
     </ul></div>
-    <div class="scopecard"><h4>Envelope</h4><ul>
+    <div class="scopecard"><h3>Envelope</h3><ul>
       <li>Roof structure and assembly, Class A in fire zones</li>
       <li>Windows and exterior doors</li>
       <li>Weather-resistive barrier, flashing and siding</li>
       <li>Insulation and air sealing to Title 24</li>
       <li>Decks, porches and exterior stairs</li>
     </ul></div>
-    <div class="scopecard"><h4>Systems</h4><ul>
+    <div class="scopecard"><h3>Systems</h3><ul>
       <li>Plumbing, gas and water heating</li>
       <li>Electrical service, panel and full rough-in</li>
       <li>HVAC, ducting and ventilation</li>
       <li>Solar and battery storage</li>
       <li>Residential fire sprinklers, low voltage and networking</li>
     </ul></div>
-    <div class="scopecard"><h4>Interior</h4><ul>
+    <div class="scopecard"><h3>Interior</h3><ul>
       <li>Drywall, texture and paint</li>
       <li>Custom cabinetry and millwork</li>
       <li>Countertops, tile and stone</li>
       <li>Flooring and finish carpentry</li>
       <li>Fixtures, appliances and hardware</li>
     </ul></div>
-    <div class="scopecard"><h4>Compliance</h4><ul>
+    <div class="scopecard"><h3>Compliance</h3><ul>
       <li>Permit submittal and plan-check corrections</li>
       <li>Structural engineering coordination</li>
       <li>Title 24 energy documentation</li>
       <li>WUI Chapter 7A fire-hardened assemblies</li>
       <li>Every inspection through certificate of occupancy</li>
     </ul></div>
-    <div class="scopecard"><h4>Specialty</h4><ul>
+    <div class="scopecard"><h3>Specialty</h3><ul>
       <li>Post-wildfire rebuilds and insurance scope coordination</li>
       <li>Hillside and steep-slope construction</li>
       <li>Manufacturer packages including <a href="lindal-cedar-homes-builder.html" style="color:#1565C0;font-weight:600;">Lindal post-and-beam</a></li>
@@ -316,15 +324,15 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   <p>Those are hard construction costs and exclude land. Site work adds $35,000 on a flat serviced lot and can exceed $600,000 on a steep unimproved parcel; permits and impact fees add $45,000&ndash;$140,000; WUI fire hardening adds $25,000&ndash;$70,000. The full breakdown, including where every dollar goes, is in our <a href="cost-to-build-a-house-sonoma-napa.html">cost to build a house guide</a>.</p>
 
   <h2 id="process">How a build runs, phase by phase</h2>
-  <div class="phase"><div class="phasenum">1</div><div class="phasebody"><div class="dur">Before you buy, ideally</div><h4>Site walk and feasibility</h4><p>Before anything is drawn, we walk the land with you: slope, drainage, access width for delivery and fire apparatus, utilities at the property line, septic feasibility, fire zone, protected oaks. This is free, and on an unimproved parcel it is the highest-value hour of the entire project.</p></div></div>
-  <div class="phase"><div class="phasenum">2</div><div class="phasebody"><div class="dur">3&ndash;7 months</div><h4>Design and engineering</h4><p>We work alongside your architect or designer, or bring one in. Structural engineering, soils report, Title 24 compliance and the full construction document set.</p></div></div>
-  <div class="phase"><div class="phasenum">3</div><div class="phasebody"><div class="dur">2&ndash;4 weeks</div><h4>Budget and contract</h4><p>A written line-item estimate with itemised allowances and stated exclusions, so you see the whole number before committing rather than discovering it in month six.</p></div></div>
-  <div class="phase"><div class="phasenum">4</div><div class="phasebody"><div class="dur">2&ndash;5 months</div><h4>Permitting</h4><p>Submittal, plan-check corrections, engineering coordination, fees and approvals across whichever of the twelve local jurisdictions governs your parcel. You do not visit the counter.</p></div></div>
-  <div class="phase"><div class="phasenum">5</div><div class="phasebody"><div class="dur">1.5&ndash;3 months</div><h4>Site work and foundation</h4><p>Grading, drainage, retaining where needed, utility trenching, well and septic, then a foundation set to the tolerance the structure above it requires.</p></div></div>
-  <div class="phase"><div class="phasenum">6</div><div class="phasebody"><div class="dur">2&ndash;4 months</div><h4>Framing and dry-in</h4><p>Framing, roof, windows and doors, weather-resistive barrier and siding &mdash; getting the building closed against the weather before the wet season wherever the schedule allows.</p></div></div>
-  <div class="phase"><div class="phasenum">7</div><div class="phasebody"><div class="dur">1.5&ndash;2.5 months</div><h4>Systems and rough inspections</h4><p>Plumbing, electrical, HVAC, solar, fire sprinklers, low voltage. Each inspected and signed off before anything is covered.</p></div></div>
-  <div class="phase"><div class="phasenum">8</div><div class="phasebody"><div class="dur">3&ndash;5 months</div><h4>Finishes</h4><p>Insulation, drywall, cabinetry, tile, flooring, trim, paint, fixtures and appliances.</p></div></div>
-  <div class="phase"><div class="phasenum">9</div><div class="phasebody"><div class="dur">3&ndash;6 weeks</div><h4>Final inspection and handover</h4><p>Final inspections, certificate of occupancy, punch list walked in daylight together, and a closeout package with warranties, paint colours, product specifications and lien releases.</p></div></div>
+  <div class="phase"><div class="phasenum">1</div><div class="phasebody"><div class="dur">Before you buy, ideally</div><h3>Site walk and feasibility</h3><p>Before anything is drawn, we walk the land with you: slope, drainage, access width for delivery and fire apparatus, utilities at the property line, septic feasibility, fire zone, protected oaks. This is free, and on an unimproved parcel it is the highest-value hour of the entire project.</p></div></div>
+  <div class="phase"><div class="phasenum">2</div><div class="phasebody"><div class="dur">3&ndash;7 months</div><h3>Design and engineering</h3><p>We work alongside your architect or designer, or bring one in. Structural engineering, soils report, Title 24 compliance and the full construction document set.</p></div></div>
+  <div class="phase"><div class="phasenum">3</div><div class="phasebody"><div class="dur">2&ndash;4 weeks</div><h3>Budget and contract</h3><p>A written line-item estimate with itemised allowances and stated exclusions, so you see the whole number before committing rather than discovering it in month six.</p></div></div>
+  <div class="phase"><div class="phasenum">4</div><div class="phasebody"><div class="dur">2&ndash;5 months</div><h3>Permitting</h3><p>Submittal, plan-check corrections, engineering coordination, fees and approvals across whichever of the twelve local jurisdictions governs your parcel. You do not visit the counter.</p></div></div>
+  <div class="phase"><div class="phasenum">5</div><div class="phasebody"><div class="dur">1.5&ndash;3 months</div><h3>Site work and foundation</h3><p>Grading, drainage, retaining where needed, utility trenching, well and septic, then a foundation set to the tolerance the structure above it requires.</p></div></div>
+  <div class="phase"><div class="phasenum">6</div><div class="phasebody"><div class="dur">2&ndash;4 months</div><h3>Framing and dry-in</h3><p>Framing, roof, windows and doors, weather-resistive barrier and siding &mdash; getting the building closed against the weather before the wet season wherever the schedule allows.</p></div></div>
+  <div class="phase"><div class="phasenum">7</div><div class="phasebody"><div class="dur">1.5&ndash;2.5 months</div><h3>Systems and rough inspections</h3><p>Plumbing, electrical, HVAC, solar, fire sprinklers, low voltage. Each inspected and signed off before anything is covered.</p></div></div>
+  <div class="phase"><div class="phasenum">8</div><div class="phasebody"><div class="dur">3&ndash;5 months</div><h3>Finishes</h3><p>Insulation, drywall, cabinetry, tile, flooring, trim, paint, fixtures and appliances.</p></div></div>
+  <div class="phase"><div class="phasenum">9</div><div class="phasebody"><div class="dur">3&ndash;6 weeks</div><h3>Final inspection and handover</h3><p>Final inspections, certificate of occupancy, punch list walked in daylight together, and a closeout package with warranties, paint colours, product specifications and lien releases.</p></div></div>
 
   <h2 id="land">Before you buy the land</h2>
   <p>The single most expensive mistake in custom home building is buying a parcel that costs a fortune to build on. The purchase price is only half the question &mdash; the other half is what the land will demand before a foundation can be poured.</p>
@@ -371,6 +379,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   </div>
 </div>
 
+</main>
 <footer class="footer"><div class="footer-grid">
   <div>
     <img src="logo.svg" alt="Howard Construction Inc. logo" class="footer-logo" style="height:74px;width:auto;background:#fff;border-radius:8px;padding:8px 14px;margin-bottom:14px;">
@@ -378,7 +387,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <div class="fl-lic">CA Lic. #836369 &middot; BBB Accredited &middot; NCBE Member</div>
     <p class="fl-desc">Northern California&rsquo;s trusted general contractor serving Santa Rosa, Sonoma Valley, Napa Valley, Healdsburg, Windsor, Calistoga, and all surrounding communities since 2000.</p>
   </div>
-  <div class="fc"><h4>Services</h4><ul>
+  <div class="fc"><h2 class="fc-h">Services</h2><ul>
     <li><a href="custom-home-builder.html">Custom Home Building</a></li>
     <li><a href="services.html">Home Remodels</a></li>
     <li><a href="services.html">Home Additions</a></li>
@@ -387,7 +396,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <li><a href="services.html">Garages</a></li>
     <li><a href="services.html">ADU Construction</a></li>
   </ul></div>
-  <div class="fc"><h4>Company</h4><ul>
+  <div class="fc"><h2 class="fc-h">Company</h2><ul>
     <li><a href="about.html">About Philip Howard</a></li>
     <li><a href="gallery.html">Project Gallery</a></li>
     <li><a href="service-areas.html">Service Areas</a></li>
@@ -395,7 +404,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <li><a href="knowledge.html">Knowledge Base</a></li>
     <li><a href="contact.html">Free Estimate</a></li>
   </ul></div>
-  <div class="fc"><h4>Contact</h4>
+  <div class="fc"><h2 class="fc-h">Contact</h2>
     <div class="fci">&#128222; <a href="tel:+17075786565">(707) 578-6565</a></div>
     <div class="fci">&#9993; <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
     <div class="fci">&#128205; 5017 Winter Creek Rd, Santa Rosa CA 95404</div>
@@ -407,7 +416,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 </div></footer>
 <script>
 var hb=document.getElementById('hbgr'),mn=document.getElementById('mobNav');
-if(hb){hb.addEventListener('click',function(){mn.classList.toggle('open');});}
+if(hb){hb.addEventListener('click',function(){var op=mn.classList.toggle('open');hb.setAttribute('aria-expanded',op?'true':'false');});}
 </script>
 </body>
 </html>

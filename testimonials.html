@@ -110,7 +110,7 @@ footer{background:#111;padding:72px 48px 36px;}
 .foot-logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;}
 .foot-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
 .foot-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
-.foot-col h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
+.foot-col h2,.foot-col .fc-h{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .foot-col ul a{font-size:13px;color:rgba(255,255,255,0.32);transition:color .2s;}
 .foot-col ul a:hover{color:#fff;}
@@ -265,6 +265,11 @@ footer h1, footer h2, footer p,
 @media(max-width:900px){.nav-links{display:none!important;}.hbgr{display:flex;}}
 /* Page hero margin */
 
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#F9A825;color:#0A1628;padding:12px 20px;font-weight:700;border-radius:0 0 8px 0;}
+.skip-link:focus{left:0;outline:3px solid #0A1628;outline-offset:2px;}
+:focus-visible{outline:3px solid #1565C0;outline-offset:2px;}
+.nav-phone-btn:focus-visible,.nav-cta-btn:focus-visible,.btn-a:focus-visible{outline:3px solid #0A1628;outline-offset:3px;}
 </style>
 <meta property="og:title" content="Reviews & Projects | Howard Construction Inc.">
 <meta property="og:description" content="See real reviews and completed projects from Howard Construction across Sonoma & Napa Valley. Custom homes, remodels, ADUs & additions in Northern California since 2000.">
@@ -282,6 +287,7 @@ footer h1, footer h2, footer p,
 <meta name="twitter:image" content="https://www.howardconstructioninc.com/og-image.jpg">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <nav class="nav" id="navbar">
   <div class="nav-inner">
     <a href="index.html" style="flex-shrink:0;"><img src="logo.svg" alt="Howard Construction Inc — Licensed General Contractor, Lic. #836369" style="height:64px;width:auto;display:block;"></a>
@@ -312,7 +318,7 @@ footer h1, footer h2, footer p,
       <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
     </ul>
-    <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hbgr" id="hbgr" aria-label="Menu" aria-expanded="false" aria-controls="mobNav"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
@@ -340,6 +346,8 @@ footer h1, footer h2, footer p,
   <a href="tel:+17075786565" class="mob-phone-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a>
   <a href="contact.html">Get a Free Estimate</a>
 </div>
+<main id="main">
+
 
 <section class="page-hero">
   <div style="max-width:700px;">
@@ -431,6 +439,7 @@ footer h1, footer h2, footer p,
   </div>
 </div>
 <!-- END PHONE CTA STRIP -->
+</main>
 <footer>
   <div class="footer-grid">
     <div>
@@ -440,10 +449,10 @@ footer h1, footer h2, footer p,
       <div class="foot-lic">CA Lic. #836369 · BBB Accredited · NCBE Member</div>
       <p class="foot-desc">Serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga since 2000.</p>
     </div>
-    <div class="foot-col"><h4>Services</h4><ul><li><a href="custom-home-builder.html">Custom Home Building</a></li>
+    <div class="foot-col"><h2 class="fc-h">Services</h2><ul><li><a href="custom-home-builder.html">Custom Home Building</a></li>
     <li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Home Additions</a></li><li><a href="services.html">Pool Construction</a></li><li><a href="services.html">Decks &amp; Pergolas</a></li><li><a href="services.html">ADU Construction</a></li></ul></div>
-    <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Philip Howard</a></li><li><a href="testimonials.html">Client Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
-    <div class="foot-col"><h4>Contact</h4>
+    <div class="foot-col"><h2 class="fc-h">Company</h2><ul><li><a href="about.html">About Philip Howard</a></li><li><a href="testimonials.html">Client Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
+    <div class="foot-col"><h2 class="fc-h">Contact</h2>
       <div class="fc-line">📞 <a href="tel:+17075786565">(707) 578-6565</a></div>
       <div class="fc-line">✉️ <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
       <div class="fc-line">📍 5017 Winter Creek Rd, Santa Rosa CA 95404</div>
@@ -536,7 +545,7 @@ footer h1, footer h2, footer p,
     <div id="hci-cdots"><span></span><span></span><span></span></div>
   </div>
   <div id="hci-cfoot">
-    <input id="hci-cinp" type="text" placeholder="Ask us anything..." autocomplete="off">
+    <input id="hci-cinp" type="text" aria-label="Ask a question about your project" placeholder="Ask us anything..." autocomplete="off">
     <button id="hci-cgo" aria-label="Send"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
   </div>
   <div id="hci-cpow">Howard Construction AI &mdash; Northern California Expert</div>

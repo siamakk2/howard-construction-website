@@ -124,7 +124,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4.6vw,50px);line-he
 .fl-name{font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:6px;}
 .fl-lic{font-size:12px;color:var(--accent);margin-bottom:14px;}
 .fl-desc{font-size:13.5px;line-height:1.7;}
-.fc h4{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:0.5px;}
+.fc h2,.fc .fc-h{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:0.5px;}
 .fc ul{list-style:none;}
 .fc li{margin-bottom:9px;}
 .fc a{font-size:13.5px;color:rgba(255,255,255,0.65);transition:color .2s;}
@@ -197,9 +197,15 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .answerbox li,.keytake li{color:rgba(255,255,255,0.92)!important;}
 .svc-strip strong,.cta-band strong{color:#FFD98A!important;}
 .cta-band a:not(.btn-a):not(.btn-white){color:#FFD98A!important;}
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#F9A825;color:#0A1628;padding:12px 20px;font-weight:700;border-radius:0 0 8px 0;}
+.skip-link:focus{left:0;outline:3px solid #0A1628;outline-offset:2px;}
+:focus-visible{outline:3px solid #1565C0;outline-offset:2px;}
+.nav-phone-btn:focus-visible,.nav-cta-btn:focus-visible,.btn-a:focus-visible{outline:3px solid #0A1628;outline-offset:3px;}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <nav class="nav" id="navbar">
   <div class="nav-inner">
     <a href="index.html" style="flex-shrink:0;"><img src="logo.svg" alt="Howard Construction Inc — Licensed General Contractor, Lic. #836369" style="height:64px;width:auto;display:block;"></a>
@@ -230,7 +236,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
       <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
     </ul>
-    <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hbgr" id="hbgr" aria-label="Menu" aria-expanded="false" aria-controls="mobNav"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
@@ -258,6 +264,8 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   <a href="tel:+17075786565" class="mob-phone-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a>
   <a href="contact.html">Get a Free Estimate</a>
 </div>
+<main id="main">
+
 
 <section class="hero">
   <div class="hero-in">
@@ -402,6 +410,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   </div>
 </div>
 
+</main>
 <footer class="footer"><div class="footer-grid">
   <div>
     <img src="logo.svg" alt="Howard Construction Inc. logo" class="footer-logo" style="height:74px;width:auto;background:#fff;border-radius:8px;padding:8px 14px;margin-bottom:14px;">
@@ -409,7 +418,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <div class="fl-lic">CA Lic. #836369 &middot; BBB Accredited &middot; NCBE Member</div>
     <p class="fl-desc">Northern California&rsquo;s trusted general contractor serving Santa Rosa, Sonoma Valley, Napa Valley, Healdsburg, Windsor, Calistoga, and all surrounding communities since 2000.</p>
   </div>
-  <div class="fc"><h4>Services</h4><ul>
+  <div class="fc"><h2 class="fc-h">Services</h2><ul>
     <li><a href="custom-home-builder.html">Custom Home Building</a></li>
     <li><a href="services.html">Home Remodels</a></li>
     <li><a href="services.html">Home Additions</a></li>
@@ -418,7 +427,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <li><a href="services.html">Garages</a></li>
     <li><a href="services.html">ADU Construction</a></li>
   </ul></div>
-  <div class="fc"><h4>Company</h4><ul>
+  <div class="fc"><h2 class="fc-h">Company</h2><ul>
     <li><a href="about.html">About Philip Howard</a></li>
     <li><a href="gallery.html">Project Gallery</a></li>
     <li><a href="service-areas.html">Service Areas</a></li>
@@ -426,7 +435,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <li><a href="knowledge.html">Knowledge Base</a></li>
     <li><a href="contact.html">Free Estimate</a></li>
   </ul></div>
-  <div class="fc"><h4>Contact</h4>
+  <div class="fc"><h2 class="fc-h">Contact</h2>
     <div class="fci">&#128222; <a href="tel:+17075786565">(707) 578-6565</a></div>
     <div class="fci">&#9993; <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
     <div class="fci">&#128205; 5017 Winter Creek Rd, Santa Rosa CA 95404</div>
@@ -438,7 +447,7 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 </div></footer>
 <script>
 var hb=document.getElementById('hbgr'),mn=document.getElementById('mobNav');
-if(hb){hb.addEventListener('click',function(){mn.classList.toggle('open');});}
+if(hb){hb.addEventListener('click',function(){var op=mn.classList.toggle('open');hb.setAttribute('aria-expanded',op?'true':'false');});}
 </script>
 </body>
 </html>

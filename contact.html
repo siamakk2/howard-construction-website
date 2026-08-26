@@ -112,7 +112,7 @@ footer{background:#111;padding:72px 48px 36px;}
 .foot-logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;}
 .foot-lic{font-size:10px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
 .foot-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.75;}
-.foot-col h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
+.foot-col h2,.foot-col .fc-h{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:16px;}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .foot-col ul a{font-size:13px;color:rgba(255,255,255,0.32);transition:color .2s;}
 .foot-col ul a:hover{color:#fff;}
@@ -274,6 +274,11 @@ footer h1, footer h2, footer p,
 /* Page hero margin */
 
 
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#F9A825;color:#0A1628;padding:12px 20px;font-weight:700;border-radius:0 0 8px 0;}
+.skip-link:focus{left:0;outline:3px solid #0A1628;outline-offset:2px;}
+:focus-visible{outline:3px solid #1565C0;outline-offset:2px;}
+.nav-phone-btn:focus-visible,.nav-cta-btn:focus-visible,.btn-a:focus-visible{outline:3px solid #0A1628;outline-offset:3px;}
 </style>
 <meta property="og:title" content="Contact Us | Howard Construction Inc.">
 <meta property="og:description" content="Get your free estimate from Philip Howard. Call (707) 578-6565 or message us. Serving Santa Rosa, Sonoma, Napa & all of Northern California. Mon-Sat.">
@@ -291,6 +296,7 @@ footer h1, footer h2, footer p,
 <meta name="twitter:image" content="https://www.howardconstructioninc.com/og-image.jpg">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <nav class="nav" id="navbar">
   <div class="nav-inner">
@@ -322,7 +328,7 @@ footer h1, footer h2, footer p,
       <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
     </ul>
-    <button class="hbgr" id="hbgr" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hbgr" id="hbgr" aria-label="Menu" aria-expanded="false" aria-controls="mobNav"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
@@ -350,6 +356,8 @@ footer h1, footer h2, footer p,
   <a href="tel:+17075786565" class="mob-phone-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a>
   <a href="contact.html">Get a Free Estimate</a>
 </div>
+<main id="main">
+
 
 <section class="page-hero">
   <div style="max-width:700px;">
@@ -368,18 +376,17 @@ footer h1, footer h2, footer p,
       <div class="form-title">Tell Us About Your Project</div>
       <div class="form-sub">Phil Howard personally reviews every inquiry and responds within one business day. Fill out as much or as little as you know — the consultation will take care of the rest.</div>
       <form id="contactForm" onsubmit="submitForm(event)" novalidate>
-<div style="position:absolute;left:-9999px;" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+<div style="position:absolute;left:-9999px;" aria-hidden="true"><label>Company<input type="text" name="company" aria-hidden="true" tabindex="-1" autocomplete="off"></label></div>
         <div class="form-row">
-          <div class="form-group"><label>First Name *</label><input name="firstName" type="text" required placeholder="John"></div>
-          <div class="form-group"><label>Last Name *</label><input name="lastName" type="text" required placeholder="Smith"></div>
+          <div class="form-group"><label for="f-firstName">First Name *</label><input autocomplete="given-name" id="f-firstName" name="firstName" type="text" required aria-required="true" placeholder="John"></div>
+          <div class="form-group"><label for="f-lastName">Last Name *</label><input autocomplete="family-name" id="f-lastName" name="lastName" type="text" required aria-required="true" placeholder="Smith"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Phone Number *</label><input name="phone" type="tel" required placeholder="(707) 555-0100"></div>
-          <div class="form-group"><label>Email Address *</label><input name="email" type="email" required placeholder="john@email.com"></div>
+          <div class="form-group"><label for="f-phone">Phone Number *</label><input autocomplete="tel" id="f-phone" name="phone" type="tel" required aria-required="true" placeholder="(707) 555-0100"></div>
+          <div class="form-group"><label for="f-email">Email Address *</label><input autocomplete="email" id="f-email" name="email" type="email" required aria-required="true" placeholder="john@email.com"></div>
         </div>
-        <div class="form-group"><label>Project Address or City *</label><input name="projectAddress" type="text" required placeholder="Santa Rosa · Napa · Sonoma · Calistoga · San Francisco…"></div>
-        <div class="form-group"><label>Type of Project *</label>
-          <select name="projectType" required>
+        <div class="form-group"><label for="f-projectAddress">Project Address or City *</label><input autocomplete="street-address" id="f-projectAddress" name="projectAddress" type="text" required aria-required="true" placeholder="Santa Rosa · Napa · Sonoma · Calistoga · San Francisco…"></div>
+        <div class="form-group"><label for="f-projectType">Type of Project *</label><select id="f-projectType" name="projectType" required aria-required="true">
             <option value="">Select your project type…</option>
             <option>Kitchen Remodel</option>
             <option>Bathroom Remodel</option>
@@ -395,8 +402,7 @@ footer h1, footer h2, footer p,
           </select>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Approximate Budget</label>
-            <select name="budget">
+          <div class="form-group"><label for="f-budget">Approximate Budget</label><select id="f-budget" name="budget">
               <option value="">Prefer not to say</option>
               <option>Under $25,000</option>
               <option>$25,000 – $50,000</option>
@@ -406,8 +412,7 @@ footer h1, footer h2, footer p,
               <option>$500,000+</option>
             </select>
           </div>
-          <div class="form-group"><label>Desired Start Date</label>
-            <select name="startDate">
+          <div class="form-group"><label for="f-startDate">Desired Start Date</label><select id="f-startDate" name="startDate">
               <option value="">Not sure yet</option>
               <option>As soon as possible</option>
               <option>1–3 months</option>
@@ -417,7 +422,7 @@ footer h1, footer h2, footer p,
             </select>
           </div>
         </div>
-        <div class="form-group"><label>Describe Your Project</label><textarea name="details" placeholder="Tell us what you're hoping to build, remodel, or add. Include anything you know about size, style, special requirements, or challenges. Don't worry about having all the details — that's what the consultation is for."></textarea></div>
+        <div class="form-group"><label for="f-details">Describe Your Project</label><textarea id="f-details" name="details" placeholder="Tell us what you're hoping to build, remodel, or add. Include anything you know about size, style, special requirements, or challenges. Don't worry about having all the details — that's what the consultation is for."></textarea></div>
         <div class="checkbox-row">
           <input type="checkbox" id="permits">
           <label for="permits">I need help understanding the permit requirements for this project in my area.</label>
@@ -523,6 +528,7 @@ footer h1, footer h2, footer p,
   </div>
 </div>
 <!-- END PHONE CTA STRIP -->
+</main>
 <footer>
   <div class="footer-grid">
     <div>
@@ -532,10 +538,10 @@ footer h1, footer h2, footer p,
       <div class="foot-lic">CA Lic. #836369 · BBB Accredited · NCBE Member</div>
       <p class="foot-desc">Serving Sonoma Valley, Napa Valley, Santa Rosa, San Francisco, and Calistoga since 2000.</p>
     </div>
-    <div class="foot-col"><h4>Services</h4><ul><li><a href="custom-home-builder.html">Custom Home Building</a></li>
+    <div class="foot-col"><h2 class="fc-h">Services</h2><ul><li><a href="custom-home-builder.html">Custom Home Building</a></li>
     <li><a href="services.html">Home Remodels</a></li><li><a href="services.html">Home Additions</a></li><li><a href="services.html">Pool Construction</a></li><li><a href="services.html">Decks &amp; Pergolas</a></li><li><a href="services.html">ADU Construction</a></li></ul></div>
-    <div class="foot-col"><h4>Company</h4><ul><li><a href="about.html">About Philip Howard</a></li><li><a href="testimonials.html">Client Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
-    <div class="foot-col"><h4>Contact</h4>
+    <div class="foot-col"><h2 class="fc-h">Company</h2><ul><li><a href="about.html">About Philip Howard</a></li><li><a href="testimonials.html">Client Reviews</a></li><li><a href="knowledge.html">Knowledge Base</a></li><li><a href="contact.html">Free Estimate</a></li></ul></div>
+    <div class="foot-col"><h2 class="fc-h">Contact</h2>
       <div class="fc-line">📞 <a href="tel:+17075786565">(707) 578-6565</a></div>
       <div class="fc-line">✉️ <a href="mailto:info@howardconstructioninc.com">info@howardconstructioninc.com</a></div>
       <div class="fc-line">📍 5017 Winter Creek Rd, Santa Rosa CA 95404</div>
@@ -689,7 +695,7 @@ function showError(text){
     <div id="hci-cdots"><span></span><span></span><span></span></div>
   </div>
   <div id="hci-cfoot">
-    <input id="hci-cinp" type="text" placeholder="Ask us anything..." autocomplete="off">
+    <input id="hci-cinp" type="text" aria-label="Ask a question about your project" placeholder="Ask us anything..." autocomplete="off">
     <button id="hci-cgo" aria-label="Send"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
   </div>
   <div id="hci-cpow">Howard Construction AI &mdash; Northern California Expert</div>

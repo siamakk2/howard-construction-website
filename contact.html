@@ -387,7 +387,7 @@ footer h1, footer h2, footer p,
     <div class="form-panel">
       <div class="form-title">Tell Us About Your Project</div>
       <div class="form-sub">Phil Howard personally reviews every inquiry and responds within one business day. Fill out as much or as little as you know — the consultation will take care of the rest.</div>
-      <form id="contactForm" onsubmit="submitForm(event)" novalidate>
+      <form id="contactForm" novalidate>
 <div style="position:absolute;left:-9999px;" aria-hidden="true"><label>Company<input type="text" name="company" aria-hidden="true" tabindex="-1" autocomplete="off"></label></div>
         <div class="form-row">
           <div class="form-group"><label for="f-firstName">First Name *</label><input autocomplete="given-name" id="f-firstName" name="firstName" type="text" required aria-required="true" placeholder="John"></div>
@@ -573,7 +573,31 @@ function submitForm(e){
   var msg=document.getElementById('successMsg');
   var err=document.getElementById('formError');
   if(err){err.style.display='none';}
-  if(!form.checkValidity()){form.reportValidity();return;}
+  // Do our own validation and show it visibly. reportValidity() renders
+  // nothing on iOS Safari when the invalid field is off-screen or inside a
+  // hidden container, which made the button look dead.
+  var labels={firstName:'First Name',lastName:'Last Name',phone:'Phone Number',
+              email:'Email Address',projectAddress:'Project Address or City',
+              projectType:'Type of Project'};
+  var missing=[];
+  Object.keys(labels).forEach(function(n){
+    var el=form.querySelector('[name="'+n+'"]');
+    if(el && !String(el.value||'').trim()) missing.push(labels[n]);
+  });
+  var emailEl=form.querySelector('[name="email"]');
+  if(emailEl && String(emailEl.value||'').trim() &&
+     !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailEl.value.trim())){
+    missing.push('a valid Email Address');
+  }
+  if(missing.length){
+    showError('Please complete: '+missing.join(', ')+'.');
+    var first=form.querySelector('[name="'+Object.keys(labels).find(function(k){
+      var e=form.querySelector('[name="'+k+'"]');
+      return e && !String(e.value||'').trim();
+    })+'"]');
+    if(first){ try{ first.focus({preventScroll:true}); }catch(_){ } }
+    return;
+  }
   var original=btn.textContent;
   btn.textContent='Sending\u2026';btn.disabled=true;
   var data={source:document.title};
@@ -772,5 +796,23 @@ document.querySelectorAll(".hci-cq").forEach(function(q){q.addEventListener("cli
 })();
 </script>
 <script defer src="/consent.js"></script>
+
+<script>
+(function(){
+  var f=document.getElementById('contactForm');
+  if(f){ f.addEventListener('submit', function(e){
+    try { submitForm(e); }
+    catch(err) {
+      e.preventDefault();
+      console.error('submit failed', err);
+      if (typeof showError==='function') {
+        showError('Something went wrong sending the form. Please call (707) 578-6565.');
+      } else {
+        alert('Something went wrong. Please call (707) 578-6565.');
+      }
+    }
+  }); }
+})();
+</script>
 </body>
 </html>

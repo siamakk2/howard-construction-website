@@ -55,7 +55,7 @@ try{var c=JSON.parse(localStorage.getItem('sk_consent_v1'));if(c&&c.v===1&&Date.
 .nav-cta-btn::after{display:none!important;}
 .hbgr{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
 .hbgr span{display:block;width:24px;height:2.5px;background:var(--navy);border-radius:2px;}
-.mob-nav{display:none;position:fixed;top:76px;left:0;right:0;background:#fff;border-top:2px solid var(--blue);z-index:999;padding:20px 28px 28px;flex-direction:column;box-shadow:0 8px 32px rgba(21,101,192,0.15);}
+.mob-nav{display:none;position:fixed;top:76px;left:0;right:0;background:#fff;border-top:2px solid var(--blue);z-index:999;padding:20px 28px calc(28px + env(safe-area-inset-bottom));flex-direction:column;box-shadow:0 8px 32px rgba(21,101,192,0.15);max-height:calc(100vh - 76px);max-height:calc(100dvh - 76px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
 .mob-nav a{display:block;padding:14px 0;font-size:16px;font-weight:600;color:var(--text);border-bottom:1px solid var(--blue-pale);}
 .mob-nav a:last-child{border-bottom:none;margin-top:12px;background:var(--blue);color:#fff!important;text-align:center;padding:14px;border-radius:6px;}
 @media(max-width:900px){.nav-links{display:none!important;}.hbgr{display:flex;}}
@@ -137,6 +137,11 @@ try{var c=JSON.parse(localStorage.getItem('sk_consent_v1'));if(c&&c.v===1&&Date.
 .skip-link:focus{left:0;outline:3px solid #0A1628;outline-offset:2px;}
 :focus-visible{outline:3px solid #1565C0;outline-offset:2px;}
 .nav-phone-btn:focus-visible,.nav-cta-btn:focus-visible,.btn-a:focus-visible{outline:3px solid #0A1628;outline-offset:3px;}
+
+.mob-cta-top{display:flex;flex-direction:column;gap:9px;padding:0 0 14px;margin-bottom:6px;border-bottom:1px solid #E3F2FD;}
+.mob-cta-top a{display:flex!important;align-items:center;justify-content:center;gap:9px;padding:14px 16px!important;border-radius:8px;font-weight:800!important;font-size:15.5px!important;border-bottom:none!important;margin:0!important;}
+.mob-call{background:#F9A825;color:#0A1628!important;}
+.mob-quote{background:#1565C0;color:#fff!important;}
 </style>
 <meta property="og:title" content="Project Gallery | Howard Construction Inc.">
 <meta property="og:description" content="Real project photos from Howard Construction Inc. — custom homes, remodels, kitchens, bathrooms, and additions across Northern California, from framing to finish.">
@@ -181,7 +186,8 @@ try{var c=JSON.parse(localStorage.getItem('sk_consent_v1'));if(c&&c.v===1&&Date.
       </li>
       <li><a href="knowledge.html">Knowledge Base</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="testimonials.html">Reviews</a>
+  <a href="contact.html">Contact Us</a></li>
       <li><a href="dashboard.html" style="color:#F9A825;font-weight:700;">Site Manager</a></li>
       <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
@@ -190,6 +196,7 @@ try{var c=JSON.parse(localStorage.getItem('sk_consent_v1'));if(c&&c.v===1&&Date.
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
+  <div class="mob-cta-top"><a class="mob-call" href="tel:+17075786565"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Call (707) 578-6565</a><a class="mob-quote" href="contact.html">Get a Free Estimate &rarr;</a></div>
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
   <a href="gallery.html">Gallery</a>
@@ -264,7 +271,7 @@ try{var c=JSON.parse(localStorage.getItem('sk_consent_v1'));if(c&&c.v===1&&Date.
     <li><a href="service-areas.html">Service Areas</a></li>
     <li><a href="testimonials.html">Client Reviews</a></li>
     <li><a href="knowledge.html">Knowledge Base</a></li>
-    <li><a href="contact.html">Free Estimate</a></li>
+    <li><a href="contact.html">Contact Us</a></li><li><a href="contact.html">Free Estimate</a></li>
   </ul></div>
   <div class="fc"><h2 class="fc-h">Contact</h2>
     <div class="fci">&#128222; <a href="tel:+17075786565">(707) 578-6565</a></div>

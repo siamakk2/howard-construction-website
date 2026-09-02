@@ -11,8 +11,15 @@
 // yet verified in Resend, every send from website@howardconstructioninc.com is
 // rejected — setting FROM_EMAIL=onboarding@resend.dev gets leads flowing
 // immediately while DNS verification completes.
-const TO_EMAIL = process.env.LEAD_TO_EMAIL || 'info@howardconstructioninc.com';
-const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || 'website@howardconstructioninc.com';
+// Pasted environment values routinely carry trailing whitespace or newlines,
+// especially from a phone. A newline inside a mail header is both invalid and
+// a header-injection vector, so strip all CR/LF and surrounding whitespace.
+function cleanAddr(v, fallback) {
+  const s = String(v == null ? '' : v).replace(/[\r\n]+/g, '').trim();
+  return s || fallback;
+}
+const TO_EMAIL = cleanAddr(process.env.LEAD_TO_EMAIL, 'info@howardconstructioninc.com');
+const FROM_EMAIL = cleanAddr(process.env.LEAD_FROM_EMAIL, 'website@howardconstructioninc.com');
 
 const FIELDS = [
   'firstName', 'lastName', 'phone', 'email', 'projectAddress',

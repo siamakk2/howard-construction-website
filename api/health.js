@@ -29,8 +29,11 @@ module.exports = async function handler(req, res) {
 
   // Optional overrides — shown so the effective sender/recipient is visible.
   const effective = {
-    sendingFrom: process.env.LEAD_FROM_EMAIL || 'website@howardconstructioninc.com (default)',
-    deliveringTo: process.env.LEAD_TO_EMAIL || 'info@howardconstructioninc.com (default)',
+    sendingFrom: (process.env.LEAD_FROM_EMAIL || '').replace(/[\r\n]+/g,'').trim()
+                 || 'website@howardconstructioninc.com (default)',
+    deliveringTo: (process.env.LEAD_TO_EMAIL || '').replace(/[\r\n]+/g,'').trim()
+                 || 'info@howardconstructioninc.com (default)',
+    rawHadWhitespace: /[\r\n\s]$|^[\r\n\s]/.test(process.env.LEAD_FROM_EMAIL || ''),
   };
 
   const config = {};

@@ -124,20 +124,31 @@ module.exports = async function handler(req, res) {
       try {
         const base = url.replace(/\/+$/, '');
         const auth = { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' };
-        await fetch(base + '/set/' + id, {
+        const w1 = await fetch(base + '/set/' + id, {
           method: 'POST', headers: auth, body: JSON.stringify(data),
         });
-        await fetch(base + '/lpush/hci_leads/' + encodeURIComponent(id), {
+        const w2 = await fetch(base + '/lpush/hci_leads/' + encodeURIComponent(id), {
           method: 'POST', headers: auth,
         });
-        stored = true;
+        // fetch() does not throw on 4xx/5xx. Without checking .ok, a rejected
+        // write (bad token, quota) still marked the lead as stored, which made
+        // the handler report success while the lead was lost.
+        stored = w1.ok && w2.ok;
+        if (!stored) {
+          console.error('lead store rejected', w1.status, w2.status, await w1.text());
+        }
       } catch (e) {
         console.error('lead store failed', e);
       }
+    } else {
+      console.error('lead store skipped: UPSTASH env vars not configured');
     }
 
     // ---- 2. Email --------------------------------------------------
     const resendKey = process.env.RESEND_API_KEY;
+    if (!resendKey) {
+      console.error('EMAIL SKIPPED: RESEND_API_KEY not configured — lead not delivered');
+    }
     if (resendKey) {
       const rows = [
         ['Name', data.firstName + ' ' + data.lastName],
@@ -156,8 +167,14 @@ module.exports = async function handler(req, res) {
 
       const html =
         `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:620px;">
+           <div style="background:#F9A825;color:#0A1628;padding:10px 16px;border-radius:6px;
+                       font-weight:800;letter-spacing:.06em;font-size:13px;margin-bottom:18px;">
+             WEBSITE LEAD &mdash; howardconstructioninc.com
+           </div>
            <h2 style="color:#0A1628;margin:0 0 4px;">New project request</h2>
-           <p style="color:#4A5568;margin:0 0 18px;">From howardconstructioninc.com</p>
+           <p style="color:#4A5568;margin:0 0 18px;">
+             Submitted through the Free Estimate form on your website.
+           </p>
            <table style="border-collapse:collapse;font-size:15px;">${rows}</table>
            ${data.details ? `<h3 style="color:#0A1628;margin:22px 0 6px;">Project details</h3>
              <p style="color:#0A1628;line-height:1.6;white-space:pre-wrap;">${escapeHtml(data.details)}</p>` : ''}
@@ -166,10 +183,17 @@ module.exports = async function handler(req, res) {
                 style="background:#F9A825;color:#0A1628;padding:11px 20px;border-radius:6px;
                        text-decoration:none;font-weight:700;">Call ${escapeHtml(data.firstName)}</a>
            </p>
+           <p style="color:#8A97A6;font-size:12px;margin-top:26px;border-top:1px solid #E2E8F0;padding-top:12px;">
+             Reference ${escapeHtml(id)} &middot; Reply to this email to answer ${escapeHtml(data.firstName)} directly.
+           </p>
          </div>`;
 
-      try {
-        const r = await fetch('https://api.resend.com/emails', {
+      // "[WEBSITE LEAD]" makes these unmistakable in the inbox and filterable.
+      const subject =
+        `[WEBSITE LEAD] ${data.projectType} — ${data.firstName} ${data.lastName} (${data.projectAddress})`;
+
+      async function sendLead() {
+        return fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             Authorization: 'Bearer ' + resendKey,
@@ -179,22 +203,76 @@ module.exports = async function handler(req, res) {
             from: 'Howard Construction Website <' + FROM_EMAIL + '>',
             to: [TO_EMAIL],
             reply_to: data.email,
-            subject: `New ${data.projectType} request — ${data.firstName} ${data.lastName} (${data.projectAddress})`,
+            subject,
             html,
           }),
         });
+      }
+
+      try {
+        let r = await sendLead();
+        if (!r.ok) {
+          const detail = await r.text();
+          console.error('resend failed', r.status, detail);
+          // One retry — transient 429/5xx from the mail API should not lose a lead.
+          if (r.status === 429 || r.status >= 500) {
+            await new Promise(res2 => setTimeout(res2, 600));
+            r = await sendLead();
+            if (!r.ok) console.error('resend retry failed', r.status, await r.text());
+          }
+        }
         emailed = r.ok;
-        if (!r.ok) console.error('resend failed', r.status, await r.text());
       } catch (e) {
         console.error('resend threw', e);
       }
+
+      // Confirmation to the person who submitted, so they know it arrived.
+      if (emailed) {
+        try {
+          await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              Authorization: 'Bearer ' + resendKey,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: 'Howard Construction Inc. <' + FROM_EMAIL + '>',
+              to: [data.email],
+              reply_to: TO_EMAIL,
+              subject: 'We received your request — Howard Construction Inc.',
+              html:
+                `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;color:#0A1628;">
+                   <h2 style="margin:0 0 12px;">Thanks, ${escapeHtml(data.firstName)}.</h2>
+                   <p style="color:#2D3748;line-height:1.6;">
+                     We have your request for <strong>${escapeHtml(data.projectType)}</strong>
+                     at ${escapeHtml(data.projectAddress)}. Philip Howard reviews every enquiry
+                     personally and will call or email you within one business day.
+                   </p>
+                   <p style="color:#2D3748;line-height:1.6;">
+                     If it's urgent, call him directly on
+                     <a href="tel:+17075786565" style="color:#1565C0;font-weight:700;">(707) 578-6565</a>.
+                   </p>
+                   <p style="color:#8A97A6;font-size:12px;margin-top:26px;border-top:1px solid #E2E8F0;padding-top:12px;">
+                     Howard Construction Inc. &middot; CA Lic. #836369 &middot; Santa Rosa, CA<br>
+                     Reference ${escapeHtml(id)}
+                   </p>
+                 </div>`,
+            }),
+          });
+        } catch (e) {
+          console.error('confirmation email failed', e);   // non-fatal
+        }
+      }
     }
 
-    if (!stored && !emailed) {
-      // Nothing captured it. Tell the truth so the visitor can call instead.
+    // Email is the only channel Philip actually monitors. If it did not go out,
+    // the lead is effectively lost even when it is sitting in storage — so say
+    // so rather than showing a success message the visitor will act on.
+    if (!emailed) {
+      console.error('LEAD NOT DELIVERED', id, JSON.stringify({ stored, emailed }));
       return res.status(500).json({
         ok: false,
-        error: 'We could not submit your request. Please call (707) 578-6565.',
+        error: 'We could not send your request. Please call (707) 578-6565 — we do not want to miss you.',
       });
     }
 

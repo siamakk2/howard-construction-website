@@ -27,6 +27,12 @@ module.exports = async function handler(req, res) {
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
   };
 
+  // Optional overrides — shown so the effective sender/recipient is visible.
+  const effective = {
+    sendingFrom: process.env.LEAD_FROM_EMAIL || 'website@howardconstructioninc.com (default)',
+    deliveringTo: process.env.LEAD_TO_EMAIL || 'info@howardconstructioninc.com (default)',
+  };
+
   const config = {};
   for (const [k, v] of Object.entries(vars)) {
     config[k] = { present: Boolean(v), ...(v ? fingerprint(v) : {}) };
@@ -48,6 +54,7 @@ module.exports = async function handler(req, res) {
     vercelEnv: process.env.VERCEL_ENV || 'unknown',
     commit: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7) || 'unknown',
     config,
+    effective,
     summary: {
       leadEmailWillSend: canEmail,
       leadsAreStored: canStore,

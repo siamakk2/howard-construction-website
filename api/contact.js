@@ -7,8 +7,12 @@
 // The response reports what actually succeeded. The client only shows
 // "received" when the server confirms the lead was captured somewhere.
 
-const TO_EMAIL = 'info@howardconstructioninc.com';
-const FROM_EMAIL = 'website@howardconstructioninc.com';
+// Both are overridable by environment variable. If the sending domain is not
+// yet verified in Resend, every send from website@howardconstructioninc.com is
+// rejected — setting FROM_EMAIL=onboarding@resend.dev gets leads flowing
+// immediately while DNS verification completes.
+const TO_EMAIL = process.env.LEAD_TO_EMAIL || 'info@howardconstructioninc.com';
+const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || 'website@howardconstructioninc.com';
 
 const FIELDS = [
   'firstName', 'lastName', 'phone', 'email', 'projectAddress',

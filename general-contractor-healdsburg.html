@@ -183,6 +183,27 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .drop-sep{height:1px;background:var(--border);margin:6px 10px;}
 .drop.wide{min-width:250px;}
 .mob-head{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A97A6;padding:10px 16px 3px!important;border-bottom:none!important;}
+
+.has-drop{position:relative;}
+.has-drop>a::before{content:'';position:absolute;left:0;right:0;top:100%;height:14px;}
+.drop{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(-6px);
+  min-width:232px;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);
+  border-radius:10px;box-shadow:0 16px 40px rgba(10,22,40,0.18);padding:8px;list-style:none;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:1200;}
+.has-drop:hover>.drop,.has-drop:focus-within>.drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.drop li{margin:0;}
+.drop a{display:block;padding:9px 14px;font-size:13px;font-weight:500;color:var(--text);border-radius:6px;white-space:nowrap;}
+.drop a::after{display:none;}
+.drop a:hover,.drop a:focus{background:var(--blue-bg);color:var(--blue);}
+.drop .drop-all{border-top:1px solid var(--border);margin-top:6px;padding-top:6px;}
+.drop .drop-all a{font-weight:700;color:var(--blue);}
+.drop-caret{display:inline-block;margin-left:4px;font-size:9px;vertical-align:middle;opacity:.65;}
+@media(max-width:960px){.drop{display:none!important;}}
+
+.mob-sub{display:flex;flex-direction:column;background:var(--blue-bg);border-radius:8px;margin:2px 0 8px;}
+.mob-sub a{padding:10px 16px!important;font-size:13.5px!important;font-weight:500!important;border-bottom:1px solid rgba(21,101,192,0.08)!important;}
+.mob-sub a:last-child{border-bottom:none!important;font-weight:700!important;color:var(--blue)!important;}
+.mob-head{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A97A6;padding:10px 16px 3px!important;border-bottom:none!important;}
 </style>
 </head>
 <body>

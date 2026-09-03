@@ -105,7 +105,19 @@ module.exports = async function handler(req, res) {
     if (!body || typeof body !== 'object') body = {};
 
     // Honeypot: real users never fill this. Return success so bots don't retry.
-    if (clean(body.company)) return res.status(200).json({ ok: true });
+    // Honeypot. Deliberately named so browser autofill has nothing to match:
+    // the previous field was called "company" with a visible "Company" label,
+    // which mobile autofill filled in for real users — silently discarding
+    // their submission. Log every trigger so a false positive is never silent.
+    if (clean(body.hp_ref_code)) {
+      console.error('HONEYPOT TRIGGERED — submission discarded', JSON.stringify({
+        ip: clean(req.headers['x-forwarded-for'] || '', 60),
+        ua: clean(req.headers['user-agent'] || '', 120),
+        firstName: clean(body.firstName, 40),
+        email: clean(body.email, 60),
+      }));
+      return res.status(200).json({ ok: true });
+    }
 
     const data = {};
     for (const f of FIELDS) data[f] = clean(body[f], f === 'details' ? 5000 : 200);

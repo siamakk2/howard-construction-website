@@ -215,6 +215,12 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
 .mob-cta-top a{display:flex!important;align-items:center;justify-content:center;gap:9px;padding:14px 16px!important;border-radius:8px;font-weight:800!important;font-size:15.5px!important;border-bottom:none!important;margin:0!important;}
 .mob-call{background:#F9A825;color:#0A1628!important;}
 .mob-quote{background:#1565C0;color:#fff!important;}
+
+.drop-head{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A97A6;padding:9px 14px 4px;pointer-events:none;}
+.drop-head:first-child{padding-top:2px;}
+.drop-sep{height:1px;background:var(--border);margin:6px 10px;}
+.drop.wide{min-width:250px;}
+.mob-head{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A97A6;padding:10px 16px 3px!important;border-bottom:none!important;}
 </style>
 </head>
 <body>
@@ -224,23 +230,60 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <a href="index.html" style="flex-shrink:0;"><img src="logo.svg" alt="Howard Construction Inc — Licensed General Contractor, Lic. #836369" style="height:64px;width:auto;display:block;"></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li class="has-drop">
+        <a href="services.html" aria-haspopup="true">Services<span class="drop-caret" aria-hidden="true">&#9660;</span></a>
+        <ul class="drop">
+        <li><a href="custom-home-builder.html">Custom Home Building</a></li>
+        <li><a href="services.html">Home Remodels</a></li>
+        <li><a href="home-addition-cost-northern-california.html">Home Additions</a></li>
+        <li><a href="adu-cost-sonoma-napa.html">ADUs &amp; Garage Conversions</a></li>
+        <li><a href="cost-to-build-a-deck-northern-california.html">Decks &amp; Outdoor Living</a></li>
+        <li><a href="cost-to-build-a-pool-sonoma-napa.html">Swimming Pools</a></li>
+        <li><a href="lindal-cedar-homes-builder.html">Lindal Cedar Homes</a></li>
+          <li class="drop-all"><a href="services.html">All Services &rarr;</a></li>
+        </ul>
+      </li>
       <li class="has-drop">
         <a href="service-areas.html" aria-haspopup="true">Service Areas<span class="drop-caret" aria-hidden="true">&#9660;</span></a>
-        <ul class="drop">
+        <ul class="drop wide">
+          <li class="drop-head">Sonoma County</li>
         <li><a href="general-contractor-santa-rosa.html">Santa Rosa</a></li>
-        <li><a href="general-contractor-sonoma-county.html">Sonoma County</a></li>
+        <li><a href="general-contractor-petaluma.html">Petaluma</a></li>
+        <li><a href="general-contractor-healdsburg.html">Healdsburg</a></li>
+        <li><a href="general-contractor-sebastopol.html">Sebastopol</a></li>
+        <li><a href="general-contractor-windsor.html">Windsor</a></li>
         <li><a href="general-contractor-sonoma.html">Sonoma &amp; Glen Ellen</a></li>
+        <li><a href="general-contractor-sonoma-county.html">All Sonoma County</a></li>
+          <li class="drop-sep"></li>
+          <li class="drop-head">Napa County</li>
         <li><a href="general-contractor-napa.html">Napa</a></li>
         <li><a href="general-contractor-yountville.html">Yountville</a></li>
         <li><a href="general-contractor-st-helena.html">St. Helena</a></li>
         <li><a href="general-contractor-calistoga.html">Calistoga</a></li>
         <li><a href="general-contractor-angwin.html">Angwin &amp; Deer Park</a></li>
         <li><a href="general-contractor-american-canyon.html">American Canyon</a></li>
+          <li class="drop-sep"></li>
+          <li class="drop-head">Marin</li>
         <li><a href="general-contractor-marin.html">Marin County</a></li>
           <li class="drop-all"><a href="service-areas.html">All Service Areas &rarr;</a></li>
         </ul>
+      </li>
+      <li class="has-drop">
+        <a href="knowledge.html" aria-haspopup="true">Resources<span class="drop-caret" aria-hidden="true">&#9660;</span></a>
+        <ul class="drop">
+        <li><a href="knowledge.html">Knowledge Base</a></li>
+        <li><a href="cost-to-build-a-house-sonoma-napa.html">Cost Guides</a></li>
+        <li><a href="gallery.html">Project Gallery</a></li>
+        <li><a href="testimonials.html">Reviews</a></li>
+        <li><a href="permits-sonoma-napa-county.html">Permit Guide</a></li>
+        <li><a href="hiring-a-contractor-california.html">Hiring a Contractor</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="tel:+17075786565" class="nav-phone-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a></li>
+      <li><a href="contact.html" class="nav-cta-btn">Free Estimate</a></li>
+    </ul>
       </li>
       <li><a href="knowledge.html">Knowledge Base</a></li>
       <li><a href="about.html">About</a></li>
@@ -253,15 +296,30 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
-  <div class="mob-cta-top"><a class="mob-call" href="tel:+17075786565"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Call (707) 578-6565</a><a class="mob-quote" href="contact.html">Get a Free Estimate &rarr;</a></div>
+  <div class="mob-cta-top"><a class="mob-call" href="tel:+17075786565"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Call (707) 578-6565</a><a class="mob-quote" href="contact.html">Get a Free Estimate &rarr;</a></div>
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
+  <div class="mob-sub">
+    <a href="custom-home-builder.html">Custom Home Building</a>
+    <a href="services.html">Home Remodels</a>
+    <a href="home-addition-cost-northern-california.html">Home Additions</a>
+    <a href="adu-cost-sonoma-napa.html">ADUs &amp; Garage Conversions</a>
+    <a href="cost-to-build-a-deck-northern-california.html">Decks &amp; Outdoor Living</a>
+    <a href="cost-to-build-a-pool-sonoma-napa.html">Swimming Pools</a>
+    <a href="lindal-cedar-homes-builder.html">Lindal Cedar Homes</a>
+    <a href="services.html">All Services &rarr;</a>
+  </div>
   <a href="service-areas.html">Service Areas</a>
   <div class="mob-sub">
+    <a class="mob-head" href="general-contractor-sonoma-county.html">Sonoma County</a>
     <a href="general-contractor-santa-rosa.html">Santa Rosa</a>
-    <a href="general-contractor-sonoma-county.html">Sonoma County</a>
+    <a href="general-contractor-petaluma.html">Petaluma</a>
+    <a href="general-contractor-healdsburg.html">Healdsburg</a>
+    <a href="general-contractor-sebastopol.html">Sebastopol</a>
+    <a href="general-contractor-windsor.html">Windsor</a>
     <a href="general-contractor-sonoma.html">Sonoma &amp; Glen Ellen</a>
+    <a href="general-contractor-sonoma-county.html">All Sonoma County</a>
+    <a class="mob-head" href="general-contractor-napa.html">Napa County</a>
     <a href="general-contractor-napa.html">Napa</a>
     <a href="general-contractor-yountville.html">Yountville</a>
     <a href="general-contractor-st-helena.html">St. Helena</a>
@@ -271,13 +329,17 @@ table.cost td:first-child{font-weight:600;color:var(--navy);}
     <a href="general-contractor-marin.html">Marin County</a>
     <a href="service-areas.html">All Service Areas &rarr;</a>
   </div>
-  <a href="knowledge.html">Knowledge Base</a>
+  <a href="knowledge.html">Resources</a>
+  <div class="mob-sub">
+    <a href="knowledge.html">Knowledge Base</a>
+    <a href="cost-to-build-a-house-sonoma-napa.html">Cost Guides</a>
+    <a href="gallery.html">Project Gallery</a>
+    <a href="testimonials.html">Reviews</a>
+    <a href="permits-sonoma-napa-county.html">Permit Guide</a>
+    <a href="hiring-a-contractor-california.html">Hiring a Contractor</a>
+  </div>
   <a href="about.html">About Us</a>
-  <a href="testimonials.html">Reviews</a>
   <a href="contact.html">Contact Us</a>
-  <a href="dashboard.html" style="color:#F9A825;font-weight:700;">Site Manager AI</a>
-  <a href="tel:+17075786565" class="mob-phone-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.22 4.59 2 2 0 012.18 2.4h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.8a16 16 0 006.29 6.29l1.48-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>(707) 578-6565</a>
-  <a href="contact.html">Get a Free Estimate</a>
 </div>
 <main id="main">
 

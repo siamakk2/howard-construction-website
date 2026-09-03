@@ -288,6 +288,43 @@ module.exports = async function handler(req, res) {
       }
     }
 
+    // ---- 3. Forward into Orchamind -----------------------------------
+    // Philip already works his pipeline in Orchamind, so the lead is pushed
+    // to its intake endpoint and lands in his board at stage "new". Entirely
+    // best-effort: a failure here must never affect the visitor's response,
+    // and the lead is already stored and emailed by this point.
+    const orchaUser = cleanAddr(process.env.ORCHAMIND_USERNAME, '');
+    if (orchaUser) {
+      try {
+        const or = await fetch('https://www.orchamind.com/api/lead-intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            c: orchaUser,
+            name: (data.firstName + ' ' + data.lastName).trim(),
+            phone: data.phone,
+            email: data.email,
+            service: data.projectType,
+            notes: [
+              data.details,
+              data.projectAddress ? 'Address: ' + data.projectAddress : '',
+              data.budget ? 'Budget: ' + data.budget : '',
+              data.startDate ? 'Timeline: ' + data.startDate : '',
+              'Source: website estimate form (' + id + ')',
+            ].filter(Boolean).join('\n'),
+          }),
+        });
+        const oj = await or.json().catch(() => ({}));
+        if (!or.ok || oj.ok === false) {
+          console.error('orchamind intake failed', or.status, JSON.stringify(oj));
+        } else {
+          console.log('orchamind intake ok', id);
+        }
+      } catch (e) {
+        console.error('orchamind intake threw', e);
+      }
+    }
+
     // Email is the only channel Philip actually monitors. If it did not go out,
     // the lead is effectively lost even when it is sitting in storage — so say
     // so rather than showing a success message the visitor will act on.

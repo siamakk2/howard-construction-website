@@ -23,6 +23,7 @@ module.exports = async function handler(req, res) {
   const vars = {
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     LEADS_ACCESS_TOKEN: process.env.LEADS_ACCESS_TOKEN,
+    ORCHAMIND_USERNAME: process.env.ORCHAMIND_USERNAME,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
   };
@@ -62,6 +63,7 @@ module.exports = async function handler(req, res) {
       leadEmailWillSend: canEmail,
       leadsAreStored: canStore,
       leadViewerEnabled: Boolean(vars.LEADS_ACCESS_TOKEN),
+      pushesToOrchamind: Boolean(process.env.ORCHAMIND_USERNAME),
     },
     note: canEmail
       ? 'Email is configured. If sends still fail, verify the sending domain in Resend.'

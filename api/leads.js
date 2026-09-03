@@ -54,6 +54,38 @@ module.exports = async function handler(req, res) {
     return res.status(503).json({ ok: false, error: 'Lead storage is not configured.' });
   }
 
+  // POST marks a lead contacted. Same token gate as reading.
+  if (req.method === 'POST') {
+    let body = req.body;
+    if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
+    if (!body || body.action !== 'contacted' || !body.id) {
+      return res.status(400).json({ ok: false, error: 'Bad request.' });
+    }
+    const id = String(body.id);
+    if (!/^lead_[0-9]+_[a-z0-9]+$/.test(id)) {
+      return res.status(400).json({ ok: false, error: 'Bad id.' });
+    }
+    const base2 = url.replace(/\/+$/, '');
+    const auth2 = { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' };
+    try {
+      const r = await fetch(base2 + '/get/' + encodeURIComponent(id), { headers: auth2 });
+      if (!r.ok) return res.status(404).json({ ok: false, error: 'Not found.' });
+      const raw = (await r.json()).result;
+      if (!raw) return res.status(404).json({ ok: false, error: 'Not found.' });
+      const lead = typeof raw === 'string' ? JSON.parse(raw) : raw;
+      lead.contacted = Boolean(body.value);
+      lead.contactedAt = lead.contacted ? new Date().toISOString() : null;
+      const w = await fetch(base2 + '/set/' + encodeURIComponent(id), {
+        method: 'POST', headers: auth2, body: JSON.stringify(lead),
+      });
+      if (!w.ok) return res.status(502).json({ ok: false, error: 'Could not save.' });
+      return res.status(200).json({ ok: true, id, contacted: lead.contacted });
+    } catch (e) {
+      console.error('lead update failed', e);
+      return res.status(500).json({ ok: false, error: 'Could not save.' });
+    }
+  }
+
   const base = url.replace(/\/+$/, '');
   const auth = { Authorization: 'Bearer ' + token };
   const limit = Math.min(parseInt((req.query && req.query.limit) || '100', 10) || 100, 500);

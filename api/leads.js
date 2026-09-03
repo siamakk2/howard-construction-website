@@ -78,13 +78,33 @@ module.exports = async function handler(req, res) {
       } catch (e) { /* skip unreadable records */ }
     }
 
+    // lpush already prepends, so the index is normally newest-first — but sort
+    // explicitly on the timestamp so ordering cannot drift if a record is ever
+    // rewritten or the index rebuilt.
+    leads.sort(function (a, b) {
+      return String(b.submittedAt || '').localeCompare(String(a.submittedAt || ''));
+    });
+
     if ((req.query && req.query.format) === 'json') {
       return res.status(200).json({ ok: true, count: leads.length, leads });
     }
 
-    const rows = leads.map(l => `
-      <tr>
-        <td>${esc((l.submittedAt || '').replace('T', ' ').slice(0, 16))}</td>
+    function ago(iso) {
+      const t = Date.parse(iso || '');
+      if (!t) return '';
+      const m = Math.floor((Date.now() - t) / 60000);
+      if (m < 1) return 'just now';
+      if (m < 60) return m + ' min ago';
+      const h = Math.floor(m / 60);
+      if (h < 24) return h + (h === 1 ? ' hour ago' : ' hours ago');
+      const d = Math.floor(h / 24);
+      return d + (d === 1 ? ' day ago' : ' days ago');
+    }
+    const NEW_MS = 24 * 60 * 60 * 1000;
+
+    const rows = leads.map((l, i) => `
+      <tr${Date.now() - Date.parse(l.submittedAt || 0) < NEW_MS ? ' class="fresh"' : ''}>
+        <td>${i === 0 ? '<span class="badge">NEWEST</span><br>' : ''}${esc((l.submittedAt || '').replace('T', ' ').slice(0, 16))}<br><span class="ago">${esc(ago(l.submittedAt))}</span></td>
         <td><strong>${esc(l.firstName)} ${esc(l.lastName)}</strong></td>
         <td><a href="tel:${esc(String(l.phone || '').replace(/[^0-9+]/g, ''))}">${esc(l.phone)}</a></td>
         <td><a href="mailto:${esc(l.email)}">${esc(l.email)}</a></td>
@@ -111,12 +131,16 @@ module.exports = async function handler(req, res) {
  td{padding:10px 12px;border-bottom:1px solid #E2E8F0;vertical-align:top;}
  tr:nth-child(even) td{background:#F7FAFC;}
  a{color:#1565C0;}
+ tr.fresh td{background:#FFFBEA!important;}
+ .badge{display:inline-block;background:#F9A825;color:#0A1628;font-size:10px;font-weight:800;
+        letter-spacing:.06em;padding:2px 7px;border-radius:4px;}
+ .ago{color:#8A97A6;font-size:11.5px;}
  @media(max-width:820px){table,thead,tbody,th,td,tr{display:block;}
   thead{display:none;} tr{margin-bottom:14px;background:#fff;border-radius:8px;padding:8px;}
   td{border:none;border-bottom:1px solid #EDF2F7;}}
 </style></head><body>
 <h1>Stored leads (${leads.length})</h1>
-<p class="sub">Every form submission, including any whose notification email failed to send.</p>
+<p class="sub">Newest first. Every form submission, including any whose notification email failed to send.</p>
 <table>
   <thead><tr><th>When</th><th>Name</th><th>Phone</th><th>Email</th><th>Type</th>
              <th>Address</th><th>Budget</th><th>Details</th></tr></thead>
